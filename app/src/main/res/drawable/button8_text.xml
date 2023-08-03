@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 客户资料RadioButton， 字体颜色变化 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:color="#abd1ff"  />
+    <item android:state_checked="true" android:color="#5599ed"  />
+    <item android:color="#ffffff" />
+</selector>

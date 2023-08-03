@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/da_yijiyy1"
+        android:layout_width="@dimen/width1"
+        android:layout_height="@dimen/height6"
+        android:gravity="center_vertical"
+        android:text="一级备注"
+        android:textColor="@color/color8"
+        android:textSize="@dimen/text_size_xxlarge" />
+
+    <Spinner
+        android:id="@+id/oneSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/height6"
+        android:dropDownWidth="match_parent"
+        android:dropDownVerticalOffset = "@dimen/height6"
+        android:layout_toRightOf="@id/da_yijiyy1"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:id="@+id/da_erjiyy1"
+        android:layout_width="@dimen/width1"
+        android:layout_height="@dimen/height6"
+        android:layout_below="@id/oneSpinner"
+        android:gravity="center_vertical"
+        android:text="二级备注"
+        android:textColor="@color/color8"
+        android:textSize="@dimen/text_size_xxlarge" />
+
+    <Spinner
+        android:id="@+id/two_spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/height6"
+        android:dropDownWidth="match_parent"
+        android:dropDownVerticalOffset = "@dimen/height6"
+        android:layout_below="@id/oneSpinner"
+        android:layout_toRightOf="@id/da_erjiyy1"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:id="@+id/beizhu_text"
+        android:layout_width="@dimen/width1"
+        android:layout_height="@dimen/height6"
+        android:layout_below="@id/two_spinner"
+        android:gravity="center_vertical"
+        android:text="其他"
+        android:textColor="@color/color8"
+        android:textSize="@dimen/text_size_xxlarge" />
+
+    <EditText
+        android:id="@+id/shoushu_beizhu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/two_spinner"
+        android:layout_toRightOf="@+id/beizhu_text"
+        android:gravity="center_vertical"
+        android:maxLines="2"/>
+</RelativeLayout>

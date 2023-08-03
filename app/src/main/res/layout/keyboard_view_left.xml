@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#315888"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/keyboard_subtitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6.5dp"
+        android:layout_marginRight="6.5dp"
+        android:textSize="14dp"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/keyboard_number"
+        android:layout_width="fill_parent"
+        android:layout_height="35.16dp"
+        android:layout_marginLeft="6.5dp"
+        android:layout_marginRight="6.5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:gravity="right"
+        android:background="@drawable/keyboard_editview"
+        android:textColor="@color/keyboard_text_color"
+        android:maxLength="10"
+        android:textSize="24.5dp" />
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6.5dp"
+        android:layout_marginTop="6.5dp"
+        android:background="@drawable/keyboard_table"
+        android:padding="6.5dip"
+        android:stretchColumns="*" >
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/kayboard_one"
+                style="@style/keyboard_button"
+                android:layout_marginLeft="0dp"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/kayboard_two"
+                style="@style/keyboard_button"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/kayboard_three"
+                style="@style/keyboard_button"
+                android:text="3" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="1.83dp" >
+
+            <Button
+                android:id="@+id/kayboard_four"
+                style="@style/keyboard_button"
+                android:layout_marginLeft="0dp"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/kayboard_five"
+                style="@style/keyboard_button"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/kayboard_six"
+                style="@style/keyboard_button"
+                android:text="6" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="1.83dp" >
+
+            <Button
+                android:id="@+id/kayboard_seven"
+                style="@style/keyboard_button"
+                android:layout_marginLeft="0dp"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/kayboard_eight"
+                style="@style/keyboard_button"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/kayboard_nine"
+                style="@style/keyboard_button"
+                android:text="9" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="1.83dp" >
+
+            <Button
+                android:id="@+id/kayboard_ok"
+                style="@style/keyboard_button"
+                android:text="OK"
+                android:layout_marginLeft="0dp"
+                android:textColor="#13c092" />
+
+            <Button
+                android:id="@+id/kayboard_null"
+                style="@style/keyboard_button"
+                android:background="@drawable/keyboard_button"
+                android:text="0" />
+
+            <ImageButton
+                android:id="@+id/kayboard_delete"
+                style="@style/keyboard_button"
+                android:layout_height="57.16dp"
+                android:src="@mipmap/ic_btn_backspce" />
+
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

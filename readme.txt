@@ -1,0 +1,1 @@
+http://128.1.3.185:8080/tfs/DefaultCollection/City%20Manager/_git/MeterReading_2016

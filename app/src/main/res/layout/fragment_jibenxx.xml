@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@mipmap/bg_main">
+
+    <com.gc.materialdesign.views.SmoothProgressBar
+        android:id="@+id/loading_process"
+        style="@style/GradientProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:indeterminate="true" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fadingEdge="none"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal"
+                android:paddingTop="3.8dp">
+
+                <TextView
+                    android:id="@+id/tv_customer_code"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_huming"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_huming"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:id="@+id/tv_customer_type"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_yonghuhao"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_customer_code"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/text_yonghudz"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_address"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/lable_host_tel"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_host_tel"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/lable_customer_tel"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_customer_tel"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_jiaofeifangshi"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_pay_cost"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_biaokazhuangtai"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_card_status"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_xingzhengqu"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_xingzhengqu"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_zhandian"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_zhandian"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:id="@+id/tv_ch"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_cebenhao"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_ch"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:id="@+id/tv_block_number"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_cebenxuhao"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_cenei_xh"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_ercigongshui"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_ercigongshui"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_dianzizhangdan"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_dianzizhangdan"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_fangan"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_fangan"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_shifoujieti"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_shifoujieti"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_daoqiriqi"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_daoqiriqi"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/text_biaohao"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_biaohao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_kaizhangfenlei"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_kaizhangfenlei"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_biaoxin"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_biaoxin"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_shuibiaozonglei"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_shuibiaozonglei"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_yongtufenlei"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_yongtufenlei"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_biaoxishu"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_biaoxishu"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_shebeibianhao"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_shebeibianhao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_zhongduanhao"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_zhongduanhao"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_yuanchuanchangjia"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_yuanchuanchangjia"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_shuibiaochangjia"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_shuibiaochangjia"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_koujing"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_koujing"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_liangcheng"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_liangcheng"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_fentanfangshi"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_fentanfangshi"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_bili"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_bili"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_lihuriqi"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_lihuriqi"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_zhuangbiaorq"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_zhuangbiaorq"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_jiubiaodima"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_jiubiaodima"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_xinbiaoqm"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_xinbiaoqm"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_gongshuinianxian"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_gongshuinianxian"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="3.8dp"
+                android:paddingRight="@dimen/list_padding_horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/datachange_label_jianhao"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_jianhao"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8.5dp"
+                    android:gravity="right|center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:text="@string/chaobiaolr_label_sheshuiduixiang"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <com.sh3h.mobileutil.view.TextViewLine
+                    android:id="@+id/txt_sheshuiduixiang"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/textview_height"
+                    android:textColor="@color/text_content"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/lable_jieti"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/lable_feiyongmingcheng"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/chaobiaolr_label_jiage"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/label_kaishisl"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/label_jieshusl"
+                    android:textColor="@color/text_label"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="@color/background_clear"
+                android:divider="@null"
+                android:fadingEdge="none"
+                android:fastScrollEnabled="true"
+                android:listSelector="@android:color/transparent"
+                android:overScrollMode="never"
+                android:paddingLeft="@dimen/list_padding_horizontal"
+                android:paddingRight="@dimen/list_padding_horizontal" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</RelativeLayout>

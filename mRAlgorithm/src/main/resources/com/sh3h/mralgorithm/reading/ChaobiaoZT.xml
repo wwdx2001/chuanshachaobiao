@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ChaoBiaoZT>
+	<parent code="1" name="正常">
+	    <childitem code="1" algorithmcode="0" name="正常" pc="Z0"/>
+	    <childitem code="2" algorithmcode="0" name="需改表位" pc="Z1"/>
+	    <childitem code="3" algorithmcode="0" name="格林漏水" pc="Z2"/>
+	    <childitem code="36" algorithmcode="0" name="新装户" pc="Z3"/>    
+    </parent>    
+    <parent code="2" name="新表">
+	    <childitem code="4" algorithmcode="4" name="定期换表" pc="H1"/>
+	    <childitem code="5" algorithmcode="3" name="故障换表" pc="H2"/>
+	    <childitem code="6" algorithmcode="5" name="未反馈" pc="H3"/>	 
+    </parent>      
+    <parent code="3" name="估计">
+	    <childitem code="7" algorithmcode="1" name="表埋" pc="K1"/>
+	    <childitem code="8" algorithmcode="1" name="表压" pc="K2"/>
+	    <childitem code="9" algorithmcode="1" name="关门" pc="K3"/>	
+	    <childitem code="10" algorithmcode="1" name="表淹" pc="K4"/>
+	    <childitem code="11" algorithmcode="1" name="自报" pc="K5"/>
+	    <childitem code="12" algorithmcode="1" name="没找到" pc="K6"/>	 
+	    <childitem code="13" algorithmcode="1" name="拆迁" pc="K7"/>
+	    <childitem code="14" algorithmcode="1" name="一估一抄" pc="K8"/>
+	    <childitem code="15" algorithmcode="1" name="水蒸气" pc="K9"/>	  
+    </parent> 
+    <parent code="4" name="故障">
+	    <childitem code="16" algorithmcode="1" name="表停" pc="G1"/>
+	    <childitem code="17" algorithmcode="1" name="表破" pc="G2"/>
+	    <childitem code="18" algorithmcode="1" name="表黑" pc="G3"/>	
+	    <childitem code="19" algorithmcode="1" name="表漏" pc="G4"/>
+	    <childitem code="20" algorithmcode="1" name="快慢" pc="G5"/>
+	    <childitem code="21" algorithmcode="1" name="针坏" pc="KG6"/>	 
+	    <childitem code="22" algorithmcode="1" name="新表坏" pc="G7"/>
+	    <childitem code="23" algorithmcode="1" name="数码异常" pc="G8"/>	   
+    </parent> 
+    <parent code="5" name="量高">
+	    <childitem code="34" algorithmcode="0" name="水量偏高" pc="M1"/>
+    </parent> 
+    <parent code="6" name="量低">
+	    <childitem code="35" algorithmcode="0" name="水量偏低" pc="N1"/>
+    </parent> 
+    <parent code="7" name="违章">
+	    <childitem code="24" algorithmcode="5" name="倒装" pc="B1"/>
+	    <childitem code="25" algorithmcode="1" name="移位" pc="B2"/>
+	    <childitem code="26" algorithmcode="1" name="自拆换" pc="B3"/>	
+	    <childitem code="27" algorithmcode="1" name="外接水" pc="B4"/>
+	    <childitem code="28" algorithmcode="1" name="卸格林" pc="B5"/>
+	    <childitem code="29" algorithmcode="1" name="表失踪" pc="B6"/>	 
+	    <childitem code="30" algorithmcode="1" name="开旁通" pc="K7"/>
+	    <childitem code="31" algorithmcode="1" name="破封" pc="B8"/>
+	    <childitem code="32" algorithmcode="5" name="倒流" pc="B9"/>	  
+    </parent> 
+    <parent code="8" name="底码调整">
+	    <childitem code="40" algorithmcode="5" name="底码调整" pc="W1"/>
+    </parent> 
+    <parent code="9" name="溢出">
+	    <childitem code="37" algorithmcode="2" name="溢出" pc="Y1"/>
+    </parent> 
+</ChaoBiaoZT>

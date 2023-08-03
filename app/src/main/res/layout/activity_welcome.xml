@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_welcome"
+    tools:context=".ui.welcome.WelcomeActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/ic_logo" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+
+        <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/paddingBottom1" >
+
+            <TextView
+                android:id="@+id/tv_copyright"
+                style="@style/LoadingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/text_copyright"
+                android:textSize="@dimen/text_size_small" />
+
+            <TextView
+                android:id="@+id/tv_version"
+                style="@style/LoadingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tv_copyright"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/marginBottom_5"
+                android:textSize="@dimen/text_size_small" />
+
+            <ProgressBar
+                android:id="@+id/pb_loading"
+                style="@style/ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tv_version"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/marginBottom_10" />
+
+            <TextView
+                android:id="@+id/tv_state"
+                style="@style/LoadingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/pb_loading"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/marginBottom_10"
+                android:textSize="@dimen/text_size_large" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

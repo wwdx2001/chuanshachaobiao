@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/text_chaobiaosj">
+        <menu>
+            <group android:checkableBehavior="single" >
+                <item
+                    android:id="@+id/mul_action_show_finished_ld"
+                    android:title="@string/text_finished_liangdi"/>
+                <item
+                    android:id="@+id/mul_action_show_finished_lg"
+                    android:checked="true"
+                    android:title="@string/text_finished_lianggao"/>
+                <!-- 别的菜单项 -->
+            </group>
+        </menu>
+    </item>
+    <item android:title="@string/text_yanchisj">
+        <menu>
+            <group android:checkableBehavior="single" >
+                <item
+                    android:id="@+id/mul_action_show_yanchi_ld"
+                    android:title="@string/text_finished_liangdi"/>
+                <item
+                    android:id="@+id/mul_action_show_yanchi_lg"
+                    android:title="@string/text_finished_lianggao"/>
+                <!-- 别的菜单项 -->
+            </group>
+        </menu>
+    </item>
+</menu>

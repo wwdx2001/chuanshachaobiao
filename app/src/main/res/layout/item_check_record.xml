@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/paddingTop_2"
+    android:paddingBottom="@dimen/paddingBottom_2">
+
+    <RadioButton
+        android:id="@+id/rb_tb_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_Cid"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/item_bk"-->
+        <!--android:gravity="right"-->
+        <!--android:minHeight="25dp"-->
+        <!--android:textColor="@drawable/item_bk_text"-->
+        <!--android:textSize="@dimen/text_size_xxlarge" />-->
+
+</LinearLayout>

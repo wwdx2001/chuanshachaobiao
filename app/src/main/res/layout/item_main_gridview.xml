@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:layout_width="@dimen/activity_main_grid_item"
+        android:layout_height="@dimen/activity_main_grid_item_height"
+        android:background="@drawable/list_item"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/item_icon"
+            android:layout_width="@dimen/item_gridview_main_width"
+            android:layout_height="@dimen/item_gridview_main_height"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/activity_main_grid_icon_marginBottom"
+            android:layout_marginTop="@dimen/activity_main_grid_icon_marginTop" />
+
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2.5dip"
+            android:paddingBottom="@dimen/activity_main_grid_icon_marginBottom"
+            android:textColor="@color/color_main_grid_text"
+            android:textSize="@dimen/text_size_xlarge"
+            />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/item_unread"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="54dp"
+                android:layout_marginTop="35dp"
+                android:background="@mipmap/ic_unread_count_circle"
+                android:gravity="center"
+                android:textColor="@color/text_white"
+                android:textSize="@dimen/text_size_xsmall" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="15dp" >
+
+    <!--android:layout_height="79px"-->
+    <!--android:orientation="vertical"-->
+    <!--android:paddingBottom="15px"-->
+    <!--<TableLayout-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:background="@color/background_listitem"-->
+        <!--android:stretchColumns="0" >-->
+
+        <!--<TableRow-->
+            <!--android:id="@+id/tableRow1"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:minHeight="75px" >-->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/background_listitem"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tv_jiaofeirqn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="2013"
+                        android:textColor="@color/text_datetime"
+                        android:textSize="@dimen/text_size_meduim" />
+
+                    <TextView
+                        android:id="@+id/tv_jiaofeirqyr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="08/05"
+                        android:textColor="@color/text_datetime"
+                        android:textSize="@dimen/text_size_meduim" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >                   
+
+                    <TextView
+                        android:id="@+id/tv_zhangwuny"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="2013000"
+                        android:textColor="@color/text_item"
+                        android:textSize="@dimen/text_size_meduim" />
+                    
+                    <TextView
+                        android:id="@+id/tv_feeid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="201"
+                        android:textColor="@color/text_item"
+                        android:textSize="@dimen/text_size_meduim" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tv_zhangdanje"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="2013"
+                        android:textColor="@color/text_item"
+                        android:textSize="@dimen/text_size_meduim" />
+
+                    <TextView
+                        android:id="@+id/tv_weiyueje"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="2013"
+                        android:textColor="@color/text_item"
+                        android:textSize="@dimen/text_size_meduim" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_shishouje"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="2013"
+                    android:textColor="@color/text_item"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+        <!--</TableRow>-->
+    <!--</TableLayout>-->
+
+</LinearLayout>

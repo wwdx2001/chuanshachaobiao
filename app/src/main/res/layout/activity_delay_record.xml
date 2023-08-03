@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_main"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/record_viewPager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/main_divide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_splitLine"
+        android:layout_above="@+id/item_frameLy"
+        android:background="@color/text_grey" />
+
+
+    <LinearLayout
+        android:id="@+id/item_frameLy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_bottom"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/record_lr"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/background_clear"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/button_cebenliebiao"
+            android:gravity="center"
+            android:paddingBottom="@dimen/main_paddingBottom"
+            android:paddingTop="@dimen/main_paddingTop"
+            android:text="@string/label_record_lr"
+            android:textColor="@color/button_text"
+            android:textSize="@dimen/text_size_xxsmall" />
+
+        <RadioButton
+            android:id="@+id/record_detail_info"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/background_clear"
+            android:button="@null"
+            android:drawableTop="@drawable/button_kehuziliao"
+            android:gravity="center"
+            android:paddingBottom="@dimen/main_paddingBottom"
+            android:paddingTop="@dimen/main_paddingTop"
+            android:text="@string/label_record_detail_info"
+            android:textColor="@color/button_text"
+            android:textSize="@dimen/text_size_xxsmall" />
+
+    </LinearLayout>
+
+</LinearLayout>
+

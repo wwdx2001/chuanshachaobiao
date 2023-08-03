@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:paddingBottom="34dp"
+    android:paddingLeft="@dimen/list_padding_horizontal"
+    android:paddingRight="@dimen/list_padding_horizontal"
+    android:background="@mipmap/bg_main">
+
+    <com.gc.materialdesign.views.SmoothProgressBar
+        android:id="@+id/loading_process"
+        style="@style/GradientProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:indeterminate="true" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="34dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/lable_jiaofeirq"
+            android:textColor="@color/text_content"
+            android:textSize="@dimen/text_size_meduim" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/lable_zynysfbh"
+            android:textColor="@color/text_content"
+            android:textSize="@dimen/text_size_meduim" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/lable_zdjewyj"
+            android:textColor="@color/text_content"
+            android:textSize="@dimen/text_size_meduim" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/lable_shishouje"
+            android:textColor="@color/text_content"
+            android:textSize="@dimen/text_size_meduim" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/lv_jinqijflist"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:cacheColorHint="@color/background_clear"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:listSelector="@android:color/transparent"
+        android:overScrollMode="never"
+        android:scrollbars="none"/>
+
+</LinearLayout>

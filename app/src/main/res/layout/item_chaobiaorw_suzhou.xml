@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginLeft1"
+        android:layout_marginRight="@dimen/marginRight1"
+        android:background="@drawable/card2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card3"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/tableRow1"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/height1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/paddingLeft1"
+                android:paddingRight="@dimen/paddingRight1">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/ch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:text="222"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxxlarge" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0">
+
+
+
+                    <TextView
+                        android:id="@+id/tv_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center_vertical"
+                        android:text="总数"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_large" />
+
+                    <TextView
+                        android:id="@+id/tv_separator_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:text="/"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_large" />
+
+                    <TextView
+                        android:id="@+id/weichaoshu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:text="未抄数"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_large" />
+
+                    <TextView
+                        android:id="@+id/tv_separator_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:text="/"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_large" />
+
+                    <TextView
+                        android:id="@+id/yichangshu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:text="异常数"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_large" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/paddingLeft2"
+            android:paddingRight="@dimen/paddingRight2" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/height3"
+                android:background="@drawable/card_divider1" />
+        </LinearLayout-->
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/layoutripple_chaobiaorw"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/height5"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/paddingLeft1"
+                android:paddingRight="@dimen/paddingRight1">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/zhangWuNY"
+                        android:layout_width="@dimen/width2"
+                        android:layout_height="wrap_content"
+                        android:text="账务年月:"
+                        android:textColor="@color/text_content"
+                        android:textSize="@dimen/text_size_xlarge" />
+
+                    <TextView
+                        android:id="@+id/tv_zhangWuNY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/zhangWuNY"
+                        android:paddingLeft="@dimen/paddingLeft3"
+                        android:text="20140110"
+                        android:textColor="@color/text_content"
+                        android:textSize="@dimen/text_size_xlarge" />
+
+                    <TextView
+                        android:id="@+id/chaobiaoZQ"
+                        android:layout_width="@dimen/width2"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_zhangWuNY"
+                        android:text="抄表周期:"
+                        android:textColor="@color/text_content"
+                        android:textSize="@dimen/text_size_xlarge" />
+
+                    <TextView
+                        android:id="@+id/tv_chaobiaoZQ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_zhangWuNY"
+                        android:layout_toRightOf="@+id/chaobiaoZQ"
+                        android:paddingLeft="@dimen/paddingLeft3"
+                        android:text="每月抄"
+                        android:textColor="@color/text_content"
+                        android:textSize="@dimen/text_size_xlarge" />
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+        </TableRow>
+    </LinearLayout>
+
+</RelativeLayout>

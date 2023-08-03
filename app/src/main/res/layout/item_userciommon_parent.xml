@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="3px" >
+
+    <TextView
+        android:id="@+id/tv_parent"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:minHeight="25dp"
+        android:gravity="right"
+        android:background="@drawable/item_bk"
+        android:textColor="@drawable/item_bk_text"
+        android:textSize="@dimen/text_size_xxlarge" />
+
+</LinearLayout>

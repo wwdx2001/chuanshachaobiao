@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@mipmap/bg_main"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.gc.materialdesign.views.SmoothProgressBar
+            android:id="@+id/loading_process"
+            style="@style/GradientProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height10"
+            android:indeterminate="true" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="@dimen/fragment_main_content_margin_bottom"
+            android:fadingEdge="none"
+            android:fillViewport="true"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/paddingBottom1"
+                android:paddingLeft="@dimen/paddingLeft2"
+                android:paddingRight="@dimen/paddingRight2"
+                android:paddingTop="@dimen/paddingTop1">
+
+                <LinearLayout
+                    android:id="@+id/fcblr_layout_01"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/height1"
+                    android:background="@drawable/card_background4"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/marginLeft1"
+                        android:layout_marginRight="@dimen/marginRight1">
+
+                        <TextView
+                            android:id="@+id/fcblr_cardId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text=""
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fcblr_layout_02"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop2"
+                    android:background="@drawable/card_background5"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/marginBottom2"
+                        android:layout_marginLeft="@dimen/marginLeft1"
+                        android:layout_marginRight="@dimen/marginRight1"
+                        android:layout_marginTop="@dimen/marginTop2">
+
+                        <TextView
+                            android:id="@+id/fcblr_huming1"
+                            android:layout_width="@dimen/width6"
+                            android:layout_height="wrap_content"
+                            android:text="@string/chaobiaolr_label_huming"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <TextView
+                            android:id="@+id/fcblr_huming2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/fcblr_huming1"
+                            android:text=""
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <TextView
+                            android:id="@+id/fcblr_separator2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height3"
+                            android:layout_below="@id/fcblr_huming2"
+                            android:layout_marginBottom="@dimen/marginBottom2"
+                            android:layout_marginTop="@dimen/marginTop2"
+                            android:background="@drawable/card_divider2" />
+
+                        <TextView
+                            android:id="@+id/fcblr_dizhi1"
+                            android:layout_width="@dimen/width6"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/fcblr_separator2"
+                            android:paddingTop="@dimen/paddingTop1"
+                            android:text="@string/chaobiaolr_label_dizhi"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <TextView
+                            android:id="@+id/fcblr_dizhi2"
+                            android:layout_width="@dimen/width200"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/fcblr_separator2"
+                            android:layout_toRightOf="@id/fcblr_dizhi1"
+                            android:paddingTop="@dimen/paddingTop1"
+                            android:text=""
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <ImageView
+                            android:id="@+id/fcblr_map_address"
+                            android:layout_width="@dimen/width_50"
+                            android:layout_height="@dimen/height_25"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/fcblr_dizhi2"
+                            android:paddingTop="@dimen/paddingTop1"
+                            android:src="@mipmap/ic_btn_address"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/fcblr_separator3"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height3"
+                            android:layout_below="@id/fcblr_dizhi2"
+                            android:layout_marginBottom="@dimen/marginBottom2"
+                            android:layout_marginTop="@dimen/marginTop2"
+                            android:background="@drawable/card_divider2" />
+
+                        <TextView
+                            android:id="@+id/fcblr_subcomcode"
+                            android:layout_width="@dimen/width6"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/fcblr_separator3"
+                            android:paddingTop="@dimen/paddingTop1"
+                            android:text="@string/text_subcomcode"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <TextView
+                            android:id="@+id/fcblr_subcomcode2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/fcblr_separator3"
+                            android:layout_toRightOf="@id/fcblr_subcomcode"
+                            android:paddingTop="@dimen/paddingTop1"
+                            android:text=""
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <TextView
+                            android:id="@+id/fcblr_separator_months"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height3"
+                            android:layout_below="@id/fcblr_subcomcode2"
+                            android:layout_marginBottom="@dimen/marginBottom2"
+                            android:layout_marginTop="@dimen/marginTop2"
+                            android:background="@drawable/card_divider2" />
+
+                        <TextView
+                            android:id="@+id/fcblr_qf_months"
+                            android:layout_width="@dimen/width6"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/fcblr_separator_months"
+                            android:paddingTop="@dimen/paddingTop1"
+                            android:text="@string/text_qf_months"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <TextView
+                            android:id="@+id/fcblr_qf_months2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/fcblr_separator_months"
+                            android:layout_toRightOf="@id/fcblr_qf_months"
+                            android:paddingTop="@dimen/paddingTop1"
+                            android:text=""
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <TextView
+                            android:id="@+id/fcblr_separator_money"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height3"
+                            android:layout_below="@id/fcblr_qf_months2"
+                            android:layout_marginBottom="@dimen/marginBottom2"
+                            android:layout_marginTop="@dimen/marginTop2"
+                            android:background="@drawable/card_divider2" />
+
+                        <TextView
+                            android:id="@+id/fcblr_qf_money"
+                            android:layout_width="@dimen/width6"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/fcblr_separator_money"
+                            android:paddingTop="@dimen/paddingTop1"
+                            android:text="@string/text_qf_money"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <TextView
+                            android:id="@+id/fcblr_qf_money2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/fcblr_separator_money"
+                            android:layout_toRightOf="@id/fcblr_qf_money"
+                            android:paddingTop="@dimen/paddingTop1"
+                            android:text=""
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fcblr_layout_03"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop2"
+                    android:background="@drawable/card_background6"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/marginBottom2"
+                        android:layout_marginLeft="@dimen/marginLeft1"
+                        android:layout_marginRight="@dimen/marginRight1"
+                        android:layout_marginTop="@dimen/marginTop2">
+
+                        <TextView
+                            android:id="@+id/fcblr_beizhu1"
+                            android:layout_width="@dimen/width6"
+                            android:layout_height="@dimen/height1"
+                            android:gravity="center_vertical"
+                            android:text="@string/datachange_label_beizhu"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <TextView
+                            android:id="@+id/fcblr_beizhu2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/fcblr_beizhu1"
+                            android:paddingTop="@dimen/paddingTop1"
+                            android:text=""
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <TextView
+                            android:id="@+id/fcblr_beizhu_line"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height3"
+                            android:layout_below="@+id/fcblr_beizhu2"
+                            android:layout_toRightOf="@+id/fcblr_beizhu1"
+                            android:background="@drawable/card_divider3" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="-8dp"
+                            android:layout_toRightOf="@+id/fcblr_beizhu_line"
+                            android:layout_above="@+id/fcblr_beizhu_line"
+                            android:src="@mipmap/ic_corner2" />
+
+                        <TextView
+                            android:id="@+id/fcblr_separator6"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height3"
+                            android:layout_below="@id/fcblr_beizhu_line"
+                            android:layout_marginBottom="@dimen/marginBottom2"
+                            android:layout_marginTop="@dimen/marginTop2"
+                            android:background="@drawable/card_divider2" />
+
+                        <!--<ImageView-->
+                            <!--android:id="@+id/iv_state"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_centerVertical="true"-->
+                            <!--android:layout_marginLeft="10dp"-->
+                            <!--android:layout_toRightOf="@+id/fcblr_beizhu2"-->
+                            <!--android:layout_above="@+id/fcblr_separator6"-->
+                            <!--android:src="@mipmap/ic_ok"-->
+                            <!--/>-->
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/fragment_bottom_button_height"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/paddingLeft2"
+            android:paddingRight="@dimen/paddingRight2">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:id="@+id/fcblr_save"
+                        style="@style/Button8"
+                        android:layout_height="@dimen/height5"
+                        android:text="@string/label_save"
+                        android:visibility="gone" />
+
+                    <com.gc.materialdesign.views.ButtonRectangle
+                        android:id="@+id/fcblr_paizhao"
+                        android:layout_width="@dimen/width_60"
+                        android:layout_height="@dimen/height_60"
+                        android:background="@color/color10"
+                        android:text="@string/text_takepicture" />
+
+                    <com.gc.materialdesign.views.ButtonRectangle
+                        android:id="@+id/fcblr_flashlight"
+                        android:layout_width="@dimen/width_60"
+                        android:layout_height="@dimen/height_60"
+                        android:background="@color/color10"
+                        android:text="@string/text_flashlight" />
+
+                    <com.gc.materialdesign.views.ButtonRectangle
+                        android:id="@+id/fcblr_upload"
+                        android:layout_width="@dimen/width_60"
+                        android:layout_height="@dimen/height_60"
+                        android:background="@color/color10"
+                        android:text="@string/text_upload" />
+                </LinearLayout>
+
+                <com.gc.materialdesign.views.ButtonFloatSmall
+                    android:id="@+id/fcblr_previous"
+                    android:layout_width="@dimen/activity_bottom_tab_height"
+                    android:layout_height="@dimen/activity_bottom_tab_height"
+                    android:layout_marginLeft="@dimen/marginLeft_5"
+                    android:layout_weight="0"
+                    android:background="@color/color10"
+                    materialdesign:iconDrawable="@mipmap/ic_back" />
+
+                <com.gc.materialdesign.views.ButtonFloatSmall
+                    android:id="@+id/fcblr_next"
+                    android:layout_width="@dimen/activity_bottom_tab_height"
+                    android:layout_height="@dimen/activity_bottom_tab_height"
+                    android:layout_marginLeft="@dimen/marginLeft_5"
+                    android:layout_weight="0"
+                    android:background="@color/color10"
+                    materialdesign:iconDrawable="@mipmap/ic_forward" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_splitLine"
+        android:background="@color/text_grey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_bottom"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/inspect_record_lr"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/background_clear"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/button_cebenliebiao"
+            android:gravity="center"
+            android:paddingBottom="@dimen/main_paddingBottom"
+            android:paddingTop="@dimen/main_paddingTop"
+            android:text="@string/label_rush_pay_lr"
+            android:textColor="@color/button_text"
+            android:textSize="@dimen/text_size_xxsmall" />
+
+        <RadioButton
+            android:id="@+id/inspect_record_detail_info"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@color/background_clear"
+            android:button="@null"
+            android:drawableTop="@drawable/button_kehuziliao"
+            android:gravity="center"
+            android:paddingBottom="@dimen/main_paddingBottom"
+            android:paddingTop="@dimen/main_paddingTop"
+            android:text="@string/label_record_detail_info"
+            android:textColor="@color/button_text"
+            android:textSize="@dimen/text_size_xxsmall" />
+
+    </LinearLayout>
+
+</LinearLayout>

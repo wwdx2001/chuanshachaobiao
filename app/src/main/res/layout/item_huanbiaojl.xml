@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="75px"
+    android:orientation="vertical"
+    android:paddingBottom="15px" >
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_listitem"
+        android:stretchColumns="0" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="75px" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tv_huanbiaorqn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2013"
+                        android:textColor="@color/text_datetime"
+                        android:textSize="@dimen/text_size_meduim" />
+
+                    <TextView
+                        android:id="@+id/tv_huanbiaorqyr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="08/05"
+                        android:textColor="@color/text_datetime"
+                        android:textSize="@dimen/text_size_meduim" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_xinbiaobh"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="2013"
+                    android:textColor="@color/text_item"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:id="@+id/tv_xinbiaoqima"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="2013"
+                    android:textColor="@color/text_item"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:id="@+id/tv_jiubiaozs"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="2013"
+                    android:textColor="@color/text_item"
+                    android:textSize="@dimen/text_size_meduim" />
+
+                <TextView
+                    android:id="@+id/tv_huanbiaoyuan"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="正常状态"
+                    android:textColor="@color/text_item"
+                    android:textSize="@dimen/text_size_meduim" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow_beiZhu"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_listitem_dark"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/tv_beiZhu"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="30dp"
+                android:text="正常状态"
+                android:textColor="@color/text_desc"
+                android:textSize="@dimen/text_size_meduim" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

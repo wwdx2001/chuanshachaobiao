@@ -1,0 +1,126 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/background_actionbar</item>
+        <item name="colorPrimaryDark">@color/color3</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="spbStyle">@style/GradientProgressBar</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="colorControlNormal">@color/color11</item>
+    </style>
+
+    <style name="AppThemeSearch" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/background_actionbar</item>
+        <item name="colorPrimaryDark">@color/color3</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="spbStyle">@style/GradientProgressBar</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="GNowProgressBar" parent="SmoothProgressBar">
+        <item name="spb_stroke_separator_length">8dp</item>
+        <item name="spb_sections_count">2</item>
+        <item name="spb_speed">1.7</item>
+        <item name="spb_progressiveStart_speed">2</item>
+        <item name="spb_progressiveStop_speed">3.4</item>
+        <item name="spb_interpolator">spb_interpolator_acceleratedecelerate</item>
+        <item name="spb_mirror_mode">true</item>
+        <item name="spb_reversed">true</item>
+        <item name="spb_colors">@array/gplus_colors</item>
+        <item name="spb_progressiveStart_activated">true</item>
+        <item name="spb_generate_background_with_colors">false</item>
+    </style>
+
+    <style name="GradientProgressBar" parent="SmoothProgressBar">
+        <item name="spb_stroke_separator_length">0dp</item>
+        <item name="spb_sections_count">3</item>
+        <item name="spb_speed">1.7</item>
+        <item name="android:interpolator">@android:anim/decelerate_interpolator</item>
+        <item name="spb_colors">@array/gplus_colors</item>
+        <item name="spb_gradients">true</item>
+    </style>
+
+    <style name="LoadingText">
+        <item name="android:textColor">@color/loading_text</item>
+        <item name="android:textSize">@dimen/loading_text_size</item>
+    </style>
+
+    <style name="ProgressBar">
+        <item name="android:minHeight">@dimen/progressbar_min</item>
+        <item name="android:minWidth">@dimen/progressbar_min</item>
+        <item name="android:maxHeight">@dimen/progressbar_max</item>
+        <item name="android:maxWidth">@dimen/progressbar_max</item>
+    </style>
+
+    <!-- 黑色背景，白色字体；登录、反馈按钮 -->
+    <style name="Button">
+        <item name="android:background">@drawable/button</item>
+        <item name="android:padding">@dimen/button_padding</item>
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:textSize">@dimen/button_text_size_large</item>
+    </style>
+
+    <style name="Button8">
+        <item name="android:background">@drawable/button8</item>
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:gravity">center_vertical|center</item>
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">35dp</item>
+    </style>
+
+    <style name="keyboard_button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">57.16dp</item>
+        <item name="android:layout_marginLeft">1.83dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@drawable/keyboard_button_text</item>
+        <item name="android:textSize">32.5dp</item>
+        <item name="android:background">@drawable/keyboard_button</item>
+    </style>
+
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">?attr/colorPrimary</item>
+        <item name="tabSelectedTextColor">?attr/colorPrimary</item>
+        <item name="tabTextColor">@color/text_darkGrey</item>
+        <item name="tabBackground">@color/white</item>
+    </style>
+    <!--arcgis-->
+    <style name="map_button_current_location">
+        <item name="android:background">@drawable/map_button_current_location</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
+    <style name="map_button_select_point">
+        <item name="android:background">@drawable/map_button_select_point</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
+    <style name="map_button_zoom_in">
+        <item name="android:background">@drawable/map_button_zoom_in</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
+    <style name="map_button_zoom_out">
+        <item name="android:background">@drawable/map_button_zoom_out</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+    <!--arcgis结束-->
+</resources>

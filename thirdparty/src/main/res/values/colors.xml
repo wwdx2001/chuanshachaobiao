@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_login_log">#055a90</color>
+    <color name="color_login_log_text">#37abf4</color>
+    <color name="color_login_view">#acdfff</color>
+
+</resources>

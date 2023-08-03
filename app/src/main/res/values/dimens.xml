@@ -1,0 +1,177 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- 加载界面，字体大小 -->
+    <dimen name="loading_text_size">13dp</dimen>
+
+    <!-- 时间显示区域，接受时间、截至时间左右Padding -->
+    <dimen name="receive_time_padding_horizontal">10dp</dimen>
+    <dimen name="progressbar_min">20dp</dimen>
+    <dimen name="progressbar_max">20dp</dimen>
+    <!-- 列表和ActionBar之间的间距 -->
+    <dimen name="list_padding_top">5dp</dimen>
+    <dimen name="list_divider_height">5dp</dimen>
+
+    <dimen name="list_padding_horizontal">5dp</dimen>
+    <dimen name="activity_main_list_padding_top">20dp</dimen>
+    <dimen name="activity_main_grid_Spacing">10.5dp</dimen>
+    <dimen name="activity_main_grid_padding">22.5dp</dimen>
+    <dimen name="activity_main_list_height">66dp</dimen>
+    <dimen name="activity_main_list_icon_marginLeft">20.5dp</dimen>
+    <dimen name="activity_main_list_title_marginLeft">10.5dp</dimen>
+    <dimen name="activity_main_list_unread_marginLeft">110dp</dimen>
+    <dimen name="activity_main_grid_item">86dp</dimen>
+    <dimen name="activity_main_grid_item_height">98dp</dimen>
+    <dimen name="activity_main_grid_icon_marginBottom">5px</dimen>
+    <dimen name="activity_main_grid_icon_marginTop">7dp</dimen>
+    <dimen name="activity_main_grid_unread_marginLeft">45dp</dimen>
+    <dimen name="activity_main_unread_paddingLeft">13dp</dimen>
+    <dimen name="activity_main_unread_paddingTop">10dp</dimen>
+    <dimen name="activity_setting_img">190dp</dimen>
+
+    <!-- 控件水平间隔 -->
+    <dimen name="control_horizontal_seperater">15dp</dimen>
+    <!-- 控件垂直间隔 -->
+    <dimen name="control_vertical_seperater">10dp</dimen>
+
+    <!-- 字体大小定义 -->
+    <!-- 30px -->
+    <dimen name="text_size_xxxxlarge">20sp</dimen>
+    <!-- 28px -->
+    <dimen name="text_size_xxxlarge">19sp</dimen>
+    <!-- 24px -->
+    <dimen name="text_size_xxlarge">16sp</dimen>
+    <!-- 22px -->
+    <dimen name="text_size_xlarge">15sp</dimen>
+    <!-- 20px -->
+    <dimen name="text_size_large">13sp</dimen>
+    <!-- 18px -->
+    <dimen name="text_size_meduim">12sp</dimen>
+    <!-- 16px -->
+    <dimen name="text_size_small">11sp</dimen>
+    <!-- 14px -->
+    <dimen name="text_size_xsmall">9sp</dimen>
+    <!-- 12px -->
+    <dimen name="text_size_xxsmall">8sp</dimen>
+
+    <dimen name="paddingBottom1">10dp</dimen>
+    <dimen name="paddingTop_2">2dp</dimen>
+    <dimen name="paddingBottom_2">2dp</dimen>
+    <dimen name="paddingTop_5">5dp</dimen>
+    <dimen name="paddingBottom_5">5dp</dimen>
+
+    <dimen name="marginLeft_5">5dp</dimen>
+    <dimen name="marginRight_5">5dp</dimen>
+    <dimen name="marginTop_5">5dp</dimen>
+    <dimen name="marginBottom_5">5dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="marginLeft_10">10dp</dimen>
+    <dimen name="marginLeft_15">15dp</dimen>
+    <dimen name="marginRight_10">10dp</dimen>
+    <dimen name="marginTop_10">10dp</dimen>
+    <dimen name="marginBottom_10">10dp</dimen>
+    <dimen name="marginTop_20">20dp</dimen>
+    <dimen name="marginBottom_20">20dp</dimen>
+    <dimen name="marginLeft_30">30dp</dimen>
+    <dimen name="marginRight_30">30dp</dimen>
+    <dimen name="marginTop_30">30dp</dimen>
+    <dimen name="marginBottom_30">30dp</dimen>
+    <dimen name="marginLeft_50">50dp</dimen>
+    <dimen name="marginRight_50">50dp</dimen>
+
+    <dimen name="width_30">30dp</dimen>
+    <dimen name="width_40">40dp</dimen>
+    <dimen name="width_50">50dp</dimen>
+    <dimen name="width_60">60dp</dimen>
+
+    <dimen name="height_1">1dp</dimen>
+    <dimen name="height_30">30dp</dimen>
+    <dimen name="height_40">40dp</dimen>
+    <dimen name="height_50">50dp</dimen>
+    <dimen name="height_60">60dp</dimen>
+    <dimen name="height_70">70dp</dimen>
+    <dimen name="height_80">80dp</dimen>
+    <dimen name="height_300">300dp</dimen>
+
+    <dimen name="marginBottom2">10dp</dimen>
+    <!-- 按钮左右Padding距离 -->
+    <dimen name="button_padding">10dp</dimen>
+
+    <!-- 大按钮字体大小 -->
+    <dimen name="button_text_size_large">16dp</dimen>
+
+
+    <dimen name="marginLeft1">10dp</dimen>
+    <dimen name="marginRight1">10dp</dimen>
+    <dimen name="marginTop1">10dp</dimen>
+
+    <dimen name="marginLeft2">5dp</dimen>
+    <dimen name="marginRight2">5dp</dimen>
+    <dimen name="marginTop2">5dp</dimen>
+
+    <dimen name="marginLeft3">20dp</dimen>
+
+    <dimen name="marginTop3">2dp</dimen>
+    <dimen name="marginBottom3">2dp</dimen>
+
+    <dimen name="marginTop4">20dp</dimen>
+    <dimen name="marginRight4">15dp</dimen>
+
+    <dimen name="marginRight5">20dp</dimen>
+    <dimen name="marginBottom1">10dp</dimen>
+
+    <dimen name="marginRight_40">40dp</dimen>
+
+    <dimen name="height1">30dp</dimen>
+    <dimen name="height_25">25dp</dimen>
+    <dimen name="height2">60dp</dimen>
+    <dimen name="height3">1dp</dimen>
+    <dimen name="height4">80dp</dimen>
+    <dimen name="height5">50dp</dimen>
+    <dimen name="height6">35dp</dimen>
+    <dimen name="height7">85dp</dimen>
+    <dimen name="height8">40dp</dimen>
+    <dimen name="height9">100dp</dimen>
+    <dimen name="height10">6dp</dimen>
+
+    <dimen name="width1">80dp</dimen>
+    <dimen name="width2">75dp</dimen>
+    <dimen name="width3">120dp</dimen>
+    <dimen name="width4">100dp</dimen>
+    <dimen name="width5">30dp</dimen>
+    <dimen name="width_70">70dp</dimen>
+    <dimen name="width80">80dp</dimen>
+    <dimen name="width6">90dp</dimen>
+    <dimen name="width7">60dp</dimen>
+    <dimen name="width200">200dp</dimen>
+
+    <dimen name="text_size1">14dp</dimen>
+
+    <dimen name="paddingTop1">5dp</dimen>
+    <!--<dimen name="paddingBottom1">5dp</dimen>-->
+    <dimen name="paddingLeft1">20dp</dimen>
+    <dimen name="paddingRight1">20dp</dimen>
+
+    <dimen name="paddingTop2">10dp</dimen>
+    <dimen name="paddingBottom2">10dp</dimen>
+    <dimen name="paddingLeft2">10dp</dimen>
+    <dimen name="paddingRight2">10dp</dimen>
+
+    <dimen name="paddingLeft3">5dp</dimen>
+    <dimen name="paddingLeft4">8dp</dimen>
+
+
+    <dimen name="elevation_0">0dp</dimen>
+    <dimen name="radius_0">0dp</dimen>
+
+    <dimen name="main_splitLine">0.6dp</dimen>
+    <dimen name="main_paddingBottom">3dp</dimen>
+    <dimen name="main_paddingTop">5dp</dimen>
+
+    <dimen name="item_gridview_main_width">45dp</dimen>
+    <dimen name="item_gridview_main_height">37.5dp</dimen>
+
+
+</resources>

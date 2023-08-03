@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginLeft1"
+        android:layout_marginRight="@dimen/marginRight1"
+        android:background="@drawable/card2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card3"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/table_row1"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/height1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/paddingLeft1"
+                android:paddingRight="@dimen/paddingRight1">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_task_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:text="123456"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxxlarge" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0">
+
+                    <ImageView
+                        android:id="@+id/img_state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="2dp"
+                        android:src="@mipmap/ic_ok"
+                        android:visibility="visible" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/paddingLeft2"
+            android:paddingRight="@dimen/paddingRight2" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/height3"
+                android:background="@drawable/card_divider1" />
+        </LinearLayout-->
+
+        <TableRow
+            android:id="@+id/table_row2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/layoutripple_chaobiaorw"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/height2"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/paddingLeft1"
+                android:paddingRight="@dimen/paddingRight1">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/card_name"
+                        android:layout_width="@dimen/width_50"
+                        android:layout_height="wrap_content"
+                        android:text="户名:"
+                        android:textColor="@color/text_content"
+                        android:textSize="@dimen/text_size_xlarge" />
+
+                    <TextView
+                        android:id="@+id/tv_card_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/card_name"
+                        android:paddingLeft="@dimen/paddingLeft3"
+                        android:text=""
+                        android:textColor="@color/text_content"
+                        android:textSize="@dimen/text_size_xlarge" />
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="@dimen/width_50"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_card_name"
+                        android:text="地址:"
+                        android:textColor="@color/text_content"
+                        android:textSize="@dimen/text_size_xlarge" />
+
+                    <TextView
+                        android:id="@+id/tv_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_card_name"
+                        android:layout_toRightOf="@+id/address"
+                        android:paddingLeft="@dimen/paddingLeft3"
+                        android:text=""
+                        android:textColor="@color/text_content"
+                        android:textSize="@dimen/text_size_xlarge" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </TableRow>
+    </LinearLayout>
+
+</RelativeLayout>

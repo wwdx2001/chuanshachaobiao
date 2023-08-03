@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_main">
+
+
+    <com.gc.materialdesign.views.SmoothProgressBar
+        android:id="@+id/loading_process"
+        style="@style/GradientProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height10"
+        android:indeterminate="true" />
+
+    <me.maxwin.view.XListView
+        android:id="@+id/fcbl_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/list_padding_top"
+        android:cacheColorHint="@color/background_clear"
+        android:divider="#00000000"
+        android:dividerHeight="@dimen/list_divider_height"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent"
+        android:overScrollMode="never" />
+</RelativeLayout>

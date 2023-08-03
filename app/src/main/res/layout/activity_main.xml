@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_white"
+    android:orientation="vertical"
+    tools:context=".ui.main.MainActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_viewPager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/main_divide" />
+
+    <TextView
+        android:id="@+id/main_divide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_splitLine"
+        android:layout_above="@+id/item_frameLy"
+        android:background="@color/text_grey" />
+
+    <LinearLayout
+        android:id="@+id/item_frameLy"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_50"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/parent_work"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/radiobutton_work"
+            android:gravity="center"
+            android:paddingBottom="@dimen/main_paddingBottom"
+            android:paddingTop="@dimen/main_paddingTop"
+            android:text="@string/label_main_word"
+            android:textColor="@color/radiobutton_text"
+            android:textSize="@dimen/text_size_xxsmall" />
+
+        <RadioButton
+            android:id="@+id/parent_statistics"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/radiobutton_statistics"
+            android:gravity="center"
+            android:paddingBottom="@dimen/main_paddingBottom"
+            android:paddingTop="@dimen/main_paddingTop"
+            android:text="@string/label_main_statistics"
+            android:textColor="@color/radiobutton_text"
+            android:textSize="@dimen/text_size_xxsmall"
+            android:visibility="gone"/>
+        
+        <RadioButton
+            android:id="@+id/parent_setting"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/radiobutton_info"
+            android:gravity="center"
+            android:paddingBottom="@dimen/main_paddingBottom"
+            android:paddingTop="@dimen/main_paddingTop"
+            android:text="@string/label_main_setting"
+            android:textColor="@color/radiobutton_text"
+            android:textSize="@dimen/text_size_xxsmall"
+            android:visibility="gone"/>
+    </LinearLayout>
+</RelativeLayout>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/bg_main">
+
+    <com.gc.materialdesign.views.SmoothProgressBar
+        android:id="@+id/loading_process"
+        style="@style/GradientProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height10"
+        android:indeterminate="true" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/adjust_number_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/marginTop2"
+        android:scrollbars="vertical"
+        android:divider="#00000000"
+        android:dividerHeight="@dimen/list_divider_height"/>
+
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 常用抄表状态对话框， tabButton background -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@mipmap/bg_button5_pressed"  />
+    <item android:state_checked="true" android:drawable="@mipmap/bg_button5"  />
+    <item android:drawable="@color/text_white" />
+</selector>

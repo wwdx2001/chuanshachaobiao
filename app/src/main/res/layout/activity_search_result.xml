@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_main">
+
+    <com.gc.materialdesign.views.SmoothProgressBar
+        android:id="@+id/loading_process"
+        style="@style/GradientProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height10"
+        android:indeterminate="true" />
+
+    <RelativeLayout
+        android:id="@+id/select_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/loading_process"
+        android:background="@android:color/transparent">
+
+        <!--<com.gc.materialdesign.views.SmoothProgressBar-->
+        <!--android:id="@+id/loading_process1"-->
+        <!--style="@style/GradientProgressBar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/height10"-->
+        <!--android:indeterminate="true" />-->
+
+        <TextView
+            android:id="@+id/tvnoresult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawablePadding="20dp"
+            android:drawableTop="@mipmap/ic_noresult"
+            android:text="@string/label_noresult"
+            android:textColor="@color/color8"
+            android:textSize="@dimen/text_size_xxxlarge"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/lv_searchlist"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/list_padding_top"
+            android:cacheColorHint="@color/background_clear"
+            android:divider="#00000000"
+            android:dividerHeight="@dimen/list_divider_height"
+            android:fadingEdge="none"
+            android:listSelector="@android:color/transparent"
+            android:overScrollMode="never"
+            android:scrollbarStyle="outsideInset"/>
+
+        <!--<ListView-->
+        <!--android:id="@+id/lv_selectlist"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="@dimen/list_padding_top"-->
+        <!--android:cacheColorHint="@color/background_clear"-->
+        <!--android:divider="#00000000"-->
+        <!--android:dividerHeight="@dimen/list_divider_height"-->
+        <!--android:fadingEdge="none"-->
+        <!--android:listSelector="@android:color/transparent"-->
+        <!--android:overScrollMode="never" />-->
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

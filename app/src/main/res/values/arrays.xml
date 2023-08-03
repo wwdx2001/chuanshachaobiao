@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="main_ids_wenzhou">
+        <item>1001</item>
+        <!--<item>1006</item>-->
+        <!--<item>1010</item>-->
+        <!--<item>1008</item>-->
+        <!--<item>1009</item>-->
+        <!--<item>1002</item>-->
+        <!--<item>1003</item>-->
+        <item>1012</item>
+        <item>1004</item>
+        <item>1013</item>
+        <item>1011</item>
+        <item>1005</item>
+        <item>1007</item>
+    </integer-array>
+
+
+    <integer-array name="main_icons_wenzhou">
+        <item>@mipmap/ic_home_mytask</item>
+        <!--<item>@mipmap/ic_home_external_delay</item>-->
+        <!--<item>@mipmap/ic_home_data</item>-->
+        <!--<item>@mipmap/ic_home_external_work</item>-->
+        <!--<item>@mipmap/ic_home_form_work</item>-->
+        <!--<item>@mipmap/ic_home_external_work</item>-->
+        <item>@mipmap/ic_home_delay</item>
+        <item>@mipmap/ic_home_select</item>
+        <item>@mipmap/ic_home_data</item>
+        <item>@mipmap/ic_home_statistics</item>
+        <item>@mipmap/ic_home_map</item>
+        <item>@mipmap/ic_home_setting</item>
+    </integer-array>
+
+
+    <string-array name="main_names_wenzhou">
+        <item>抄表任务</item>
+        <!--<item>外复工单</item>-->
+        <!--<item>催缴任务</item>-->
+        <!--<item>远传表普查</item>-->
+        <!--<item>临时册本</item>-->
+        <!--<item>册本检查</item>-->
+        <item>延迟抄表</item>
+        <item>组合查询</item>
+        <item>量高量低</item>
+        <item>统计分析</item>
+        <item>地图</item>
+        <item>设置</item>
+    </string-array>
+
+    <integer-array name="main_ids_jiading">
+        <item>1001</item>
+        <item>1004</item>
+    </integer-array>
+
+    <integer-array name="main_icons_jiading">
+        <item>@mipmap/ic_home_mytask</item>
+        <item>@mipmap/ic_home_select</item>
+    </integer-array>
+
+    <string-array name="main_names_jiading">
+        <item>抄表任务</item>
+        <item>组合查询</item>
+    </string-array>
+
+</resources>

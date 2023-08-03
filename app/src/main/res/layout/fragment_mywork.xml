@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/statisticViewPager_background"
+    android:orientation="vertical">
+
+    <GridView
+        android:id="@+id/fm_grid"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="@dimen/marginTop1"
+        android:horizontalSpacing="@dimen/list_padding_horizontal"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="3"
+        android:paddingLeft="25dp"
+        android:verticalSpacing="@dimen/list_padding_horizontal" />
+
+    <ListView
+        android:id="@+id/fm_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="@color/background_clear"
+        android:divider="@drawable/ic_line"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent"
+        android:paddingLeft="@dimen/list_padding_horizontal"
+        android:paddingRight="@dimen/list_padding_horizontal"
+        android:scrollbars="none" />
+</LinearLayout>

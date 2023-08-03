@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#5188EC</color>
+
+
+    <!-- 加载信息文字显示颜色 -->
+    <color name="loading_text">#fff</color>
+
+    <!-- 背景色，列表项点击或按住时的颜色 -->
+    <color name="background_item_pressed">#3001335e</color>
+    <color name="color_main_grid_text">#0868a4</color>
+
+    <!-- 白色字体颜色 -->
+    <color name="text_white">#ffffff</color>
+    <color name="text_grey">#676767</color>
+
+    <!-- 列表内容，字体颜色 -->
+    <color name="text_item">#0eb185</color>
+
+
+    <color name="text_darkGrey">#424C55</color>
+    <color name="statisticViewPager_background">#f1f1f1</color>
+    <color name="divider_line">#E1E1E1</color>
+    <color name="gray">#AFAFAF</color>
+
+
+    <color name="actionbar_background">#355f8a</color>
+    <color name="actionbar_tab_background">#ffffff</color>
+    <color name="actionbar_text">#ffffff</color>
+    <color name="actionbar_tab_text">#666666</color>
+    <color name="actionbar_tab_selected_text">#628bb5</color>
+    <color name="ap_left_drawer_bg">#ffffff</color>
+    <color name="ap_left_drawer_item_bg">#ffffff</color>
+    <color name="ap_left_drawer_item">#85d3ef</color>
+    <color name="ap_left_drawer_text">#666666</color>
+    <color name="ap_left_drawer_divider">#cccccc</color>
+
+
+
+    <!-- 背景色，ActionBar -->
+    <color name="background_actionbar">#5d81c1</color>
+    <!-- 背景色，底部切换栏 -->
+    <color name="background_bottom">#5d81c1</color>
+    <!-- 背景，深蓝, 抄表录入输入区域、详情表信息 -->
+    <color name="background_darkblue">#4c77a1</color>
+    <!-- 背景， 编号显示栏 -->
+    <color name="background_title">#54bd8f</color>
+
+    <!-- 背景，淡蓝色，抄表任务，册本列表，基本信息 -->
+    <color name="background_listitem">#e3eff9</color>
+    <!-- 背景，深蓝色，备注行颜色 -->
+    <color name="background_listitem_dark">#5d81c1</color>
+
+    <!-- 按钮颜色，工单管理按钮中 -->
+    <color name="progressBar_background">#FFFFFF</color>
+    <color name="progressBar_progress_success">#a1ea58</color>
+    <color name="progressBar_progress_fail">#e73232</color>
+
+    <!-- 录音和播放背景色 -->
+    <color name="background_play">#ffffff</color>
+    <!-- 录音计时器，时间颜色 -->
+    <color name="sound_chronometer">#5fb30b</color>
+    <!-- 播放时间颜色 -->
+    <color name="sound_palytime">#4c4c4c</color>
+
+    <!-- 分割线颜色 -->
+    <color name="line_white">#ffffff</color>
+    <color name="line_textview_bottom">#7196bd</color>
+
+
+    <!-- 内容区的Label内容颜色，抄表录入 -->
+    <color name="text_label">#5a8fba</color>
+    <!-- 内容区的Label内容颜色（白色），抄表录入 -->
+    <color name="text_label_1">#ffffff</color>
+
+    <integer-array name="gplus_colors">
+        <item>@color/holo_blue_dark</item>
+        <item>@color/holo_yellow_dark</item>
+        <item>@color/holo_green_dark</item>
+        <item>@color/holo_purple_dark</item>
+        <item>@color/holo_red_dark</item>
+    </integer-array>
+
+    <!-- 内容文本区的颜色、抄表录入、客户详情 -->
+    <color name="text_content">#305b87</color>
+    <color name="text_content_1">#a6dbfa</color>
+    <!-- 列表内容，字体颜色 -->
+
+    <!-- 列表内容，日期字段颜色 -->
+    <color name="text_datetime">#305b87</color>
+    <!-- 备注字段颜色 -->
+    <color name="text_desc">#ccdeff</color>
+
+    <!-- 饼图、柱图字体颜色 -->
+    <color name="text_chart_label">#b2c3d5</color>
+    <color name="text_chart_values">#000000</color>
+
+    <!-- 数字键盘的数字颜色 -->
+    <color name="keyboard_text_color">#282828</color>
+    <color name="keyboard_button_text">#517597</color>
+    <color name="keyboard_button_text_pressed">#ffffff</color>
+
+    <!-- 饼图配色 -->
+    <color name="colors_pie_1">#ffcbdc</color>
+    <color name="colors_pie_2">#a4ffd7</color>
+    <color name="colors_pie_3">#51a8e4</color>
+    <color name="colors_pie_4">#99ccff</color>
+    <color name="colors_pie_5">#ff99cc</color>
+    <color name="colors_pie_6">#70ecb5</color>
+    <color name="colors_pie_7">#c6f171</color>
+    <color name="colors_pie_8">#f0ffb2</color>
+    <color name="colors_pie_9">#d03f24</color>
+    <color name="colors_pie_10">#a9fcfc</color>
+    <color name="colors_pie_11">#fafa98</color>
+    <color name="colors_pie_12">#cccccc</color>
+    <color name="colors_pie_13">#55c973</color>
+    <color name="colors_pie_14">#e3674d</color>
+    <color name="colors_pie_15">#45bab9</color>
+    <color name="colors_pie_16">#666666</color>
+    <color name="colors_pie_17">#a2a4f4</color>
+    <color name="colors_pie_18">#a27fcd</color>
+    <color name="colors_pie_19">#ffffff</color>
+    <color name="colors_pie_20">#588cf8</color>
+
+    <!-- 柱图配色 -->
+    <color name="colors_bar_1">#2aa0e4</color>
+    <color name="colors_bar_2">#1db685</color>
+    <color name="colors_bar_3">#dd7427</color>
+    <color name="colors_mark">#a3b8cd</color>
+    <color name="colors_axes">#305b87</color>
+
+    <!-- 按钮默认字体颜色，登录界面按钮 -->
+    <color name="button_default">#FFFFFF</color>
+
+    <color name="button1_textColor">#e3fff6</color>
+
+    <color name="button2">#1f906c</color>
+    <color name="button2_pressed">#23588d</color>
+
+    <color name="button3">#136c95</color>
+    <color name="button3_pressed">#53bbd0</color>
+    <color name="button3_text">#53bbd0</color>
+    <color name="button3_text_pressed">#ffffff</color>
+
+    <!-- 带有选中状态的按钮字体颜色 -->
+    <color name="button4_textColor">#e3fff6</color>
+
+    <!-- 常用抄表状态, TabButton -->
+    <color name="button5">#ffffff</color>
+    <color name="button5_text">#a0a3a5</color>
+    <color name="button5_text_pressed">#74faff</color>
+    <color name="button5_text_checked">#3971aa</color>
+
+    <!-- 对话框按钮 -->
+    <color name="button6_pressed">#7ba9cd</color>
+    <color name="button6">#ffffff</color>
+    <color name="button6_text_pressed">#ffffff</color>
+    <color name="button6_text">#898d90</color>
+
+    <!-- 编辑框点击状态 -->
+    <color name="button7_pressed">#23588d</color>
+    <color name="button7">#00000000</color>
+    <color name="button7_text01_pressed">#ffffff</color>
+    <color name="button7_text01">#305b87</color>
+    <color name="button7_text02_pressed">#ffffff</color>
+    <color name="button7_text02">#a6dbfa</color>
+
+    <color name="background_map">#ffffff</color>
+    <!-- 背景，透明色 -->
+    <color name="background_clear">#00000000</color>
+
+    <color name="color1">#99cc00</color>
+    <color name="color2">#f7f7f7</color>
+    <color name="color3">#000000</color>
+    <color name="color4">#898989</color>
+    <color name="color5">#d2d2d2</color>
+    <color name="color6">#628bb5</color>
+    <color name="color7">#0d6b1d</color>
+    <color name="color8">#666666</color>
+    <color name="color9">#FFFBF5</color>
+    <color name="color10">#31ba7d</color>
+    <color name="color11">#A6DBFA</color>
+
+    <!-- 蓝色字体 -->
+    <color name="text_blue">#0868a4</color>
+    <color name="holo_blue_dark">#0099cc</color>
+    <color name="holo_yellow_dark">#ff8800</color>
+    <color name="holo_green_dark">#669900</color>
+    <color name="holo_purple_dark">#9933cc</color>
+    <color name="holo_red_dark">#cc0000</color>
+
+
+    <color name="white">#ffffff</color>
+
+</resources>

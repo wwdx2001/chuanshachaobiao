@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.esri.android.map.MapView
+        android:id="@+id/arcmap"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+<!--        initExtent = "391453.873513048, 3024052.2648404, 619281.74583546, 3164207.62848446">-->
+        <!--initExtent = "-13644840.338547781, 4529944.368315823, -13614265.527233753, 4552875.476801345">-->
+
+    </com.esri.android.map.MapView>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageView
+            android:id="@+id/map_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/ic_map_center_location"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignTop="@id/arcmap"
+        android:layout_margin="5dp">
+
+        <ImageView
+            android:id="@+id/map_north"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/ic_map_north" />
+
+        <ImageButton
+            android:id="@+id/btn_arcgis_map_select_point"
+            style="@style/map_button_select_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@id/arcmap"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <ImageButton
+            android:id="@+id/btn_zoom_in"
+            style="@style/map_button_zoom_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true" />
+
+        <ImageView
+            android:id="@+id/map_separator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/btn_zoom_in"
+            android:src="@mipmap/bg_map_separator" />
+
+        <ImageButton
+            android:id="@+id/btn_zoom_out"
+            style="@style/map_button_zoom_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/map_separator" />
+
+        <ImageButton
+            android:id="@+id/btn_current_location"
+            style="@style/map_button_current_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/map_separator" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/btn_current_location"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/btn_current_location">
+
+            <TextView
+                android:id="@+id/tv_map_scale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/black"
+                android:textSize="8.5dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_map_scale"
+                android:src="@mipmap/ic_map_scale" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

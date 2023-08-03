@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_welcome"
+    android:orientation="vertical"
+    tools:context=".ui.login.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/marginBottom_30"
+            android:src="@mipmap/ic_logo" />
+
+        <TextView
+            android:id="@+id/tv_version"
+            style="@style/LoadingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_small"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:text=""/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp">
+
+                <RelativeLayout
+                    android:id="@+id/rl_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_50"
+                    android:layout_marginStart="@dimen/marginLeft_30"
+                    android:layout_marginLeft="@dimen/marginLeft_30"
+                    android:layout_marginEnd="@dimen/marginRight_30"
+                    android:layout_marginRight="@dimen/marginRight_30"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/label_username"
+                        android:src="@mipmap/ic_account" />
+
+                    <EditText
+                        android:id="@+id/et_username"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/marginLeft_10"
+                        android:layout_marginLeft="@dimen/marginLeft_10"
+                        android:layout_toEndOf="@id/iv_username"
+                        android:layout_toRightOf="@id/iv_username"
+                        android:inputType="textPersonName"
+                        android:singleLine="true"
+                        android:textColor="#fff" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_50"
+                    android:layout_below="@id/rl_username"
+                    android:layout_marginStart="@dimen/marginLeft_30"
+                    android:layout_marginLeft="@dimen/marginLeft_30"
+                    android:layout_marginEnd="@dimen/marginRight_30"
+                    android:layout_marginRight="@dimen/marginRight_30"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/label_username"
+                        android:src="@mipmap/ic_password" />
+
+                    <EditText
+                        android:id="@+id/et_password"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/marginLeft_10"
+                        android:layout_marginLeft="@dimen/marginLeft_10"
+                        android:layout_toEndOf="@id/iv_password"
+                        android:layout_toRightOf="@id/iv_password"
+                        android:ems="10"
+                        android:inputType="textPassword"
+                        android:singleLine="true"
+                        android:textColor="#fff" />
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btn_submit"
+                    style="@style/Button"
+                    android:layout_below="@id/rl_password"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_20"
+                    android:layout_marginStart="@dimen/marginLeft_50"
+                    android:layout_marginLeft="@dimen/marginLeft_50"
+                    android:layout_marginEnd="@dimen/marginRight_50"
+                    android:layout_marginRight="@dimen/marginRight_50"
+                    android:text="@string/label_login" />
+            </RelativeLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

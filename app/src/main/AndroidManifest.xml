@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sh3h.meterreading">
+
+    <!-- 添加arcgis的权限 -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <!-- 结束 -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="androd.permission.INSTALL_PCAKAGES" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.flash" />
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="ohSTukWUXBuWMc4YYzTLOGKB" />
+        <!-- release key  ohSTukWUXBuWMc4YYzTLOGKB -->
+        <!-- debug key  6EdPd9DSwuKICAMCAQwULzLIjdOmfAZE -->
+        <!-- <string name = "liurui_apikey">vHjsDCjmi99OcqK7DzEsVIX7</string> -->
+        <!-- <string name = "xulongjun_apikey">eMwqN2fSxdjwqRnQQ6VdCt1q</string> -->
+
+        <activity
+            android:name=".ui.welcome.WelcomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait">
+<!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".ui.task.TaskListActivity"
+            android:label="@string/title_activity_task_list"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".ui.search.CombinedSearchActivity"
+            android:label="@string/title_activity_select"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSearch"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.search.CombinedSearchResultActivity"
+            android:label="@string/title_activity_result"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.volume.VolumeListActivity"
+            android:label="@string/title_activity_volume_list"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".ui.delay.DelayListActivity"
+            android:label="@string/title_activity_delay_list"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.lgld.LgldListActivity"
+            android:label="@string/title_activity_lgld_list"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.volume.AdjustNumberActivity"
+            android:label="@string/title_activity_changenumber"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.check.CheckActivity"
+            android:label="@string/title_activity_check"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.record.RecordActivity"
+            android:label="@string/title_activity_record_lr"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".ui.delayRecord.DelayRecordActivity"
+            android:label="@string/title_activity_delay_record"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <!-- <activity -->
+        <!-- android:name=".ui.chaobiaolr.ChaoBiaoLRActivity" -->
+        <!-- android:label="@string/title_activity_chao_biao_lr" > -->
+        <!-- </activity> -->
+        <!-- CustomerInformationActivity -->
+        <activity
+            android:name=".ui.information.CustomerInformationActivity"
+            android:label="@string/title_activity_kehuxiangxixx"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <!-- AdjustTemporaryActivity -->
+        <activity
+            android:name=".ui.temporary.AdjustTemporaryActivity"
+            android:label="@string/title_activity_temporary"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <!-- UserCommonActivity -->
+        <activity
+            android:name=".ui.setting.UserCommonActivity"
+            android:label="@string/title_activity_user_common"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.forceImage.ForceImageActivity"
+            android:label="@string/title_activity_force_image"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sort.SortStatusActivity"
+            android:label="@string/title_activity_adjust_user_common"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <!-- ArcGisActivity -->
+        <!-- <activity android:name=".ui.map.ArcGisMapActivity" -->
+        <!-- android:label="@string/title_activity_arcgismap" -->
+        <!-- android:screenOrientation="portrait"> -->
+        <!-- </activity> -->
+
+        <activity
+            android:name=".ui.main.StatisticsActivity"
+            android:label="@string/title_activity_statistics"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.setting.SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.outside.OutsideListActivity"
+            android:label="@string/title_outside"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <!-- OutsideRecordActivity -->
+        <activity
+            android:name=".ui.outside.OutsideRecordActivity"
+            android:label="@string/title_outside_record"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sampling.SamplingListActivity"
+            android:label="@string/title_sampling_list"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sampling.SamplingRecordActivity"
+            android:label="@string/title_sampling_record"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sampling.SamplingTaskActivity"
+            android:label="@string/title_sampling_task"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.rushpay.RushPayTaskActivity"
+            android:label="@string/title_rush_pay_task"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.rushpay.RushPayRecordActivity"
+            android:label="@string/title_rush_pay_record"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <service android:name=".service.VersionService" />
+        <service android:name=".service.SyncService" />
+        <!-- <service android:name="com.baidu.location.f" -->
+        <!-- android:enabled="true" -->
+        <!-- android:process=":remote"/> -->
+
+
+        <!--
+            service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"></service
+        -->
+        <!-- <activity -->
+        <!-- android:name=".ui.chaobiaolr.ChaoBiaoLRActivity" -->
+        <!-- android:label="@string/title_activity_chao_biao_lr" > -->
+        <!-- </activity> -->
+
+        <service android:name=".service.KeepAliveService" />
+
+        <receiver android:name=".service.KeepAliveHelper" />
+    </application>
+
+</manifest>

@@ -1,0 +1,9 @@
+1.到jni目录下，执行ndk-build命令，生成lib和object两个文件夹，lib文件夹下生成的so文件供其他地方调用
+2.生成差分包：进入tool目录下，执行代码 bsdiff oldfile(旧apk) newfile(新apk) patchfile(差分包的名字)
+3.调用者(app)中的jniLibs要包含armeabi和armeabi-v7a这两个文件
+
+注意事项：c语言供外界调用的方法是：Java_com_sh3h_meterreading_util_PatchUtils_patch(jni/com_sh3h_meterreading_util_PatchUtils.c
+          和Java_com_sh3h_meterreading_util_PatchUtils_patch(jni/com_sh3h_meterreading_util_PatchUtils.h)
+          调用者是app/src/main/java/com/sh3h/meterreading/util/PatchUtils.patch
+
+          注意c语言与java语言包名类名及方法名要一致

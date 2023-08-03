@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/text_setting_data_address"
+        android:textColor="#80000000"
+        android:textSize="@dimen/text_size_xlarge" />
+
+    <EditText
+        android:id="@+id/et_data_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#000000"
+        android:textSize="@dimen/text_size_xxxlarge" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/text_setting_data_address_reserved"
+        android:textColor="#80000000"
+        android:textSize="@dimen/text_size_xlarge" />
+
+    <EditText
+        android:id="@+id/et_data_address_reserved"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#000000"
+        android:textSize="@dimen/text_size_xxxlarge" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/text_setting_file_address"
+        android:visibility="gone"
+        android:textColor="#80000000"
+        android:textSize="@dimen/text_size_xlarge" />
+
+    <EditText
+        android:id="@+id/et_file_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:visibility="gone"
+        android:textColor="#000000"
+        android:textSize="@dimen/text_size_xxxlarge" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/text_setting_file_address_reserved"
+        android:visibility="gone"
+        android:textColor="#80000000"
+        android:textSize="@dimen/text_size_xlarge" />
+
+    <EditText
+        android:id="@+id/et_file_address_reserved"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#000000"
+        android:visibility="gone"
+        android:textSize="@dimen/text_size_xxxlarge" />
+
+    <CheckBox
+        android:id="@+id/cb_is_reserved_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:textColor="#000000"
+        android:textSize="@dimen/text_size_xlarge"
+        android:text="@string/text_is_reserved_address"/>
+
+    <!--地图服务地址-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/text_setting_arcgis_map_address"
+        android:visibility="gone"
+        android:textColor="#80000000"
+        android:textSize="@dimen/text_size_xlarge" />
+
+    <EditText
+        android:id="@+id/et_arcgis_map_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:visibility="gone"
+        android:textColor="#000000"
+        android:textSize="@dimen/text_size_xxxlarge" />
+
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 编辑框(浅色背景)，字体颜色 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:color="@color/button7_text01_pressed" />
+    <item android:color="@color/button7_text01" />
+</selector>

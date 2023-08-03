@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="dialog_msg_text_color">#000000</color>
+    <color name="dialog_bg_color">#3168a0</color>
+    <color name="dialog_footer_bg_color">#dcdcdc</color>
+    <color name="dialog_header_bg_color">#FFFFFF</color>
+    <color name="dialog_content_bg_color">#FFFFFF</color>
+    <color name="actionbar_text">#ffffff</color>
+
+    <!-- 按钮 -->
+    <color name="button6_pressed">#7ba9cd</color>
+    <color name="button6">#ffffff</color>
+    <color name="button6_text_pressed">#ffffff</color>
+    <color name="button6_text">#898d90</color>
+    <color name="keyboard_button_text">#517597</color>
+
+    <color name="text_grey">#979797</color>
+    <!-- 白色字体颜色 -->
+    <color name="text_white">#ffffff</color>
+    <color name="color2">#f7f7f7</color>
+    
+    <color name="textview_line_color">#385E0F</color>
+
+    <color name="button2">#1f906c</color>
+    <color name="button2_pressed">#23588d</color>
+
+    <color name="text_content">#305b87</color>
+
+    <!-- 背景，透明色 -->
+    <color name="background_clear">#00000000</color>
+
+    <!-- 分割线颜色 -->
+    <color name="line_white">#ffffff</color>
+    <color name="line_textview_bottom">#7196bd</color>
+
+    <!-- action bar title text -->
+    <style name="MyTitleTextStyle"
+        parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/actionbar_text</item>
+    </style>
+
+</resources>

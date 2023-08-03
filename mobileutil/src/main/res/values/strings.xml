@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="text_welcome">欢迎光临上海三高</string>
+    <string name="text_copyright">Copyright © 2014 Shanghai3h 3H</string>
+    <string name="text_about">更多产品请浏览：www.shanghai3h.com&#x000A;客户服务热线：+86-21-55572216&#x000A;Copyright &#x00a9; 2013 Shanghai 3H</string>
+    <string name="app_name">MobileUtil</string>
+
+    <string name="text_yes">是</string>
+    <string name="text_no">否</string>
+    <string name="text_cancel">取消</string>
+    <string name="text_ok">确定</string>
+
+    <string name="action_settings">设置</string>
+    <string name="action_about">关于</string>
+    <string name="action_logout">退出</string>
+
+    <string name="title_question">询问</string>
+    <string name="title_info">提示</string>
+    <string name="title_warn">警告</string>
+
+    <string name="listview_header_hint_normal">下拉刷新</string>
+    <string name="listview_header_hint_ready">释放立即刷新</string>
+    <string name="listview_header_hint_loading">正在刷新…</string>
+    <string name="listview_header_last_time">更新时间：</string>
+    <string name="listview_header_hint_completed">刷新完成</string>
+    <string name="listview_footer_hint_normal">加载更多</string>
+    <string name="listview_footer_hint_loading">正在加载…</string>
+    <string name="listview_footer_hint_completed">加载完成</string>
+    <string name="listview_footer_hint_end">已加载所有数据？</string>
+
+    <string name="text_img_hint">点击拍摄按钮添加附件 </string>
+    <string name="main_question_image">是否删除图片？</string>
+
+</resources>

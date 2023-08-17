@@ -38,6 +38,7 @@ import com.sh3h.mobileutil.util.LogUtil;
 import com.sh3h.mobileutil.util.TextUtil;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
+import com.zhouyou.http.EasyHttp;
 
 import java.util.Date;
 import java.util.List;
@@ -106,6 +107,8 @@ public class MainApplication extends Application {
 //            Timber.plant(new Timber.DebugTree());
 //            //Fabric.with(this, new Crashlytics());
 //        }
+
+        EasyHttp.init(this);
 
         CrashHandler crashHandler = CrashHandler.getInstance();
         crashHandler.init(this);

@@ -26,6 +26,7 @@ import com.sh3h.meterreading.ui.outside.OutsideRecordActivity;
 import com.sh3h.meterreading.ui.record.DetailInfoFragment;
 import com.sh3h.meterreading.ui.record.RecordActivity;
 import com.sh3h.meterreading.ui.record.RecordLRFragment;
+import com.sh3h.meterreading.ui.remoteinspection.RemoteinSpectionListActivity;
 import com.sh3h.meterreading.ui.rushpay.RushPayRecordActivity;
 import com.sh3h.meterreading.ui.rushpay.RushPayTaskActivity;
 import com.sh3h.meterreading.ui.sampling.SamplingListActivity;
@@ -104,4 +105,6 @@ public interface ActivityComponent{
 
     void inject(OutsideListActivity outsideListActivity);
     void inject(OutsideRecordActivity outsideRecordActivity);
+
+    void inject(RemoteinSpectionListActivity remoteinSpectionListActivity);
 }

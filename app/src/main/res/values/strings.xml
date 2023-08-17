@@ -71,6 +71,17 @@
     <string name="text_account_password_error">账号或密码错误</string>
     <string name="text_no_network_account_password_error">离线登录，账号或密码错误</string>
 
+    <string name="action_commit">提交</string>
+    <string name="text_remote_yes">已巡检</string>
+    <string name="text_remote_no">待巡检</string>
+    <string name="text_remote_up">按地址升序</string>
+    <string name="text_remote_down">按地址降序</string>
+    <string name="text_remote_all">全部</string>
+    <string name="text_xunjian_type">巡检状态</string>
+
+    <string name="title_activity_remoteinspectionlistactivity">辅助验收</string>
+    <string name="title_activity_remoteinspectionhistorylistactivity">历史辅助验收</string>
+
     <string name="title_activity_changenumber">调整序号</string>
     <string name="title_activity_check">册本检查</string>
 

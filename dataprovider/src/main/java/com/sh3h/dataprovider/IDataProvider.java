@@ -47,6 +47,10 @@ import com.sh3h.dataprovider.greendaoEntity.WaiFuGDMain;
 import com.sh3h.dataprovider.greendaoEntity.WordsInfo;
 import com.sh3h.dataprovider.greendaoEntity.YanChiBiao;
 import com.sh3h.dataprovider.greendaoEntity.YuanGongXX;
+import com.sh3h.serverprovider.entity.BiaoKaBean;
+import com.sh3h.serverprovider.entity.BiaoKaListBean;
+import com.sh3h.serverprovider.entity.BiaoKaWholeEntity;
+import com.sh3h.serverprovider.entity.XunJianTaskBean;
 
 import java.util.List;
 import java.util.Map;
@@ -155,7 +159,46 @@ public interface IDataProvider {
 //                                    String S_CH, int I_LiangGaoLDYYBM, String S_ChaoBiaoBeiZhu,
 //                                    double x1, double y1, int chaoBiaoBiaoZhi, String jieTiTS);
 
-    /**
+  /**
+   * 保存巡检表卡
+   *
+   * @param insertXunJianBK
+   * @return
+   */
+  public boolean insertXunJianBK(List<BiaoKaBean> biaoKaBeans);
+
+  public List<BiaoKaListBean> getXunJianListBK();
+
+  public List<BiaoKaListBean> getXunJianListBK(String xiaogenghao);
+
+  public List<BiaoKaBean> getXunJianBK();
+
+  public boolean insertBKWholeEntity(BiaoKaWholeEntity newWholeEntity);
+
+  public List<XunJianTaskBean> getLocalXunJianTasks(String type);
+
+  public List<BiaoKaListBean> getWcorYcBiaoKalistbean(String renwumc, String type);
+
+  public List<XunJianTaskBean> getXunJianTaskBean(String renwumc);
+
+  public List<BiaoKaListBean> getBiaoKaListBean(String s_renwuid);
+
+  public  void deleteBiaoKaListBean();
+
+  public void saveXunjianBKlistBean(BiaoKaListBean biaoKaListBean);
+
+  public List<BiaoKaWholeEntity> getBiaoKaWholeEntity2(String renwumc, int issave);
+
+  public boolean SaveXunJianTasks(List<XunJianTaskBean> xunJianTaskBeans);
+
+  public boolean saveBiaoKaListBean(List<BiaoKaListBean> biaoKaList);
+
+  public boolean savebiaoKaBean(List<BiaoKaBean> biaoKaBeans);
+
+  public void saveBiaoKaWholeEntityDao(BiaoKaWholeEntity biaoKaWholeEntity);
+
+
+  /**
      * 查询简号下面各种费用组成明细
      *
      * @param S_JH

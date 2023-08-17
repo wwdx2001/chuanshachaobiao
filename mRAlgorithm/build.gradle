@@ -20,4 +20,5 @@ android {
 }
 
 dependencies {
+  compile 'com.blankj:utilcode:1.25.9'
 }

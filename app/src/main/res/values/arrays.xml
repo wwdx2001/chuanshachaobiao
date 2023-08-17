@@ -12,6 +12,8 @@
         <item>1004</item>
         <item>1013</item>
         <item>1011</item>
+        <item>1017</item>
+        <item>1018</item>
         <item>1005</item>
         <item>1007</item>
     </integer-array>
@@ -28,6 +30,8 @@
         <item>@mipmap/ic_home_select</item>
         <item>@mipmap/ic_home_data</item>
         <item>@mipmap/ic_home_statistics</item>
+        <item>@mipmap/ic_home_waifu</item>
+        <item>@mipmap/ic_home_waifu_history</item>
         <item>@mipmap/ic_home_map</item>
         <item>@mipmap/ic_home_setting</item>
     </integer-array>
@@ -44,6 +48,8 @@
         <item>组合查询</item>
         <item>量高量低</item>
         <item>统计分析</item>
+        <item>辅助验收</item>
+        <item>辅助验收历史</item>
         <item>地图</item>
         <item>设置</item>
     </string-array>

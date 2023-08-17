@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:card_view="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/item"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+
+  <android.support.v7.widget.CardView
+    android:id="@+id/fs_cardview"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/marginLeft1"
+    android:layout_marginRight="@dimen/marginRight1"
+    android:layout_toRightOf="@+id/list_select"
+    android:layout_marginTop="@dimen/margin_10"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    card_view:cardBackgroundColor="@color/background_clear"
+    card_view:cardCornerRadius="@dimen/radius_0">
+
+    <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:background="@color/background_listitem"
+      android:orientation="vertical">
+
+      <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_listitem_dark"
+        android:orientation="horizontal">
+
+        <LinearLayout
+          android:id="@+id/tableRow1"
+          android:layout_width="fill_parent"
+          android:layout_height="@dimen/height1"
+          android:gravity="center_vertical"
+          android:orientation="horizontal"
+          android:paddingLeft="@dimen/paddingLeft1"
+          android:paddingRight="@dimen/paddingRight1">
+
+          <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+              android:id="@+id/tv_xuhao"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              android:gravity="center_vertical"
+              android:text="222"
+              android:visibility="gone"
+              android:textColor="@color/text_white"
+              android:textSize="@dimen/text_size_xxxxlarge" />
+
+            <TextView
+              android:id="@+id/tv_separator"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              android:gravity="center_vertical"
+              android:visibility="gone"
+              android:text="/"
+              android:textColor="@color/text_white"
+              android:textSize="@dimen/text_size_xxxxlarge" />
+
+            <TextView
+              android:id="@+id/tv_xgh"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              android:gravity="center_vertical"
+              android:text="1111"
+              android:textColor="@color/text_white"
+              android:textSize="@dimen/text_size_xxxxlarge" />
+          </LinearLayout>
+
+          <TextView
+            android:id="@+id/tv_ch"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:text="册本号"
+            android:visibility="gone"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/text_size_xxxxlarge" />
+
+          <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0">
+
+            <ImageView
+              android:id="@+id/img_state"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentRight="true"
+              android:layout_marginRight="2dp"
+              android:src="@mipmap/ic_ok"
+              android:visibility="gone" />
+
+            <TextView
+              android:id="@+id/tv_state"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              android:gravity="center_vertical"
+              android:textColor="@color/text_white"
+              android:textSize="@dimen/text_size_meduim"
+              android:text="0"
+              android:visibility="gone"/>
+          </LinearLayout>
+        </LinearLayout>
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/paddingBottom1"
+        android:paddingLeft="@dimen/paddingLeft1"
+        android:paddingRight="@dimen/paddingRight1"
+        android:paddingTop="@dimen/paddingTop1">
+
+        <LinearLayout
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <TextView
+            android:id="@+id/yonghum"
+            android:layout_width="@dimen/width5"
+            android:layout_height="wrap_content"
+            android:text="@string/text_yonghum"
+            android:textColor="@color/text_content"
+            android:textSize="@dimen/text_size_meduim" />
+
+          <TextView
+            android:id="@+id/tv_yonghum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/yonghum"
+            android:text="11111"
+            android:textColor="@color/text_content"
+            android:textSize="@dimen/text_size_meduim" />
+
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <TextView
+            android:id="@+id/yongshuidz"
+            android:layout_width="@dimen/width7"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tv_yonghum"
+            android:text="@string/chaobiaolr_label_yongshuidizhi"
+            android:textColor="@color/text_content"
+            android:textSize="@dimen/text_size_meduim" />
+
+          <TextView
+            android:id="@+id/tv_yongshuidz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_yonghum"
+            android:layout_toRightOf="@+id/yonghudz"
+            android:text="22222"
+            android:textColor="@color/text_content"
+            android:textSize="@dimen/text_size_meduim" />
+
+        </LinearLayout>
+
+        <LinearLayout
+          android:id="@+id/sub_row0"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:visibility="visible">
+
+          <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+              android:id="@+id/biaokazt"
+              android:layout_width="@dimen/width_60"
+              android:layout_height="wrap_content"
+              android:text="@string/chaobiaolr_label_biaokazhuangtai"
+              android:textColor="@color/text_content"
+              android:textSize="@dimen/text_size_meduim" />
+
+            <TextView
+              android:id="@+id/tv_biaokazt"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text=""
+              android:textColor="@color/text_content"
+              android:textSize="@dimen/text_size_meduim" />
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+              android:id="@+id/xunjianzt"
+              android:layout_width="@dimen/width_60"
+              android:layout_height="wrap_content"
+              android:text="@string/text_xunjian_type"
+              android:textColor="@color/text_content"
+              android:textSize="@dimen/text_size_meduim" />
+
+            <TextView
+              android:id="@+id/tv_xunjianzt"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text=""
+              android:textColor="@color/text_content"
+              android:textSize="@dimen/text_size_meduim" />
+          </LinearLayout>
+        </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+          android:id="@+id/sub_row4"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+
+
+
+        </LinearLayout>
+
+      </LinearLayout>
+
+
+
+  </android.support.v7.widget.CardView>
+
+</RelativeLayout>

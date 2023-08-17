@@ -76,6 +76,10 @@ import com.sh3h.datautil.data.local.config.ConfigHelper;
 import com.sh3h.datautil.injection.annotation.ApplicationContext;
 import com.sh3h.mobileutil.util.LogUtil;
 import com.sh3h.mobileutil.util.TextUtil;
+import com.sh3h.serverprovider.entity.BiaoKaBean;
+import com.sh3h.serverprovider.entity.BiaoKaListBean;
+import com.sh3h.serverprovider.entity.BiaoKaWholeEntity;
+import com.sh3h.serverprovider.entity.XunJianTaskBean;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -152,6 +156,320 @@ public class DbHelper {
 
         return false;
     }
+
+  /**
+   * getXunJianBK
+   *
+   * @return
+   */
+  public Observable<List<BiaoKaListBean>> getXunJianListData() {
+    return Observable.create(new Observable.OnSubscribe<List<BiaoKaListBean>>() {
+      @Override
+      public void call(Subscriber<? super List<BiaoKaListBean>> subscriber) {
+        if (subscriber.isUnsubscribed()) {
+          return;
+        }
+
+        try {
+          init();
+
+
+
+          List<BiaoKaListBean> biaoKaBeans = DBManager.getInstance().getXunJianListBK();
+          if (biaoKaBeans != null) {
+//            List<DUTask> duTaskList = new ArrayList<>();
+//            for (ChaoBiaoRW chaoBiaoRW : chaoBiaoRWList) {
+//              DUTask duTask = chaoBiaoRW2DUTask(chaoBiaoRW);
+//              duTask.setTongBuBZ(duTask.getYiChaoShu() == duTask.getZongShu()
+//                ? DBManager.getInstance().isUploaded(account, duTask.getcH()) : 0);
+//              duTaskList.add(duTask);
+//            }
+            subscriber.onNext(biaoKaBeans);
+          } else {
+            LogUtil.i(TAG, "---getTasks: chaoBiaoRWList is null---");
+            subscriber.onError(new Throwable("chaoBiaoRWList is null"));
+          }
+        } catch (Exception e) {
+          e.printStackTrace();
+          subscriber.onError(new Throwable(e.getMessage()));
+        } finally {
+          subscriber.onCompleted();
+        }
+      }
+    });
+  }
+
+  /**
+   * getXunJianBK
+   *
+   * @return
+   */
+  public Observable<List<BiaoKaListBean>> getXunJianListData(final String xiaogenghao) {
+    return Observable.create(new Observable.OnSubscribe<List<BiaoKaListBean>>() {
+      @Override
+      public void call(Subscriber<? super List<BiaoKaListBean>> subscriber) {
+        if (subscriber.isUnsubscribed()) {
+          return;
+        }
+
+        try {
+          init();
+
+
+
+          List<BiaoKaListBean> biaoKaBeans = DBManager.getInstance().getXunJianListBK(xiaogenghao);
+          if (biaoKaBeans != null) {
+//            List<DUTask> duTaskList = new ArrayList<>();
+//            for (ChaoBiaoRW chaoBiaoRW : chaoBiaoRWList) {
+//              DUTask duTask = chaoBiaoRW2DUTask(chaoBiaoRW);
+//              duTask.setTongBuBZ(duTask.getYiChaoShu() == duTask.getZongShu()
+//                ? DBManager.getInstance().isUploaded(account, duTask.getcH()) : 0);
+//              duTaskList.add(duTask);
+//            }
+            subscriber.onNext(biaoKaBeans);
+          } else {
+            LogUtil.i(TAG, "---getTasks: chaoBiaoRWList is null---");
+            subscriber.onError(new Throwable("chaoBiaoRWList is null"));
+          }
+        } catch (Exception e) {
+          e.printStackTrace();
+          subscriber.onError(new Throwable(e.getMessage()));
+        } finally {
+          subscriber.onCompleted();
+        }
+      }
+    });
+  }
+
+  public Observable<Boolean> saveXunJianBK(final List<BiaoKaBean> biaoKaBeans) {
+    return Observable.create(new Observable.OnSubscribe<Boolean>() {
+      @Override
+      public void call(Subscriber<? super Boolean> subscriber) {
+        if (subscriber.isUnsubscribed()) {
+          return;
+        }
+
+        if (biaoKaBeans == null) {
+          throw new NullPointerException("biaoKaBeans contains null parameter");
+        } else {
+          try {
+            init();
+
+
+            boolean ret = false;
+            ret = DBManager.getInstance().insertXunJianBK(biaoKaBeans);
+
+
+            subscriber.onNext(ret);
+          } catch (Exception e) {
+            e.getStackTrace();
+            subscriber.onError(new Throwable(e.getMessage()));
+          } finally {
+            subscriber.onCompleted();
+          }
+        }
+      }
+    });
+  }
+
+  public Observable<List<BiaoKaBean>> getXunJianBK() {
+    return Observable.create(new Observable.OnSubscribe<List<BiaoKaBean>>() {
+      @Override
+      public void call(Subscriber<? super List<BiaoKaBean>> subscriber) {
+        if (subscriber.isUnsubscribed()) {
+          return;
+        }
+
+        try {
+          init();
+
+          List<BiaoKaBean> biaoKaBeans = DBManager.getInstance().getXunJianBK();
+          if (biaoKaBeans != null) {
+//            List<DUTask> duTaskList = new ArrayList<>();
+//            for (ChaoBiaoRW chaoBiaoRW : chaoBiaoRWList) {
+//              DUTask duTask = chaoBiaoRW2DUTask(chaoBiaoRW);
+//              duTask.setTongBuBZ(duTask.getYiChaoShu() == duTask.getZongShu()
+//                ? DBManager.getInstance().isUploaded(account, duTask.getcH()) : 0);
+//              duTaskList.add(duTask);
+//            }
+            subscriber.onNext(biaoKaBeans);
+          } else {
+            LogUtil.i(TAG, "---getTasks: chaoBiaoRWList is null---");
+            subscriber.onError(new Throwable("chaoBiaoRWList is null"));
+          }
+        } catch (Exception e) {
+          e.printStackTrace();
+          subscriber.onError(new Throwable(e.getMessage()));
+        } finally {
+          subscriber.onCompleted();
+        }
+      }
+    });
+  }
+
+  public Boolean SaveBiaoKaWholeEntity2(final BiaoKaWholeEntity newWholeEntity) {
+    if (newWholeEntity ==null){
+      return false;
+    }
+    try{
+      init();
+      return DBManager.getInstance().insertBKWholeEntity(newWholeEntity);
+    }catch (Exception e){
+      return false;
+    }
+  }
+
+  public List<XunJianTaskBean> getLocalXunJianTasks(String type) {
+    List<XunJianTaskBean> xunJianTaskBeans = null;
+    try {
+      init();
+      xunJianTaskBeans = DBManager.getInstance().getLocalXunJianTasks(type);
+      if (xunJianTaskBeans != null) {
+
+        return xunJianTaskBeans;
+      } else {
+        LogUtil.i(TAG, "---getHuanBiaoXXs: huanBiaoJLList is null---");
+        return new ArrayList<>();
+      }
+    } catch (Exception e) {
+      e.getStackTrace();
+      if (xunJianTaskBeans != null) {
+        return xunJianTaskBeans;
+      }
+      return new ArrayList<>();
+    }
+  }
+
+  public List<BiaoKaListBean> getWcorYcBiaoKalistbean(String renwumc, String type) {
+    try {
+      init();
+      List<BiaoKaListBean> biaoKaListBeans = DBManager.getInstance().getWcorYcBiaoKalistbean(renwumc,type);
+      if (biaoKaListBeans != null) {
+
+        return biaoKaListBeans;
+      } else {
+        LogUtil.i(TAG, "---getHuanBiaoXXs: huanBiaoJLList is null---");
+        return new ArrayList<>();
+      }
+    } catch (Exception e) {
+      e.getStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  public List<XunJianTaskBean> getXunJianTaskBean(String renwumc) {
+    try {
+      init();
+      List<XunJianTaskBean> xunJianTaskBeans = DBManager.getInstance().getXunJianTaskBean(renwumc);
+      if (xunJianTaskBeans != null) {
+
+        return xunJianTaskBeans;
+      } else {
+        LogUtil.i(TAG, "---getHuanBiaoXXs: huanBiaoJLList is null---");
+        return xunJianTaskBeans;
+      }
+    } catch (Exception e) {
+      e.getStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  public List<BiaoKaListBean> getBiaoKaListBean(String s_renwuid) {
+    try {
+      init();
+      List<BiaoKaListBean> biaoKaListBeans = DBManager.getInstance().getBiaoKaListBean(s_renwuid);
+      if (biaoKaListBeans != null) {
+
+        return biaoKaListBeans;
+      } else {
+        LogUtil.i(TAG, "---getHuanBiaoXXs: huanBiaoJLList is null---");
+        return new ArrayList<>();
+      }
+    } catch (Exception e) {
+      e.getStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  public void deleteBiaoKaListBean() {
+    try{
+      init();
+      DBManager.getInstance().deleteBiaoKaListBean();
+    }catch (Exception e) {
+      e.getStackTrace();
+    } finally {
+    }
+  }
+
+  public void saveXunjianBKlistBean(BiaoKaListBean biaoKaListBean) {
+    try {
+      init();
+      DBManager.getInstance().saveXunjianBKlistBean(biaoKaListBean);
+
+    } catch (Exception e) {
+      e.getStackTrace();
+    }
+  }
+
+  public List<BiaoKaWholeEntity> getBiaoKaWholeEntity2(String renwumc, int issave) {
+    try {
+      init();
+      List<BiaoKaWholeEntity> biaoKaWholeEntities = DBManager.getInstance().getBiaoKaWholeEntity2(renwumc,issave);
+      if (biaoKaWholeEntities != null) {
+
+        return biaoKaWholeEntities;
+      } else {
+        LogUtil.i(TAG, "---getHuanBiaoXXs: huanBiaoJLList is null---");
+        return new ArrayList<>();
+      }
+    } catch (Exception e) {
+      e.getStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  public boolean SaveXunJianTasks2(ArrayList<XunJianTaskBean> xunjianTasks) {
+    try {
+      init();
+      return DBManager.getInstance().SaveXunJianTasks(xunjianTasks);
+
+    } catch (Exception e) {
+      e.getStackTrace();
+      return false;
+    }
+  }
+
+  public boolean saveXunjianBKlist2(List<BiaoKaListBean> biaoKaList) {
+    try {
+      init();
+      return DBManager.getInstance().saveBiaoKaListBean(biaoKaList);
+
+    } catch (Exception e) {
+      e.getStackTrace();
+      return false;
+    }
+  }
+
+  public boolean savebiaoKaBean(List<BiaoKaBean> biaoKaBeans) {
+    try {
+      init();
+      return DBManager.getInstance().savebiaoKaBean(biaoKaBeans);
+
+    } catch (Exception e) {
+      e.getStackTrace();
+      return false;
+    }
+  }
+
+  public void saveBiaoKaWholeEntityDao(BiaoKaWholeEntity biaoKaWholeEntity) {
+    try {
+      init();
+      DBManager.getInstance().saveBiaoKaWholeEntityDao(biaoKaWholeEntity);
+
+    } catch (Exception e) {
+      e.getStackTrace();
+    }
+  }
 
     /**
      * get tasks

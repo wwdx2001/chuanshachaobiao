@@ -44,6 +44,10 @@ import com.sh3h.dataprovider.greendaoEntity.XinXiBG;
 import com.sh3h.dataprovider.greendaoEntity.YanChiBiao;
 import com.sh3h.dataprovider.greendaoEntity.YuanGongXX;
 import com.sh3h.dataprovider.greendaoEntity.ZhuangTaiLXCS;
+import com.sh3h.serverprovider.entity.BiaoKaBean;
+import com.sh3h.serverprovider.entity.BiaoKaListBean;
+import com.sh3h.serverprovider.entity.BiaoKaWholeEntity;
+import com.sh3h.serverprovider.entity.XunJianTaskBean;
 
 import java.util.Map;
 
@@ -103,6 +107,11 @@ public class DaoSession extends AbstractDaoSession {
     private final DaoConfig jiChaRWDaoconfig;
     private final DaoConfig jiChaSJDaoconfig;
     private final DaoConfig waiFuCBSJDaoConfig;
+    private final DaoConfig biaoKaBeanDaoConfig;
+    private final DaoConfig biaoKaListBeanDaoConfig;
+    private final DaoConfig biaoKaWholeEntityDaoConfig;
+    private final DaoConfig xunJianTaskBeanDaoConfig;
+
 
     private final ChaoBiaoBZDao chaoBiaoBZDao;
     private final ChaoBiaoGJDao chaoBiaoGJDao;
@@ -146,6 +155,12 @@ public class DaoSession extends AbstractDaoSession {
     private final JiChaRWDao jiChaRWDao;
     private final JiChaSJDao jiChaSJDao;
     private final WaiFuCBSJDao waiFuCBSJDao;
+    private final BiaoKaBeanDao biaoKaBeanDao;
+    private final BiaoKaListBeanDao biaoKaListBeanDao;
+    private final BiaoKaWholeEntityDao biaoKaWholeEntityDao;
+    private final XunJianTaskBeanDao xunJianTaskBeanDao;
+
+
 
     public DaoSession(SQLiteDatabase db, IdentityScopeType type, Map<Class<? extends AbstractDao<?, ?>>, DaoConfig>
             daoConfigMap) {
@@ -278,6 +293,18 @@ public class DaoSession extends AbstractDaoSession {
         waiFuCBSJDaoConfig =  daoConfigMap.get(WaiFuCBSJDao.class).clone();
         waiFuCBSJDaoConfig.initIdentityScope(type);
 
+        biaoKaBeanDaoConfig = daoConfigMap.get(BiaoKaBeanDao.class).clone();
+        biaoKaBeanDaoConfig.initIdentityScope(type);
+
+        biaoKaListBeanDaoConfig =  daoConfigMap.get(BiaoKaListBeanDao.class).clone();
+        biaoKaListBeanDaoConfig.initIdentityScope(type);
+
+        biaoKaWholeEntityDaoConfig =   daoConfigMap.get(BiaoKaWholeEntityDao.class).clone();
+        biaoKaWholeEntityDaoConfig.initIdentityScope(type);
+
+        xunJianTaskBeanDaoConfig =   daoConfigMap.get(XunJianTaskBeanDao.class).clone();
+        xunJianTaskBeanDaoConfig.initIdentityScope(type);
+
         chaoBiaoRWDao = new ChaoBiaoRWDao(chaoBiaoRWDaoConfig, this);
         chaoBiaoSJDao = new ChaoBiaoSJDao(chaoBiaoSJDaoConfig, this);
         chaoBiaoBZDao = new ChaoBiaoBZDao(chaoBiaoBZDaoConfig, this);
@@ -320,6 +347,11 @@ public class DaoSession extends AbstractDaoSession {
         jiChaRWDao = new JiChaRWDao(jiChaRWDaoconfig,this);
         jiChaSJDao = new JiChaSJDao(jiChaSJDaoconfig,this);
         waiFuCBSJDao =  new WaiFuCBSJDao(waiFuCBSJDaoConfig, this);
+        biaoKaBeanDao =  new BiaoKaBeanDao(biaoKaBeanDaoConfig, this);
+        biaoKaListBeanDao =  new BiaoKaListBeanDao(biaoKaListBeanDaoConfig, this);
+        biaoKaWholeEntityDao = new BiaoKaWholeEntityDao(biaoKaWholeEntityDaoConfig, this);
+        xunJianTaskBeanDao = new XunJianTaskBeanDao(xunJianTaskBeanDaoConfig, this);
+
 
         registerDao(ChaoBiaoRW.class, chaoBiaoRWDao);
         registerDao(ChaoBiaoSJ.class, chaoBiaoSJDao);
@@ -365,6 +397,12 @@ public class DaoSession extends AbstractDaoSession {
         registerDao(JiChaRW.class,jiChaRWDao);
         registerDao(JiChaSJ.class,jiChaSJDao);
         registerDao(WaiFuCBSJ.class,waiFuCBSJDao);
+        registerDao(BiaoKaBean.class,biaoKaBeanDao);
+        registerDao(BiaoKaListBean.class,biaoKaListBeanDao);
+        registerDao(BiaoKaWholeEntity.class,biaoKaWholeEntityDao);
+        registerDao(XunJianTaskBean.class,xunJianTaskBeanDao);
+
+
     }
     
     public void clear() {
@@ -411,6 +449,11 @@ public class DaoSession extends AbstractDaoSession {
         jiChaRWDaoconfig.getIdentityScope().clear();
         jiChaSJDaoconfig.getIdentityScope().clear();
         waiFuCBSJDaoConfig.getIdentityScope().clear();
+        biaoKaBeanDaoConfig.getIdentityScope().clear();
+        biaoKaListBeanDaoConfig.getIdentityScope().clear();
+        biaoKaWholeEntityDaoConfig.getIdentityScope().clear();
+        xunJianTaskBeanDaoConfig.getIdentityScope().clear();
+
     }
 
 //    public void clearChaoBiaoRWMemory(){
@@ -586,4 +629,19 @@ public class DaoSession extends AbstractDaoSession {
         return waiFuCBSJDao;
     }
 
+    public BiaoKaBeanDao getBiaoKaBeanDao(){
+      return biaoKaBeanDao;
+    }
+
+    public BiaoKaListBeanDao getBiaoKaListBeanDao(){
+    return biaoKaListBeanDao;
+  }
+
+    public BiaoKaWholeEntityDao getBiaoKaWholeEntityDao(){
+    return biaoKaWholeEntityDao;
+  }
+
+    public XunJianTaskBeanDao getXunJianTaskBeanDao(){
+    return xunJianTaskBeanDao;
+  }
 }

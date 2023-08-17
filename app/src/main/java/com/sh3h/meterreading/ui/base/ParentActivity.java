@@ -17,6 +17,7 @@ import android.view.View;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.blankj.utilcode.util.SPUtils;
 import com.sh3h.datautil.data.entity.Coordinate;
 import com.sh3h.meterreading.MainApplication;
 import com.sh3h.meterreading.R;
@@ -27,6 +28,7 @@ import com.sh3h.meterreading.ui.map.MapStatusEx;
 import com.sh3h.mobileutil.util.ApplicationsUtil;
 import com.sh3h.mobileutil.util.LogUtil;
 import com.sh3h.mobileutil.util.TextUtil;
+import com.sh3h.thirdparty.gesturelock.commonutil.Constants;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -198,6 +200,8 @@ public class ParentActivity extends BaseActivity implements SwipeBackActivityBas
             account = TextUtil.getString(bundle.getString(ACCOUNT));
             userId = bundle.getInt(USER_ID);
             userName = TextUtil.getString(bundle.getString(USER_NAME));
+            SPUtils.getInstance().put(Constants.USERNAME, userName);
+
             extendedInfo = TextUtil.getString(bundle.getString(EXTENDED_INFO));
             try {
                 JSONObject jsonObject = new JSONObject(extendedInfo);

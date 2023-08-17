@@ -13,6 +13,9 @@ public class Constants {
     public static final int POINT_STATE_WRONG = 2; // 错误状态
     //*/
 
+    public static final String USERNAME = "SP_userName";
+
+
     /**
      * 获取屏幕分辨率
      * @param context

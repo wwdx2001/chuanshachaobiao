@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <item
+    android:id="@+id/mtl_action_update"
+    android:title="@string/action_commit"
+    app:showAsAction="always"/>
+
+  <group android:checkableBehavior="single">
+    <item
+      android:id="@+id/mul_action_remote_all"
+      android:checked="true"
+      android:title="@string/text_remote_all"/>
+    <item
+      android:id="@+id/mul_action_remote_yes"
+      android:title="@string/text_remote_yes"/>
+    <item
+      android:id="@+id/mul_action_remote_no"
+      android:title="@string/text_remote_no"/>
+    <item
+      android:id="@+id/mul_action_remote_up"
+      android:title="@string/text_remote_up"/>
+    <item
+      android:id="@+id/mul_action_remote_down"
+      android:title="@string/text_remote_down"/>
+
+  </group>
+
+
+</menu>

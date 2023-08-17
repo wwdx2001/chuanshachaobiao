@@ -23,6 +23,7 @@ import com.sh3h.meterreading.ui.check.CheckActivity;
 import com.sh3h.meterreading.ui.delay.DelayListActivity;
 import com.sh3h.meterreading.ui.lgld.LgldListActivity;
 import com.sh3h.meterreading.ui.outside.OutsideListActivity;
+import com.sh3h.meterreading.ui.remoteinspection.RemoteinSpectionListActivity;
 import com.sh3h.meterreading.ui.sampling.SamplingTaskActivity;
 import com.sh3h.meterreading.ui.search.CombinedSearchActivity;
 import com.sh3h.meterreading.ui.setting.SettingActivity;
@@ -69,7 +70,10 @@ public class MyWorkFragment extends ParentFragment implements MyWorkMvpView,
     public static final int ACTION_DELAY = 1012;
     //量高量低
     public static final int ACTION_LGLD = 1013;
-
+    //辅助验收
+    public static final int ACTION_YCXJ = 1017;
+    //辅助验收历史
+    public static final int ACTION_YCXJ_HISTORY = 1018;
 
     @Inject
     MyWorkPresenter mMyWorkPresenter;
@@ -277,6 +281,9 @@ public class MyWorkFragment extends ParentFragment implements MyWorkMvpView,
                 break;
             case ACTION_LGLD:
                 intentMsg = new Intent(mMainActivity, LgldListActivity.class);
+                break;
+            case ACTION_YCXJ:
+                intentMsg = new Intent(mMainActivity, RemoteinSpectionListActivity.class);
                 break;
             default:
                 LogUtil.i(TAG, String.format(Locale.CHINA, "---onItemClick---error: %d", id));

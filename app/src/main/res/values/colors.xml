@@ -25,6 +25,7 @@
     <color name="divider_line">#E1E1E1</color>
     <color name="gray">#AFAFAF</color>
 
+    <color name="color_gray00">#000000</color>
 
     <color name="actionbar_background">#355f8a</color>
     <color name="actionbar_tab_background">#ffffff</color>

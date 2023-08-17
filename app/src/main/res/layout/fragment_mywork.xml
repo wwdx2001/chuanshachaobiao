@@ -13,7 +13,6 @@
         android:horizontalSpacing="@dimen/list_padding_horizontal"
         android:listSelector="@android:color/transparent"
         android:numColumns="3"
-        android:paddingLeft="25dp"
         android:verticalSpacing="@dimen/list_padding_horizontal" />
 
     <ListView

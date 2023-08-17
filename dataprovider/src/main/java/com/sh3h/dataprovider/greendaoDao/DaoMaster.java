@@ -6,13 +6,9 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Environment;
 import android.util.Log;
 
-import com.sh3h.dataprovider.greendaoEntity.BIAOKAXX;
 import com.sh3h.dataprovider.schema.BiaoKaXXColumns;
-
-import java.io.File;
 
 import de.greenrobot.dao.AbstractDaoMaster;
 import de.greenrobot.dao.identityscope.IdentityScopeType;
@@ -75,6 +71,10 @@ public class DaoMaster extends AbstractDaoMaster {
         JiChaRWDao.createTable(db, ifNotExists);
         JiChaSJDao.createTable(db, ifNotExists);
         WaiFuCBSJDao.createTable(db, ifNotExists);
+        BiaoKaWholeEntityDao.createTable(db, ifNotExists);
+        BiaoKaBeanDao.createTable(db, ifNotExists);
+        BiaoKaListBeanDao.createTable(db, ifNotExists);
+        XunJianTaskBeanDao.createTable(db, ifNotExists);
     }
 
     /**
@@ -125,6 +125,10 @@ public class DaoMaster extends AbstractDaoMaster {
         JiChaRWDao.dropTable(db, ifExists);
         JiChaSJDao.dropTable(db, ifExists);
         WaiFuCBSJDao.dropTable(db, ifExists);
+        BiaoKaWholeEntityDao.dropTable(db, ifExists);
+        BiaoKaBeanDao.dropTable(db, ifExists);
+        BiaoKaListBeanDao.dropTable(db, ifExists);
+        XunJianTaskBeanDao.dropTable(db, ifExists);
     }
 
     public static void createQianFeiXXTables(SQLiteDatabase db, boolean ifNotExists) {
@@ -220,12 +224,17 @@ public class DaoMaster extends AbstractDaoMaster {
      */
     public void updateQianFeiXX(int newVersion, SQLiteDatabase db) {
         switch (newVersion) {
+            case 4:
+                  String sql3 = "ALTER TABLE BIAO_KA_LIST_BEAN ADD COLUMN XUHAO text";
+                  db.execSQL(sql3);
             case 3:
                 try {
                     String sql1 = "alter table ZW_QianFeiXX add N_SHUIFEI REAL NOT NULL  default 0";
                     String sql2 = "alter table ZW_QianFeiXX add N_PAISHUIF REAL NOT NULL default 0";
                     db.execSQL(sql1);
                     db.execSQL(sql2);
+
+
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -558,6 +567,10 @@ public class DaoMaster extends AbstractDaoMaster {
         registerDaoClass(JiChaRWDao.class);
         registerDaoClass(JiChaSJDao.class);
         registerDaoClass(WaiFuCBSJDao.class);
+        registerDaoClass(BiaoKaBeanDao.class);
+        registerDaoClass(BiaoKaListBeanDao.class);
+        registerDaoClass(BiaoKaWholeEntityDao.class);
+        registerDaoClass(XunJianTaskBeanDao.class);
     }
 
     public static SQLiteDatabase getSQLiteDatabase(String path, Context context) {

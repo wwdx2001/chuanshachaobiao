@@ -83,6 +83,7 @@ import com.sh3h.serverprovider.entity.BiaoKaBean;
 import com.sh3h.serverprovider.entity.BiaoKaListBean;
 import com.sh3h.serverprovider.entity.BiaoKaWholeEntity;
 import com.sh3h.serverprovider.entity.RenWuXXEntity;
+import com.sh3h.serverprovider.entity.XJXXWordBean;
 import com.sh3h.serverprovider.entity.XunJianTaskBean;
 
 import java.io.File;
@@ -219,6 +220,82 @@ public class DataManager {
 //          }
 //        });
     }
+  }
+
+  public Observable<List<BiaoKaBean>> getXunJianBK(String xiaogenhao) {
+    return mDbHelper.getXunJianBK(xiaogenhao);
+  }
+
+  public Observable<List<XJXXWordBean>> getXunJianWord(String type) {
+    return mDbHelper.getXunJianWord(type);
+  }
+
+  public List<XJXXWordBean> getHotlineWordData(String type) {
+    return mDbHelper.getHotlineWordData(type);
+  }
+
+  public List<XJXXWordBean> getHotlineWordData(String type, String yongshuixz) {
+    return mDbHelper.getHotlineWordData(type,yongshuixz);
+  }
+
+  public Observable<Boolean> SaveBiaoKaWholeEntity(BiaoKaWholeEntity newWholeEntity) {
+    return mDbHelper.SaveBiaoKaWholeEntity(newWholeEntity);
+  }
+
+  public Observable<List<BiaoKaListBean>> getBiaokaListBeans(String renwuh, String type) {
+    return mDbHelper.getBiaokaListBeans(renwuh,type);
+  }
+
+  public Observable<List<BiaoKaWholeEntity>> getbiaoKaWholeEntitys(Long id) {
+    return mDbHelper.getbiaoKaWholeEntitys(id);
+  }
+
+  public List<BiaoKaListBean> getWcorYcBiaoKalistbean2(String renwumc, String type) {
+    return mDbHelper.getWcorYcBiaoKalistbean2(renwumc,type);
+  }
+
+  public List<BiaoKaBean> getBiaoKaBean(String xiaoGenhao) {
+    return mDbHelper.getBiaoKaBean(xiaoGenhao);
+  }
+
+  public List<BiaoKaWholeEntity> getBiaoKaWholeEntity(String renWuId, String xiaoGenhao) {
+    return mDbHelper.getBiaoKaWholeEntity(renWuId ,xiaoGenhao);
+  }
+
+  public List<BiaoKaWholeEntity> getBiaoKaWholeEntity(long id) {
+    return mDbHelper.getBiaoKaWholeEntity(id);
+  }
+
+  public Observable<Boolean> saveXunjianWord(List<XJXXWordBean> data) {
+    return mDbHelper.saveXunjianWord(data);
+  }
+
+  public Observable<Boolean> deleteXunjianWord() {
+    return mDbHelper.deleteXunjianWord();
+  }
+
+  public  Observable<Boolean> deleteFile() {
+    return mDbHelper.deleteFile();
+  }
+
+  public Observable<List<BiaoKaListBean>> getXunJianhistoryBK() {
+    return mDbHelper.getXunJianhistoryBK();
+  }
+
+  /**
+   * 保存巡检表卡列表
+   * @return
+   */
+  public Observable<Boolean> saveXunjianBKlist(List<BiaoKaListBean> biaoKaBeans) {
+    return mDbHelper.saveXunjianBKlist(biaoKaBeans);
+  }
+
+  public List<XunJianTaskBean> getXunJianFuHeTaskBean(String xunjiantaskType) {
+    return mDbHelper.getXunJianFuHeTaskBean(xunjiantaskType);
+  }
+
+  public List<BiaoKaListBean> getTiJiaoBiaoKaListBean(String renwumc, int i) {
+    return mDbHelper.getTiJiaoBiaoKaListBean(renwumc,i);
   }
 
   public Boolean SaveBiaoKaWholeEntity2(BiaoKaWholeEntity newWholeEntity) {

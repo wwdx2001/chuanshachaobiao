@@ -1,7 +1,9 @@
 package com.sh3h.datautil.data.local.db;
 
 import android.content.Context;
+import android.os.Environment;
 
+import com.blankj.utilcode.util.FileUtils;
 import com.sh3h.dataprovider.DBManager;
 import com.sh3h.dataprovider.entity.ConditionInfo;
 import com.sh3h.dataprovider.greendaoDao.ChaoBiaoSJDao;
@@ -79,13 +81,18 @@ import com.sh3h.mobileutil.util.TextUtil;
 import com.sh3h.serverprovider.entity.BiaoKaBean;
 import com.sh3h.serverprovider.entity.BiaoKaListBean;
 import com.sh3h.serverprovider.entity.BiaoKaWholeEntity;
+import com.sh3h.serverprovider.entity.XJXXWordBean;
 import com.sh3h.serverprovider.entity.XunJianTaskBean;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 import javax.inject.Inject;
@@ -93,6 +100,8 @@ import javax.inject.Singleton;
 
 import rx.Observable;
 import rx.Subscriber;
+
+import static com.sh3h.datautil.data.local.config.ConfigHelper.FOLDER_ROOT;
 
 @Singleton
 public class DbHelper {
@@ -305,6 +314,465 @@ public class DbHelper {
         }
       }
     });
+  }
+
+  /**
+   * getXunJianBK
+   *
+   * @return
+   */
+  public Observable<List<BiaoKaBean>> getXunJianBK(final String xiaogenghao) {
+    return Observable.create(new Observable.OnSubscribe<List<BiaoKaBean>>() {
+      @Override
+      public void call(Subscriber<? super List<BiaoKaBean>> subscriber) {
+        if (subscriber.isUnsubscribed()) {
+          return;
+        }
+
+        try {
+          init();
+          List<BiaoKaBean> biaoKaBeans = DBManager.getInstance().getXunJianBK(xiaogenghao);
+          if (biaoKaBeans != null) {
+//            List<DUTask> duTaskList = new ArrayList<>();
+//            for (ChaoBiaoRW chaoBiaoRW : chaoBiaoRWList) {
+//              DUTask duTask = chaoBiaoRW2DUTask(chaoBiaoRW);
+//              duTask.setTongBuBZ(duTask.getYiChaoShu() == duTask.getZongShu()
+//                ? DBManager.getInstance().isUploaded(account, duTask.getcH()) : 0);
+//              duTaskList.add(duTask);
+//            }
+            subscriber.onNext(biaoKaBeans);
+          } else {
+            LogUtil.i(TAG, "---getTasks: chaoBiaoRWList is null---");
+            subscriber.onError(new Throwable("chaoBiaoRWList is null"));
+          }
+        } catch (Exception e) {
+          e.printStackTrace();
+          subscriber.onError(new Throwable(e.getMessage()));
+        } finally {
+          subscriber.onCompleted();
+        }
+      }
+    });
+  }
+
+  /**
+   * getXunJianBK
+   *
+   * @return
+   */
+  public Observable<List<XJXXWordBean>> getXunJianWord(final String type) {
+    return Observable.create(new Observable.OnSubscribe<List<XJXXWordBean>>() {
+      @Override
+      public void call(Subscriber<? super List<XJXXWordBean>> subscriber) {
+        if (subscriber.isUnsubscribed()) {
+          return;
+        }
+
+        try {
+          init();
+          List<XJXXWordBean> xjxxWordBeans = DBManager.getInstance().getXunJianWord(type);
+          if (xjxxWordBeans != null) {
+            subscriber.onNext(xjxxWordBeans);
+          } else {
+            LogUtil.i(TAG, "---getTasks: chaoBiaoRWList is null---");
+            subscriber.onError(new Throwable("chaoBiaoRWList is null"));
+          }
+        } catch (Exception e) {
+          e.printStackTrace();
+          subscriber.onError(new Throwable(e.getMessage()));
+        } finally {
+          subscriber.onCompleted();
+        }
+      }
+    });
+  }
+
+  public List<XJXXWordBean> getHotlineWordData(String type) {
+    try {
+      init();
+      List<XJXXWordBean> xjxxWordBeans = DBManager.getInstance().getHotlineWordData(type);
+      if (xjxxWordBeans != null) {
+
+        return xjxxWordBeans;
+      } else {
+        LogUtil.i(TAG, "---getHuanBiaoXXs: huanBiaoJLList is null---");
+        return new ArrayList<>();
+      }
+    } catch (Exception e) {
+      e.getStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  public List<XJXXWordBean> getHotlineWordData(String type, String yongshuixz) {
+    try {
+      init();
+      List<XJXXWordBean> xjxxWordBeans = DBManager.getInstance().getHotlineWordData(type,yongshuixz);
+      if (xjxxWordBeans != null) {
+
+        return xjxxWordBeans;
+      } else {
+        LogUtil.i(TAG, "---getHuanBiaoXXs: huanBiaoJLList is null---");
+        return new ArrayList<>();
+      }
+    } catch (Exception e) {
+      e.getStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  public Observable<Boolean> SaveBiaoKaWholeEntity(final BiaoKaWholeEntity newWholeEntity) {
+    return Observable.create(new Observable.OnSubscribe<Boolean>() {
+      @Override
+      public void call(Subscriber<? super Boolean> subscriber) {
+        if (subscriber.isUnsubscribed()) {
+          return;
+        }
+
+        if (newWholeEntity == null) {
+          throw new NullPointerException("biaoKaBeans contains null parameter");
+        } else {
+          try {
+            init();
+
+            boolean ret = false;
+            ret = DBManager.getInstance().insertBKWholeEntity(newWholeEntity);
+
+            subscriber.onNext(ret);
+          } catch (Exception e) {
+            e.getStackTrace();
+            subscriber.onError(new Throwable(e.getMessage()));
+          } finally {
+            subscriber.onCompleted();
+          }
+        }
+      }
+    });
+  }
+
+  public Observable<List<BiaoKaListBean>> getBiaokaListBeans(final String renwuhao, final String type) {
+    return Observable.create(new Observable.OnSubscribe<List<BiaoKaListBean>>() {
+      @Override
+      public void call(Subscriber<? super List<BiaoKaListBean>> subscriber) {
+        if (subscriber.isUnsubscribed()) {
+          return;
+        }
+
+        try {
+          init();
+          List<BiaoKaListBean> biaoKaBeans = DBManager.getInstance().getBiaokaListBeans(renwuhao,type);
+          if (biaoKaBeans != null) {
+//            List<DUTask> duTaskList = new ArrayList<>();
+//            for (ChaoBiaoRW chaoBiaoRW : chaoBiaoRWList) {
+//              DUTask duTask = chaoBiaoRW2DUTask(chaoBiaoRW);
+//              duTask.setTongBuBZ(duTask.getYiChaoShu() == duTask.getZongShu()
+//                ? DBManager.getInstance().isUploaded(account, duTask.getcH()) : 0);
+//              duTaskList.add(duTask);
+//            }
+            subscriber.onNext(biaoKaBeans);
+          } else {
+            LogUtil.i(TAG, "---getTasks: chaoBiaoRWList is null---");
+            subscriber.onError(new Throwable("chaoBiaoRWList is null"));
+          }
+        } catch (Exception e) {
+          e.printStackTrace();
+          subscriber.onError(new Throwable(e.getMessage()));
+        } finally {
+          subscriber.onCompleted();
+        }
+      }
+    });
+  }
+
+  public Observable<List<BiaoKaWholeEntity>> getbiaoKaWholeEntitys(final long id) {
+    return Observable.create(new Observable.OnSubscribe<List<BiaoKaWholeEntity>>() {
+      @Override
+      public void call(Subscriber<? super List<BiaoKaWholeEntity>> subscriber) {
+        if (subscriber.isUnsubscribed()) {
+          return;
+        }
+
+        try {
+          init();
+          List<BiaoKaWholeEntity> biaoKaBeans = DBManager.getInstance().getbiaoKaWholeEntitys(id);
+          if (biaoKaBeans != null) {
+//            List<DUTask> duTaskList = new ArrayList<>();
+//            for (ChaoBiaoRW chaoBiaoRW : chaoBiaoRWList) {
+//              DUTask duTask = chaoBiaoRW2DUTask(chaoBiaoRW);
+//              duTask.setTongBuBZ(duTask.getYiChaoShu() == duTask.getZongShu()
+//                ? DBManager.getInstance().isUploaded(account, duTask.getcH()) : 0);
+//              duTaskList.add(duTask);
+//            }
+            subscriber.onNext(biaoKaBeans);
+          } else {
+            LogUtil.i(TAG, "---getTasks: chaoBiaoRWList is null---");
+            subscriber.onError(new Throwable("chaoBiaoRWList is null"));
+          }
+        } catch (Exception e) {
+          e.printStackTrace();
+          subscriber.onError(new Throwable(e.getMessage()));
+        } finally {
+          subscriber.onCompleted();
+        }
+      }
+    });
+  }
+
+  public List<BiaoKaListBean> getWcorYcBiaoKalistbean2(String renwumc, String type) {
+    try {
+      init();
+      List<BiaoKaListBean> biaoKaListBeans = DBManager.getInstance().getWcorYcBiaoKalistbean2(renwumc,type);
+      if (biaoKaListBeans != null) {
+
+        return biaoKaListBeans;
+      } else {
+        LogUtil.i(TAG, "---getHuanBiaoXXs: huanBiaoJLList is null---");
+        return new ArrayList<>();
+      }
+    } catch (Exception e) {
+      e.getStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  public List<BiaoKaBean> getBiaoKaBean(String xiaoGenhao) {
+    try {
+      init();
+      List<BiaoKaBean> biaoKaBeans = DBManager.getInstance().getBiaoKaBean(xiaoGenhao);
+      if (biaoKaBeans != null) {
+
+        return biaoKaBeans;
+      } else {
+        LogUtil.i(TAG, "---getHuanBiaoXXs: huanBiaoJLList is null---");
+        return new ArrayList<>();
+      }
+    } catch (Exception e) {
+      e.getStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  public List<BiaoKaWholeEntity> getBiaoKaWholeEntity(String renWuId, String xiaoGenhao) {
+    try {
+      init();
+      List<BiaoKaWholeEntity> biaoKaWholeEntities = DBManager.getInstance().getBiaoKaWholeEntity(renWuId,xiaoGenhao);
+      if (biaoKaWholeEntities != null) {
+
+        return biaoKaWholeEntities;
+      } else {
+        LogUtil.i(TAG, "---getHuanBiaoXXs: huanBiaoJLList is null---");
+        return new ArrayList<>();
+      }
+    } catch (Exception e) {
+      e.getStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  public List<BiaoKaWholeEntity> getBiaoKaWholeEntity(long id) {
+    try {
+      init();
+      return DBManager.getInstance().getBiaoKaWholeEntity(id);
+
+    } catch (Exception e) {
+      e.getStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  public Observable<Boolean> saveXunjianWord(final List<XJXXWordBean> data) {
+    return Observable.create(new Observable.OnSubscribe<Boolean>() {
+      @Override
+      public void call(Subscriber<? super Boolean> subscriber) {
+        if (subscriber.isUnsubscribed()) {
+          return;
+        }
+
+        if (data == null) {
+          throw new NullPointerException("biaoKaBeans contains null parameter");
+        } else {
+          try {
+            init();
+
+
+            boolean ret = false;
+            ret = DBManager.getInstance().insertXunjianWord(data);
+
+
+            subscriber.onNext(ret);
+          } catch (Exception e) {
+            e.getStackTrace();
+            subscriber.onError(new Throwable(e.getMessage()));
+          } finally {
+            subscriber.onCompleted();
+          }
+        }
+      }
+    });
+  }
+
+  public Observable<Boolean> deleteXunjianWord() {
+    return Observable.create(new Observable.OnSubscribe<Boolean>() {
+      @Override
+      public void call(Subscriber<? super Boolean> subscriber) {
+        if (subscriber.isUnsubscribed()) {
+          return;
+        }
+
+        try {
+          init();
+          boolean ret = false;
+          ret = DBManager.getInstance().deleteXunjianWord();
+          subscriber.onNext(ret);
+        } catch (Exception e) {
+          e.getStackTrace();
+          subscriber.onError(new Throwable(e.getMessage()));
+        } finally {
+          subscriber.onCompleted();
+        }
+
+      }
+    });
+  }
+
+  public  Observable<Boolean> deleteFile() {
+    return Observable.create(new Observable.OnSubscribe<Boolean>() {
+      @Override
+      public void call(Subscriber<? super Boolean> subscriber) {
+        if (subscriber.isUnsubscribed()) {
+          return;
+        }
+        try {
+          boolean ret = false;
+          Date now = new Date();
+          SimpleDateFormat bfFormatter = new SimpleDateFormat("yyyy-MM");
+          String nowTime = bfFormatter.format(now);
+          SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM", Locale.CHINA);
+          Date date = sdf.parse(nowTime);
+          Calendar rightNow = Calendar.getInstance();
+          rightNow.setTime(date);
+          rightNow.add(Calendar.DAY_OF_YEAR, -30);
+          Date time = rightNow.getTime();
+          String format = sdf.format(time);
+          File sdDir = Environment.getExternalStorageDirectory();
+          File folder = new File(sdDir, FOLDER_ROOT + "/images/XUNJIAN");
+          File[] files = folder.listFiles();
+          if (files != null && files.length != 0) {
+            for (File file : files) {
+              if (file.isDirectory()) {
+                String name = file.getName();
+                if (name.equals(format) || name.equals(nowTime)) { // 删除不是当前月份和上个月的照片
+
+                }else {
+                  FileUtils.deleteDir(file);
+                }
+              }
+            }
+          }
+          ret =true;
+//          deleteDirWihtFile(folder);
+          subscriber.onNext(ret);
+        } catch (Exception e) {
+          e.getStackTrace();
+          subscriber.onError(new Throwable(e.getMessage()));
+        } finally {
+          subscriber.onCompleted();
+        }
+
+      }
+    });
+  }
+
+  public Observable<List<BiaoKaListBean>> getXunJianhistoryBK() {
+    return Observable.create(new Observable.OnSubscribe<List<BiaoKaListBean>>() {
+      @Override
+      public void call(Subscriber<? super List<BiaoKaListBean>> subscriber) {
+        if (subscriber.isUnsubscribed()) {
+          return;
+        }
+
+        try {
+          init();
+          List<BiaoKaListBean> biaoKaBeans = DBManager.getInstance().getXunJianHistoryBK();
+          if (biaoKaBeans != null) {
+            subscriber.onNext(biaoKaBeans);
+          } else {
+            LogUtil.i(TAG, "---getTasks: chaoBiaoRWList is null---");
+            subscriber.onError(new Throwable("chaoBiaoRWList is null"));
+          }
+        } catch (Exception e) {
+          e.printStackTrace();
+          subscriber.onError(new Throwable(e.getMessage()));
+        } finally {
+          subscriber.onCompleted();
+        }
+      }
+    });
+  }
+
+  public Observable<Boolean> saveXunjianBKlist(final List<BiaoKaListBean> biaoKaBeans) {
+    return Observable.create(new Observable.OnSubscribe<Boolean>() {
+      @Override
+      public void call(Subscriber<? super Boolean> subscriber) {
+        if (subscriber.isUnsubscribed()) {
+          return;
+        }
+
+        if (biaoKaBeans == null) {
+          throw new NullPointerException("biaoKaBeans contains null parameter");
+        } else {
+          try {
+            init();
+
+
+            boolean ret = false;
+            ret = DBManager.getInstance().insertXunjianBKlist(biaoKaBeans);
+
+
+            subscriber.onNext(ret);
+          } catch (Exception e) {
+            e.getStackTrace();
+            subscriber.onError(new Throwable(e.getMessage()));
+          } finally {
+            subscriber.onCompleted();
+          }
+        }
+      }
+    });
+  }
+
+  public List<XunJianTaskBean> getXunJianFuHeTaskBean(String xunjiantaskType) {
+    try {
+      init();
+      List<XunJianTaskBean> xunJianTaskBeans = DBManager.getInstance().getXunJianFuHeTaskBean(xunjiantaskType);
+      if (xunJianTaskBeans != null) {
+
+        return xunJianTaskBeans;
+      } else {
+        LogUtil.i(TAG, "---getHuanBiaoXXs: huanBiaoJLList is null---");
+        return new ArrayList<>();
+      }
+    } catch (Exception e) {
+      e.getStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  public List<BiaoKaListBean> getTiJiaoBiaoKaListBean(String renwumc, int i) {
+    try {
+      init();
+      List<BiaoKaListBean> biaoKaListBeans = DBManager.getInstance().getTiJiaoBiaoKaListBean(renwumc,i);
+      if (biaoKaListBeans != null) {
+
+        return biaoKaListBeans;
+      } else {
+        LogUtil.i(TAG, "---getHuanBiaoXXs: huanBiaoJLList is null---");
+        return new ArrayList<>();
+      }
+    } catch (Exception e) {
+      e.getStackTrace();
+      return new ArrayList<>();
+    }
   }
 
   public Boolean SaveBiaoKaWholeEntity2(final BiaoKaWholeEntity newWholeEntity) {

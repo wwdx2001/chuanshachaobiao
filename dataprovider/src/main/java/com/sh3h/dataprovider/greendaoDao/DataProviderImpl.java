@@ -51,6 +51,7 @@ import com.sh3h.dataprovider.greendaoEntity.YuanGongXX;
 import com.sh3h.serverprovider.entity.BiaoKaBean;
 import com.sh3h.serverprovider.entity.BiaoKaListBean;
 import com.sh3h.serverprovider.entity.BiaoKaWholeEntity;
+import com.sh3h.serverprovider.entity.XJXXWordBean;
 import com.sh3h.serverprovider.entity.XunJianTaskBean;
 
 import java.util.ArrayList;
@@ -121,6 +122,8 @@ public class DataProviderImpl implements
     private BiaoKaListBeanDao biaoKaListBeanDao;
     private BiaoKaWholeEntityDao biaoKaWholeEntityDao;
     private XunJianTaskBeanDao xunJianTaskBeanDao;
+    private XJXXWordBeanDao xjxxWordBeanDao;
+
 
 
 //    private GongDanCHAOBIAOZTDao gongDanChaoBiaoDao;
@@ -131,55 +134,6 @@ public class DataProviderImpl implements
         db = null;
         context = null;
     }
-
-//    public DataProviderImpl(Context ctx) {
-//        context = ctx;
-//        db = DaoMaster.getSQLiteDatabase(dataFile.getPath(), ctx);
-//        if (db == null) {
-//            return;
-//        }
-//        DaoMaster.createAllTables(db, true);
-//        daoMaster = new DaoMaster(db);
-//        daoSession = daoMaster.newSession();
-//
-//        biaokaxxDao = daoSession.getBIAOKAXXDao();
-//        chaoBiaoZTDao = daoSession.getChaoBiaoZTDao();
-//        chaoBiaoZTFLDao = daoSession.getChaoBiaoZTFLDao();
-//        duoMeiTXXDao = daoSession.getDuoMeiTXXDao();
-//        guiJiDao = daoSession.getGuiJiDao();
-//        neiFuBZDao = daoSession.getNeiFuBZDao();
-//        zhuangTaiLXCSDao = daoSession.getZhuangTaiLXCSDao();
-//        renwuXXDao = daoSession.getRenwuXXDao();
-//        userDao = daoSession.getUsersDao();
-//        waiFuGDDetailDao = daoSession.getWaiFuGDDetailDao();
-//        waiFuGDMainDao = daoSession.getWaiFuGDMainDao();
-//        yanChiBiaoDao = daoSession.getYanChiBiaoDao();
-//        jiaoFeiXXDao = daoSession.getJiaoFeiXXDao();
-//        gongGaoXXDao = daoSession.getGongGaoXXDao();
-//        yuanGongXXDao = daoSession.getYuanGongXXDao();
-//        userInfoDao = daoSession.getUserInfoDao();
-//        qianFeiXXDao = daoSession.getQianFeiXXDao();
-//        jianhaoMXDao = daoSession.getJianHaoMXDao();
-//
-//        huanBiaoJLDao = daoSession.getHuanBiaoJLDao();
-//        chaoBiaoBZDao = daoSession.getChaoBiaoBZDao();
-//        chaoBiaoGJDao = daoSession.getChaoBiaoGJDao();
-//        chaoBiaoJLDao = daoSession.getChaoBiaoJLDao();
-//        chaoBiaoRWDao = daoSession.getChaoBiaoRWDao();
-//        chaoBiaoSJDao = daoSession.getChaoBiaoSJDao();
-//        ciYuXXDao = daoSession.getCiYuXXDao();
-//        reXianGDDao = daoSession.getReXianGDDao();
-//        wordsInfoDao = daoSession.getWordsInfoDao();
-//        dingEJJBLDao = daoSession.getDingEJJBLDao();
-//        feiYongZCDao = daoSession.getFeiYongZCDao();
-//        jianHaoDao = daoSession.getJianHaoDao();
-//        feiYongZKLDao = daoSession.getFeiYongZKLDao();
-//        shuiLiangFTXXDao = daoSession.getShuiLiangFTXXDao();
-//        xinXiBGDao = daoSession.getXinXiBGDao();
-//        dengLuLSDao = daoSession.getDengLuLSDao();
-//        metaInfoDao = daoSession.getMetaInfoDao();
-//        biaoWuDGDao = daoSession.getBiaoWuGDDao();
-//    }
 
     @Override
     public synchronized boolean init(String path, Context context) {
@@ -244,10 +198,8 @@ public class DataProviderImpl implements
         biaoKaListBeanDao = daoSession.getBiaoKaListBeanDao();
         biaoKaWholeEntityDao=daoSession.getBiaoKaWholeEntityDao();
         xunJianTaskBeanDao=daoSession.getXunJianTaskBeanDao();
+        xjxxWordBeanDao=daoSession.getXJXXWordBeanDao();
 
-//        gongDanChaoBiaoDao = new GongDanCHAOBIAOZTDao();
-//        gongDanWordsDao = new GongDanWORDSDao();
-//        gongDanYongHuPZDao = new GongDanYONGHUPZDao();
 
         return true;
     }
@@ -634,6 +586,150 @@ public class DataProviderImpl implements
     }
 
     return biaoKaBeanDao.loadAll();
+  }
+
+  @Override
+  public synchronized List<BiaoKaBean> getXunJianBK(String xiaogenghao) {
+    if (biaoKaBeanDao == null) {
+      return null;
+    }
+
+    return biaoKaBeanDao.getXunJianBK(xiaogenghao);
+  }
+
+  @Override
+  public synchronized List<BiaoKaListBean> getXunJianHistoryBK() {
+    if (biaoKaListBeanDao == null) {
+      return null;
+    }
+
+    return biaoKaListBeanDao.getXunJianhistoryBK();
+  }
+
+  @Override
+  public synchronized List<XJXXWordBean> getXunJianWord(String type) {
+    if (xjxxWordBeanDao == null) {
+      return null;
+    }
+
+    return xjxxWordBeanDao.getXunJianWord(type);
+  }
+
+  @Override
+  public synchronized List<XJXXWordBean> getHotlineWordData(String type) {
+    if (xjxxWordBeanDao == null) {
+      return null;
+    }
+
+    return xjxxWordBeanDao.getHotlineWordData(type);
+  }
+
+  @Override
+  public synchronized List<XJXXWordBean> getHotlineWordData(String type,String yongshuixz) {
+    if (xjxxWordBeanDao == null) {
+      return null;
+    }
+
+    return xjxxWordBeanDao.getHotlineWordData(type,yongshuixz);
+  }
+
+  @Override
+  public synchronized List<BiaoKaListBean> getBiaokaListBeans(String renwuhao,String type) {
+    if (biaoKaListBeanDao == null) {
+      return null;
+    }
+
+    return biaoKaListBeanDao.getBiaokaListBeans(renwuhao,type);
+  }
+
+  @Override
+  public synchronized List<BiaoKaWholeEntity> getbiaoKaWholeEntitys(long id) {
+    if (biaoKaWholeEntityDao == null) {
+      return null;
+    }
+
+    return biaoKaWholeEntityDao.getBiaokaListBeans(id);
+  }
+
+  @Override
+  public synchronized List<BiaoKaListBean> getWcorYcBiaoKalistbean2(String renwumc,String type) {
+    if (biaoKaListBeanDao == null) {
+      return null;
+    }
+
+    return biaoKaListBeanDao.getWcorYcBiaoKalistbean2(renwumc,type);
+  }
+
+  @Override
+  public synchronized List<BiaoKaBean> getBiaoKaBean(String Xiaogenhao) {
+    if (biaoKaBeanDao == null) {
+      return null;
+    }
+
+    return biaoKaBeanDao.getBiaoKaBean(Xiaogenhao);
+  }
+
+  @Override
+  public synchronized List<BiaoKaWholeEntity> getBiaoKaWholeEntity(String renWuId,String Xiaogenhao) {
+    if (biaoKaWholeEntityDao == null) {
+      return null;
+    }
+
+    return biaoKaWholeEntityDao.getBiaoKaWholeEntity(renWuId,Xiaogenhao);
+  }
+
+  @Override
+  public synchronized List<BiaoKaWholeEntity> getBiaoKaWholeEntity(long id) {
+    if (biaoKaWholeEntityDao == null) {
+      return new ArrayList<>();
+    }
+
+    return biaoKaWholeEntityDao.getBiaoKaWholeEntity(id);
+  }
+
+  @Override
+  public synchronized boolean insertXunjianWord(List<XJXXWordBean> data) {
+    if (xjxxWordBeanDao == null) {
+      return false;
+    }
+
+    return xjxxWordBeanDao.insertXunjianWord(data);
+  }
+
+  @Override
+  public synchronized boolean deleteXunjianWord() {
+    if (xjxxWordBeanDao == null) {
+      return false;
+    }
+
+    return xjxxWordBeanDao.deleteXunjianWord();
+  }
+
+  @Override
+  public synchronized boolean insertXunjianBKlist(List<BiaoKaListBean> biaoKaBeans) {
+    if (biaoKaListBeanDao == null) {
+      return false;
+    }
+
+    return biaoKaListBeanDao.insertXunjianBKlist(biaoKaBeans);
+  }
+
+  @Override
+  public synchronized List<XunJianTaskBean> getXunJianFuHeTaskBean(String xunjiantaskType) {
+    if (xunJianTaskBeanDao == null) {
+      return null;
+    }
+
+    return xunJianTaskBeanDao.getXunJianFuHeTaskBean(xunjiantaskType);
+  }
+
+  @Override
+  public synchronized List<BiaoKaListBean> getTiJiaoBiaoKaListBean(String renwumc,int iscommit) {
+    if (biaoKaListBeanDao == null) {
+      return null;
+    }
+
+    return biaoKaListBeanDao.getTiJiaoBiaoKaListBean(renwumc,iscommit);
   }
 
   @Override

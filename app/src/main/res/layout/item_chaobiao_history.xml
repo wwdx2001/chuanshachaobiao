@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/size_10dp"
+    android:layout_marginRight="@dimen/size_10dp"
+    android:padding="@dimen/size_10dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="5dp"
+    app:cardUseCompatPadding="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/size_15dp">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.55" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="抄表状态： "
+            android:textSize="@dimen/size_15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_zhuangtai"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="11"
+            android:textColor="@color/color_text_black"
+            android:textSize="@dimen/size_15sp"
+            app:layout_constraintLeft_toRightOf="@+id/tv1"
+            app:layout_constraintRight_toRightOf="@+id/guide"
+            app:layout_constraintTop_toTopOf="@id/tv1" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_10dp"
+            android:ems="3"
+            android:gravity="right"
+            android:text="用量："
+            android:textSize="@dimen/size_15sp"
+            app:layout_constraintLeft_toRightOf="@+id/guide"
+            app:layout_constraintTop_toTopOf="@+id/tv1" />
+
+        <TextView
+            android:id="@+id/tv_yongliang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="110"
+            android:textColor="@color/color_text_black"
+            android:textSize="@dimen/size_15sp"
+            app:layout_constraintLeft_toRightOf="@+id/tv2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv2" />
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_5dp"
+            android:gravity="right"
+            android:text="抄表年月： "
+            android:textSize="@dimen/size_15sp"
+            app:layout_constraintLeft_toLeftOf="@+id/tv1"
+            app:layout_constraintRight_toRightOf="@+id/tv1"
+            app:layout_constraintTop_toBottomOf="@+id/tv_zhuangtai" />
+
+        <TextView
+            android:id="@+id/tv_nianyue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="2019-08"
+            android:textColor="@color/color_text_black"
+            android:textSize="@dimen/size_15sp"
+            app:layout_constraintLeft_toRightOf="@+id/tv3"
+            app:layout_constraintRight_toRightOf="@+id/guide"
+            app:layout_constraintTop_toTopOf="@+id/tv3" />
+
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_10dp"
+            android:layout_marginTop="@dimen/size_5dp"
+            android:ems="3"
+            android:gravity="right"
+            android:text="抄码："
+            android:textSize="@dimen/size_15sp"
+            app:layout_constraintLeft_toRightOf="@+id/guide"
+            app:layout_constraintTop_toBottomOf="@+id/tv_yongliang" />
+
+        <TextView
+            android:id="@+id/tv_chaoma"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="232"
+            android:textColor="@color/color_text_black"
+            android:textSize="@dimen/size_15sp"
+            app:layout_constraintLeft_toRightOf="@+id/tv4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv4" />
+
+        <TextView
+            android:id="@+id/tv5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_5dp"
+            android:gravity="right"
+            android:text="抄表备注： "
+            android:textSize="@dimen/size_15sp"
+            app:layout_constraintLeft_toLeftOf="@+id/tv3"
+            app:layout_constraintRight_toRightOf="@+id/tv3"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nianyue" />
+
+
+        <TextView
+            android:id="@+id/tv_beizhu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="wedrteds"
+            android:textColor="@color/color_text_black"
+            android:textSize="@dimen/size_15sp"
+            app:layout_constraintLeft_toRightOf="@+id/tv5"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv5" />
+
+        <TextView
+            android:id="@+id/picture_preview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/size_5dp"
+            android:paddingRight="@dimen/size_15dp"
+            android:text="查看照片"
+            android:visibility="gone"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintLeft_toLeftOf="@+id/tv3"
+            android:textSize="@dimen/size_15sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv5" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

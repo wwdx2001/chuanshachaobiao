@@ -9,6 +9,9 @@
         android:required="true" />
     <!-- 结束 -->
 
+
+    <uses-sdk tools:overrideLibrary="com.aliyun.qupai.qusdk"/>
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
@@ -70,15 +73,35 @@
             android:name=".ui.main.MainActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="portrait">
-<!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+            <intent-filter>
+                            <action android:name="android.intent.action.MAIN" />
+                            <category android:name="android.intent.category.LAUNCHER" />
+                        </intent-filter>
         </activity>
 
       <activity
         android:name=".ui.remoteinspection.RemoteinSpectionListActivity"
         android:label="@string/title_activity_remoteinspectionlistactivity"
+        android:launchMode="singleTop"
+        android:screenOrientation="portrait"  android:theme="@style/AppTheme.NoActionBar">
+        <intent-filter>
+          <action android:name="android.intent.action.VIEW" />
+        </intent-filter>
+      </activity>
+
+      <activity
+        android:name=".ui.RemoteinSpectionOHistoryListActivity.RemoteinSpectionOHistoryListActivity"
+        android:label="@string/title_activity_remoteinspectionhistorylistactivity"
+        android:launchMode="singleTop"
+        android:screenOrientation="portrait"  android:theme="@style/AppTheme.NoActionBar">
+        <intent-filter>
+          <action android:name="android.intent.action.VIEW" />
+        </intent-filter>
+      </activity>
+
+      <activity
+        android:name=".ui.InspectionInput.InspectionInputActivity"
+        android:label="@string/title_activity_inspectionInputactivity"
         android:launchMode="singleTop"
         android:screenOrientation="portrait"  android:theme="@style/AppTheme.NoActionBar">
         <intent-filter>
@@ -287,6 +310,19 @@
         <!-- android:name=".ui.chaobiaolr.ChaoBiaoLRActivity" -->
         <!-- android:label="@string/title_activity_chao_biao_lr" > -->
         <!-- </activity> -->
+
+        <provider
+          android:name="android.support.v4.content.FileProvider"
+          android:authorities="com.sh3h.meterreading.fileprovider"
+          android:exported="false"
+          tools:replace="android:authorities"
+          android:grantUriPermissions="true"
+          >
+          <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            tools:replace="android:resource"
+            android:resource="@xml/file_paths" />
+        </provider>
 
         <service android:name=".service.KeepAliveService" />
 

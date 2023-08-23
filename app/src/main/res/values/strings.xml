@@ -21,8 +21,12 @@
     <string name="text_failure_to_saveuserinfo">保存用户信息失败</string>
     <string name="action_update">数据同步</string>
 
+    <string name="action_save">保存</string>
+
     <string name="text_prompt">提示</string>
     <string name="text_request">询问</string>
+
+    <string name="text_biaoweizuobiao">表位坐标</string>
 
     <string name="move_prompt">移动到册本</string>
 
@@ -81,6 +85,8 @@
 
     <string name="title_activity_remoteinspectionlistactivity">辅助验收</string>
     <string name="title_activity_remoteinspectionhistorylistactivity">历史辅助验收</string>
+    <string name="title_activity_inspectionInputactivity">辅助验收</string>
+
 
     <string name="title_activity_changenumber">调整序号</string>
     <string name="title_activity_check">册本检查</string>

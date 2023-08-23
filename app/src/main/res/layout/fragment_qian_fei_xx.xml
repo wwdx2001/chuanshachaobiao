@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#60CCCCCC"
+    android:orientation="horizontal"
+    android:paddingLeft="3dp"
+    android:paddingTop="@dimen/size_5dp"
+    android:paddingRight="3dp"
+    android:paddingBottom="@dimen/size_5dp">
+
+    <TextView
+      android:id="@+id/tv_all_jine"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:autoSizeMaxTextSize="@dimen/size_18sp"
+      android:autoSizeMinTextSize="10sp"
+      android:paddingLeft="3dp"
+      android:paddingRight="3dp"
+      android:text="总欠费金额：--"
+      android:textColor="@color/nsdk_cruise_satellite_text_red"
+
+      tools:ignore="MissingPrefix" />
+
+    <TextView
+      android:id="@+id/tv_all_amount"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:autoSizeMaxTextSize="@dimen/size_18sp"
+      android:autoSizeMinTextSize="10sp"
+      android:gravity="center"
+      android:paddingLeft="3dp"
+      android:paddingRight="3dp"
+      android:text="欠费笔数：--"
+      android:textColor="@color/nsdk_cruise_satellite_text_red"
+
+      tools:ignore="MissingPrefix" />
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/ll_head"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ccc"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/size_12dp"
+    android:paddingBottom="@dimen/size_12dp"
+    android:visibility="visible">
+
+    <TextView
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:autoSizeMaxTextSize="@dimen/size_18sp"
+      android:autoSizeMinTextSize="10sp"
+      android:gravity="center"
+      android:paddingLeft="3dp"
+      android:paddingRight="3dp"
+      android:text="账单年月"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_12sp"
+
+      tools:ignore="MissingPrefix" />
+
+    <TextView
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:autoSizeMaxTextSize="@dimen/size_18sp"
+      android:autoSizeMinTextSize="10sp"
+      android:gravity="center"
+      android:paddingLeft="3dp"
+      android:paddingRight="3dp"
+      android:text="水量"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_12sp"
+
+      tools:ignore="MissingPrefix" />
+
+
+    <TextView
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:autoSizeMaxTextSize="@dimen/size_18sp"
+      android:autoSizeMinTextSize="10sp"
+      android:gravity="center"
+      android:paddingLeft="3dp"
+      android:paddingRight="3dp"
+      android:text="违约金"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_12sp"
+
+      tools:ignore="MissingPrefix" />
+
+    <TextView
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:autoSizeMaxTextSize="@dimen/size_18sp"
+      android:autoSizeMinTextSize="10sp"
+      android:gravity="center"
+      android:paddingLeft="3dp"
+      android:paddingRight="3dp"
+      android:text="应收金额"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_12sp"
+      tools:ignore="MissingPrefix" />
+
+    <TextView
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:autoSizeMaxTextSize="@dimen/size_18sp"
+      android:autoSizeMinTextSize="10sp"
+      android:gravity="center"
+      android:paddingLeft="3dp"
+      android:paddingRight="3dp"
+      android:text="用水费"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_12sp"
+      tools:ignore="MissingPrefix" />
+
+    <TextView
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:autoSizeMaxTextSize="@dimen/size_18sp"
+      android:autoSizeMinTextSize="10sp"
+      android:gravity="center"
+      android:paddingLeft="3dp"
+      android:paddingRight="3dp"
+      android:text="排水费"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_12sp"
+      tools:ignore="MissingPrefix" />
+  </LinearLayout>
+
+  <android.support.v4.widget.SwipeRefreshLayout
+    android:id="@+id/refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+      android:id="@+id/recycler"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scrollbars="vertical" />
+  </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

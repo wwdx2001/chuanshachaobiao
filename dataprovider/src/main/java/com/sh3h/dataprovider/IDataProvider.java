@@ -50,6 +50,7 @@ import com.sh3h.dataprovider.greendaoEntity.YuanGongXX;
 import com.sh3h.serverprovider.entity.BiaoKaBean;
 import com.sh3h.serverprovider.entity.BiaoKaListBean;
 import com.sh3h.serverprovider.entity.BiaoKaWholeEntity;
+import com.sh3h.serverprovider.entity.XJXXWordBean;
 import com.sh3h.serverprovider.entity.XunJianTaskBean;
 
 import java.util.List;
@@ -172,6 +173,35 @@ public interface IDataProvider {
   public List<BiaoKaListBean> getXunJianListBK(String xiaogenghao);
 
   public List<BiaoKaBean> getXunJianBK();
+  public List<BiaoKaBean> getXunJianBK(String xiaogenghao);
+  public List<BiaoKaListBean> getXunJianHistoryBK();
+
+  public List<XJXXWordBean> getXunJianWord(String type);
+
+  public List<XJXXWordBean> getHotlineWordData(String type);
+  public List<XJXXWordBean> getHotlineWordData(String type, String yongshuixz);
+
+  public List<BiaoKaListBean> getBiaokaListBeans(String renwuhao,String type);
+
+  public List<BiaoKaWholeEntity> getbiaoKaWholeEntitys(long id);
+
+  public  List<BiaoKaListBean> getWcorYcBiaoKalistbean2(String renwumc, String type);
+
+  public  List<BiaoKaBean> getBiaoKaBean(String xiaoGenhao);
+
+  public  List<BiaoKaWholeEntity> getBiaoKaWholeEntity(String renWuId,String xiaoGenhao);
+
+  public List<BiaoKaWholeEntity> getBiaoKaWholeEntity(long id);
+
+  public boolean insertXunjianWord(List<XJXXWordBean> data);
+
+  public boolean deleteXunjianWord();
+
+  public boolean insertXunjianBKlist(List<BiaoKaListBean> biaoKaBeans);
+
+  public List<XunJianTaskBean> getXunJianFuHeTaskBean(String xunjiantaskType);
+
+  public List<BiaoKaListBean> getTiJiaoBiaoKaListBean(String renwumc, int i);
 
   public boolean insertBKWholeEntity(BiaoKaWholeEntity newWholeEntity);
 

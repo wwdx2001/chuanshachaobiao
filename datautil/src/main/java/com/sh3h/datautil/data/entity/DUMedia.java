@@ -11,6 +11,8 @@ public class DUMedia implements IDUEntity {
     public static final int MEDIA_TYPE_SAMPLING = 2;
     public static final int MEDIA_TYPE_RUSH_PAY = 4;
     public static final int MEDIA_TYPE_DELAY = 5;
+    public static final int MEDIA_TYPE_XUNJIAN = 6;
+
 
     public static final int SHANGCHUANBZ_WEISHANGC = 0; // 未上传
     public static final int SHANGCHUANBZ_ZHENGZAISC = 1;  // 正在上传

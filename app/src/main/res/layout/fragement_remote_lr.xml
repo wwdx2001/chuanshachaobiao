@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <com.gc.materialdesign.views.SmoothProgressBar
+        android:id="@+id/loading_process"
+        style="@style/GradientProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height10"
+        android:indeterminate="true" />
+
+    <ScrollView
+        android:id="@+id/fcblr_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="@dimen/fragment_main_content_margin_bottom"
+        android:fadingEdge="none"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/paddingLeft2"
+            android:paddingTop="@dimen/paddingTop1"
+            android:paddingRight="@dimen/paddingRight2"
+            android:paddingBottom="@dimen/paddingBottom1">
+
+            <LinearLayout
+                android:id="@+id/fcblr_layout_01"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/height1"
+                android:background="@drawable/card_background4"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/marginLeft1"
+                    android:layout_marginRight="@dimen/marginRight1">
+
+                    <TextView
+                        android:id="@+id/fcblr_yonghubh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text=""
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <TextView
+                        android:id="@+id/fcblr_separator1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/fcblr_yonghubh"
+                        android:text="/"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/fcblr_chaobiaozq"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/fcblr_separator1"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txt_qianfei"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1/123.10"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge"
+                            android:visibility="gone" />
+
+                        <ImageView
+                            android:id="@+id/fcblr_huanbiao"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_huanbiao"
+                            android:visibility="gone" />
+
+                        <ImageView
+                            android:id="@+id/fcblr_qianfei"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_qianfei"
+                            android:visibility="gone" />
+
+                        <ImageView
+                            android:id="@+id/fcblr_tingshui"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_tingshui"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                    <!--<TextView-->
+                    <!--android:id="@+id/txt_qianfei"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:layout_marginRight="20dp"-->
+                    <!--android:text="1/123.10"-->
+                    <!--android:textColor="@color/text_white"-->
+                    <!--android:textSize="@dimen/text_size_xxxlarge"-->
+                    <!--android:visibility="gone" />-->
+
+                    <!--<ImageView-->
+                    <!--android:id="@+id/fcblr_huanbiao"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:src="@mipmap/ic_huanbiao"-->
+                    <!--android:visibility="gone" />-->
+
+                    <!--<ImageView-->
+                    <!--android:id="@+id/fcblr_qianfei"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:src="@mipmap/ic_qianfei"-->
+                    <!--android:visibility="gone" />-->
+
+                    <!--<ImageView-->
+                    <!--android:id="@+id/fcblr_tingshui"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:src="@mipmap/ic_tingshui"-->
+                    <!--android:visibility="gone" />-->
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fcblr_layout_02"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop2"
+                android:background="@drawable/card_background5"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginLeft1"
+                    android:layout_marginTop="@dimen/marginTop2"
+                    android:layout_marginRight="@dimen/marginRight1"
+                    android:layout_marginBottom="@dimen/marginBottom2">
+                    <TextView
+                        android:id="@+id/fcblr_huming1"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chaobiaolr_label_huming"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <TextView
+                        android:id="@+id/fcblr_huming2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/marginLeft1"
+
+
+                        android:text=""
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/height3"
+                    android:layout_marginLeft="@dimen/marginLeft1"
+                    android:layout_marginRight="@dimen/marginRight1"
+                    android:layout_marginTop="@dimen/marginTop2"
+                    android:layout_marginBottom="@dimen/marginBottom2"
+                    android:background="@drawable/card_divider2" />
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginLeft1"
+                    android:layout_marginTop="@dimen/marginTop2"
+                    android:layout_marginRight="@dimen/marginRight1"
+                    android:layout_marginBottom="@dimen/marginBottom2">
+                    <TextView
+                        android:id="@+id/fcblr_dizhi1"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_yonghudz"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <TextView
+                        android:id="@+id/fcblr_dizhi2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/fcblr_huming1"
+                        android:text=""
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/height3"
+                    android:layout_marginLeft="@dimen/marginLeft1"
+                    android:layout_marginRight="@dimen/marginRight1"
+                    android:layout_marginTop="@dimen/marginTop2"
+                    android:layout_marginBottom="@dimen/marginBottom2"
+                    android:background="@drawable/card_divider2" />
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginLeft1"
+                    android:layout_marginTop="@dimen/marginTop2"
+                    android:layout_marginRight="@dimen/marginRight1"
+                    android:layout_marginBottom="@dimen/marginBottom2">
+                    <TextView
+                        android:id="@+id/fcblr_biaoweizuobiao1"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_biaoweizuobiao"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <TextView
+                        android:id="@+id/fcblr_biaoweizuobiao2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/fcblr_huming1"
+                        android:text=""
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/height3"
+                    android:layout_marginLeft="@dimen/marginLeft1"
+                    android:layout_marginRight="@dimen/marginRight1"
+                    android:layout_marginTop="@dimen/marginTop2"
+                    android:layout_marginBottom="@dimen/marginBottom2"
+                    android:background="@drawable/card_divider2" />
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginLeft1"
+                    android:layout_marginTop="@dimen/marginTop2"
+                    android:layout_marginRight="@dimen/marginRight1"
+                    android:layout_marginBottom="@dimen/marginBottom2">
+                    <TextView
+                        android:id="@+id/fcblr_biaohao1"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chaobiaolr_label_biaohao"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <TextView
+                        android:id="@+id/fcblr_biaohao2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/fcblr_huming1"
+                        android:text=""
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/height3"
+                    android:layout_marginLeft="@dimen/marginLeft1"
+                    android:layout_marginRight="@dimen/marginRight1"
+                    android:layout_marginTop="@dimen/marginTop2"
+                    android:layout_marginBottom="@dimen/marginBottom2"
+                    android:background="@drawable/card_divider2" />
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginLeft1"
+                    android:layout_marginTop="@dimen/marginTop2"
+                    android:layout_marginRight="@dimen/marginRight1"
+                    android:layout_marginBottom="@dimen/marginBottom2">
+                    <TextView
+                        android:id="@+id/fcblr_yongshuixingzhi1"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chaobiaolr_label_huming"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <TextView
+                        android:id="@+id/fcblr_yongshuixingzhi2"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/fcblr_huming1"
+                        android:text=""
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+                    <TextView
+                        android:id="@+id/fcblr_shifouyuanchuan1"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chaobiaolr_label_huming"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <TextView
+                        android:id="@+id/fcblr_shifouyuanchuan2"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/fcblr_huming1"
+                        android:text=""
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fcblr_layout_03"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop2"
+                android:background="@drawable/card_background6"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginLeft1"
+                    android:layout_marginTop="@dimen/marginTop2"
+                    android:layout_marginRight="@dimen/marginRight1"
+                    android:layout_marginBottom="@dimen/marginBottom2">
+
+                    <TextView
+                        android:id="@+id/fcblr_chaobiaoqk1"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="@dimen/height1"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <LinearLayout
+                        android:id="@+id/fcblr_chaobiaoqk2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/height1"
+                        android:layout_toRightOf="@id/fcblr_chaobiaoqk1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/fcblr_chaobiaoqksc"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height1"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:text="@string/text_shangci"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <TextView
+                            android:id="@+id/fcblr_chaobiaoqkbc"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height1"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:text="@string/text_benci"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/fcblr_separator4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/height3"
+                        android:layout_below="@id/fcblr_chaobiaoqk2"
+                        android:layout_marginTop="@dimen/marginTop2"
+                        android:layout_marginBottom="@dimen/marginBottom2"
+                        android:background="@drawable/card_divider2" />
+
+                    <TextView
+                        android:id="@+id/fcblr_chaobiaozt1"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="@dimen/height1"
+                        android:layout_below="@id/fcblr_separator4"
+                        android:gravity="center_vertical"
+                        android:text="@string/label_chaobiaozt"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <LinearLayout
+                        android:id="@+id/fcblr_chaobiaozt2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/height1"
+                        android:layout_below="@id/fcblr_separator4"
+                        android:layout_toRightOf="@id/fcblr_chaobiaozt1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/fcblr_chaobiaoztsc"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height1"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:text=""
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height1"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/fcblr_chaobiaoztbc"
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/height1"
+                                android:background="@drawable/textview2"
+                                android:gravity="center_vertical|center_horizontal"
+                                android:text=""
+                                android:textColor="@color/button7_text02"
+                                android:textSize="@dimen/text_size_xxxlarge" />
+
+                            <TextView
+                                android:id="@+id/fcblr_chaobiaoztbc_line"
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/height3"
+                                android:background="@drawable/card_divider3" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentBottom="true"
+                                android:src="@mipmap/ic_corner2" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/fcblr_separator5"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/height3"
+                        android:layout_below="@id/fcblr_chaobiaozt2"
+                        android:layout_marginTop="@dimen/marginTop2"
+                        android:layout_marginBottom="@dimen/marginBottom2"
+                        android:background="@drawable/card_divider2" />
+
+                    <TextView
+                        android:id="@+id/fcblr_chaoma1"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="@dimen/height1"
+                        android:layout_below="@id/fcblr_separator5"
+                        android:gravity="center_vertical"
+                        android:text="@string/text_chaoma_mu"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <LinearLayout
+                        android:id="@+id/fcblr_chaoma2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/height1"
+                        android:layout_below="@id/fcblr_separator5"
+                        android:layout_toRightOf="@id/fcblr_chaoma1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/fcblr_shangcicm"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height1"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:text=""
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height1"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/fcblr_bencicm"
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/height1"
+                                android:background="@drawable/textview2"
+                                android:gravity="center_vertical|center_horizontal"
+                                android:paddingLeft="@dimen/paddingLeft2"
+                                android:paddingRight="@dimen/paddingRight2"
+                                android:text=""
+                                android:textColor="@color/button7_text02"
+                                android:textSize="@dimen/text_size_xxxlarge" />
+
+                            <TextView
+                                android:id="@+id/fcblr_bencicm_line"
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/height3"
+                                android:layout_alignParentBottom="true"
+                                android:background="@drawable/card_divider3" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentBottom="true"
+                                android:src="@mipmap/ic_corner2" />
+
+                            <ImageView
+                                android:id="@+id/fcblr_bencicm_pen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:src="@mipmap/ic_pen"
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/fcblr_sub"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/fcblr_chaoma1">
+
+                        <TextView
+                            android:id="@+id/fcblr_separator7"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height3"
+                            android:layout_marginTop="@dimen/marginTop2"
+                            android:layout_marginBottom="@dimen/marginBottom2"
+                            android:background="@drawable/card_divider2" />
+
+                        <TextView
+                            android:id="@+id/fcblr_chaoma1_sub"
+                            android:layout_width="@dimen/width6"
+                            android:layout_height="@dimen/height1"
+                            android:layout_below="@id/fcblr_separator7"
+                            android:gravity="center_vertical"
+                            android:text="@string/text_chaoma_zi"
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <LinearLayout
+                            android:id="@+id/fcblr_chaoma2_sub"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height1"
+                            android:layout_below="@id/fcblr_separator7"
+                            android:layout_toRightOf="@id/fcblr_chaoma1_sub"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/fcblr_shangcicm_sub"
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/height1"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical|center_horizontal"
+                                android:text=""
+                                android:textColor="@color/text_white"
+                                android:textSize="@dimen/text_size_xxxlarge" />
+
+                            <RelativeLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/height1"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/fcblr_bencicm_sub"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="@dimen/height1"
+                                    android:background="@drawable/textview2"
+                                    android:gravity="center_vertical|center_horizontal"
+                                    android:paddingLeft="@dimen/paddingLeft2"
+                                    android:paddingRight="@dimen/paddingRight2"
+                                    android:text=""
+                                    android:textColor="@color/button7_text02"
+                                    android:textSize="@dimen/text_size_xxxlarge" />
+
+                                <TextView
+                                    android:id="@+id/fcblr_bencicm_line_sub"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="@dimen/height3"
+                                    android:layout_alignParentBottom="true"
+                                    android:background="@drawable/card_divider3" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:src="@mipmap/ic_corner2" />
+
+                                <ImageView
+                                    android:id="@+id/fcblr_bencicm_pen_sub"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@mipmap/ic_pen"
+                                    android:visibility="gone" />
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/fcblr_separator8"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/height3"
+                        android:layout_below="@id/fcblr_sub"
+                        android:layout_marginTop="@dimen/marginTop2"
+                        android:layout_marginBottom="@dimen/marginBottom2"
+                        android:background="@drawable/card_divider2" />
+
+                    <TextView
+                        android:id="@+id/fcblr_chaojiansl1"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="@dimen/height1"
+                        android:layout_below="@id/fcblr_separator8"
+                        android:gravity="center_vertical"
+                        android:text="@string/label_bencisl"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <LinearLayout
+                        android:id="@+id/fcblr_chaojiansl2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/height1"
+                        android:layout_below="@id/fcblr_separator8"
+                        android:layout_toRightOf="@id/fcblr_chaojiansl1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/fcblr_chaojianslsc"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height1"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:text=""
+                            android:textColor="@color/text_white"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height1"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/fcblr_chaojianslbc"
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/height1"
+                                android:background="@drawable/textview2"
+                                android:gravity="center_vertical|center_horizontal"
+                                android:paddingLeft="@dimen/paddingLeft2"
+                                android:paddingRight="@dimen/paddingRight2"
+                                android:text=""
+                                android:textColor="@color/button7_text02"
+                                android:textSize="@dimen/text_size_xxxlarge" />
+
+                            <TextView
+                                android:id="@+id/fcblr_chaojianslbc_line"
+                                android:layout_width="fill_parent"
+                                android:layout_height="@dimen/height3"
+                                android:layout_alignParentBottom="true"
+                                android:background="@drawable/card_divider3" />
+
+                            <ImageView
+                                android:id="@+id/corner_01"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentBottom="true"
+                                android:src="@mipmap/ic_corner2" />
+
+                            <ImageView
+                                android:id="@+id/fcblr_chaojianslbc_pen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:src="@mipmap/ic_pen"
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/fcblr_separator16"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/height3"
+                        android:layout_below="@id/fcblr_chaojiansl1"
+                        android:layout_marginTop="@dimen/marginTop2"
+                        android:layout_marginBottom="@dimen/marginBottom2"
+                        android:background="@drawable/card_divider2" />
+
+                    <!--階梯提示-->
+                    <TextView
+                        android:id="@+id/fcblr_no_read_reason"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="@dimen/height1"
+                        android:layout_below="@id/fcblr_separator16"
+                        android:gravity="center_vertical"
+                        android:text="@string/text_no_read_reason"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <LinearLayout
+                        android:id="@+id/fcblr_no_read_reason2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/height1"
+                        android:layout_below="@id/fcblr_separator16"
+                        android:layout_toRightOf="@id/fcblr_no_read_reason"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_jie_ti_ts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/height1"
+                            android:background="@drawable/textview2"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:text=""
+                            android:textColor="@color/button7_text02"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/fcblr_lgld"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="15dp"
+                                android:src="@mipmap/ic_line_down"
+                                android:visibility="invisible" />
+
+                            <ImageView
+                                android:id="@+id/fcblr_scbz"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="15dp"
+                                android:src="@mipmap/ic_line_down"
+                                android:visibility="invisible" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/fcblr_separator10"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/height3"
+                        android:layout_below="@id/fcblr_no_read_reason"
+                        android:layout_marginTop="@dimen/marginTop2"
+                        android:layout_marginBottom="@dimen/marginBottom2"
+                        android:background="@drawable/card_divider2" />
+
+                    <TextView
+                        android:id="@+id/fcblr_beizhu"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="@dimen/height1"
+                        android:layout_below="@id/fcblr_separator10"
+                        android:gravity="center_vertical"
+                        android:text="@string/datachange_label_beizhu"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <LinearLayout
+                        android:id="@+id/fcblr_jietits2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/height1"
+                        android:layout_below="@id/fcblr_separator10"
+                        android:layout_toRightOf="@id/fcblr_beizhu"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/fcblr_cbbeizhu"
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/textview2"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:text=""
+                            android:textColor="@color/button7_text02"
+                            android:textSize="@dimen/text_size_xxxlarge" />
+
+                        <TextView
+                            android:id="@+id/fcblr_chaobiaobeizhu"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/height3"
+                            android:background="@drawable/card_divider3" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/fragment_bottom_button_height"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/paddingLeft2"
+        android:paddingRight="@dimen/paddingRight2">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical">
+
+            <com.gc.materialdesign.views.ButtonFloatSmall
+                android:id="@+id/fcblr_previous"
+                android:layout_width="@dimen/activity_bottom_tab_height"
+                android:layout_height="@dimen/activity_bottom_tab_height"
+                android:layout_weight="0"
+                android:background="@color/color10"
+                materialdesign:iconDrawable="@mipmap/ic_back" />
+
+            <com.gc.materialdesign.views.ButtonFloatSmall
+                android:id="@+id/fcblr_next"
+                android:layout_width="@dimen/activity_bottom_tab_height"
+                android:layout_height="@dimen/activity_bottom_tab_height"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_weight="0"
+                android:background="@color/color10"
+                materialdesign:iconDrawable="@mipmap/ic_forward" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <Button
+                    android:id="@+id/fcblr_save"
+                    style="@style/Button8"
+                    android:layout_height="@dimen/height_60"
+                    android:text="@string/label_save"
+                    android:visibility="gone" />
+
+                <com.gc.materialdesign.views.ButtonRectangle
+                    android:id="@+id/fcblr_yanchi"
+                    android:layout_width="@dimen/width_60"
+                    android:layout_height="@dimen/height_60"
+                    android:visibility="gone"
+                    android:layout_marginLeft="@dimen/marginLeft1"
+                    android:layout_toRightOf="@id/fcblr_save"
+                    android:background="@color/color10"
+                    android:text="@string/label_yanchi" />
+
+                <com.gc.materialdesign.views.ButtonRectangle
+                    android:id="@+id/fcblr_paizhao"
+                    android:layout_width="@dimen/width_60"
+                    android:layout_height="@dimen/height_60"
+                    android:background="@color/color10"
+                    android:text="@string/text_takepicture" />
+
+                <com.gc.materialdesign.views.ButtonRectangle
+                    android:id="@+id/fcblr_flashlight"
+                    android:layout_width="@dimen/width_60"
+                    android:layout_height="@dimen/height_60"
+                    android:background="@color/color10"
+                    android:text="@string/text_flashlight" />
+
+                <com.gc.materialdesign.views.ButtonRectangle
+                    android:id="@+id/fcblr_upload"
+                    android:layout_width="@dimen/width_60"
+                    android:layout_height="@dimen/height_60"
+                    android:visibility="gone"
+                    android:background="@color/color10"
+                    android:text="催缴"/>
+
+                <!--android:layout_marginLeft="@dimen/marginLeft3"-->
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

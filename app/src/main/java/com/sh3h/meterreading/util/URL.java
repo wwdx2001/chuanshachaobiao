@@ -12,9 +12,11 @@ public class URL {
 
     public static final String BASE_CJ_URL = "http://222.69.159.99:7676/Api/CBJ/";
 
-    public static final String BASE_XUNJIAN_URL ="http://222.69.159.99:7676/XUNJIAN/XUNJIAN/";
+//    public static final String BASE_XUNJIAN_URL ="http://222.69.159.99:7676/XUNJIAN/XUNJIAN/";
 
-    public static final String BASE_CS_URL = "http://180.167.6.229:14000/xunjian/XunJian/";
+    public static final String BASE_XUNJIAN_URL ="http://180.167.6.229:14000/xunjian/XunJian/";
+
+//    public static final String BASE_CS_URL = "http://180.167.6.229:14000/xunjian/XunJian/";
 
     // 欠费催缴查询
     public static final String QianFeiCJCX = "QianFeiCJCX";

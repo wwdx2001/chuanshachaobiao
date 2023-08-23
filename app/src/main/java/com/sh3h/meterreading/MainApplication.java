@@ -14,6 +14,8 @@ import android.os.RemoteException;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 
+import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.StringUtils;
 import com.sh3h.datautil.data.DataManager;
 import com.sh3h.datautil.data.local.config.ConfigHelper;
 import com.sh3h.datautil.data.local.preference.PreferencesHelper;
@@ -33,11 +35,14 @@ import com.sh3h.meterreading.service.SyncService;
 import com.sh3h.meterreading.service.SyncSubDataInfo;
 import com.sh3h.meterreading.service.SyncType;
 import com.sh3h.meterreading.service.VersionService;
+import com.sh3h.meterreading.util.Const;
+import com.sh3h.meterreading.util.URL;
 import com.sh3h.mobileutil.util.ApplicationsUtil;
 import com.sh3h.mobileutil.util.LogUtil;
 import com.sh3h.mobileutil.util.TextUtil;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
+import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 import com.zhouyou.http.EasyHttp;
 
 import java.util.Date;
@@ -45,6 +50,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSession;
 
 import rx.Subscriber;
 import rx.Subscription;
@@ -109,6 +116,7 @@ public class MainApplication extends Application {
 //        }
 
         EasyHttp.init(this);
+        ZXingLibrary.initDisplayOpinion(this);
 
         CrashHandler crashHandler = CrashHandler.getInstance();
         crashHandler.init(this);
@@ -118,7 +126,38 @@ public class MainApplication extends Application {
                 .build();
         mApplicationComponent.inject(this);
         mEventBus.register(this);
+
+        initEasyHttp();
     }
+
+    private void initEasyHttp() {
+        EasyHttp.init(this);
+        EasyHttp.getInstance()
+          .setBaseUrl(StringUtils.isEmpty(SPUtils.getInstance().getString(Const.URL)) ? URL.BASE_XUNJIAN_URL : SPUtils.getInstance().getString(Const.URL))
+//        .addCommonHeaders(headers)
+          .setCacheTime(-1)
+          .setCacheMaxSize(200 * 1024 * 1024)
+          .setCertificates()
+          .setHostnameVerifier(new HostnameVerifier() {
+            @Override
+            public boolean verify(String s, SSLSession sslSession) {
+              return true;
+            }
+          })
+          .setReadTimeOut(60 * 1000 * 30)
+          .setWriteTimeOut(60 * 1000 * 30)
+          .setConnectTimeout(60 * 1000 * 30)
+          //.setOkconnectionPool(new ConnectionPool())//设置请求连接池
+          //可以全局统一设置超时重连次数,默认为3次,那么最差的情况会请求4次(一次原始请求,三次重连请求),
+          //不需要可以设置为0
+          .setRetryCount(1)//网络不好自动重试3次
+          //可以全局统一设置超时重试间隔时间,默认为500ms,不需要可以设置为0
+          .setRetryDelay(500)//每次延时500ms重试
+          //可以全局统一设置超时重试间隔叠加时间,默认为0ms不叠加
+          .setRetryIncreaseDelay(100)//每次延时叠加500ms
+          .setCacheVersion(1)//缓存版本为1
+          .debug("EasyHttp", true);
+  }
 
     @Override
     protected void attachBaseContext(Context base) {

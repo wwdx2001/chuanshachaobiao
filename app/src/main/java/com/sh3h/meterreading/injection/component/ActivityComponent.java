@@ -2,6 +2,14 @@ package com.sh3h.meterreading.injection.component;
 
 import com.sh3h.meterreading.injection.annotation.PerActivity;
 import com.sh3h.meterreading.injection.module.ActivityModule;
+import com.sh3h.meterreading.ui.InspectionInput.InspectionInputActivity;
+import com.sh3h.meterreading.ui.InspectionInput.RemoteLRFragment;
+import com.sh3h.meterreading.ui.InspectionInput.lr.ChaoBiaoHistoryListFragment;
+import com.sh3h.meterreading.ui.InspectionInput.lr.LRDuoMeitiFragment;
+import com.sh3h.meterreading.ui.InspectionInput.lr.LROperatingFragment;
+import com.sh3h.meterreading.ui.InspectionInput.lr.QianFeiXXFragment;
+import com.sh3h.meterreading.ui.InspectionInput.lr.WaiFuHistoryListFragment;
+import com.sh3h.meterreading.ui.RemoteinSpectionOHistoryListActivity.RemoteinSpectionOHistoryListActivity;
 import com.sh3h.meterreading.ui.check.CheckActivity;
 import com.sh3h.meterreading.ui.delay.DelayListActivity;
 import com.sh3h.meterreading.ui.delayRecord.DelayRecordActivity;
@@ -107,4 +115,12 @@ public interface ActivityComponent{
     void inject(OutsideRecordActivity outsideRecordActivity);
 
     void inject(RemoteinSpectionListActivity remoteinSpectionListActivity);
+    void inject(RemoteinSpectionOHistoryListActivity remoteinSpectionOHistoryListActivity);
+    void inject(InspectionInputActivity inspectionInputActivity);
+    void inject(RemoteLRFragment remoteLRFragment);
+    void inject(ChaoBiaoHistoryListFragment chaoBiaoHistoryListFragment);
+    void inject(LRDuoMeitiFragment lrDuoMeitiFragment);
+    void inject(LROperatingFragment lrOperatingFragment);
+    void inject(QianFeiXXFragment qianFeiXXFragment);
+    void inject(WaiFuHistoryListFragment waiFuHistoryListFragment);
 }

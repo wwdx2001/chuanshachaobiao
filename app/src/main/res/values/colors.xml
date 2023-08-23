@@ -26,6 +26,10 @@
     <color name="gray">#AFAFAF</color>
 
     <color name="color_gray00">#000000</color>
+    <color name="black">#000000</color>
+
+    <color name="gray3">#747474</color>
+
 
     <color name="actionbar_background">#355f8a</color>
     <color name="actionbar_tab_background">#ffffff</color>
@@ -38,6 +42,15 @@
     <color name="ap_left_drawer_text">#666666</color>
     <color name="ap_left_drawer_divider">#cccccc</color>
 
+    <color name="nsdk_cruise_satellite_text_red">#d94a4b</color>
+    <color name="color_text_black">#2E2A2A</color>
+    <color name="white2">#EEE7E7</color>
+
+    <!--点击前的颜色-->
+    <color name="color_gray_979797">#979797</color>
+    <color name="color_gray_d2d2d2">#d2d2d2</color>
+
+    <color name="color_0176da">#5188EC</color>
 
 
     <!-- 背景色，ActionBar -->

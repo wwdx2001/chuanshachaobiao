@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:overScrollMode="never"
+  android:paddingLeft="@dimen/size_15dp"
+  android:paddingRight="@dimen/size_15dp">
+
+  <android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+      android:id="@+id/bg"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginTop="@dimen/size_10dp"
+      android:background="@drawable/radius_5_white_bg"
+      app:layout_constraintBottom_toBottomOf="@+id/picture_preview"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+      android:id="@+id/guide"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent="0.6" />
+
+    <TextView
+      android:id="@+id/key_xiaogenhao"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="@dimen/size_10dp"
+      android:layout_marginTop="@dimen/size_15dp"
+      android:text="　销根号： "
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/bg" />
+
+    <TextView
+      android:id="@+id/tv_xiaogenhao"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="销根号"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toRightOf="@+id/key_xiaogenhao"
+      app:layout_constraintTop_toTopOf="@+id/key_xiaogenhao" />
+
+    <TextView
+      android:id="@+id/tuidan_info"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="@dimen/size_10dp"
+      android:gravity="center"
+      android:paddingBottom="@dimen/size_15dp"
+      android:text="查看退单信息"
+      android:textColor="@color/colorPrimary"
+      android:textSize="@dimen/size_15sp"
+      android:visibility="gone"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tv_shishids" />
+
+    <TextView
+      android:id="@+id/picture_preview"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="@dimen/size_10dp"
+      android:gravity="center"
+      android:paddingBottom="@dimen/size_15dp"
+      android:text="查看表位照片"
+      android:textColor="@color/colorPrimary"
+      android:visibility="gone"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tv_shishids" />
+
+    <TextView
+      android:id="@+id/key_yhzt"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:gravity="right"
+      android:text="是否远传： "
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintRight_toRightOf="@+id/key_pingjun"
+      app:layout_constraintTop_toTopOf="@+id/tv_biaohao" />
+
+    <TextView
+      android:id="@+id/tv_yhzt"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="是"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toRightOf="@+id/key_yhzt"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/key_yhzt" />
+
+    <TextView
+      android:id="@+id/key_huming"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_8dp"
+      android:gravity="right"
+      android:text="　户　名： "
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toLeftOf="@+id/key_xiaogenhao"
+      app:layout_constraintRight_toRightOf="@+id/key_xiaogenhao"
+      app:layout_constraintTop_toBottomOf="@+id/tv_xiaogenhao" />
+
+    <TextView
+      android:id="@+id/tv_huming"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="户　名 "
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toRightOf="@+id/key_huming"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/key_huming" />
+
+    <TextView
+      android:id="@+id/key_dizhi"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_8dp"
+      android:gravity="right"
+      android:text="地　址： "
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintHorizontal_bias="0"
+      app:layout_constraintLeft_toLeftOf="@+id/key_huming"
+      app:layout_constraintRight_toRightOf="@+id/key_huming"
+      app:layout_constraintTop_toBottomOf="@+id/tv_huming" />
+
+    <TextView
+      android:id="@+id/tv_dizhi"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="地　址"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toLeftOf="@+id/tv_huming"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/key_dizhi" />
+
+    <TextView
+      android:id="@+id/key_bwzb"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_8dp"
+      android:gravity="right"
+      android:text="表位坐标： "
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintHorizontal_bias="0"
+      app:layout_constraintLeft_toLeftOf="@+id/key_dizhi"
+      app:layout_constraintRight_toRightOf="@+id/key_dizhi"
+      app:layout_constraintTop_toBottomOf="@+id/tv_dizhi" />
+
+    <TextView
+      android:id="@+id/tv_bwzb"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text=""
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toLeftOf="@+id/tv_dizhi"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/key_bwzb" />
+
+    <TextView
+      android:id="@+id/key_ysxz"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_8dp"
+      android:gravity="right"
+      android:text="用水性质： "
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintHorizontal_bias="0"
+      app:layout_constraintLeft_toLeftOf="@+id/key_bwzb"
+      app:layout_constraintRight_toRightOf="@+id/key_bwzb"
+      app:layout_constraintTop_toBottomOf="@+id/tv_bwzb" />
+
+    <TextView
+      android:id="@+id/tv_ysxz"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="用水性质"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toLeftOf="@+id/tv_bwzb"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/key_ysxz" />
+
+    <TextView
+      android:id="@+id/key_biaohao"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_8dp"
+      android:gravity="right"
+      android:text="表　号： "
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toLeftOf="@+id/key_ysxz"
+      app:layout_constraintRight_toRightOf="@+id/key_ysxz"
+      app:layout_constraintTop_toBottomOf="@+id/tv_ysxz" />
+
+    <TextView
+      android:id="@+id/tv_biaohao"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="表　号"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toRightOf="@+id/key_biaohao"
+      app:layout_constraintRight_toLeftOf="@+id/key_yhzt"
+      app:layout_constraintTop_toTopOf="@+id/key_biaohao" />
+
+    <TextView
+      android:id="@+id/key_shangcicm"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_8dp"
+      android:gravity="right"
+      android:text="上次抄码： "
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toLeftOf="@+id/key_biaohao"
+      app:layout_constraintRight_toRightOf="@+id/key_biaohao"
+      app:layout_constraintTop_toBottomOf="@+id/tv_biaohao" />
+
+    <TextView
+      android:id="@+id/tv_shangcicm"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_8dp"
+      android:text="上次抄码："
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toRightOf="@+id/key_shangcicm"
+      app:layout_constraintRight_toRightOf="@+id/guide"
+      app:layout_constraintTop_toBottomOf="@+id/tv_biaohao" />
+
+    <TextView
+      android:id="@+id/key_pingjun"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="前三次平均： "
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toLeftOf="@+id/guide"
+      app:layout_constraintTop_toTopOf="@+id/tv_shangcicm" />
+
+    <TextView
+      android:id="@+id/tv_pingjun"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="平均"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toRightOf="@+id/key_pingjun"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/key_pingjun" />
+
+    <TextView
+      android:id="@+id/key_chaobiaorq"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_8dp"
+      android:gravity="right"
+      android:text="抄表日期： "
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toLeftOf="@+id/key_shangcicm"
+      app:layout_constraintRight_toRightOf="@+id/key_shangcicm"
+      app:layout_constraintTop_toBottomOf="@+id/tv_shangcicm" />
+
+    <TextView
+      android:id="@+id/tv_chaobiaorq"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_8dp"
+      android:text="抄表日期："
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toRightOf="@+id/key_chaobiaorq"
+      app:layout_constraintRight_toRightOf="@+id/guide"
+      app:layout_constraintTop_toBottomOf="@+id/tv_shangcicm" />
+
+    <TextView
+      android:id="@+id/key_chaobiaoyl"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:gravity="right"
+      android:text="　抄表用量： "
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toLeftOf="@+id/key_pingjun"
+      app:layout_constraintRight_toRightOf="@+id/key_pingjun"
+      app:layout_constraintTop_toTopOf="@+id/tv_chaobiaorq" />
+
+    <TextView
+      android:id="@+id/tv_chaobiaoyl"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="抄表用量"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toRightOf="@+id/key_chaobiaoyl"
+      app:layout_constraintTop_toTopOf="@+id/key_chaobiaoyl" />
+
+    <TextView
+      android:id="@+id/key_chaobiaoyccm"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_8dp"
+      android:gravity="right"
+      android:text="预测抄码："
+      android:visibility="gone"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toLeftOf="@+id/key_chaobiaorq"
+      app:layout_constraintRight_toRightOf="@+id/key_chaobiaorq"
+      app:layout_constraintTop_toBottomOf="@+id/tv_chaobiaorq" />
+    <TextView
+      android:id="@+id/tv_chaobiaoyccm"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_8dp"
+      android:text="获取预测数据"
+      android:visibility="gone"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toRightOf="@+id/key_chaobiaoyccm"
+      app:layout_constraintRight_toRightOf="@+id/guide"
+      app:layout_constraintTop_toBottomOf="@+id/tv_chaobiaorq" />
+
+    <TextView
+      android:id="@+id/key_chaobiaoycsl"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:gravity="right"
+      android:text="预测水量："
+      android:textSize="@dimen/size_15sp"
+      android:visibility="gone"
+      app:layout_constraintLeft_toLeftOf="@+id/guide"
+      app:layout_constraintTop_toTopOf="@+id/tv_chaobiaoyccm" />
+<!--      app:layout_constraintLeft_toLeftOf="@+id/key_chaobiaoyl"-->
+<!--      app:layout_constraintRight_toRightOf="@+id/key_chaobiaoyl"-->
+<!--      app:layout_constraintTop_toTopOf="@+id/tv_chaobiaoyccm" />-->
+
+
+    <TextView
+      android:id="@+id/tv_chaobiaoycsl"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text=""
+      android:textColor="@color/color_text_black"
+      android:visibility="gone"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toRightOf="@+id/key_chaobiaoycsl"
+      app:layout_constraintTop_toTopOf="@+id/key_chaobiaoycsl" />
+
+    <TextView
+      android:id="@+id/key_shishids"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_8dp"
+      android:gravity="right"
+      android:visibility="gone"
+      android:paddingBottom="@dimen/size_10dp"
+      android:text="实时读数： "
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toLeftOf="@+id/key_chaobiaoyccm"
+      app:layout_constraintRight_toRightOf="@+id/key_chaobiaoyccm"
+      app:layout_constraintTop_toBottomOf="@+id/tv_chaobiaoyccm" />
+
+    <TextView
+      android:id="@+id/tv_shishids"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:paddingRight="@dimen/size_20dp"
+      android:visibility="gone"
+      android:paddingBottom="@dimen/size_10dp"
+      android:text="获取实时读数"
+      android:textColor="@color/color_text_black"
+      android:textSize="@dimen/size_15sp"
+      app:layout_constraintLeft_toRightOf="@+id/key_shishids"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/key_shishids" />
+
+
+    <TextView
+      android:id="@+id/tv_sfgddj"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:background="@drawable/shape_radius_white"
+      android:drawableRight="@drawable/nsdk_driving_habit_right_arrow"
+      android:hint="是否工单登记"
+      android:padding="15dp"
+      android:textColor="@color/black"
+      android:textStyle="bold"
+      android:visibility="gone"
+      app:layout_constraintLeft_toLeftOf="@+id/bg"
+      app:layout_constraintTop_toBottomOf="@+id/bg"></TextView>
+
+    <TextView
+      android:id="@+id/tv_mkggyy"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:background="@drawable/shape_radius_white"
+      android:drawableRight="@drawable/nsdk_driving_habit_right_arrow"
+      android:hint="请选择模块故障原因"
+      android:padding="15dp"
+      android:textColor="@color/black"
+      android:textStyle="bold"
+      android:visibility="gone"
+      app:layout_constraintLeft_toLeftOf="@+id/bg"
+      app:layout_constraintTop_toBottomOf="@+id/tv_sfgddj"></TextView>
+
+    <TextView
+      android:id="@+id/tv_gzhbyy"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:background="@drawable/shape_radius_white"
+      android:drawableRight="@drawable/nsdk_driving_habit_right_arrow"
+      android:hint="请选择故障换表原因"
+      android:padding="15dp"
+      android:textColor="@color/black"
+      android:textStyle="bold"
+      android:visibility="gone"
+      app:layout_constraintLeft_toLeftOf="@+id/bg"
+      app:layout_constraintTop_toBottomOf="@+id/tv_mkggyy"></TextView>
+
+    <TextView
+      android:id="@+id/tv_sfghbp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:background="@drawable/shape_radius_white"
+      android:drawableRight="@drawable/nsdk_driving_habit_right_arrow"
+      android:hint="是否更换表盘"
+      android:padding="15dp"
+      android:textColor="@color/black"
+      android:textStyle="bold"
+      android:visibility="gone"
+      app:layout_constraintLeft_toLeftOf="@+id/bg"
+      app:layout_constraintTop_toBottomOf="@+id/tv_gzhbyy"></TextView>
+
+    <EditText
+      android:id="@+id/et_gddjbz"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_10dp"
+      android:layout_marginBottom="@dimen/size_10dp"
+      android:background="@drawable/et_bg_gray"
+      android:gravity="top|left"
+      android:hint="工单登记备注"
+      android:minLines="4"
+      android:padding="@dimen/size_15dp"
+      android:textSize="@dimen/size_14sp"
+      android:visibility="gone"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tv_sfghbp" />
+
+    <TextView
+      android:id="@+id/tv_cbzt"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:background="@drawable/shape_radius_white"
+      android:drawableRight="@drawable/nsdk_driving_habit_right_arrow"
+      android:hint="请选择抄表状态"
+      android:padding="15dp"
+      android:textColor="@color/black"
+      android:textStyle="bold"
+      app:layout_constraintLeft_toLeftOf="@+id/bg"
+      app:layout_constraintTop_toBottomOf="@+id/et_gddjbz"></TextView>
+
+    <EditText
+      android:id="@+id/et_xjcm"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_10dp"
+      android:layout_weight="1"
+      android:background="@drawable/et_bg_gray"
+      android:hint="辅助验收抄码"
+      android:inputType="number"
+      android:maxLines="1"
+      android:padding="@dimen/size_15dp"
+      android:textSize="@dimen/size_14sp"
+      app:layout_constraintLeft_toLeftOf="@+id/bg"
+      app:layout_constraintRight_toLeftOf="@+id/tv_paizhao"
+      app:layout_constraintTop_toBottomOf="@+id/tv_cbzt" />
+
+    <EditText
+      android:id="@+id/et_txm"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_10dp"
+      android:layout_weight="1"
+      android:background="@drawable/et_bg_gray"
+      android:hint="手动输入条码后4位可自动带出"
+      android:inputType="number"
+      android:maxLines="1"
+      android:padding="@dimen/size_15dp"
+      android:textSize="@dimen/size_14sp"
+      app:layout_constraintLeft_toLeftOf="@+id/et_xjcm"
+      app:layout_constraintLeft_toRightOf="@+id/et_xjcm"
+      app:layout_constraintRight_toRightOf="@+id/tv_paizhao"
+      app:layout_constraintTop_toBottomOf="@+id/et_xjcm" />
+
+    <TextView
+      android:id="@+id/tv_paizhao"
+      android:layout_width="wrap_content"
+      android:layout_height="0dp"
+      android:layout_marginLeft="@dimen/size_5dp"
+      android:background="@color/colorPrimary"
+      android:gravity="center"
+      android:inputType="number"
+      android:maxLines="1"
+      android:paddingLeft="@dimen/size_10dp"
+      android:paddingRight="@dimen/size_10dp"
+      android:text="拍照识别"
+      android:textColor="@color/white"
+      app:layout_constraintBottom_toBottomOf="@+id/et_xjcm"
+      app:layout_constraintLeft_toRightOf="@+id/et_xjcm"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/et_xjcm" />
+
+
+
+    <EditText
+      android:id="@+id/et_xjyl"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_10dp"
+      android:background="@drawable/et_bg_gray"
+      android:hint="请输入巡检用量"
+      android:inputType="number"
+      android:visibility="gone"
+      android:maxLines="1"
+      android:padding="@dimen/size_15dp"
+      android:textSize="@dimen/size_14sp"
+      app:layout_constraintLeft_toLeftOf="@+id/et_txm"
+      app:layout_constraintRight_toRightOf="@+id/tv_paizhao"
+      app:layout_constraintTop_toBottomOf="@+id/et_txm" />
+
+    <EditText
+      android:id="@+id/et_ylsm"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/size_10dp"
+      android:background="@drawable/et_bg_gray"
+      android:hint="请输入0用量说明"
+      android:visibility="gone"
+      android:maxLines="5"
+      android:padding="@dimen/size_15dp"
+      android:textSize="@dimen/size_14sp"
+      app:layout_constraintLeft_toLeftOf="@+id/et_xjyl"
+      app:layout_constraintRight_toRightOf="@+id/et_xjyl"
+      app:layout_constraintTop_toBottomOf="@+id/et_xjyl" />
+
+    <EditText
+      android:id="@+id/et_bz"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/size_10dp"
+      android:layout_marginTop="@dimen/size_10dp"
+      android:background="@drawable/et_bg_gray"
+      android:gravity="top|left"
+      android:hint="备注"
+      android:minLines="4"
+      android:padding="@dimen/size_15dp"
+      android:textSize="@dimen/size_14sp"
+      app:layout_constraintLeft_toLeftOf="@+id/et_txm"
+      app:layout_constraintRight_toRightOf="@+id/tv_paizhao"
+      app:layout_constraintTop_toBottomOf="@+id/et_txm" />
+
+
+
+  </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

@@ -69,6 +69,9 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.functions.Function;
 
+/**
+ * 辅助验收
+ */
 public class RemoteinSpectionListActivity extends ParentActivity
   implements View.OnClickListener, RemoteinSpectionListMvpView, RemoteinSpectionListAdapter.OnItemClickListener {
   private static final String TAG = "RemoteinSpectionListActivity";
@@ -156,20 +159,17 @@ public class RemoteinSpectionListActivity extends ParentActivity
         screenType = "all";
         //全部
         mRemoteinSpectionListPresenter.loadXunJianListData2("all");
+        mAll.setChecked(true);
         break;
       case R.id.mul_action_remote_yes:
         screenType = "yichao";
         mRemoteinSpectionListPresenter.loadXunJianListData2("yes");
+        mInspected.setChecked(true);
         break;
       case R.id.mul_action_remote_no:
         screenType = "weichao";
         mRemoteinSpectionListPresenter.loadXunJianListData2("no");
-        break;
-      case R.id.mul_action_remote_up:
-        mRemoteinSpectionListPresenter.loadXunJianListData2("up");
-        break;
-      case R.id.mul_action_remote_down:
-        mRemoteinSpectionListPresenter.loadXunJianListData2("down");
+        mNoInspected.setChecked(true);
         break;
       default:
         break;
@@ -236,7 +236,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
             }
           }
 
-          final io.reactivex.Observable<String> upImageObservable = EasyHttp.post(URL.BASE_CS_URL+URL.UploadFile)
+          final io.reactivex.Observable<String> upImageObservable = EasyHttp.post(URL.BASE_XUNJIAN_URL+URL.UploadFile)
             .params("S_LEIXING", "XUNJIAN")
             .params("S_GONGDANBH", biaoKaWholeEntity.getRENWUID())
             .addFileParams("S_ZHAOPIANLJ", files, null)
@@ -246,7 +246,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
             .timeStamp(true)
             .execute(String.class);
 
-          io.reactivex.Observable<String> upDataObservable = EasyHttp.post(URL.BASE_CS_URL+URL.setChaoBiaoInfo_CB)
+          io.reactivex.Observable<String> upDataObservable = EasyHttp.post(URL.BASE_XUNJIAN_URL+URL.setChaoBiaoInfo_CB)
             .params("RENWUID", biaoKaWholeEntity.getRENWUID())
             .params("XIAOGENH", biaoKaWholeEntity.getXIAOGENH())
             .params("XUNJIANCM", biaoKaWholeEntity.getXUNJIANCM())
@@ -267,7 +267,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
 
           io.reactivex.Observable<String> uploadObservable = null;
           if (vedioFile.size() > 0) {
-            uploadObservable = EasyHttp.post(URL.BASE_CS_URL+URL.UploadFile)
+            uploadObservable = EasyHttp.post(URL.BASE_XUNJIAN_URL+URL.UploadFile)
               .params("S_LEIXING", "SP")
               .params("S_GONGDANBH", biaoKaWholeEntity.getRENWUID())
               .addFileParams("S_ZHAOPIANLJ", vedioFile, null)
@@ -360,6 +360,16 @@ public class RemoteinSpectionListActivity extends ParentActivity
     mBiaoKaListBeans.clear();
     mLocalXunJianTasks = mRemoteinSpectionListPresenter.getLocalXunJianTasks(Const.XUNJIANTASK_TYPE);
 
+    sortList();
+    mRemoteinSpectionListAdapter.setTaskList(mBiaoKaBeans,mBiaoKaListBeans);
+    if (mBiaoKaListBeans.size() <= 0){
+      getXunJianTask(true);
+    }
+//
+
+  }
+
+  private void sortList() {
     switch (screenType) {
       case "yichao":
         //显示本地数据
@@ -386,12 +396,6 @@ public class RemoteinSpectionListActivity extends ParentActivity
         filterSort();
         break;
     }
-    mRemoteinSpectionListAdapter.setTaskList(mBiaoKaBeans,mBiaoKaListBeans);
-    if (mBiaoKaListBeans.size() <= 0){
-      getXunJianTask(true);
-    }
-//
-
   }
 
   private void getXunJianTask(boolean isNeedBiaoKa) {
@@ -399,7 +403,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
       mRefreshLayout.setRefreshing(true);
     }
     Log.i("xnhh", "getXunJianTask: " + SPUtils.getInstance().getString(Constants.USERNAME));
-    EasyHttp.post(URL.BASE_CS_URL + URL.getXunJianTask_cb)
+    EasyHttp.post(URL.BASE_XUNJIAN_URL + URL.getXunJianTask_cb)
       .params("S_YUANGONGH", SPUtils.getInstance().getString(Constants.USERNAME))
       .execute(new ProgressDialogCallBack<String>(null,true,false) {
 
@@ -450,7 +454,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
     List<Observable<String>> list = new ArrayList<>();
     for (XunJianTaskBean xunJianTaskBean : xunjianTasks) {
       xunJianTaskBean.setID((long) xunJianTaskBean.getRENWUMC().hashCode());
-      Observable<String> mobileObservable = EasyHttp.post(URL.BASE_CS_URL + URL.getbiaoka_CB)
+      Observable<String> mobileObservable = EasyHttp.post(URL.BASE_XUNJIAN_URL + URL.getbiaoka_CB)
         .params("RENWUMC", xunJianTaskBean.getRENWUMC())
         .execute(new CallClazzProxy<ApiResult<String>, String>(String.class) {
         });
@@ -627,7 +631,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
     List<Observable<String>> list = new ArrayList<>();
     for (BiaoKaListBean biaoKaListBean : biaoKaList) {
       biaoKaListBean.setID((long) biaoKaListBean.getS_RENWUID().hashCode());
-      Observable<String> mobileObservable = EasyHttp.post(URL.BASE_CS_URL+URL.getBiaoKaList_CB)
+      Observable<String> mobileObservable = EasyHttp.post(URL.BASE_XUNJIAN_URL+URL.getBiaoKaList_CB)
         .params("RENWUID", biaoKaListBean.getS_RENWUID())
         .execute(new CallClazzProxy<ApiResult<String>, String>(String.class) {
         });
@@ -761,14 +765,22 @@ public class RemoteinSpectionListActivity extends ParentActivity
     mBiaoKaListBeans.clear();
     mLocalXunJianTasks.clear();
     mLocalXunJianTasks = mRemoteinSpectionListPresenter.getLocalXunJianTasks(Const.XUNJIANTASK_TYPE);
-    for (int i = 0; i < mLocalXunJianTasks.size(); i++) {
-      List<BiaoKaListBean> wcBiaoKaListBeans = mRemoteinSpectionListPresenter.getWcorYcBiaoKalistbean(mLocalXunJianTasks.get(i).getRENWUMC(),"wc");
-      List<BiaoKaListBean> yccBiaoKaListBeans = mRemoteinSpectionListPresenter.getWcorYcBiaoKalistbean(mLocalXunJianTasks.get(i).getRENWUMC(),"yc");
-      mBiaoKaListBeans.addAll(wcBiaoKaListBeans);
-      mBiaoKaListBeans.addAll(yccBiaoKaListBeans);
+//    for (int i = 0; i < mLocalXunJianTasks.size(); i++) {
+//      List<BiaoKaListBean> wcBiaoKaListBeans = mRemoteinSpectionListPresenter.getWcorYcBiaoKalistbean(mLocalXunJianTasks.get(i).getRENWUMC(),"wc");
+//      List<BiaoKaListBean> yccBiaoKaListBeans = mRemoteinSpectionListPresenter.getWcorYcBiaoKalistbean(mLocalXunJianTasks.get(i).getRENWUMC(),"yc");
+//      mBiaoKaListBeans.addAll(wcBiaoKaListBeans);
+//      mBiaoKaListBeans.addAll(yccBiaoKaListBeans);
+//    }
+//    mRemoteinSpectionListAdapter.setTaskList(null,mBiaoKaListBeans);
+
+    if (screenType.equals("yichao")) {
+      mRemoteinSpectionListPresenter.loadXunJianListData2("yes");
+    } else if (screenType.equals("weichao")) {
+      mRemoteinSpectionListPresenter.loadXunJianListData2("no");
+    } else {
+      mRemoteinSpectionListPresenter.loadXunJianListData2("all");
     }
     filterSort();
-    mRemoteinSpectionListAdapter.setTaskList(null,mBiaoKaListBeans);
     mRefreshLayout.setRefreshing(false);
 
   }
@@ -1094,7 +1106,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
     }
 
     if (vedioFile.size() > 0) {
-      EasyHttp.post(URL.BASE_CS_URL+ URL.UploadFile)
+      EasyHttp.post(URL.BASE_XUNJIAN_URL+ URL.UploadFile)
         .params("S_LEIXING", "SP")
         .params("S_GONGDANBH", biaoKaWholeEntity.getRENWUID())
         .addFileParams("S_ZHAOPIANLJ", vedioFile, null)
@@ -1108,7 +1120,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
           public ObservableSource<String> apply(String s) throws Exception {
             ResultEntity resultEntity = GsonUtils.fromJson(s, ResultEntity.class);
             if ("00".equals(resultEntity.getMsgCode())) {
-              return EasyHttp.post(URL.BASE_CS_URL+URL.UploadFile)
+              return EasyHttp.post(URL.BASE_XUNJIAN_URL+URL.UploadFile)
                 .params("S_LEIXING", "XUNJIAN")
                 .params("S_GONGDANBH", biaoKaWholeEntity.getRENWUID())
                 .addFileParams("S_ZHAOPIANLJ", files, null)
@@ -1169,7 +1181,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
           }
         });
     } else {
-      EasyHttp.post(URL.BASE_CS_URL+URL.UploadFile)
+      EasyHttp.post(URL.BASE_XUNJIAN_URL+URL.UploadFile)
         .params("S_LEIXING", "XUNJIAN")
         .params("S_GONGDANBH", biaoKaWholeEntity.getRENWUID())
         .addFileParams("S_ZHAOPIANLJ", files, null)

@@ -137,6 +137,12 @@ public class ConfigHelper {
      */
     public static final String FOLDER_MAP = FOLDER_ROOT + "/map";
 
+    public static final String FOLDER_IMAGES_XUNJIAN = FOLDER_ROOT + "/images/XUNJIAN";
+
+    public File getImageXunJianPath() {
+      return new File(STORAGE_PATH, FOLDER_IMAGES_XUNJIAN);
+    }
+
     private static final String TAG = "ConfigHelper";
 
 

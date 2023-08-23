@@ -75,6 +75,7 @@ public class DaoMaster extends AbstractDaoMaster {
         BiaoKaBeanDao.createTable(db, ifNotExists);
         BiaoKaListBeanDao.createTable(db, ifNotExists);
         XunJianTaskBeanDao.createTable(db, ifNotExists);
+        XJXXWordBeanDao.createTable(db, ifNotExists);
     }
 
     /**
@@ -129,6 +130,7 @@ public class DaoMaster extends AbstractDaoMaster {
         BiaoKaBeanDao.dropTable(db, ifExists);
         BiaoKaListBeanDao.dropTable(db, ifExists);
         XunJianTaskBeanDao.dropTable(db, ifExists);
+        XJXXWordBeanDao.dropTable(db, ifExists);
     }
 
     public static void createQianFeiXXTables(SQLiteDatabase db, boolean ifNotExists) {
@@ -224,9 +226,6 @@ public class DaoMaster extends AbstractDaoMaster {
      */
     public void updateQianFeiXX(int newVersion, SQLiteDatabase db) {
         switch (newVersion) {
-            case 4:
-                  String sql3 = "ALTER TABLE BIAO_KA_LIST_BEAN ADD COLUMN XUHAO text";
-                  db.execSQL(sql3);
             case 3:
                 try {
                     String sql1 = "alter table ZW_QianFeiXX add N_SHUIFEI REAL NOT NULL  default 0";
@@ -571,6 +570,7 @@ public class DaoMaster extends AbstractDaoMaster {
         registerDaoClass(BiaoKaListBeanDao.class);
         registerDaoClass(BiaoKaWholeEntityDao.class);
         registerDaoClass(XunJianTaskBeanDao.class);
+        registerDaoClass(XJXXWordBeanDao.class);
     }
 
     public static SQLiteDatabase getSQLiteDatabase(String path, Context context) {

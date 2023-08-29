@@ -126,6 +126,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
   public void onInitUserConfigResult(UIBusEvent.InitUserConfigResult initUserConfigResult) {
     LogUtil.i(TAG, "---onInitResult---" + initUserConfigResult.isSuccess());
     if (initUserConfigResult.isSuccess()) {
+      requestData();
     } else {
       ApplicationsUtil.showMessage(this, R.string.text_init_failure);
     }
@@ -339,9 +340,22 @@ public class RemoteinSpectionListActivity extends ParentActivity
     mEventBus.register(this);
     mSmoothProgressBar.setVisibility(View.INVISIBLE);
 //    mRemoteinSpectionListPresenter.loadXunJianData();
+
+    Intent intent = getIntent();
+    if (savedInstanceState != null) {
+      initParams(savedInstanceState);
+    } else if (intent != null) {
+      initParams(intent.getExtras());
+    } else {
+      initParams(null);
+    }
+
+    if (checkPermissions()) {
+      initConfig();
+    }
+
     initRecyclerView();
     initData();
-    requestData();
   }
 
   private void initData() {
@@ -1246,5 +1260,15 @@ public class RemoteinSpectionListActivity extends ParentActivity
       }
     });
 
+  }
+
+  @Subscribe
+  public void onInitConfigResult(UIBusEvent.InitConfigResult initConfigResult) {
+    LogUtil.i(TAG, "---onInitConfigResult---" + initConfigResult.isSuccess());
+    if (initConfigResult.isSuccess()) {
+      initUserConfig();
+    } else {
+      ApplicationsUtil.showMessage(this, R.string.text_init_failure);
+    }
   }
 }

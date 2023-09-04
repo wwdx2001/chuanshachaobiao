@@ -10,8 +10,6 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 
-import com.blankj.utilcode.util.GsonUtils;
-import com.blankj.utilcode.util.ToastUtils;
 import com.sh3h.datautil.data.entity.DUSamplingTask;
 import com.sh3h.datautil.data.entity.DUTask;
 import com.sh3h.datautil.data.local.config.SystemConfig;
@@ -31,13 +29,7 @@ import com.sh3h.meterreading.ui.sampling.SamplingTaskActivity;
 import com.sh3h.meterreading.ui.search.CombinedSearchActivity;
 import com.sh3h.meterreading.ui.setting.SettingActivity;
 import com.sh3h.meterreading.ui.task.TaskListActivity;
-import com.sh3h.meterreading.util.URL;
 import com.sh3h.mobileutil.util.LogUtil;
-import com.sh3h.serverprovider.entity.XJXXWordBean;
-import com.sh3h.serverprovider.entity.XunJianXXWords;
-import com.zhouyou.http.EasyHttp;
-import com.zhouyou.http.callback.SimpleCallBack;
-import com.zhouyou.http.exception.ApiException;
 
 import org.json.JSONObject;
 
@@ -143,9 +135,6 @@ public class MyWorkFragment extends ParentFragment implements MyWorkMvpView,
     }
 
     private void initView(LayoutInflater inflater) {
-        getWordsList(null);
-        //删除过期的文件
-        mMyWorkPresenter.deleteFile();
         mMyWorkPresenter.initRegion();
 
         if (mainInfoViewAdapter == null) {
@@ -176,56 +165,6 @@ public class MyWorkFragment extends ParentFragment implements MyWorkMvpView,
         mMyWorkPresenter.checkStyle();
         //refresh();
     }
-
-  private void getWordsList(final SimpleCallBack<XunJianXXWords> callBack) {
-    EasyHttp.post(URL.BASE_XUNJIAN_URL+ URL.GetWords)
-      .cacheKey(URL.GetWords)
-      .cacheTime(-1)
-      .execute(new SimpleCallBack<String>() {
-        @Override
-        public void onStart() {
-          super.onStart();
-          if (callBack != null) {
-            callBack.onStart();
-          }
-        }
-
-        @Override
-        public void onError(ApiException e) {
-          if (callBack != null) {
-            callBack.onError(e);
-          }
-        }
-
-        @Override
-        public void onSuccess(String s) {
-          XunJianXXWords wordsList = GsonUtils.fromJson(s, XunJianXXWords.class);
-          if ("00".equals(wordsList.getMsgCode())) {
-            if (wordsList.getData() != null && wordsList.getData().size() > 0) {
-              mMyWorkPresenter.deleteWord(wordsList.getData());
-//              GreenDaoUtils.getInstance().getDaoSession(instance)
-//                .getXJXXWordBeanDao().deleteAll();
-//
-//              GreenDaoUtils.getInstance().getDaoSession(instance)
-//                .getXJXXWordBeanDao()
-//                .insertOrReplaceInTx(wordsList.getData());
-            }
-            if (callBack != null) {
-              callBack.onSuccess(wordsList);
-            }
-          } else {
-            ToastUtils.showLong(wordsList.getMsgInfo());
-          }
-        }
-      });
-  }
-
-  @Override
-  public void onDeleteWord(List<XJXXWordBean> data) {
-
-    mMyWorkPresenter.saveWord(data);
-
-  }
 
     public void refresh() {
         if (isPrepared) {

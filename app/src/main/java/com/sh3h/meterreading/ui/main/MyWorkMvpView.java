@@ -3,7 +3,6 @@ package com.sh3h.meterreading.ui.main;
 import com.sh3h.datautil.data.entity.DUSamplingTask;
 import com.sh3h.datautil.data.entity.DUTask;
 import com.sh3h.meterreading.ui.base.MvpView;
-import com.sh3h.serverprovider.entity.XJXXWordBean;
 
 import java.util.List;
 
@@ -16,5 +15,4 @@ public interface MyWorkMvpView extends MvpView {
     void onGetAllTasks(List<DUTask> duTasks);
     void onGetSamplingTasks(List<DUSamplingTask> duSamplingTasks);
     void onInitRegion(String region);
-    void onDeleteWord(List<XJXXWordBean> data);
 }

@@ -11,35 +11,57 @@ import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.blankj.utilcode.util.GsonUtils;
 import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.ToastUtils;
+import com.sh3h.datautil.data.DataManager;
 import com.sh3h.datautil.data.entity.Coordinate;
+import com.sh3h.datautil.data.local.config.ConfigHelper;
 import com.sh3h.meterreading.MainApplication;
 import com.sh3h.meterreading.R;
 import com.sh3h.meterreading.service.SyncService;
 import com.sh3h.meterreading.service.SyncType;
 import com.sh3h.meterreading.ui.map.MapParamEx;
 import com.sh3h.meterreading.ui.map.MapStatusEx;
+import com.sh3h.meterreading.util.URL;
 import com.sh3h.mobileutil.util.ApplicationsUtil;
 import com.sh3h.mobileutil.util.LogUtil;
 import com.sh3h.mobileutil.util.TextUtil;
+import com.sh3h.serverprovider.entity.XJXXWordBean;
+import com.sh3h.serverprovider.entity.XunJianXXWords;
 import com.sh3h.thirdparty.gesturelock.commonutil.Constants;
+import com.zhouyou.http.EasyHttp;
+import com.zhouyou.http.callback.SimpleCallBack;
+import com.zhouyou.http.exception.ApiException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+
+import javax.inject.Inject;
 
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.Utils;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivityBase;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivityHelper;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+import rx.subscriptions.CompositeSubscription;
 
 public class ParentActivity extends BaseActivity implements SwipeBackActivityBase {
     private static final String TAG = "ParentActivity";
@@ -68,6 +90,13 @@ public class ParentActivity extends BaseActivity implements SwipeBackActivityBas
     private static String extendedInfo;
     private boolean netWork;
     private String photoQuality;
+
+    protected CompositeSubscription mSubscription;
+    @Inject
+    DataManager mDataManager;
+    @Inject
+    ConfigHelper mConfigHelper;
+
 
     private static final int PERMISSION_REQUEST_CODE = 1000; // 系统权限管理页面的参数
     private static final String[] PERMISSIONS = new String[]{
@@ -101,6 +130,7 @@ public class ParentActivity extends BaseActivity implements SwipeBackActivityBas
         mHelper = new SwipeBackActivityHelper(this);
         mHelper.onActivityCreate();
         MainApplication.get(this).bindHostService();
+        mSubscription = new CompositeSubscription();
     }
 
     @Override
@@ -125,6 +155,9 @@ public class ParentActivity extends BaseActivity implements SwipeBackActivityBas
     protected void onDestroy() {
         super.onDestroy();
         //MainApplication.get(this).destroyGpsLocation();
+
+        mSubscription.unsubscribe();
+        mSubscription = null;
     }
 
     @Override
@@ -216,6 +249,9 @@ public class ParentActivity extends BaseActivity implements SwipeBackActivityBas
             userName = "高富帅";
             extendedInfo = "";
         }
+      getWordsList(null);
+      //删除过期的文件
+      deleteFile();
     }
 
     public boolean isNeedDialog() {
@@ -640,5 +676,176 @@ public class ParentActivity extends BaseActivity implements SwipeBackActivityBas
                 })
                 .show();
     }
+
+
+
+  private void getWordsList(final SimpleCallBack<XunJianXXWords> callBack) {
+    EasyHttp.post(URL.BASE_XUNJIAN_URL+ URL.GetWords)
+      .cacheKey(URL.GetWords)
+      .cacheTime(-1)
+      .execute(new SimpleCallBack<String>() {
+        @Override
+        public void onStart() {
+          super.onStart();
+          if (callBack != null) {
+            callBack.onStart();
+          }
+        }
+
+        @Override
+        public void onError(ApiException e) {
+          if (callBack != null) {
+            callBack.onError(e);
+          }
+        }
+
+        @Override
+        public void onSuccess(String s) {
+          XunJianXXWords wordsList = GsonUtils.fromJson(s, XunJianXXWords.class);
+          if ("00".equals(wordsList.getMsgCode())) {
+            if (wordsList.getData() != null && wordsList.getData().size() > 0) {
+              deleteWord(wordsList.getData());
+//              GreenDaoUtils.getInstance().getDaoSession(instance)
+//                .getXJXXWordBeanDao().deleteAll();
+//
+//              GreenDaoUtils.getInstance().getDaoSession(instance)
+//                .getXJXXWordBeanDao()
+//                .insertOrReplaceInTx(wordsList.getData());
+            }
+            if (callBack != null) {
+              callBack.onSuccess(wordsList);
+            }
+          } else {
+            ToastUtils.showLong(wordsList.getMsgInfo());
+          }
+        }
+      });
+  }
+
+  public void onDeleteWord(List<XJXXWordBean> data) {
+
+    saveWord(data);
+
+  }
+
+  public void saveWord(List<XJXXWordBean> data) {
+    LogUtil.i(TAG, "---saveXunJianBK---");
+    if (data == null) {
+      Log.e(TAG, "---saveXunJianBK: biaoKaBean is null---");
+      return;
+    }
+
+    mSubscription.add(mDataManager.saveXunjianWord(data)
+      .observeOn(AndroidSchedulers.mainThread())
+      .subscribeOn(Schedulers.io())
+      .subscribe(new Subscriber<Boolean>() {
+        @Override
+        public void onCompleted() {
+          LogUtil.i(TAG, "---saveNewImage onCompleted---");
+        }
+
+        @Override
+        public void onError(Throwable e) {
+          LogUtil.i(TAG, "---saveNewImage onError---" + e.getMessage());
+        }
+
+        @Override
+        public void onNext(Boolean aBoolean) {
+          LogUtil.i(TAG, "---saveNewImage onNext---");
+          if (aBoolean) {
+//            getMvpView().onSaveNewImage(duoMeiTXX);
+          } else {
+            LogUtil.i(TAG, "---saveNewImage onNext---false");
+          }
+        }
+      }));
+  }
+
+  public void deleteWord(final List<XJXXWordBean> data) {
+
+
+    mSubscription.add(mDataManager.deleteXunjianWord()
+      .observeOn(AndroidSchedulers.mainThread())
+      .subscribeOn(Schedulers.io())
+      .subscribe(new Subscriber<Boolean>() {
+        @Override
+        public void onCompleted() {
+          LogUtil.i(TAG, "---saveNewImage onCompleted---");
+        }
+
+        @Override
+        public void onError(Throwable e) {
+          LogUtil.i(TAG, "---saveNewImage onError---" + e.getMessage());
+        }
+
+        @Override
+        public void onNext(Boolean aBoolean) {
+          LogUtil.i(TAG, "---saveNewImage onNext---");
+          if (aBoolean) {
+            onDeleteWord(data);
+          } else {
+            LogUtil.i(TAG, "---saveNewImage onNext---false");
+          }
+        }
+      }));
+  }
+
+  public void deleteFile() {
+
+    mSubscription.add(mDataManager.deleteFile()
+      .observeOn(AndroidSchedulers.mainThread())
+      .subscribeOn(Schedulers.io())
+      .subscribe(new Subscriber<Boolean>() {
+        @Override
+        public void onCompleted() {
+          LogUtil.i(TAG, "---deleteFile onCompleted---");
+        }
+
+        @Override
+        public void onError(Throwable e) {
+          LogUtil.i(TAG, "---deleteFile onError---" + e.getMessage());
+        }
+
+        @Override
+        public void onNext(Boolean aBoolean) {
+          LogUtil.i(TAG, "---deleteFile onNext---");
+          if (aBoolean) {
+          } else {
+            LogUtil.i(TAG, "---deleteFile onNext---false");
+          }
+        }
+      }));
+  }
+  private void countDate(){
+    Date now = new Date();
+    SimpleDateFormat bfFormatter = new SimpleDateFormat("yyyy-MM");
+    String nowTime = bfFormatter.format(now);
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM", Locale.CHINA);
+    try {
+      Date date = sdf.parse(nowTime);
+      Calendar rightNow = Calendar.getInstance();
+      rightNow.setTime(date);
+      rightNow.add(Calendar.DAY_OF_YEAR, -60);
+      Date time = rightNow.getTime();
+      String format = sdf.format(time);
+      File folder = new File(mConfigHelper.getImageFolderPath(), format);
+      deleteDirWihtFile(folder);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  //删除文件夹和文件夹里面的文件
+  public static void deleteDirWihtFile(File dir) {
+    if (dir == null || !dir.exists() || !dir.isDirectory())
+      return;
+    for (File file : dir.listFiles()) {
+      if (file.isFile())
+        file.delete(); // 删除所有文件
+      else if (file.isDirectory())
+        deleteDirWihtFile(file); // 递规的方式删除文件夹
+    }
+    dir.delete();// 删除目录本身
+  }
 
 }

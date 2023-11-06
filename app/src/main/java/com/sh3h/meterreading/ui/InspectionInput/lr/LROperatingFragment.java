@@ -427,7 +427,7 @@ public class LROperatingFragment extends ParentFragment implements AdapterView.O
 
 
 //    getYuCeData(false);
-//    getDuShu(false);
+    getDuShu(true);
     List<XJXXWordBean> ysxzList =  mLrOperatingPresenter.getHotlineWordData("用水性质",mBiaoKaBean.getYONGSHUIXZ());
     if (ysxzList.size() > 0) {
       tvYsxz.setText(ysxzList.get(0).getMNAME());

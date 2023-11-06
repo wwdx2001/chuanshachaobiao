@@ -71,9 +71,9 @@ public class MyWorkFragment extends ParentFragment implements MyWorkMvpView,
     public static final int ACTION_DELAY = 1012;
     //量高量低
     public static final int ACTION_LGLD = 1013;
-    //辅助验收
+    //远传巡检
     public static final int ACTION_YCXJ = 1017;
-    //辅助验收历史
+    //远传巡检历史
     public static final int ACTION_YCXJ_HISTORY = 1018;
 
     @Inject

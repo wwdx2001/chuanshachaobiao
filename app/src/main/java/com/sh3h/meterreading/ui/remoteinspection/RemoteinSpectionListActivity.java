@@ -70,7 +70,7 @@ import io.reactivex.ObservableSource;
 import io.reactivex.functions.Function;
 
 /**
- * 辅助验收
+ * 远传巡检
  */
 public class RemoteinSpectionListActivity extends ParentActivity
   implements View.OnClickListener, RemoteinSpectionListMvpView, RemoteinSpectionListAdapter.OnItemClickListener {

@@ -83,9 +83,9 @@
     <string name="text_remote_all">全部</string>
     <string name="text_xunjian_type">巡检状态</string>
 
-    <string name="title_activity_remoteinspectionlistactivity">辅助验收</string>
-    <string name="title_activity_remoteinspectionhistorylistactivity">历史辅助验收</string>
-    <string name="title_activity_inspectionInputactivity">辅助验收</string>
+    <string name="title_activity_remoteinspectionlistactivity">远传巡检</string>
+    <string name="title_activity_remoteinspectionhistorylistactivity">远传巡检历史</string>
+    <string name="title_activity_inspectionInputactivity">远传巡检</string>
 
 
     <string name="title_activity_changenumber">调整序号</string>

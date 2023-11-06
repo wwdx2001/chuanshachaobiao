@@ -68,7 +68,7 @@ import io.reactivex.ObservableSource;
 import io.reactivex.functions.Function;
 
 /**
- * 辅助验收详情
+ * 远传巡检详情
  */
 public class InspectionInputActivity  extends ParentActivity implements View.OnClickListener, InspectionInputMvpView, RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
   private static final String TAG = "InspectionInputActivity";

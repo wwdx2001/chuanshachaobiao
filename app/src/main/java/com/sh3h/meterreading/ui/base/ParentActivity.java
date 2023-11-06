@@ -1,6 +1,7 @@
 package com.sh3h.meterreading.ui.base;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -610,6 +611,7 @@ public class ParentActivity extends BaseActivity implements SwipeBackActivityBas
         MainApplication.get(this).initUserConfig(account, userId, userName, netWork, photoQuality);
     }
 
+    @SuppressLint("NewApi")
     protected boolean checkPermissions() {
         if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) && lackPermissions(PERMISSIONS)) {
             requestPermissions(PERMISSIONS, PERMISSION_REQUEST_CODE);

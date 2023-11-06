@@ -19,7 +19,7 @@
       android:layout_height="0dp"
       android:layout_marginTop="@dimen/size_10dp"
       android:background="@drawable/radius_5_white_bg"
-      app:layout_constraintBottom_toBottomOf="@+id/picture_preview"
+      app:layout_constraintBottom_toBottomOf="@+id/key_shishids"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +29,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:orientation="vertical"
-      app:layout_constraintGuide_percent="0.6" />
+      app:layout_constraintGuide_percent="0.556" />
 
     <TextView
       android:id="@+id/key_xiaogenhao"
@@ -37,7 +37,7 @@
       android:layout_height="wrap_content"
       android:layout_marginLeft="@dimen/size_10dp"
       android:layout_marginTop="@dimen/size_15dp"
-      android:text="　销根号： "
+      android:text="　用户号： "
       android:textSize="@dimen/size_15sp"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintTop_toTopOf="@+id/bg" />
@@ -46,7 +46,7 @@
       android:id="@+id/tv_xiaogenhao"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="销根号"
+      android:text="用户号"
       android:textColor="@color/color_text_black"
       android:textSize="@dimen/size_15sp"
       app:layout_constraintLeft_toRightOf="@+id/key_xiaogenhao"
@@ -294,9 +294,12 @@
       android:gravity="right"
       android:text="　抄表用量： "
       android:textSize="@dimen/size_15sp"
+      android:layout_marginTop="@dimen/size_8dp"
       app:layout_constraintLeft_toLeftOf="@+id/key_pingjun"
       app:layout_constraintRight_toRightOf="@+id/key_pingjun"
-      app:layout_constraintTop_toTopOf="@+id/tv_chaobiaorq" />
+      app:layout_constraintTop_toBottomOf="@+id/tv_pingjun"
+      app:layout_constraintBottom_toBottomOf="@+id/key_chaobiaorq"
+      />
 
     <TextView
       android:id="@+id/tv_chaobiaoyl"
@@ -365,26 +368,22 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="@dimen/size_8dp"
       android:gravity="right"
-      android:visibility="gone"
       android:paddingBottom="@dimen/size_10dp"
-      android:text="实时读数： "
+      android:text="远传读数： "
       android:textSize="@dimen/size_15sp"
-      app:layout_constraintLeft_toLeftOf="@+id/key_chaobiaoyccm"
-      app:layout_constraintRight_toRightOf="@+id/key_chaobiaoyccm"
-      app:layout_constraintTop_toBottomOf="@+id/tv_chaobiaoyccm" />
+      app:layout_constraintLeft_toLeftOf="@+id/key_chaobiaorq"
+      app:layout_constraintRight_toRightOf="@+id/key_chaobiaorq"
+      app:layout_constraintTop_toBottomOf="@+id/tv_chaobiaorq"/>
 
     <TextView
       android:id="@+id/tv_shishids"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:paddingRight="@dimen/size_20dp"
-      android:visibility="gone"
       android:paddingBottom="@dimen/size_10dp"
-      android:text="获取实时读数"
       android:textColor="@color/color_text_black"
       android:textSize="@dimen/size_15sp"
       app:layout_constraintLeft_toRightOf="@+id/key_shishids"
-      app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintTop_toTopOf="@+id/key_shishids" />
 
 
@@ -486,7 +485,7 @@
       android:layout_marginTop="@dimen/size_10dp"
       android:layout_weight="1"
       android:background="@drawable/et_bg_gray"
-      android:hint="辅助验收抄码"
+      android:hint="远传巡检抄码"
       android:inputType="number"
       android:maxLines="1"
       android:padding="@dimen/size_15dp"

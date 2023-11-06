@@ -36,7 +36,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * 辅助验收历史
+ * 远传巡检历史
  */
 public class RemoteinSpectionOHistoryListActivity extends ParentActivity
         implements View.OnClickListener, RemoteinSpectionOHistoryListMvpView, RemoteinSpectionListAdapter.OnItemClickListener, RemoteinSpectionhistoryListAdapter.OnItemClickListener {

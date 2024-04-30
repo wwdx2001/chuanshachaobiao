@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_wenti_shangbao"
+        android:title="保存"
+        android:visible="false"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_right_text"
+        android:title="设置"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_dizhi_paixu"
+        android:title="按地址排序"
+        android:visible="false"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_huming_paixu"
+        android:title="按户名排序"
+        android:visible="false"
+        app:showAsAction="never" />
+</menu>

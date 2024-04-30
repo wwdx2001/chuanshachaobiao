@@ -76,7 +76,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SamplingRecordActivity extends ParentActivity implements
@@ -103,134 +103,134 @@ public class SamplingRecordActivity extends ParentActivity implements
     @Inject
     SamplingRecordPresenter samplingRecordPresenter;
 
-    @Bind(R.id.inspect_record_lr)
+    @BindView(R.id.inspect_record_lr)
     RadioButton mRecordLRRadioButton;
 
-    @Bind(R.id.inspect_record_detail_info)
+    @BindView(R.id.inspect_record_detail_info)
     RadioButton mDetailInfoRadioButton;
 
-    @Bind(R.id.loading_process)
+    @BindView(R.id.loading_process)
     SmoothProgressBar mSmoothProgressBar;
 
     // 用户编号
-    @Bind(R.id.fcblr_yonghubh)
+    @BindView(R.id.fcblr_yonghubh)
     TextView mYHBHTextView;
 
     // 户名
-    @Bind(R.id.fcblr_huming2)
+    @BindView(R.id.fcblr_huming2)
     TextView mHMTextView;
 
     // 地址
-    @Bind(R.id.fcblr_dizhi2)
+    @BindView(R.id.fcblr_dizhi2)
     TextView mDZTextView;
 
     // 欠费信息
-    @Bind(R.id.txt_qianfei)
+    @BindView(R.id.txt_qianfei)
     TextView mQFTextView;
 
     // 水表信息
-    @Bind(R.id.fcblr_shuibiaoxx2)
+    @BindView(R.id.fcblr_shuibiaoxx2)
     TextView mSBXXTextView;
 
     // 本次抄表状态
-    @Bind(R.id.fcblr_chaobiaoztbc)
+    @BindView(R.id.fcblr_chaobiaoztbc)
     TextView mBCCBZTTextView;
     // 本次抄码
-    @Bind(R.id.fcblr_bencicm)
+    @BindView(R.id.fcblr_bencicm)
     TextView mBCCBTextView;
 
     // 本次次抄见水量
-    @Bind(R.id.fcblr_chaojianslbc)
+    @BindView(R.id.fcblr_chaojianslbc)
     TextView mBCCJSLTextView;
 
     // 上次抄表状态
-    @Bind(R.id.fcblr_chaobiaoztsc)
+    @BindView(R.id.fcblr_chaobiaoztsc)
     TextView mSCCBZTTextView;
 
     // 上次抄码
-    @Bind(R.id.fcblr_shangcicm)
+    @BindView(R.id.fcblr_shangcicm)
     TextView mSCCBTextView;
 
     // 上次抄见水量
-    @Bind(R.id.fcblr_chaojianslsc)
+    @BindView(R.id.fcblr_chaojianslsc)
     TextView mSCCJSLTextView;
 
     // 稽查抄表状态
-    @Bind(R.id.fcblr_chaobiaoztcj)
+    @BindView(R.id.fcblr_chaobiaoztcj)
     TextView mJCCBZTTextView;
 
     // 稽查抄码
-    @Bind(R.id.fcblr_choujiancm)
+    @BindView(R.id.fcblr_choujiancm)
     TextView mJCCMTextView;
 
     // 稽查抄见水量
-    @Bind(R.id.fcblr_chaojianslchoujian)
+    @BindView(R.id.fcblr_chaojianslchoujian)
     TextView mJCCJSLTextView;
 
     // 子表（上次抄码 & 本次抄码）
-    @Bind(R.id.fcblr_sub)
+    @BindView(R.id.fcblr_sub)
     RelativeLayout mCBLRSubLayout;
 
-    @Bind(R.id.fcblr_chaoma1)
+    @BindView(R.id.fcblr_chaoma1)
     TextView mChaoMaOneTextView;
 
     // 子表（上次抄码）
-    @Bind(R.id.fcblr_shangcicm_sub)
+    @BindView(R.id.fcblr_shangcicm_sub)
     TextView mCNLRShangCicmSubTextView;
 
     // 子表（本次抄码）
-    @Bind(R.id.fcblr_choujiancm_sub)
+    @BindView(R.id.fcblr_choujiancm_sub)
     TextView mCNLRBenCicmSubTextView;
 
-    @Bind(R.id.fcblr_huanbiao)
+    @BindView(R.id.fcblr_huanbiao)
     ImageView mHBImageView;
 
-    @Bind(R.id.fcblr_qianfei)
+    @BindView(R.id.fcblr_qianfei)
     ImageView mQFImageView;
 
-    @Bind(R.id.fcblr_tingshui)
+    @BindView(R.id.fcblr_tingshui)
     ImageView mTSImageView;
 
-    @Bind(R.id.fcblr_bencicm_pen)
+    @BindView(R.id.fcblr_bencicm_pen)
     ImageView mBCCMImageView;
 
-    @Bind(R.id.fcblr_bencicm_pen_sub)
+    @BindView(R.id.fcblr_bencicm_pen_sub)
     ImageView mBCCMSubImageView;
 
-    @Bind(R.id.fcblr_chaojianslbc_pen)
+    @BindView(R.id.fcblr_chaojianslbc_pen)
     ImageView mBCCJSLImageView;
 
-    @Bind(R.id.fcblr_lgbzbc)
+    @BindView(R.id.fcblr_lgbzbc)
     ImageView mBCLGTmageView;
 
-    @Bind(R.id.fcblr_ldbzbc)
+    @BindView(R.id.fcblr_ldbzbc)
     ImageView mBCLDImageView;
 
-    @Bind(R.id.fcblr_chaobiaobzbc)
+    @BindView(R.id.fcblr_chaobiaobzbc)
     ImageView mCBBZImageView;
 
-    @Bind(R.id.fcblr_previous)
+    @BindView(R.id.fcblr_previous)
     ButtonFloatSmall mPrevButton;
 
-    @Bind(R.id.fcblr_paizhao)
+    @BindView(R.id.fcblr_paizhao)
     ButtonRectangle mPZButton;
 
-    @Bind(R.id.fcblr_upload)
+    @BindView(R.id.fcblr_upload)
     ButtonRectangle mUploadingButton;
 
-    @Bind(R.id.fcblr_next)
+    @BindView(R.id.fcblr_next)
     ButtonFloatSmall mNextButton;
 
-    @Bind(R.id.fcblr_cbbeizhu)
+    @BindView(R.id.fcblr_cbbeizhu)
     TextView mCBBeiZhuTextView;
 
-    @Bind(R.id.fcblr_flashlight)
+    @BindView(R.id.fcblr_flashlight)
     ButtonRectangle mFlashLightButton;
 
-    @Bind(R.id.fcblr_chaobiaoqkbc)
+    @BindView(R.id.fcblr_chaobiaoqkbc)
     TextView mCBQKBCTextView;
 
-    @Bind(R.id.fcblr_map_address)
+    @BindView(R.id.fcblr_map_address)
     ImageView mMapAddress;
 
     private static final int CAPTURE_IMAGE = 1000;
@@ -325,7 +325,7 @@ public class SamplingRecordActivity extends ParentActivity implements
         LogUtil.i(TAG, "---onDestroy---");
 
         postRecordingEvent(false);
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mEventBus.unregister(this);
         samplingRecordPresenter.detachView();
 

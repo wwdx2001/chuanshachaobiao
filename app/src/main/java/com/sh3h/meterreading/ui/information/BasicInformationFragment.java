@@ -3,7 +3,6 @@ package com.sh3h.meterreading.ui.information;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +17,6 @@ import com.sh3h.datautil.data.entity.DUCardInfo;
 import com.sh3h.meterreading.R;
 import com.sh3h.meterreading.adapter.BasicAdapter;
 import com.sh3h.meterreading.adapter.FullyLinearLayoutManager;
-import com.sh3h.meterreading.adapter.TaskListAdapter;
 import com.sh3h.meterreading.event.UIBusEvent;
 import com.sh3h.meterreading.ui.base.BaseActivity;
 import com.sh3h.meterreading.ui.base.ParentFragment;
@@ -32,7 +30,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -45,47 +43,47 @@ public class BasicInformationFragment extends ParentFragment implements BasicInf
     @Inject
     Bus mEventBus;
 
-    @Bind(R.id.loading_process)
+    @BindView(R.id.loading_process)
     SmoothProgressBar loadingProcess;
 
-    @Bind(R.id.txt_huming) TextViewLine mHuMing;
-    @Bind(R.id.txt_customer_code) TextViewLine mCustomerCode;
-    @Bind(R.id.txt_address) TextViewLine mAddress;
-    @Bind(R.id.txt_host_tel) TextViewLine mHostTel;
-    @Bind(R.id.txt_customer_tel) TextViewLine mCustomerTel;
-    @Bind(R.id.txt_pay_cost) TextViewLine mPayCost;
-    @Bind(R.id.txt_card_status)TextViewLine mCardStatus;
-    @Bind(R.id.txt_xingzhengqu) TextViewLine mXingZhengQu;
-    @Bind(R.id.txt_zhandian) TextViewLine mZhanDian;
-    @Bind(R.id.txt_ch) TextViewLine mCH;
-    @Bind(R.id.txt_cenei_xh) TextViewLine mCeNeiXH;
-    @Bind(R.id.txt_ercigongshui) TextViewLine mErCiGongShui;
-    @Bind(R.id.txt_dianzizhangdan) TextViewLine mDianZiZhangDan;
-    @Bind(R.id.txt_fangan) TextViewLine mFangAn;
-    @Bind(R.id.txt_shifoujieti) TextViewLine mShiFouJieTi;
-    @Bind(R.id.txt_daoqiriqi) TextViewLine mDaoQiRiQi;
-    @Bind(R.id.txt_biaohao) TextViewLine mBiaoHao;
-    @Bind(R.id.txt_kaizhangfenlei) TextViewLine mKaiZhangFenLei;
-    @Bind(R.id.txt_biaoxin) TextViewLine mBiaoXing;
-    @Bind(R.id.txt_shuibiaozonglei) TextViewLine mShuiBiaoZongLei;
-    @Bind(R.id.txt_yongtufenlei) TextViewLine mYongTuFenLei;
-    @Bind(R.id.txt_biaoxishu) TextViewLine mBiaoXiShu;
-    @Bind(R.id.txt_shebeibianhao) TextViewLine mSheBeiBianHao;
-    @Bind(R.id.txt_zhongduanhao) TextViewLine mZhongDuanHao;
-    @Bind(R.id.txt_yuanchuanchangjia) TextViewLine mYuanChuanChangJia;
-    @Bind(R.id.txt_shuibiaochangjia) TextViewLine mShuiBiaoChangJia;
-    @Bind(R.id.txt_koujing) TextViewLine mKouJing;
-    @Bind(R.id.txt_liangcheng) TextViewLine mLiangCheng;
-    @Bind(R.id.txt_fentanfangshi) TextViewLine mFenTanFangShi;
-    @Bind(R.id.txt_bili) TextViewLine mBiLi;
-    @Bind(R.id.txt_lihuriqi) TextViewLine mLiHuRiQi;
-    @Bind(R.id.txt_zhuangbiaorq) TextViewLine mZhuangBiaoRiQi;
-    @Bind(R.id.txt_jiubiaodima) TextViewLine mJiuBiaoDiMa;
-    @Bind(R.id.txt_xinbiaoqm) TextViewLine mXinBiaoQM;
-    @Bind(R.id.txt_gongshuinianxian) TextViewLine mGongSHuiNianXian;
-    @Bind(R.id.txt_jianhao) TextViewLine mJianHao;
-    @Bind(R.id.txt_sheshuiduixiang) TextViewLine mSheShuiDuiXiang;
-    @Bind(R.id.recycler_view) RecyclerView recyclerView;
+    @BindView(R.id.txt_huming) TextViewLine mHuMing;
+    @BindView(R.id.txt_customer_code) TextViewLine mCustomerCode;
+    @BindView(R.id.txt_address) TextViewLine mAddress;
+    @BindView(R.id.txt_host_tel) TextViewLine mHostTel;
+    @BindView(R.id.txt_customer_tel) TextViewLine mCustomerTel;
+    @BindView(R.id.txt_pay_cost) TextViewLine mPayCost;
+    @BindView(R.id.txt_card_status)TextViewLine mCardStatus;
+    @BindView(R.id.txt_xingzhengqu) TextViewLine mXingZhengQu;
+    @BindView(R.id.txt_zhandian) TextViewLine mZhanDian;
+    @BindView(R.id.txt_ch) TextViewLine mCH;
+    @BindView(R.id.txt_cenei_xh) TextViewLine mCeNeiXH;
+    @BindView(R.id.txt_ercigongshui) TextViewLine mErCiGongShui;
+    @BindView(R.id.txt_dianzizhangdan) TextViewLine mDianZiZhangDan;
+    @BindView(R.id.txt_fangan) TextViewLine mFangAn;
+    @BindView(R.id.txt_shifoujieti) TextViewLine mShiFouJieTi;
+    @BindView(R.id.txt_daoqiriqi) TextViewLine mDaoQiRiQi;
+    @BindView(R.id.txt_biaohao) TextViewLine mBiaoHao;
+    @BindView(R.id.txt_kaizhangfenlei) TextViewLine mKaiZhangFenLei;
+    @BindView(R.id.txt_biaoxin) TextViewLine mBiaoXing;
+    @BindView(R.id.txt_shuibiaozonglei) TextViewLine mShuiBiaoZongLei;
+    @BindView(R.id.txt_yongtufenlei) TextViewLine mYongTuFenLei;
+    @BindView(R.id.txt_biaoxishu) TextViewLine mBiaoXiShu;
+    @BindView(R.id.txt_shebeibianhao) TextViewLine mSheBeiBianHao;
+    @BindView(R.id.txt_zhongduanhao) TextViewLine mZhongDuanHao;
+    @BindView(R.id.txt_yuanchuanchangjia) TextViewLine mYuanChuanChangJia;
+    @BindView(R.id.txt_shuibiaochangjia) TextViewLine mShuiBiaoChangJia;
+    @BindView(R.id.txt_koujing) TextViewLine mKouJing;
+    @BindView(R.id.txt_liangcheng) TextViewLine mLiangCheng;
+    @BindView(R.id.txt_fentanfangshi) TextViewLine mFenTanFangShi;
+    @BindView(R.id.txt_bili) TextViewLine mBiLi;
+    @BindView(R.id.txt_lihuriqi) TextViewLine mLiHuRiQi;
+    @BindView(R.id.txt_zhuangbiaorq) TextViewLine mZhuangBiaoRiQi;
+    @BindView(R.id.txt_jiubiaodima) TextViewLine mJiuBiaoDiMa;
+    @BindView(R.id.txt_xinbiaoqm) TextViewLine mXinBiaoQM;
+    @BindView(R.id.txt_gongshuinianxian) TextViewLine mGongSHuiNianXian;
+    @BindView(R.id.txt_jianhao) TextViewLine mJianHao;
+    @BindView(R.id.txt_sheshuiduixiang) TextViewLine mSheShuiDuiXiang;
+    @BindView(R.id.recycler_view) RecyclerView recyclerView;
     @Inject BasicInformationPresenter mBasicInformationPresenter;
 
     private DUCard mDUCard;
@@ -120,7 +118,7 @@ public class BasicInformationFragment extends ParentFragment implements BasicInf
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mEventBus.unregister(this);
         mBasicInformationPresenter.detachView();
     }

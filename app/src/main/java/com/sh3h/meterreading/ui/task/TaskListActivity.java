@@ -61,7 +61,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TaskListActivity extends ParentActivity implements TaskListMvpView,
@@ -77,10 +77,10 @@ public class TaskListActivity extends ParentActivity implements TaskListMvpView,
     @Inject
     ConfigHelper mConfigHelper;
 
-    @Bind(R.id.loading_process)
+    @BindView(R.id.loading_process)
     SmoothProgressBar mSmoothProgressBar;
 
-    @Bind(R.id.recycler)
+    @BindView(R.id.recycler)
     RecyclerView recyclerView;
 
     @Inject
@@ -146,7 +146,7 @@ public class TaskListActivity extends ParentActivity implements TaskListMvpView,
     protected void onDestroy() {
         super.onDestroy();
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mEventBus.unregister(this);
         mTaskListPresenter.detachView();
 

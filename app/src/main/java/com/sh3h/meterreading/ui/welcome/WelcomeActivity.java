@@ -17,20 +17,20 @@ import com.sh3h.mobileutil.util.TextUtil;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class WelcomeActivity extends BaseActivity implements WelcomeMvpView {
     @Inject
     WelcomePresenter mWelcomePresenter;
 
-    @Bind(R.id.tv_state)
+    @BindView(R.id.tv_state)
     TextView mStateTextView;
 
-    @Bind(R.id.pb_loading)
+    @BindView(R.id.pb_loading)
     ProgressBar mProgressBar;
 
-    @Bind(R.id.tv_version)
+    @BindView(R.id.tv_version)
     TextView mVersionTextView;
 
     private boolean isExit;
@@ -56,7 +56,7 @@ public class WelcomeActivity extends BaseActivity implements WelcomeMvpView {
     protected void onDestroy() {
         super.onDestroy();
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mWelcomePresenter.detachView();
 
         if (isExit) {

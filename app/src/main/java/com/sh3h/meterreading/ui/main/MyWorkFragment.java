@@ -29,6 +29,7 @@ import com.sh3h.meterreading.ui.sampling.SamplingTaskActivity;
 import com.sh3h.meterreading.ui.search.CombinedSearchActivity;
 import com.sh3h.meterreading.ui.setting.SettingActivity;
 import com.sh3h.meterreading.ui.task.TaskListActivity;
+import com.sh3h.meterreading.ui.urge.CallForPaymentTaskActivity;
 import com.sh3h.mobileutil.util.LogUtil;
 
 import org.json.JSONObject;
@@ -38,7 +39,7 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
@@ -75,6 +76,10 @@ public class MyWorkFragment extends ParentFragment implements MyWorkMvpView,
     public static final int ACTION_YCXJ = 1017;
     //远传巡检历史
     public static final int ACTION_YCXJ_HISTORY = 1018;
+    //催缴任务
+    public static final int ACTION_URGE = 1019;
+    //催缴查询
+    public static final int ACTION_URGE_SEARCH = 1020;
 
     @Inject
     MyWorkPresenter mMyWorkPresenter;
@@ -82,10 +87,10 @@ public class MyWorkFragment extends ParentFragment implements MyWorkMvpView,
     @Inject
     EventPosterHelper mEventPosterHelper;
 
-    @Bind(R.id.fm_grid)
+    @BindView(R.id.fm_grid)
     GridView mGridView;
 
-    @Bind(R.id.fm_list)
+    @BindView(R.id.fm_list)
     ListView mListView;
 
     private MainActivity mMainActivity;
@@ -124,7 +129,7 @@ public class MyWorkFragment extends ParentFragment implements MyWorkMvpView,
     public void onDestroyView() {
         super.onDestroyView();
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mMyWorkPresenter.detachView();
         isDestroyed = true;
         LogUtil.i(TAG, "---onDestroyView---");
@@ -288,6 +293,9 @@ public class MyWorkFragment extends ParentFragment implements MyWorkMvpView,
                 break;
             case ACTION_YCXJ_HISTORY:
                 intentMsg = new Intent(mMainActivity, RemoteinSpectionOHistoryListActivity.class);
+                break;
+            case ACTION_URGE:
+                intentMsg = new Intent(mMainActivity, CallForPaymentTaskActivity.class);
                 break;
             default:
                 LogUtil.i(TAG, String.format(Locale.CHINA, "---onItemClick---error: %d", id));

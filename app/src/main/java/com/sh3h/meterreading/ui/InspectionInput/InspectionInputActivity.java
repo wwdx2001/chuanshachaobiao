@@ -61,7 +61,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
@@ -76,18 +76,18 @@ public class InspectionInputActivity  extends ParentActivity implements View.OnC
   InspectionInputPresenter mInspectionInputPresenter;
   @Inject
   Bus mEventBus;
-  @Bind(R.id.loading_process)
+  @BindView(R.id.loading_process)
   SmoothProgressBar mSmoothProgressBar;
-  @Bind(R.id.avl_toolbar)
+  @BindView(R.id.avl_toolbar)
   Toolbar mToolbar;
 
 
-  @Bind(R.id.tablayout)
+  @BindView(R.id.tablayout)
   TabLayout mTabLayout;
-  @Bind(R.id.vp)
+  @BindView(R.id.vp)
   ViewPager mViewPager;
 //
-//  @Bind(R.id.delay_order_details_rb)
+//  @BindView(R.id.delay_order_details_rb)
 //  RadioButton mDetailsRadioBtn;
 
   private RemoteLRFragment mRemoteLRFragment;

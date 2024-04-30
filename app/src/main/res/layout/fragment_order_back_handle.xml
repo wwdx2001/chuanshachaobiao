@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:padding="@dimen/size_15dp">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <TextView
+            android:id="@+id/tv_tdyy_key"
+            style="@style/item_left_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/size_5dp"
+            android:paddingBottom="@dimen/size_5dp"
+            android:text="退单原因"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_tdyy_value"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_tdyy_value" />
+
+        <com.sh3h.meterreading.ui.custom_view.UnderlineEditText
+            android:id="@+id/tv_tdyy_value"
+            style="@style/item_right_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+            android:drawablePadding="@dimen/padding_8"
+            android:hint="请填写退单原因"
+            android:imeOptions="actionNone"
+            android:enabled="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:maxLines="10"
+            android:paddingLeft="@dimen/size_5dp"
+            android:scrollbars="vertical"
+            android:textColor="@color/color_gray_33"
+            app:layout_constraintLeft_toRightOf="@+id/tv_tdyy_key"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_tdbz_key"
+            style="@style/item_left_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/size_5dp"
+            android:paddingBottom="@dimen/size_5dp"
+            android:text="退单备注"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_tdbz_value"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_tdbz_value" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/tv_tdbz_value"
+            style="@style/item_right_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="请填写退单备注"
+            android:imeOptions="actionNone"
+            android:maxLines="10"
+            android:paddingLeft="@dimen/size_5dp"
+            android:scrollbars="vertical"
+            android:textColor="@color/color_gray_33"
+            app:layout_constraintLeft_toRightOf="@+id/tv_tdbz_key"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tdyy_value" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

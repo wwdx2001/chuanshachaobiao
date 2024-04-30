@@ -30,7 +30,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -43,19 +43,19 @@ public class UserCommonActivity extends ParentActivity implements UserCommonMvpV
     @Inject
     UserCommonPresenter mUserCommonPresenter;
 
-    @Bind(R.id.chaobiao_dialog_list1)
+    @BindView(R.id.chaobiao_dialog_list1)
     ListView mDaLeiList;
 
-    @Bind(R.id.chaobiao_dialog_list2)
+    @BindView(R.id.chaobiao_dialog_list2)
     ListView mXiaoLeiList;
 
-    @Bind(R.id.btnSubmit)
+    @BindView(R.id.btnSubmit)
     Button mBtnSubmit;
 
-    @Bind(R.id.btnCancel)
+    @BindView(R.id.btnCancel)
     Button mBtnCancel;
 
-    @Bind(R.id.btnSort)
+    @BindView(R.id.btnSort)
     Button mBtnSort;
 
     private List<DUChaoBiaoZTFL> mChaoBiaoZTFLList;
@@ -216,7 +216,7 @@ public class UserCommonActivity extends ParentActivity implements UserCommonMvpV
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mUserCommonPresenter.detachView();
         LogUtil.i(TAG, "---onDestroy---");
     }

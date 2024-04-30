@@ -21,7 +21,6 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.sh3h.datautil.data.entity.DUUploadingFileResult;
 import com.sh3h.datautil.data.local.config.ConfigHelper;
 import com.sh3h.datautil.util.EventPosterHelper;
-import com.sh3h.datautil.util.NetworkUtil;
 import com.sh3h.meterreading.MainApplication;
 import com.sh3h.meterreading.R;
 import com.sh3h.meterreading.event.UIBusEvent;
@@ -42,7 +41,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -66,115 +65,115 @@ public class SettingFragment extends ParentFragment implements SettingMvpView,
     @Inject
     ConfigHelper mConfigHelper;
 
-    @Bind(R.id.fs_cv_style)
+    @BindView(R.id.fs_cv_style)
     CardView mStyleCardView;
 
-    @Bind(R.id.fs_cv_image_quality)
+    @BindView(R.id.fs_cv_image_quality)
     CardView mQualityCardView;
 
-    @Bind(R.id.fs_cv_reading_setting)
+    @BindView(R.id.fs_cv_reading_setting)
     CardView mReadingCardView;
 
-    @Bind(R.id.fs_cv_image_setting)
+    @BindView(R.id.fs_cv_image_setting)
     CardView mImageCardView;
 
-    @Bind(R.id.fs_cv_data_sync)
+    @BindView(R.id.fs_cv_data_sync)
     CardView mSyncCardView;
 
-    @Bind(R.id.fs_cv_log_out)
+    @BindView(R.id.fs_cv_log_out)
     CardView mLogoutCardView;
 
-    @Bind(R.id.fs_cv_clearing_history)
+    @BindView(R.id.fs_cv_clearing_history)
     CardView mClearingCardView;
 
-    @Bind(R.id.fs_cv_restoring_factory)
+    @BindView(R.id.fs_cv_restoring_factory)
     CardView mRestoringCardView;
 
-    @Bind(R.id.fs_cv_version)
+    @BindView(R.id.fs_cv_version)
     CardView mVersionCardView;
 
-    @Bind(R.id.fs_sw_style_r)
+    @BindView(R.id.fs_sw_style_r)
     Switch mStyleSwitch;
 
-    @Bind(R.id.fs_tv_style_r)
+    @BindView(R.id.fs_tv_style_r)
     TextView mStyleTextView;
 
-    @Bind(R.id.fs_sw_quality_r)
+    @BindView(R.id.fs_sw_quality_r)
     Switch mQualitySwitch;
 
-    @Bind(R.id.fs_tv_quality_r)
+    @BindView(R.id.fs_tv_quality_r)
     TextView mQualityTextView;
 
-    @Bind(R.id.fs_tv_version_r)
+    @BindView(R.id.fs_tv_version_r)
     TextView mVersionTextView;
 
-    @Bind(R.id.fs_cv_network)
+    @BindView(R.id.fs_cv_network)
     CardView mNetworkCardView;
 
-    @Bind(R.id.fs_cv_period)
+    @BindView(R.id.fs_cv_period)
     CardView mPeriodCardView;
 
-    @Bind(R.id.fs_cv_update)
+    @BindView(R.id.fs_cv_update)
     CardView mUpdateCardView;
 
-    @Bind(R.id.fs_cv_singledata_upload)
+    @BindView(R.id.fs_cv_singledata_upload)
     CardView mSingleUploadCardView;
 
-    @Bind(R.id.fs_cv_afterceben_upload)
+    @BindView(R.id.fs_cv_afterceben_upload)
     CardView mAfterCBUploadCardView;
 
-    @Bind(R.id.fs_cv_upload_all)
+    @BindView(R.id.fs_cv_upload_all)
     CardView mUploadAllCardView;
 
-    @Bind(R.id.fs_cv_download_all)
+    @BindView(R.id.fs_cv_download_all)
     CardView mDownloadAllCardView;
 
-    @Bind(R.id.fs_cv_leftorright)
+    @BindView(R.id.fs_cv_leftorright)
     CardView mLeftOrRightCardView;
 
-    @Bind(R.id.fs_cv_upload_file)
+    @BindView(R.id.fs_cv_upload_file)
     CardView mUploadFileCardView;
 
-    @Bind(R.id.fs_tv_update_r)
+    @BindView(R.id.fs_tv_update_r)
     TextView mUpdateTextView;
 
-    @Bind(R.id.fs_tv_singledata_upload)
+    @BindView(R.id.fs_tv_singledata_upload)
     TextView mSingleUploadTextView;
 
-    @Bind(R.id.fs_tv_afterceben_upload)
+    @BindView(R.id.fs_tv_afterceben_upload)
     TextView mAfterCBUploadTextView;
 
-    @Bind(R.id.fs_tv_upload_all)
+    @BindView(R.id.fs_tv_upload_all)
     TextView mUploadAllTextView;
 
-    @Bind(R.id.fs_tv_download_all)
+    @BindView(R.id.fs_tv_download_all)
     TextView mDownloadAllTextView;
 
-    @Bind(R.id.fs_tv_data_sync)
+    @BindView(R.id.fs_tv_data_sync)
     TextView mSyncDataTextView;
 
-    @Bind(R.id.fs_tv_leftorright)
+    @BindView(R.id.fs_tv_leftorright)
     TextView mLeftOrRightTextView;
 
-    @Bind(R.id.fs_sw_update_r)
+    @BindView(R.id.fs_sw_update_r)
     Switch mUpdateSwitch;
 
-    @Bind(R.id.fs_sw_singledata_upload)
+    @BindView(R.id.fs_sw_singledata_upload)
     Switch mSingleUpdateSwitch;
 
-    @Bind(R.id.fs_sw_afterceben_upload)
+    @BindView(R.id.fs_sw_afterceben_upload)
     Switch mAfterCBUploadSwitch;
 
-    @Bind(R.id.fs_sw_upload_all)
+    @BindView(R.id.fs_sw_upload_all)
     Switch mUploadAllSwitch;
 
-    @Bind(R.id.fs_sw_download_all)
+    @BindView(R.id.fs_sw_download_all)
     Switch mDownAllSwitch;
 
-    @Bind(R.id.fs_sw_data_sync)
+    @BindView(R.id.fs_sw_data_sync)
     Switch mSyneDataSwitch;
 
-    @Bind(R.id.fs_sw_leftorright)
+    @BindView(R.id.fs_sw_leftorright)
     Switch mLeftOrRightSwitch;
 
     private String baseURI;
@@ -228,7 +227,7 @@ public class SettingFragment extends ParentFragment implements SettingMvpView,
     public void onDestroyView() {
         super.onDestroyView();
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mEventBus.unregister(this);
         mSettingPresenter.detachView();
         LogUtil.i(TAG, "---onDestroy---");

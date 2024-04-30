@@ -773,7 +773,7 @@ public class SamplingRecordPresenter extends ParentPresenter<SamplingRecordMvpVi
             //canvas.drawText(sdf.format(date), (float) (width * 0.19), (float) (hight * 0.97), textPaint);
             // canvas.drawText(t, (float) (width * 0.19), (float) (hight * 0.04), textPaint);
             canvas.drawText(t, (float) (width * 0.19), (float) (hight * 0.03), textPaint);
-            canvas.save(Canvas.ALL_SAVE_FLAG);
+            canvas.save();
             canvas.restore();
 
 

@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 
+import com.sh3h.mobileutil.util.TextUtil;
 import com.sh3h.serverprovider.entity.XJXXWordBean;
 
 import java.util.List;
@@ -54,7 +55,21 @@ public class XJXXWordBeanDao extends AbstractDao<XJXXWordBean, Long> {
             .list();
     }
 
-    /**
+    public List<XJXXWordBean> getQFYYWordData(String type, String secondLevel) {
+        QueryBuilder qb = this.queryBuilder();
+      if (!TextUtil.isNullOrEmpty(secondLevel)) {
+          return qb.where(XJXXWordBeanDao.Properties.MMODULE.eq(type))
+                  .where(XJXXWordBeanDao.Properties.MVALUE.like("%" + secondLevel + "-%"))
+                  .list();
+      } else {
+          return qb.where(XJXXWordBeanDao.Properties.MMODULE.eq(type))
+                  .list();
+      }
+
+
+    }
+
+  /**
      * Properties of entity XJXXWordBean.<br/>
      * Can be used for QueryBuilder and for referencing column names.
      */

@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Environment;
 
 import com.blankj.utilcode.util.FileUtils;
+import com.example.dataprovider3.entity.CallForPaymentBackFillDataBean;
+import com.example.dataprovider3.greendaoDao.CallForPaymentBackFillDataBeanDao;
+import com.example.dataprovider3.utils.GreenDaoUtils;
 import com.sh3h.dataprovider.DBManager;
 import com.sh3h.dataprovider.entity.ConditionInfo;
 import com.sh3h.dataprovider.greendaoDao.ChaoBiaoSJDao;
@@ -6659,4 +6662,33 @@ public class DbHelper {
         return pattern.matcher(str).matches();
     }
 
+  public List<XJXXWordBean> getQFYYWordData(String type, String secondLevel, Context mContext) {
+    try {
+      init();
+      List<XJXXWordBean> xjxxWordBeans = DBManager.getInstance().getQFYYWordData(type,secondLevel);
+      if (xjxxWordBeans != null) {
+
+        return xjxxWordBeans;
+      } else {
+        LogUtil.i(TAG, "---getHuanBiaoXXs: huanBiaoJLList is null---");
+        return new ArrayList<>();
+      }
+    } catch (Exception e) {
+      e.getStackTrace();
+      return new ArrayList<>();
+    }
+  }
+
+  public CallForPaymentBackFillDataBean getBackFillData(String renwuid, Context context) {
+    CallForPaymentBackFillDataBean data;
+    List<CallForPaymentBackFillDataBean> dataBeans = GreenDaoUtils.getInstance().getDaoSession(context).getCallForPaymentBackFillDataBeanDao()
+            .queryBuilder().where(CallForPaymentBackFillDataBeanDao.Properties.V_RENWUID.eq(renwuid)).list();
+    if (dataBeans != null && dataBeans.size() > 0) {
+      CallForPaymentBackFillDataBean bean = dataBeans.get(0);
+      if (bean != null) {
+        return bean;
+      }
+    }
+    return null;
+  }
 }

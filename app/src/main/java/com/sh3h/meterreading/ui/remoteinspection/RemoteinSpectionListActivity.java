@@ -63,7 +63,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
@@ -82,11 +82,11 @@ public class RemoteinSpectionListActivity extends ParentActivity
   @Inject
   ConfigHelper mConfigHelper;
 
-  @Bind(R.id.loading_process)
+  @BindView(R.id.loading_process)
   SmoothProgressBar mSmoothProgressBar;
-  @Bind(R.id.recycler)
+  @BindView(R.id.recycler)
   RecyclerView recyclerView;
-  @Bind(R.id.avl_toolbar)
+  @BindView(R.id.avl_toolbar)
   Toolbar mToolbar;
   private MenuItem mAll, mInspected, mNoInspected,mAddUp,mAddDown;
   private List<BiaoKaBean> mBiaoKaBeans;
@@ -358,7 +358,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
     initData();
   }
 
-  private void initData() {
+  protected void initData() {
     screenType = "all";
     mBiaoKaListBeans = new ArrayList<>();
     mRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.refresh);
@@ -370,7 +370,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
       }
     });
   }
-  private void requestData() {
+  protected void requestData() {
     mBiaoKaListBeans.clear();
     mLocalXunJianTasks = mRemoteinSpectionListPresenter.getLocalXunJianTasks(Const.XUNJIANTASK_TYPE);
 
@@ -416,7 +416,6 @@ public class RemoteinSpectionListActivity extends ParentActivity
     if (!mRefreshLayout.isRefreshing()) {
       mRefreshLayout.setRefreshing(true);
     }
-    Log.i("xnhh", "getXunJianTask: " + SPUtils.getInstance().getString(Constants.USERNAME));
     EasyHttp.post(URL.BASE_XUNJIAN_URL + URL.getXunJianTask_cb)
       .params("S_YUANGONGH", SPUtils.getInstance().getString(Constants.USERNAME))
       .execute(new ProgressDialogCallBack<String>(null,true,false) {

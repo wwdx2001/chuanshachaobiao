@@ -14,6 +14,8 @@
         <item>1011</item>
         <item>1017</item>
         <item>1018</item>
+        <item>1019</item>
+        <item>1020</item>
         <item>1005</item>
         <item>1007</item>
     </integer-array>
@@ -32,6 +34,8 @@
         <item>@mipmap/ic_home_statistics</item>
         <item>@mipmap/ic_home_waifu</item>
         <item>@mipmap/ic_home_waifu_history</item>
+        <item>@mipmap/ic_home_collection_task</item>
+        <item>@mipmap/ic_home_collection_task</item>
         <item>@mipmap/ic_home_map</item>
         <item>@mipmap/ic_home_setting</item>
     </integer-array>
@@ -50,6 +54,8 @@
         <item>统计分析</item>
         <item>远传巡检</item>
         <item>远传巡检历史</item>
+        <item>催缴任务</item>
+        <item>人工登记催缴单</item>
         <item>地图</item>
         <item>设置</item>
     </string-array>

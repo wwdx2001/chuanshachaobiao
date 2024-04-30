@@ -908,4 +908,88 @@
     <string name="dialog_download_data">正在下载数据...</string>
     <string name="dialog_upload_data">正在上传数据...</string>
 
+    <!-- 催缴 -->
+    <string name="call_for_pay_task_title">催缴任务列表</string>
+    <string name="call_for_pay_word_order_title">催缴任务—工单列表</string>
+    <string name="call_for_pay_arrears_fees_detail_title">费用详情</string>
+    <string name="call_for_pay_order_detail_title">工单详情</string>
+    <string name="call_for_pay_order_delay_title">工单详情</string>
+    <string name="call_for_pay_order_back_title">工单详情</string>
+    <string name="call_for_pay_word_order_list_search_hint_text">请输入销根号、客户名称或用水地址</string>
+    <string name="call_for_pay_task_list_search_hint_text">请输入册本号，地址或者用户号</string>
+
+    <string name="search_text">搜索</string>
+    <string name="resetting_text">重置</string>
+
+    <string name="sort_text">排序</string>
+    <string name="ascending_order">升序</string>
+    <string name="descending_order">降序</string>
+    <string name="use_ch_text">按册内序号</string>
+    <string name="use_address_text">按用水地址</string>
+    <string name="use_amount_text">按金额</string>
+
+    <string name="check_arrearage_message_text">欠费明细：查看</string>
+
+    <string name="multimedia_take_video_text">录像</string>
+    <string name="label_photo_text">拍照</string>
+    <string name="label_voice_text">录音</string>
+
+    <string name="dialog_record_count">请点击开始按钮</string>
+    <string name="dialog_start_record">开始</string>
+    <string name="dialog_stop_record">结束</string>
+    <string name="pop_take_photo">拍照</string>
+    <string name="pop_pick_photo">从相册中选取</string>
+
+    <string name="calling_text">呼叫</string>
+
+    <string name="save_successful_text">保存成功</string>
+    <string name="save_unsuccessful_text">保存失败</string>
+
+    <string name="refresh_text">刷新</string>
+
+    <string name="header_text1">账务年月</string>
+    <string name="header_text2">用水费</string>
+    <string name="header_text3">污水费</string>
+    <string name="header_text4">账单金额</string>
+    <string name="header_text5">违约金</string>
+    <string name="header_text6">开账日期</string>
+
+    <string name="text_user_number">用户号\u0020:\u0020</string>
+    <string name="edit_hint_please_input_user_number">请输入用户编号</string>
+    <string name="text_address">地址\u0020:\u0020</string>
+    <string name="edit_hint_please_input_address">请输入地址</string>
+
+    <string name="get_data_err_text">获取数据异常</string>
+    <string name="getting_data_text">正在获取数据</string>
+    <string name="get_local_data_is_null_retry_refresh_text">本地数据不存在尝试刷新页面</string>
+
+    <string name="alivc_recorder_record_tip_phone_state_calling">通话中, 录制时静音</string>
+    <string name="alivc_recorder_record_dialog_permission_remind"><![CDATA[需要访问 \"相册\"、\"摄像头\" 和 \"外部存储器\",否则会影响绝大部分功能使用, 请到 \"应用信息 -> 权限\" 中设置！]]></string>
+    <string name="alivc_record_request_permission_positive_btn_text">去设置</string>
+    <string name="alivc_recorder_record_dialog_not_setting">暂不设置</string>
+    <string name="alivc_common_no_camera_permission">没有权限使用摄像头，请开启摄像头权限</string>
+    <string name="alivc_common_no_record_bluetooth_permission">没有权限使用蓝牙，请开启蓝牙权限</string>
+    <string name="alivc_common_no_record_audio_permission">没有权限使用录音，请开启录音权限</string>
+    <string name="alivc_common_no_read_phone_state_permission">没有读取用户数据的权限，请开启该权限</string>
+    <string name="alivc_common_no_write_external_storage_permission">没有文件写权限，请开启该权限</string>
+    <string name="alivc_common_no_read_external_storage_permission">没有文件读权限，请开启该权限</string>
+
+    <!--录制界面控制view-->
+    <string name="alivc_recorder_control_music">剪音乐</string>
+    <string name="alivc_recorder_control_rate_slow">慢</string>
+    <string name="alivc_recorder_control_rate_standard">标准</string>
+    <string name="alivc_recorder_control_rate_fast">快</string>
+    <string name="alivc_recorder_control_rate_very_fast">极快</string>
+    <string name="alivc_recorder_control_delete">回删</string>
+    <string name="alivc_recorder_control_filter">滤镜</string>
+    <string name="alivc_recorder_control_click">单击拍</string>
+    <string name="alivc_recorder_control_press">按住拍</string>
+    <string name="alivc_recorder_control_long_press">长按拍</string>
+    <string name="alivc_recorder_record_aspect_ratio_content">切画幅</string>
+    <string name="aliyun_rate_very_slow">极慢</string>
+    <string name="alivc_mix_record_continue">视频太短，再拍一段儿吧</string>
+    <string name="alivc_recorder_record_create_video">视频合成中</string>
+    <string name="alivc_recorder_record_start_recorder">开始录制</string>
+    <string name="alivc_base_svideo_next">完成</string>
+
 </resources>

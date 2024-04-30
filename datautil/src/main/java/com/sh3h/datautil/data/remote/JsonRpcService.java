@@ -1,6 +1,12 @@
 package com.sh3h.datautil.data.remote;
 
 
+import android.content.Context;
+
+import com.example.dataprovider3.entity.CallForPaymentArrearsFeesDetailBean;
+import com.example.dataprovider3.entity.CallForPaymentBackFillDataBean;
+import com.example.dataprovider3.entity.CallForPaymentTaskBean;
+import com.example.dataprovider3.entity.CuijiaoEntity;
 import com.sh3h.datautil.data.entity.DUBillPreview;
 import com.sh3h.datautil.data.entity.DUCard;
 import com.sh3h.datautil.data.entity.DUCardCoordinateInfo;
@@ -82,6 +88,7 @@ import com.sh3h.serverprovider.entity.UserInfoEntity;
 import com.sh3h.serverprovider.entity.WaiFuSJEntity;
 import com.sh3h.serverprovider.rpc.service.BaseApiService;
 import com.sh3h.serverprovider.rpc.service.BusinessApiService;
+import com.sh3h.serverprovider.rpc.service.CallForPaymentService;
 import com.sh3h.serverprovider.rpc.service.SynchronousTaskApiService;
 import com.sh3h.serverprovider.rpc.service.SystemApiService;
 import com.sh3h.serverprovider.rpc.service.UserApiService;
@@ -3565,4 +3572,102 @@ public class JsonRpcService {
         });
     }
 
+    public Observable<List<CallForPaymentTaskBean>> getCallForPayTaskList(final String account, final String searchText, final Context mContext) {
+        return Observable.create(new Observable.OnSubscribe<List<CallForPaymentTaskBean>>() {
+            @Override
+            public void call(Subscriber<? super List<CallForPaymentTaskBean>> subscriber) {
+                if (subscriber.isUnsubscribed()) {
+                    return;
+                }
+                try {
+                    CallForPaymentService service = new CallForPaymentService();
+                    List<CallForPaymentTaskBean> taskBeans = (List<CallForPaymentTaskBean>) service.getCallForPayTaskList(account, searchText, mContext);
+                    subscriber.onNext(taskBeans);
+                } catch (Exception e) {
+                    subscriber.onError(e);
+                } finally {
+                    subscriber.onCompleted();
+                }
+            }
+        });
+    }
+
+    public Observable<List<CuijiaoEntity>> getCallForPayWorkOrderList(final String s_ch, final Context mContext) {
+        return Observable.create(new Observable.OnSubscribe<List<CuijiaoEntity>>() {
+            @Override
+            public void call(Subscriber<? super List<CuijiaoEntity>> subscriber) {
+                if (subscriber.isUnsubscribed()) {
+                    return;
+                }
+                try {
+                    CallForPaymentService service = new CallForPaymentService();
+                    List<CuijiaoEntity> taskBeans = service.getCallForPayWorkOrderList(s_ch, mContext);
+                    subscriber.onNext(taskBeans);
+                } catch (Exception e) {
+                    subscriber.onError(e);
+                } finally {
+                    subscriber.onCompleted();
+                }
+            }
+        });
+    }
+
+    public Observable<CuijiaoEntity> getCallForPayOrderDetail(final String renwuid, final String s_cid, final Context mContext) {
+        return Observable.create(new Observable.OnSubscribe<CuijiaoEntity>() {
+            @Override
+            public void call(Subscriber<? super CuijiaoEntity> subscriber) {
+                if (subscriber.isUnsubscribed()) {
+                    return;
+                }
+                try {
+                    CallForPaymentService service = new CallForPaymentService();
+                    CuijiaoEntity taskBeans = service.getCallForPayOrderDetail(renwuid, s_cid, mContext);
+                    subscriber.onNext(taskBeans);
+                } catch (Exception e) {
+                    subscriber.onError(e);
+                } finally {
+                    subscriber.onCompleted();
+                }
+            }
+        });
+    }
+
+    public Observable<List<CallForPaymentArrearsFeesDetailBean>> getArrearsFeesDetail(final String renwuid, final String s_cid, final Context mContext) {
+        return Observable.create(new Observable.OnSubscribe<List<CallForPaymentArrearsFeesDetailBean>>() {
+            @Override
+            public void call(Subscriber<? super List<CallForPaymentArrearsFeesDetailBean>> subscriber) {
+                if (subscriber.isUnsubscribed()) {
+                    return;
+                }
+                try {
+                    CallForPaymentService service = new CallForPaymentService();
+                    List<CallForPaymentArrearsFeesDetailBean> detailBeans = service.getArrearsFeesDetail(renwuid, s_cid, mContext);
+                    subscriber.onNext(detailBeans);
+                } catch (Exception e) {
+                    subscriber.onError(e);
+                } finally {
+                    subscriber.onCompleted();
+                }
+            }
+        });
+    }
+
+    public Observable<String> saveOrUploadData(final CallForPaymentBackFillDataBean bean, final boolean isSave, final Context context) {
+        return Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                if (subscriber.isUnsubscribed()) {
+                    return;
+                }
+                try {
+                    CallForPaymentService service = new CallForPaymentService();
+                    subscriber.onNext(service.saveOrUploadData(bean, isSave, context));
+                } catch (Exception e) {
+                    subscriber.onError(e);
+                } finally {
+                    subscriber.onCompleted();
+                }
+            }
+        });
+    }
 }

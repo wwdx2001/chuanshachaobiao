@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context="ui.urge.fragment.CallForPaymentBackfillFragment">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:paddingTop="@dimen/dp_5"
+      android:paddingBottom="@dimen/dp_5">
+
+      <TextView
+        android:layout_weight="5"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="1级欠费原因："
+        android:textSize="@dimen/size_15sp" />
+
+      <com.sh3h.meterreading.ui.custom_view.SelectSpinnerView
+        android:id="@+id/spinner_value1"
+        android:layout_weight="6"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_50"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:textColor="@color/color_text_black"
+        android:textSize="@dimen/sp_15" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:paddingTop="@dimen/dp_5"
+      android:paddingBottom="@dimen/dp_5">
+
+      <TextView
+        android:layout_weight="5"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="2级欠费原因："
+        android:textSize="@dimen/size_15sp" />
+
+      <com.sh3h.meterreading.ui.custom_view.SelectSpinnerView
+        android:id="@+id/spinner_value2"
+        android:layout_weight="6"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_50"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:textColor="@color/color_text_black"
+        android:textSize="@dimen/sp_15" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:paddingTop="@dimen/dp_5"
+      android:paddingBottom="@dimen/dp_5">
+
+      <TextView
+        android:layout_weight="5"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="现场是否用水："
+        android:textSize="@dimen/size_15sp" />
+
+      <com.sh3h.meterreading.ui.custom_view.SelectSpinnerView
+        android:id="@+id/spinner_value3"
+        android:layout_weight="6"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_50"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:textColor="@color/color_text_black"
+        android:textSize="@dimen/sp_15" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:paddingTop="@dimen/dp_5"
+      android:paddingBottom="@dimen/dp_5">
+
+      <TextView
+        android:layout_weight="5"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="是否能联系到用户："
+        android:textSize="@dimen/size_15sp" />
+
+      <com.sh3h.meterreading.ui.custom_view.SelectSpinnerView
+        android:id="@+id/spinner_value4"
+        android:layout_weight="6"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_50"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:textColor="@color/color_text_black"
+        android:textSize="@dimen/sp_15" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:paddingTop="@dimen/dp_5"
+      android:paddingBottom="@dimen/dp_5">
+
+      <TextView
+        android:layout_weight="5"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="主体是否存在："
+        android:textSize="@dimen/size_15sp" />
+
+      <com.sh3h.meterreading.ui.custom_view.SelectSpinnerView
+        android:id="@+id/spinner_value5"
+        android:layout_weight="6"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_50"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:textColor="@color/color_text_black"
+        android:textSize="@dimen/sp_15" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:paddingTop="@dimen/dp_5"
+      android:paddingBottom="@dimen/dp_5">
+
+      <TextView
+        android:layout_weight="5"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="是否愿意付费："
+        android:textSize="@dimen/size_15sp" />
+
+      <com.sh3h.meterreading.ui.custom_view.SelectSpinnerView
+        android:id="@+id/spinner_value6"
+        android:layout_weight="6"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_50"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:textColor="@color/color_text_black"
+        android:textSize="@dimen/sp_15" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:paddingTop="@dimen/dp_5"
+      android:paddingBottom="@dimen/dp_5">
+
+      <TextView
+        android:layout_weight="5"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="是否信息更变："
+        android:textSize="@dimen/size_15sp" />
+
+      <com.sh3h.meterreading.ui.custom_view.SelectSpinnerView
+        android:id="@+id/spinner_value7"
+        android:layout_weight="6"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_50"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:textColor="@color/color_text_black"
+        android:textSize="@dimen/sp_15" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:id="@+id/call_for_pay_back_fill_contacts_ll"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:paddingTop="@dimen/dp_5"
+      android:paddingBottom="@dimen/dp_5"
+      android:visibility="gone"
+      >
+
+      <TextView
+        android:layout_weight="5"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="联系人："
+        android:textSize="@dimen/size_15sp" />
+
+      <EditText
+        android:id="@+id/call_for_pay_back_fill_contacts_et"
+        android:layout_weight="6"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_50"
+        android:textColor="@color/color_text_black"
+        android:textSize="@dimen/sp_15" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:id="@+id/call_for_pay_back_fill_phone_ll"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:paddingTop="@dimen/dp_5"
+      android:paddingBottom="@dimen/dp_5"
+      android:visibility="gone"
+      >
+
+      <TextView
+        android:layout_weight="5"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="联系电话："
+        android:textSize="@dimen/size_15sp" />
+
+      <EditText
+        android:id="@+id/call_for_pay_back_fill_phone_et"
+        android:layout_weight="6"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_50"
+        android:textColor="@color/color_text_black"
+        android:textSize="@dimen/sp_15" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginEnd="@dimen/dp_10"
+      >
+
+      <TextView
+        android:layout_weight="4"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:text="备注："
+        android:gravity="right"
+        />
+
+      <EditText
+        android:id="@+id/call_for_pay_back_fill_et"
+        android:layout_weight="6"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_100"
+        android:background="@drawable/et_bg_gray"
+        />
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+</ScrollView>

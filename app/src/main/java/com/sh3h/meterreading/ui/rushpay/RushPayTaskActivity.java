@@ -41,7 +41,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import righttodelete.SwipeMenu;
 import righttodelete.SwipeMenuCreator;
@@ -62,10 +62,10 @@ public class RushPayTaskActivity extends ParentActivity implements RushPayTaskMv
     @Inject
     ConfigHelper mConfigHelper;
 
-    @Bind(R.id.loading_process)
+    @BindView(R.id.loading_process)
     SmoothProgressBar mSmoothProgressBar;
 
-    @Bind(R.id.fcbrw_list)
+    @BindView(R.id.fcbrw_list)
     SwipeMenuListView mSwipeMenuListView;
 
     @Inject
@@ -116,7 +116,7 @@ public class RushPayTaskActivity extends ParentActivity implements RushPayTaskMv
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mEventBus.unregister(this);
         mRushPayTaskPresenter.detachView();
         LogUtil.i(TAG, "---onDestroy---");

@@ -10,10 +10,10 @@ import android.widget.ImageView;
 
 import com.blankj.utilcode.util.ScreenUtils;
 import com.blankj.utilcode.util.SizeUtils;
+import com.bumptech.glide.Glide;
 import com.sh3h.meterreading.R;
 import com.sh3h.meterreading.util.Const;
 import com.sh3h.serverprovider.entity.ImageItem;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -33,6 +33,9 @@ public class ImagePickerAdapter extends RecyclerView.Adapter<ImagePickerAdapter.
     private OnRecyclerViewItemLongClickListener longListener;
     private boolean isAdded;   //是否额外添加了最后一个图片
     private int type;
+    private int pattern;
+    private boolean isAudio;
+    private String isVideo;
 
     public interface OnRecyclerViewItemClickListener {
         void onItemClick(View view, int position, int type);
@@ -50,28 +53,28 @@ public class ImagePickerAdapter extends RecyclerView.Adapter<ImagePickerAdapter.
         this.longListener = listener;
     }
 
-  public void setImages(List<ImageItem> data) {
-    if (data == null) {
-      return;
-    }
-    List<ImageItem> newData = new ArrayList<>();
-    for (int i = 0; i < data.size(); i++) {
-      File file = new File(data.get(i).path);
-      if (file.exists()) {
-        newData.add(data.get(i));
-      }
-    }
+    public void setImages(List<ImageItem> data) {
+        if (data == null) {
+            return;
+        }
+        List<ImageItem> newData = new ArrayList<>();
+        for (int i = 0; i < data.size(); i++) {
+            File file = new File(data.get(i).path);
+            if (file.exists()) {
+                newData.add(data.get(i));
+            }
+        }
 //        mData = new ArrayList<>(data);
-    mData = new ArrayList<>(newData);
-    if (getItemCount() < maxImgCount) {
+        mData = new ArrayList<>(newData);
+        if (getItemCount() < maxImgCount) {
 //            mData.add(new ImageItem());
-      mData.add(0, new ImageItem());
-      isAdded = true;
-    } else {
-      isAdded = false;
+            mData.add(0, new ImageItem());
+            isAdded = true;
+        } else {
+            isAdded = false;
+        }
+        notifyDataSetChanged();
     }
-    notifyDataSetChanged();
-  }
 
 
     public List<ImageItem> getImages() {
@@ -96,6 +99,35 @@ public class ImagePickerAdapter extends RecyclerView.Adapter<ImagePickerAdapter.
         this.maxImgCount = maxImgCount;
         this.mInflater = LayoutInflater.from(mContext);
         this.type = type;
+        setImages(data);
+    }
+
+    public ImagePickerAdapter(boolean isAudio, Context mContext, List<ImageItem> data, int maxImgCount, int type, int pattern) {
+        this.isAudio = isAudio;
+        this.mContext = mContext;
+        this.maxImgCount = maxImgCount;
+        this.mInflater = LayoutInflater.from(mContext);
+        this.type = type;
+        this.pattern = pattern;
+        setImages(data);
+    }
+
+    public ImagePickerAdapter(String isVideo, Context mContext, List<ImageItem> data, int maxImgCount, int type, int pattern) {
+        this.isVideo = isVideo;
+        this.mContext = mContext;
+        this.maxImgCount = maxImgCount;
+        this.mInflater = LayoutInflater.from(mContext);
+        this.type = type;
+        this.pattern = pattern;
+        setImages(data);
+    }
+
+    public ImagePickerAdapter(Context mContext, List<ImageItem> data, int maxImgCount, int type, int pattern) {
+        this.mContext = mContext;
+        this.maxImgCount = maxImgCount;
+        this.mInflater = LayoutInflater.from(mContext);
+        this.type = type;
+        this.pattern = pattern;
         setImages(data);
     }
 
@@ -139,17 +171,10 @@ public class ImagePickerAdapter extends RecyclerView.Adapter<ImagePickerAdapter.
                 clickPosition = Const.IMAGE_ITEM_ADD;
             } else if (isAdded && position != 0) {
 //                ImagePicker.getInstance().getImageLoader().displayImage((Activity) mContext, item.path, iv_img, 0, 0);
-                Picasso.with(mContext) //
-                        .load(new File(item.path))
-                        .resize( iv_img.getLayoutParams().width, iv_img.getLayoutParams().height)
-                        .centerCrop().into(iv_img);
-
+                Glide.with(mContext).load(item.path).centerCrop().into(iv_img);
                 clickPosition = position - 1;
             } else {
-                Picasso.with(mContext) //
-                        .load(new File(item.path))
-                        .resize(iv_img.getLayoutParams().width, iv_img.getLayoutParams().height)
-                        .centerCrop().into(iv_img);
+                Glide.with(mContext).load(item.path).centerCrop().into(iv_img);
                 clickPosition = position;
             }
         }

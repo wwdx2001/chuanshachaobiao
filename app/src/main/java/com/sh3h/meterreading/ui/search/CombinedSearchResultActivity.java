@@ -27,7 +27,7 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -50,8 +50,8 @@ public class CombinedSearchResultActivity extends ParentActivity implements Comb
 
     @Inject
     CombinedSearchResultPresenter mCombinedSearchResultPresenter;
-    @Bind(R.id.lv_searchlist) ListView mSearchList;
-    @Bind(R.id.loading_process) SmoothProgressBar mSmoothProgressBar;
+    @BindView(R.id.lv_searchlist) ListView mSearchList;
+    @BindView(R.id.loading_process) SmoothProgressBar mSmoothProgressBar;
     private boolean isLocalSearch = true;
     private MyListAdapter mMyListAdapter;
 
@@ -101,7 +101,7 @@ public class CombinedSearchResultActivity extends ParentActivity implements Comb
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mCombinedSearchResultPresenter.detachView();
     }
 

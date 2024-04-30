@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,7 +26,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ForceImageActivity extends ParentActivity implements ForceImageMvpView,
@@ -37,10 +36,10 @@ public class ForceImageActivity extends ParentActivity implements ForceImageMvpV
     @Inject
     ForceImagePresenter mForceImagePresenter;
 
-    @Bind(R.id.chaobiao_dialog_list1)
+    @BindView(R.id.chaobiao_dialog_list1)
     ListView mDaLeiList;
 
-    @Bind(R.id.chaobiao_dialog_list2)
+    @BindView(R.id.chaobiao_dialog_list2)
     ListView mXiaoLeiList;
 
     private List<DUChaoBiaoZTFL> mChaoBiaoZTFLList;
@@ -149,7 +148,7 @@ public class ForceImageActivity extends ParentActivity implements ForceImageMvpV
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mForceImagePresenter.detachView();
         LogUtil.i(TAG, "---onDestroy---");
     }

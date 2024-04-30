@@ -29,7 +29,7 @@ import com.squareup.otto.Subscribe;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 
@@ -53,16 +53,16 @@ public class MainActivity extends ParentActivity implements MainMvpView,
     @Inject
     Bus mEventBus;
 
-    @Bind(R.id.parent_work)
+    @BindView(R.id.parent_work)
     RadioButton mWorkRadioButton;
 
-    @Bind(R.id.parent_statistics)
+    @BindView(R.id.parent_statistics)
     RadioButton mStatisticsRadioButton;
 
-    @Bind(R.id.parent_setting)
+    @BindView(R.id.parent_setting)
     RadioButton mSettingRadioButton;
 
-    @Bind(R.id.main_viewPager)
+    @BindView(R.id.main_viewPager)
     ViewPager mMainViewPager;
 
     private long mExitTime;
@@ -94,11 +94,9 @@ public class MainActivity extends ParentActivity implements MainMvpView,
         //mEventBus.register(this);
 
         initView();
-
         initSwipeBackLayout();
 
         //initFragmentList();
-
         initViewPager();
 
         boolean isFromLogin;
@@ -115,9 +113,10 @@ public class MainActivity extends ParentActivity implements MainMvpView,
 //        if (checkPermissions()) {
 //            initConfig();
 //        }
+        initParams(null);
     }
 
-    private void initView() {
+    protected void initView() {
         mWorkRadioButton.setOnClickListener(this);
         mStatisticsRadioButton.setOnClickListener(this);
         mSettingRadioButton.setOnClickListener(this);
@@ -216,7 +215,7 @@ public class MainActivity extends ParentActivity implements MainMvpView,
         super.onDestroy();
         LogUtil.i(TAG, "---onDestroy---");
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         //mEventBus.unregister(this);
         //stopService(VersionService.getStartIntent(this));
         //stopService(SyncService.getStartIntent(this));

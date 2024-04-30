@@ -41,7 +41,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.maxwin.view.XListView;
 
@@ -66,13 +66,13 @@ public class DelayListActivity extends ParentActivity implements DelayListMvpVie
     Bus mEventBus;
     @Inject
     ConfigHelper mConfigHelper;
-    @Bind(R.id.avl_toolbar)
+    @BindView(R.id.avl_toolbar)
     Toolbar mToolbar;
-    @Bind(R.id.loading_process)
+    @BindView(R.id.loading_process)
     SmoothProgressBar mSmoothProgressBar;
-    @Bind(R.id.fcbl_list)
+    @BindView(R.id.fcbl_list)
     XListView mXListView;
-    @Bind(R.id.btn_upload_image)
+    @BindView(R.id.btn_upload_image)
     Button btnUploadImage;//补传图片按钮
 
     private MyListAdapter mMyListAdapter;
@@ -156,7 +156,7 @@ public class DelayListActivity extends ParentActivity implements DelayListMvpVie
     protected void onDestroy() {
         super.onDestroy();
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mEventBus.unregister(this);
         mDelayListPresenter.detachView();
         LogUtil.i(TAG, "---onDestroy---");

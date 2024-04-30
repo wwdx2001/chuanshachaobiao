@@ -24,7 +24,7 @@ import com.sh3h.mobileutil.util.LogUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -33,13 +33,13 @@ import butterknife.ButterKnife;
 public class DetailInfoFragment extends ParentFragment {
     public static final String TAG = "DetailInfoFragment";
 
-    @Bind(R.id.aci_toolbar)
+    @BindView(R.id.aci_toolbar)
     Toolbar mToolbar;
 
-    @Bind(R.id.aci_tabs)
+    @BindView(R.id.aci_tabs)
     TabLayout mTabLayout;
 
-    @Bind(R.id.aci_viewPager)
+    @BindView(R.id.aci_viewPager)
     ViewPager mViewPage;
 
     private List<Fragment> fragmentList;
@@ -75,7 +75,7 @@ public class DetailInfoFragment extends ParentFragment {
     public void onDestroyView() {
         super.onDestroyView();
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
     }
 
     private void initViewPager() {

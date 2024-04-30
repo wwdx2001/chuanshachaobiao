@@ -12,8 +12,6 @@ import android.graphics.Typeface;
 import android.media.ExifInterface;
 import android.widget.ImageView;
 
-import com.sh3h.dataprovider.greendaoEntity.JianHaoMX;
-import com.sh3h.dataprovider.schema.ChaoBiaoSJColumns;
 import com.sh3h.datautil.data.DataManager;
 import com.sh3h.datautil.data.entity.DUBillPreview;
 import com.sh3h.datautil.data.entity.DUCard;
@@ -801,7 +799,8 @@ public class RecordLRPresenter extends ParentPresenter<RecordLRMVPView> {
             //canvas.drawText(sdf.format(date), (float) (width * 0.19), (float) (hight * 0.97), textPaint);
             // canvas.drawText(t, (float) (width * 0.19), (float) (hight * 0.04), textPaint);
             canvas.drawText(t, (float) (width * 0.19), (float) (hight * 0.03), textPaint);
-            canvas.save(Canvas.ALL_SAVE_FLAG);
+            //TODO canvas.save(Canvas.ALL_SAVE_FLAG);
+            canvas.save();
             canvas.restore();
 
 

@@ -1830,4 +1830,5 @@ public interface IDataProvider {
 
     public List<BIAOKAXX> getBiaoKaXXWaiFuCBSJList(String account);
 
+    public List<XJXXWordBean> getQFYYWordData(String type, String secondLevel);
 }

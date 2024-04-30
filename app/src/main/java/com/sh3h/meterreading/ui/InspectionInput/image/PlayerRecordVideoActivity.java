@@ -6,8 +6,9 @@ import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.sh3h.meterreading.R;
+import com.sh3h.meterreading.ui.base.ParentActivity;
 
-public class PlayerRecordVideoActivity extends BaseActivity {
+public class PlayerRecordVideoActivity extends ParentActivity {
 
     private VideoView videoView;
 
@@ -17,7 +18,7 @@ public class PlayerRecordVideoActivity extends BaseActivity {
     }
 
     @Override
-    protected void initView() {
+    protected void initView1() {
         getSupportActionBar().setTitle("视频预览");
         videoView = (VideoView) findViewById(R.id.video_view);
 

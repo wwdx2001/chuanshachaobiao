@@ -47,7 +47,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.maxwin.view.XListView;
 
@@ -77,10 +77,10 @@ public class OutsideListActivity extends ParentActivity implements OutsideListMv
     @Inject
     ConfigHelper mConfigHelper;
 
-    @Bind(R.id.loading_process)
+    @BindView(R.id.loading_process)
     SmoothProgressBar mSmoothProgressBar;
 
-    @Bind(R.id.fcbl_list)
+    @BindView(R.id.fcbl_list)
     XListView mXListView;
 
     private String mCh;
@@ -181,7 +181,7 @@ public class OutsideListActivity extends ParentActivity implements OutsideListMv
     protected void onDestroy() {
         super.onDestroy();
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mEventBus.unregister(this);
         mOutsideListPresenter.detachView();
         LogUtil.i(TAG, "---onDestroy---");

@@ -48,6 +48,15 @@ import com.sh3h.meterreading.ui.setting.UserCommonActivity;
 import com.sh3h.meterreading.ui.sort.SortStatusActivity;
 import com.sh3h.meterreading.ui.task.TaskListActivity;
 import com.sh3h.meterreading.ui.temporary.AdjustTemporaryActivity;
+import com.sh3h.meterreading.ui.urge.CallForPaymentArrearsFeesDetailActivity;
+import com.sh3h.meterreading.ui.urge.CallForPaymentOrderDetailActivity;
+import com.sh3h.meterreading.ui.urge.CallForPaymentTaskActivity;
+import com.sh3h.meterreading.ui.urge.CallForPaymentWordOrderActivity;
+import com.sh3h.meterreading.ui.urge.fragment.CallForPayDetailFragment;
+import com.sh3h.meterreading.ui.urge.fragment.CallForPaymentBackfillFragment;
+import com.sh3h.meterreading.ui.urge.fragment.CallForPaymentMediaFragment;
+import com.sh3h.meterreading.ui.urge.fragment.OrderDetailMessageFragment;
+import com.sh3h.meterreading.ui.urge.fragment.OrderElseMessageFragment;
 import com.sh3h.meterreading.ui.volume.AdjustNumberActivity;
 import com.sh3h.meterreading.ui.volume.VolumeListActivity;
 import com.sh3h.meterreading.ui.welcome.WelcomeActivity;
@@ -123,4 +132,17 @@ public interface ActivityComponent{
     void inject(LROperatingFragment lrOperatingFragment);
     void inject(QianFeiXXFragment qianFeiXXFragment);
     void inject(WaiFuHistoryListFragment waiFuHistoryListFragment);
+
+    /**
+     * 催缴
+     */
+    void inject(CallForPaymentTaskActivity taskActivity);
+    void inject(CallForPaymentWordOrderActivity callForPaymentWordOrderActivity);
+    void inject(CallForPaymentOrderDetailActivity callForPaymentOrderDetailActivity);
+    void inject(CallForPaymentArrearsFeesDetailActivity callForPaymentArrearsFeesDetailActivity);
+    void inject(CallForPayDetailFragment callForPayDetailFragment);
+    void inject(OrderDetailMessageFragment orderDetailMessageFragment);
+    void inject(OrderElseMessageFragment orderElseMessageFragment);
+    void inject(CallForPaymentBackfillFragment callForPaymentBackfillFragment);
+    void inject(CallForPaymentMediaFragment callForPaymentMediaFragment);
 }

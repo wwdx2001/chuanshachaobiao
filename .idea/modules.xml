@@ -8,7 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/SwipeRefreshLoadListview/SwipeRefreshLoadListview.iml" filepath="$PROJECT_DIR$/SwipeRefreshLoadListview/SwipeRefreshLoadListview.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/dataprovider/dataprovider.iml" filepath="$PROJECT_DIR$/dataprovider/dataprovider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dataprovider3/dataprovider3.iml" filepath="$PROJECT_DIR$/dataprovider3/dataprovider3.iml" />
       <module fileurl="file://$PROJECT_DIR$/datautil/datautil.iml" filepath="$PROJECT_DIR$/datautil/datautil.iml" />
+      <module fileurl="file://$PROJECT_DIR$/imagepicker/imagepicker.iml" filepath="$PROJECT_DIR$/imagepicker/imagepicker.iml" />
       <module fileurl="file://$PROJECT_DIR$/itemtouchhelper/itemtouchhelper.iml" filepath="$PROJECT_DIR$/itemtouchhelper/itemtouchhelper.iml" />
       <module fileurl="file://$PROJECT_DIR$/logger/logger.iml" filepath="$PROJECT_DIR$/logger/logger.iml" />
       <module fileurl="file://$PROJECT_DIR$/mRAlgorithm/mRAlgorithm.iml" filepath="$PROJECT_DIR$/mRAlgorithm/mRAlgorithm.iml" />

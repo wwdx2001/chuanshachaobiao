@@ -2,6 +2,10 @@ package com.sh3h.datautil.data;
 
 import android.content.Context;
 
+import com.example.dataprovider3.entity.CallForPaymentArrearsFeesDetailBean;
+import com.example.dataprovider3.entity.CallForPaymentBackFillDataBean;
+import com.example.dataprovider3.entity.CallForPaymentTaskBean;
+import com.example.dataprovider3.entity.CuijiaoEntity;
 import com.sh3h.dataprovider.greendaoEntity.ChaoBiaoZT;
 import com.sh3h.dataprovider.greendaoEntity.DuoMeiTXX;
 import com.sh3h.datautil.data.entity.Coordinate;
@@ -2243,5 +2247,33 @@ public class DataManager {
      */
     public Observable<List<DUBillPreview>> calculateCash(DURecord duRecord, int meterType){
         return mHttpHelper.calculateCash(duRecord, meterType);
+    }
+
+    public Observable<List<CallForPaymentTaskBean>> getCallForPayTaskList(String account, String searchText) {
+        return mHttpHelper.getCallForPayTaskList(account, searchText, mContext);
+    }
+
+    public Observable<List<CuijiaoEntity>> getCallForPayWorkOrderList(String s_ch) {
+        return mHttpHelper.getCallForPayWorkOrderList(s_ch, mContext);
+    }
+
+    public Observable<CuijiaoEntity> getCallForPayOrderDetail(String renwuid, String s_cid) {
+        return mHttpHelper.getCallForPayOrderDetail(renwuid, s_cid, mContext);
+    }
+
+    public List<XJXXWordBean> getQFYYWordData(String type, String secondLevel) {
+        return mDbHelper.getQFYYWordData(type, secondLevel, mContext);
+    }
+
+    public Observable<List<CallForPaymentArrearsFeesDetailBean>> getArrearsFeesDetail(String renwuid, String s_cid) {
+        return mHttpHelper.getArrearsFeesDetail(renwuid, s_cid, mContext);
+    }
+
+    public Observable<String> saveOrUploadData(CallForPaymentBackFillDataBean bean, boolean isSave) {
+        return mHttpHelper.saveOrUploadData(bean, isSave, mContext);
+    }
+
+    public CallForPaymentBackFillDataBean getBackFillData(String renwuid) {
+        return mDbHelper.getBackFillData(renwuid, mContext);
     }
 }

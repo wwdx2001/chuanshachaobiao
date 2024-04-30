@@ -19,6 +19,17 @@ public class Const {
     public static final int PHOTO_TYP_VIDEO = 5;
     public static final int PHOTO_TYPE_CUIJIAO = 6;
     public static final int PHOTO_TYP_QUANGJING = 7;
+    public static final int PHOTO_TYP_OTHER = 8;
+    public static final int PHOTO_TYP_CALLPAY = 9;
+    public static final int SOUND_RECORD = 10;
+
+    //催缴退单延期
+    public static final int PHOTO_TYPE_VIDEO = 5555;
+    public static final int PHOTO_TYPE_VOICE = 7777;
+    public static final int TYPE_PHOTO = 111;
+    public static final int TYPE_VOICE = 222;
+    public static final int TYPE_VIDEO = 333;
+    public static final int REQUEST_CODE_VOICE = 1005;
 
     public static final int PHOTO_TYPE1 = 1;
     public static final int PHOTO_TYPE2 = 2;
@@ -160,4 +171,10 @@ public class Const {
 
     public static final String USERNAME = "userName";
     public static final String USERID = "userID";
+
+    public static final String S_CH = "s_ch";
+    public static final String SEARCHTEXT = "SEARCHTEXT";
+    public static final String S_RENWUID = "S_RENWUID";
+    public static final String CUIJIAODATA = "CUIJIAODATA";
+    public static final String CALLFORPAYMENTBACKFILLDATABEAN = "CALLFORPAYMENTBACKFILLDATABEAN";
 }

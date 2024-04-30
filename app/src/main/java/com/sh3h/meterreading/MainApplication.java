@@ -16,6 +16,7 @@ import android.util.Log;
 
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.StringUtils;
+import com.lzy.imagepicker.ImagePicker;
 import com.sh3h.datautil.data.DataManager;
 import com.sh3h.datautil.data.local.config.ConfigHelper;
 import com.sh3h.datautil.data.local.preference.PreferencesHelper;
@@ -36,6 +37,7 @@ import com.sh3h.meterreading.service.SyncSubDataInfo;
 import com.sh3h.meterreading.service.SyncType;
 import com.sh3h.meterreading.service.VersionService;
 import com.sh3h.meterreading.util.Const;
+import com.sh3h.meterreading.util.GlideImagePickerImageLoader;
 import com.sh3h.meterreading.util.URL;
 import com.sh3h.mobileutil.util.ApplicationsUtil;
 import com.sh3h.mobileutil.util.LogUtil;
@@ -96,6 +98,8 @@ public class MainApplication extends Application {
     private boolean mIsGpsLocated;
     private GpsLocation.MRLocation mMRLocation;
 
+    private static MainApplication instance;
+
     public MainApplication() {
         mApplicationComponent = null;
         timeError = 0;
@@ -114,8 +118,9 @@ public class MainApplication extends Application {
 //            Timber.plant(new Timber.DebugTree());
 //            //Fabric.with(this, new Crashlytics());
 //        }
-
+        instance = this;
         EasyHttp.init(this);
+        MultiDex.install(this);
         ZXingLibrary.initDisplayOpinion(this);
 
         CrashHandler crashHandler = CrashHandler.getInstance();
@@ -128,6 +133,18 @@ public class MainApplication extends Application {
         mEventBus.register(this);
 
         initEasyHttp();
+        initImagePicker();
+    }
+
+    private void initImagePicker() {
+        ImagePicker imagePicker = ImagePicker.getInstance();
+        //设置图片加载器
+        imagePicker.setImageLoader(new GlideImagePickerImageLoader());
+        //选中数量限制
+        imagePicker.setSelectLimit(3);
+        //显示拍照按钮
+        imagePicker.setShowCamera(true);
+        imagePicker.setCrop(false);
     }
 
     private void initEasyHttp() {
@@ -163,6 +180,10 @@ public class MainApplication extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
+    }
+
+    public static MainApplication getInstance () {
+        return instance;
     }
 
     public static MainApplication get(Context context) {

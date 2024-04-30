@@ -515,7 +515,7 @@ public class LROperatingFragment extends ParentFragment implements AdapterView.O
 //    mEtYlsm.setVisibility(gone);
   }
 
-  private void initView(View view) {
+  protected void initView(View view) {
     mTvCbzt = view.findViewById(R.id.tv_cbzt);
     mTvPaiZhaoShiBie = view.findViewById(R.id.tv_paizhao);
     mTvPaiZhaoShiBie.setOnClickListener(this);

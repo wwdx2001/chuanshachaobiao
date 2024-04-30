@@ -324,7 +324,7 @@ public class LRDuoMeitiFragment extends ParentFragment implements ImagePickerAda
     }
   }
 
-    private void initView(View view) {
+    protected void initView(View view) {
         mTv1 = view.findViewById(R.id.tv1);
         mTv2 = view.findViewById(R.id.tv2);
         mTv3 = view.findViewById(R.id.tv3);

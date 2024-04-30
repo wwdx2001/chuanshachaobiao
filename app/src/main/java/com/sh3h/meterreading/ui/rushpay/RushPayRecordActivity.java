@@ -57,7 +57,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
@@ -81,55 +81,55 @@ public class RushPayRecordActivity extends ParentActivity implements
     @Inject
     RushPayRecordPresenter mRushPayRecordPresenter;
 
-    @Bind(R.id.inspect_record_lr)
+    @BindView(R.id.inspect_record_lr)
     RadioButton mRecordLRRadioButton;
 
-    @Bind(R.id.inspect_record_detail_info)
+    @BindView(R.id.inspect_record_detail_info)
     RadioButton mDetailInfoRadioButton;
 
-    @Bind(R.id.loading_process)
+    @BindView(R.id.loading_process)
     SmoothProgressBar mSmoothProgressBar;
 
     // 用户编号
-    @Bind(R.id.fcblr_cardId)
+    @BindView(R.id.fcblr_cardId)
     TextView mCardIdTextView;
 
     // 户名
-    @Bind(R.id.fcblr_huming2)
+    @BindView(R.id.fcblr_huming2)
     TextView mHMTextView;
 
     // 地址
-    @Bind(R.id.fcblr_dizhi2)
+    @BindView(R.id.fcblr_dizhi2)
     TextView mDZTextView;
 
-    @Bind(R.id.fcblr_subcomcode2)
+    @BindView(R.id.fcblr_subcomcode2)
     TextView mSubComCodeTextView;
 
-    @Bind(R.id.fcblr_qf_months2)
+    @BindView(R.id.fcblr_qf_months2)
     TextView mMonthsTextView;
 
-    @Bind(R.id.fcblr_qf_money2)
+    @BindView(R.id.fcblr_qf_money2)
     TextView mMoneyTextView;
 
-    @Bind(R.id.fcblr_beizhu2)
+    @BindView(R.id.fcblr_beizhu2)
     TextView mRemarkTextView;
 
-    @Bind(R.id.fcblr_previous)
+    @BindView(R.id.fcblr_previous)
     ButtonFloatSmall mPrevButton;
 
-    @Bind(R.id.fcblr_paizhao)
+    @BindView(R.id.fcblr_paizhao)
     ButtonRectangle mPZButton;
 
-    @Bind(R.id.fcblr_upload)
+    @BindView(R.id.fcblr_upload)
     ButtonRectangle mUploadingButton;
 
-    @Bind(R.id.fcblr_next)
+    @BindView(R.id.fcblr_next)
     ButtonFloatSmall mNextButton;
 
-    @Bind(R.id.fcblr_flashlight)
+    @BindView(R.id.fcblr_flashlight)
     ButtonRectangle mFlashLightButton;
 
-//    @Bind(R.id.fcblr_map_address)
+//    @BindView(R.id.fcblr_map_address)
 //    ImageView mMapAddress;
 
     private List<DUMedia> mDuoMeiTXXList = null;
@@ -255,7 +255,7 @@ public class RushPayRecordActivity extends ParentActivity implements
         super.onDestroy();
         LogUtil.i(TAG, "---onDestroy---");
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mEventBus.unregister(this);
         mRushPayRecordPresenter.detachView();
 

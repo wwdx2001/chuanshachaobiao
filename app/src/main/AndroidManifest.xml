@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.sh3h.meterreading">
-
+    package="com.sh3h.meterreading"> <!-- 结束 -->
+    <uses-sdk tools:overrideLibrary="com.aliyun.qupai.qusdk" />
     <!-- 添加arcgis的权限 -->
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
-    <!-- 结束 -->
 
-
-    <uses-sdk tools:overrideLibrary="com.aliyun.qupai.qusdk"/>
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -32,6 +29,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -44,7 +42,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:replace="android:icon">
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="ohSTukWUXBuWMc4YYzTLOGKB" />
@@ -74,9 +76,10 @@
             android:label="@string/title_activity_main"
             android:screenOrientation="portrait">
             <intent-filter>
-                            <action android:name="android.intent.action.MAIN" />
-                            <category android:name="android.intent.category.DEFAULT" />
-                        </intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
       <activity
@@ -117,10 +120,10 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".ui.search.CombinedSearchActivity"
@@ -143,9 +146,7 @@
             android:label="@string/title_activity_volume_list"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ui.delay.DelayListActivity"
             android:label="@string/title_activity_delay_list"
@@ -180,14 +181,12 @@
             android:name=".ui.record.RecordActivity"
             android:label="@string/title_activity_record_lr"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"></activity>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.delayRecord.DelayRecordActivity"
             android:label="@string/title_activity_delay_record"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
-        <!-- <activity -->
+            android:screenOrientation="portrait" /> <!-- <activity -->
         <!-- android:name=".ui.chaobiaolr.ChaoBiaoLRActivity" -->
         <!-- android:label="@string/title_activity_chao_biao_lr" > -->
         <!-- </activity> -->
@@ -197,17 +196,12 @@
             android:label="@string/title_activity_kehuxiangxixx"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-
-        <!-- AdjustTemporaryActivity -->
+            android:theme="@style/AppTheme.NoActionBar"></activity> <!-- AdjustTemporaryActivity -->
         <activity
             android:name=".ui.temporary.AdjustTemporaryActivity"
             android:label="@string/title_activity_temporary"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
-        <!-- UserCommonActivity -->
+            android:screenOrientation="portrait" /> <!-- UserCommonActivity -->
         <activity
             android:name=".ui.setting.UserCommonActivity"
             android:label="@string/title_activity_user_common"
@@ -222,14 +216,11 @@
             android:name=".ui.sort.SortStatusActivity"
             android:label="@string/title_activity_adjust_user_common"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
-
-        <!-- ArcGisActivity -->
+            android:screenOrientation="portrait" /> <!-- ArcGisActivity -->
         <!-- <activity android:name=".ui.map.ArcGisMapActivity" -->
         <!-- android:label="@string/title_activity_arcgismap" -->
         <!-- android:screenOrientation="portrait"> -->
         <!-- </activity> -->
-
         <activity
             android:name=".ui.main.StatisticsActivity"
             android:label="@string/title_activity_statistics"
@@ -256,8 +247,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
-        </activity>
-        <!-- OutsideRecordActivity -->
+        </activity> <!-- OutsideRecordActivity -->
         <activity
             android:name=".ui.outside.OutsideRecordActivity"
             android:label="@string/title_outside_record"
@@ -293,13 +283,57 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
+
+        <activity
+            android:name=".ui.usage_change.BiaokaSearchActivity"
+            android:label="@string/call_for_pay_task_title"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.urge.CallForPaymentTaskActivity"
+            android:label="@string/call_for_pay_task_title"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.urge.CallForPaymentWordOrderActivity"
+            android:label="@string/call_for_pay_word_order_title"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.urge.CallForPaymentOrderDetailActivity"
+            android:label="@string/call_for_pay_order_detail_title"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.urge.CallForPaymentArrearsFeesDetailActivity"
+
+            android:label="@string/call_for_pay_arrears_fees_detail_title"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.urge.delay.CallForPaymentOrderDelayActivity"
+
+            android:label="@string/call_for_pay_order_delay_title"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.urge.back.CallForPaymentOrderBackActivity"
+
+            android:label="@string/call_for_pay_order_back_title"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".aliyun.AlivcSvideoRecordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeTranlant" />
+        <activity
+            android:name=".ui.InspectionInput.image.PlayerRecordVideoActivity"
+            android:screenOrientation="portrait" />
+
         <service android:name=".service.VersionService" />
-        <service android:name=".service.SyncService" />
-        <!-- <service android:name="com.baidu.location.f" -->
+        <service android:name=".service.SyncService" /> <!-- <service android:name="com.baidu.location.f" -->
         <!-- android:enabled="true" -->
         <!-- android:process=":remote"/> -->
-
-
         <!--
             service
             android:name="com.baidu.location.f"
@@ -310,18 +344,14 @@
         <!-- android:name=".ui.chaobiaolr.ChaoBiaoLRActivity" -->
         <!-- android:label="@string/title_activity_chao_biao_lr" > -->
         <!-- </activity> -->
-
         <provider
-          android:name="android.support.v4.content.FileProvider"
-          android:authorities="com.sh3h.meterreading.fileprovider"
-          android:exported="false"
-          tools:replace="android:authorities"
-          android:grantUriPermissions="true"
-          >
-          <meta-data
-            android:name="android.support.FILE_PROVIDER_PATHS"
-            tools:replace="android:resource"
-            android:resource="@xml/file_paths" />
+            android:name=".BaseFileProvider"
+            android:authorities="com.sh3h.meterreading.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
         </provider>
 
         <service android:name=".service.KeepAliveService" />

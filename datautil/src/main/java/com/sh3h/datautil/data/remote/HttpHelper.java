@@ -2,6 +2,10 @@ package com.sh3h.datautil.data.remote;
 
 import android.content.Context;
 
+import com.example.dataprovider3.entity.CallForPaymentArrearsFeesDetailBean;
+import com.example.dataprovider3.entity.CallForPaymentBackFillDataBean;
+import com.example.dataprovider3.entity.CallForPaymentTaskBean;
+import com.example.dataprovider3.entity.CuijiaoEntity;
 import com.sh3h.datautil.data.entity.Coordinate;
 import com.sh3h.datautil.data.entity.DUBillPreview;
 import com.sh3h.datautil.data.entity.DUCard;
@@ -855,5 +859,53 @@ public class HttpHelper {
         }
     }
 
+    public Observable<List<CallForPaymentTaskBean>> getCallForPayTaskList(String account, String searchText, Context mContext) {
+        connect();
 
+        if (isRestfulApi) {
+            return null;
+        } else {
+            return jsonRpcService.getCallForPayTaskList(account, searchText, mContext);
+        }
+    }
+
+    public Observable<List<CuijiaoEntity>> getCallForPayWorkOrderList(String s_ch, Context mContext) {
+        connect();
+
+        if (isRestfulApi) {
+            return null;
+        } else {
+            return jsonRpcService.getCallForPayWorkOrderList(s_ch, mContext);
+        }
+    }
+
+    public Observable<CuijiaoEntity> getCallForPayOrderDetail(String renwuid, String s_cid, Context mContext) {
+        connect();
+
+        if (isRestfulApi) {
+            return null;
+        } else {
+            return jsonRpcService.getCallForPayOrderDetail(renwuid, s_cid, mContext);
+        }
+    }
+
+    public Observable<List<CallForPaymentArrearsFeesDetailBean>> getArrearsFeesDetail(String renwuid, String s_cid, Context mContext) {
+        connect();
+
+        if (isRestfulApi) {
+            return null;
+        } else {
+            return jsonRpcService.getArrearsFeesDetail(renwuid, s_cid, mContext);
+        }
+    }
+
+    public Observable<String> saveOrUploadData(CallForPaymentBackFillDataBean bean, boolean isSave, Context context) {
+        connect();
+
+        if (isRestfulApi) {
+            return null;
+        } else {
+            return jsonRpcService.saveOrUploadData(bean, isSave, context);
+        }
+    }
 }

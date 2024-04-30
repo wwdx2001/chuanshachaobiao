@@ -27,8 +27,6 @@ import com.sh3h.datautil.data.entity.DUMediaInfo;
 import com.sh3h.datautil.data.entity.DUQianFeiXX;
 import com.sh3h.datautil.data.entity.DUQianFeiXXInfo;
 import com.sh3h.datautil.data.entity.DURecord;
-import com.sh3h.datautil.data.entity.DURecordInfo;
-import com.sh3h.datautil.data.entity.DURecordResult;
 import com.sh3h.datautil.data.local.config.ConfigHelper;
 import com.sh3h.datautil.data.local.preference.PreferencesHelper;
 import com.sh3h.datautil.data.local.preference.UserSession;
@@ -797,7 +795,7 @@ public class DelayRecordLRPresenter extends ParentPresenter<DelayRecordLRMVPView
             //canvas.drawText(sdf.format(date), (float) (width * 0.19), (float) (hight * 0.97), textPaint);
             // canvas.drawText(t, (float) (width * 0.19), (float) (hight * 0.04), textPaint);
             canvas.drawText(t, (float) (width * 0.19), (float) (hight * 0.03), textPaint);
-            canvas.save(Canvas.ALL_SAVE_FLAG);
+            canvas.save();
             canvas.restore();
 
 

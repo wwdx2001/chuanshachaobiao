@@ -1,3 +1,3 @@
-include ':app', ':datautil', ':dataprovider', ':mobileutil', ':serverprovider'
+include ':app', ':datautil', ':dataprovider', ':mobileutil', ':serverprovider', ':dataprovider3', ':imagepicker'
 include ':swipebacklibrary', ':MPChartLib', ':materialdialog', ':MaterialDesign', ':SwipeRefreshLoadListview'
 include ':mRAlgorithm',  ':thirdparty', ':itemtouchhelper', ':logger'

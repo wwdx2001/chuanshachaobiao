@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/ll"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal"
+  android:paddingTop="@dimen/dp_5"
+  android:paddingBottom="@dimen/dp_5">
+
+  <TextView
+    android:id="@+id/tv_key"
+    android:layout_weight="5"
+    android:layout_width="@dimen/dp_0"
+    android:layout_height="wrap_content"
+    android:gravity="right"
+    android:text="key"
+    android:textSize="@dimen/size_15sp" />
+
+  <com.sh3h.meterreading.ui.custom_view.SelectSpinnerView
+    android:id="@+id/spinner_value"
+    android:layout_weight="6"
+    android:layout_width="@dimen/dp_0"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/dp_50"
+    style="@style/Widget.AppCompat.Spinner.Underlined"
+    android:textColor="@color/color_text_black"
+    android:textSize="@dimen/sp_15" />
+</LinearLayout>

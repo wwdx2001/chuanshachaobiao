@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '28.0.3'
     // resourcePrefix 'mpcht'
     defaultConfig {
         minSdkVersion 15
@@ -41,8 +41,8 @@ dependencies {
 android.libraryVariants.all { variant ->
     def name = variant.buildType.name
     def task = project.tasks.create "jar${name.capitalize()}", Jar
-    task.dependsOn variant.javaCompile
-    task.from variant.javaCompile.destinationDir
+    task.dependsOn variant.javaCompileProvider
+    task.from variant.javaCompileProvider.get().destinationDir
     artifacts.add('archives', task);
 }
 

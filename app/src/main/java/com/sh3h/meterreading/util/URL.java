@@ -16,6 +16,9 @@ public class URL {
 
     public static final String BASE_XUNJIAN_URL ="http://180.167.6.229:14000/xunjian/XunJian/";
 
+    public static final String BASE_URGE_URL = "http://180.167.6.229:14000/dingeAPPAPI/CustomerService/";
+    public static final String BASE_URGE_URL1 = "http://180.167.6.229:14000/dingeAPPAPI/XUNJIAN/";
+
 //    public static final String BASE_CS_URL = "http://180.167.6.229:14000/xunjian/XunJian/";
 
     // 欠费催缴查询
@@ -120,6 +123,41 @@ public class URL {
    * 图片上传
    */
   public static final String upLoadFileToServer = "upLoadFileToServer";
+
+    /**
+     * 催缴任务
+     */
+    public static final String CS_SEL_CJCEHAOCXPDA = "CS_SEL_CJCEHAOCXPDA";
+
+    /**
+     * 催缴任务工单列表
+     */
+    public static final String CS_SEL_CJCHSCIDCXPDA = "CS_SEL_CJCHSCIDCXPDA";
+
+    /**
+     * 欠费详情
+     */
+    public static final String CS_SEL_CJSCIDZDMXPDA = "CS_SEL_CJSCIDZDMXPDA";
+
+    /**
+     * 催缴任务工单详情
+     */
+    public static final String CS_SEL_CJXIANGXIMXPDA = "CS_SEL_CJXIANGXIMXPDA";
+
+    /**
+     * 催缴工单详情上传回填信息
+     */
+    public static final String CS_ins_CJRENWUMXPDA = "CS_ins_CJRENWUMXPDA";
+
+    /**
+     * 催缴退单
+     */
+    public static final String CuiJiaoTuiDan = "CuiJiaoTuiDan";
+
+    /**
+     * 催缴延期
+     */
+    public static final String CuiJiaoYanQi = "CuiJiaoYanQi";
 
 
 

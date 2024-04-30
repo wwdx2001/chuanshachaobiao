@@ -14,9 +14,9 @@ apply plugin: 'com.android.library'
 
 android {
   compileSdkVersion 23
-  buildToolsVersion '25.0.0'
+  buildToolsVersion '28.0.3'
   defaultConfig {
-    minSdkVersion 14
+    minSdkVersion 15
     targetSdkVersion 22
   }
   lintOptions {
@@ -45,8 +45,8 @@ android {
 //}
 
 dependencies {
-  testCompile 'junit:junit:4.12'
-  testCompile 'org.robolectric:robolectric:3.0'
-  testCompile 'org.assertj:assertj-core:1.7.0'
+  testImplementation 'junit:junit:4.12'
+  testApi 'org.robolectric:robolectric:3.0'
+  testApi 'org.assertj:assertj-core:1.7.0'
 }
 

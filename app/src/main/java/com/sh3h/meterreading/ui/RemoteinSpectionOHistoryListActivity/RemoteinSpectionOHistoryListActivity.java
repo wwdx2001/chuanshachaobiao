@@ -32,7 +32,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -48,11 +48,11 @@ public class RemoteinSpectionOHistoryListActivity extends ParentActivity
   @Inject
   ConfigHelper mConfigHelper;
 
-  @Bind(R.id.loading_process)
+  @BindView(R.id.loading_process)
   SmoothProgressBar mSmoothProgressBar;
-  @Bind(R.id.recycler)
+  @BindView(R.id.recycler)
   RecyclerView recyclerView;
-  @Bind(R.id.avl_toolbar)
+  @BindView(R.id.avl_toolbar)
   Toolbar mToolbar;
   private MenuItem mAll, mInspected, mNoInspected, mAddUp, mAddDown;
   private List<BiaoKaBean> mBiaoKaBeans;
@@ -158,7 +158,7 @@ public class RemoteinSpectionOHistoryListActivity extends ParentActivity
 //    mRemoteinSpectionListPresenter.loadXunJianData();
   }
 
-  private void initData() {
+  protected void initData() {
     mDataList = new ArrayList<>();
 //        区分历史
     mRemoteinSpectionhistoryListAdapter.setHistory(true);

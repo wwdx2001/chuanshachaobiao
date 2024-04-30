@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:padding="@dimen/size_15dp">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <TextView
+            android:id="@+id/tv_yqyy_key"
+            style="@style/item_left_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/size_5dp"
+            android:paddingBottom="@dimen/size_5dp"
+            android:text="延期原因"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_yqyy_value"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_yqyy_value" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/tv_yqyy_value"
+            style="@style/item_right_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="请填写延期原因"
+            android:imeOptions="actionNone"
+            android:maxLines="10"
+            android:paddingLeft="@dimen/size_5dp"
+            android:scrollbars="vertical"
+            android:textColor="@color/color_gray_33"
+            android:visibility="gone"
+            app:layout_constraintLeft_toRightOf="@+id/tv_yqyy_key"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_yqbz_key"
+            style="@style/item_left_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/size_5dp"
+            android:paddingBottom="@dimen/size_5dp"
+            android:text="延期备注"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_yqbz_value"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_yqbz_value" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/tv_yqbz_value"
+            style="@style/item_right_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="请填写延期备注"
+            android:imeOptions="actionNone"
+            android:maxLines="10"
+            android:paddingLeft="@dimen/size_5dp"
+            android:scrollbars="vertical"
+            android:textColor="@color/color_gray_33"
+            app:layout_constraintLeft_toRightOf="@+id/tv_yqbz_key"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_yqyy_value" />
+
+        <TextView
+            android:id="@+id/tv_yqsc_key"
+            style="@style/item_left_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/size_5dp"
+            android:paddingBottom="@dimen/size_5dp"
+            android:text="延期时长"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_yqsc_value"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_yqsc_value" />
+
+        <com.sh3h.meterreading.ui.custom_view.UnderlineEditText
+            android:id="@+id/tv_yqsc_value"
+            style="@style/item_right_style"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/size_5dp"
+            android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+            android:drawablePadding="@dimen/padding_8"
+            android:enabled="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:hint="请选择延期日期"
+            android:imeOptions="actionNone"
+            android:longClickable="false"
+            android:singleLine="true"
+            app:layout_constraintLeft_toRightOf="@+id/tv_yqsc_key"
+            app:layout_constraintRight_toLeftOf="@+id/tv_handle_unit"
+            app:layout_constraintTop_toBottomOf="@+id/tv_yqbz_value"
+            android:textSize="@dimen/text_size_15" />
+
+
+        <TextView
+            android:id="@+id/tv_handle_unit"
+            style="@style/item_left_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="天"
+            android:textColor="@color/color_gray_33"
+            android:textSize="@dimen/size_14sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_yqsc_value"
+            app:layout_constraintLeft_toRightOf="@+id/tv_yqsc_value"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_yqsc_value" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

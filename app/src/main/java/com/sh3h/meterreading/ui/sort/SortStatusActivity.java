@@ -22,7 +22,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.paulburke.android.itemtouchhelper.helper.ItemTouchHelperAdapter;
 import co.paulburke.android.itemtouchhelper.helper.ItemTouchHelperViewHolder;
@@ -36,7 +36,7 @@ public class SortStatusActivity extends ParentActivity implements SortStatusMvpV
     @Inject
     ConfigHelper mConfigHelper;
 
-    @Bind(R.id.rv_sort_status)
+    @BindView(R.id.rv_sort_status)
     RecyclerView rvSortStatusList;
 
     private MenuItem okMenuItem;
@@ -77,7 +77,7 @@ public class SortStatusActivity extends ParentActivity implements SortStatusMvpV
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         sortStatusPresenter.detachView();
     }
 

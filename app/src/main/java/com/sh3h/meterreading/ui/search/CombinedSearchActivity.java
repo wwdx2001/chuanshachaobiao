@@ -25,27 +25,27 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CombinedSearchActivity extends ParentActivity implements View.OnClickListener {
 
     private final static String TAG = "CombinedSearchActivity";
 
-    @Bind(R.id.ed_cebenhao) EditText mEtCeBenH;
-    @Bind(R.id.ed_customer_code) EditText mEtCustomerCode;
-    @Bind(R.id.ed_huming) EditText mEtHuMing;
-    @Bind(R.id.ed_address) EditText mEtDiZhi;
-    @Bind(R.id.ed_phone) EditText mEddianhua;
-    @Bind(R.id.ed_jianhao) EditText eEdJianHao;
-    @Bind(R.id.ed_biaohao) EditText eEdBiaoHao;
-    @Bind(R.id.ed_koujing_begin) EditText eEdKouJingBegin;
-    @Bind(R.id.ed_koujing_end) EditText eEdKouJingEnd;
-    @Bind(R.id.ed_qianfeibs) EditText eEdQianFeiBS;
-    @Bind(R.id.ed_qianfeije) EditText eEdQianFeiJE;
-    @Bind(R.id.tv_huanbianrq) TextView tTvHuanBiaoRQ;
-    @Bind(R.id.btn_select) Button mBtnSelect;
-    @Bind(R.id.btn_reset) Button mBtnReset;
+    @BindView(R.id.ed_cebenhao) EditText mEtCeBenH;
+    @BindView(R.id.ed_customer_code) EditText mEtCustomerCode;
+    @BindView(R.id.ed_huming) EditText mEtHuMing;
+    @BindView(R.id.ed_address) EditText mEtDiZhi;
+    @BindView(R.id.ed_phone) EditText mEddianhua;
+    @BindView(R.id.ed_jianhao) EditText eEdJianHao;
+    @BindView(R.id.ed_biaohao) EditText eEdBiaoHao;
+    @BindView(R.id.ed_koujing_begin) EditText eEdKouJingBegin;
+    @BindView(R.id.ed_koujing_end) EditText eEdKouJingEnd;
+    @BindView(R.id.ed_qianfeibs) EditText eEdQianFeiBS;
+    @BindView(R.id.ed_qianfeije) EditText eEdQianFeiJE;
+    @BindView(R.id.tv_huanbianrq) TextView tTvHuanBiaoRQ;
+    @BindView(R.id.btn_select) Button mBtnSelect;
+    @BindView(R.id.btn_reset) Button mBtnReset;
     @Inject Bus mEventBus;
 
 
@@ -83,7 +83,7 @@ public class CombinedSearchActivity extends ParentActivity implements View.OnCli
     protected void onDestroy() {
         super.onDestroy();
         mEventBus.unregister(this);
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
     }
 
     @Override

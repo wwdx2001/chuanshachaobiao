@@ -47,7 +47,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import righttodelete.SwipeMenu;
 import righttodelete.SwipeMenuCreator;
@@ -68,10 +68,10 @@ public class SamplingTaskActivity extends ParentActivity implements SamplingTask
     @Inject
     ConfigHelper mConfigHelper;
 
-    @Bind(R.id.loading_process)
+    @BindView(R.id.loading_process)
     SmoothProgressBar mSmoothProgressBar;
 
-    @Bind(R.id.fcbrw_list)
+    @BindView(R.id.fcbrw_list)
     SwipeMenuListView mSwipeMenuListView;
 
     @Inject
@@ -127,7 +127,7 @@ public class SamplingTaskActivity extends ParentActivity implements SamplingTask
     protected void onDestroy() {
         super.onDestroy();
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mEventBus.unregister(this);
         mSamplingTaskPresenter.detachView();
 

@@ -3761,6 +3761,14 @@ public class DataProviderImpl implements
         return biaokaxxDao.getBiaoKaXXWaiFuCBSJList(account);
     }
 
+    @Override
+    public List<XJXXWordBean> getQFYYWordData(String type, String secondLevel) {
+        if (xjxxWordBeanDao == null) {
+            return null;
+        }
+        return xjxxWordBeanDao.getQFYYWordData(type, secondLevel);
+    }
+
     private boolean isExist(String cid, List<YanChiBiao> yanChiBiaos){
         boolean exist = false;
         for (YanChiBiao yanChiBiao : yanChiBiaos){

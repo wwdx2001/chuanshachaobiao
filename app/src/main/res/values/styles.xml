@@ -133,4 +133,73 @@
         <item name="android:paddingBottom">10dp</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <declare-styleable name="VoiceView">
+        <attr name="voiceMax" format="integer" />
+    </declare-styleable>
+
+    <style name="NextBtnStyle">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/alivc_common_font_12</item>
+        <item name="android:background">@drawable/alivc_svideo_bg_next</item>
+        <item name="android:layout_height">27dp</item>
+        <item name="android:layout_width">@dimen/alivc_common_width_tv_60</item>
+        <item name="android:text">@string/alivc_base_svideo_next</item>
+    </style>
+
+    <style name="item_left_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <!--        <item name="android:textColor">@color/color_gray33</item>-->
+    </style>
+
+    <style name="Theme.ToolBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="actionOverflowButtonStyle">@style/ToolButton.Overflow</item>
+    </style>
+
+    <style name="ToolButton.Overflow" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <item name="android:src">@mipmap/ic_more_vert_white</item>
+    </style>
+
+    <style name="item_right_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:textColor">@color/color_gray_33</item>
+    </style>
+
+    <!--基本信息，左边的格式-->
+    <style name="text_left_style">
+        <item name="android:width">@dimen/width_120</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:paddingTop">@dimen/padding_4</item>
+        <item name="android:paddingBottom">@dimen/padding_4</item>
+        <item name="android:textColor">@color/color_gray_979797</item>
+    </style>
+
+    <!--基本信息，右边有margin值的格式-->
+    <style name="text_right_margin_style">
+        <item name="android:background">@null</item>
+        <item name="android:drawableBottom">@drawable/edit_text_line</item>
+        <item name="android:layout_marginRight">@dimen/margin_40</item>
+        <item name="android:layout_weight">1</item>
+        <!-- <item name="android:height">@dimen/height_40</item>-->
+        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/padding_5</item>
+        <!--<item name="android:paddingRight">@dimen/padding_5</item>-->
+        <item name="android:paddingTop">@dimen/padding_5</item>
+        <item name="android:paddingBottom">@dimen/padding_5</item>
+        <item name="android:textColor">@color/text_enable</item>
+        <item name="android:minHeight">@dimen/height_40</item>
+    </style>
+
+    <style name="AppThemeTranlant" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 </resources>

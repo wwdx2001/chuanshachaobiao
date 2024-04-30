@@ -30,13 +30,13 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class PieChartFragment extends ParentFragment implements OnClickListener, OnChartValueSelectedListener {
     private static final String TAG = "PieChartFragment";
 
-    @Bind(R.id.chart1)
+    @BindView(R.id.chart1)
     PieChart mChart;
 
     @Inject
@@ -87,7 +87,7 @@ public class PieChartFragment extends ParentFragment implements OnClickListener,
 
         isPrepared = false;
         mEventBus.unregister(this);
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         LogUtil.i(TAG, "---onDestroyView---");
     }
 

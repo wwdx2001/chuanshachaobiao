@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+  <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/size_10dp"
+    android:scrollbars="vertical">
+
+    <android.support.constraint.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/size_5dp"
+        android:layout_marginRight="@dimen/size_5dp"
+        android:gravity="center"
+        android:maxEms="1"
+        android:text="催缴照片"
+        android:textColor="@color/color_text_black"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_type1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/recycler_type1"
+        app:layout_constraintTop_toTopOf="@+id/recycler_type1" />
+
+      <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_type1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:choiceMode="singleChoice"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:padding="@dimen/size_15dp"
+        android:scrollbarStyle="outsideOverlay"
+        app:layoutManager="android.support.v7.widget.GridLayoutManager"
+        app:layout_constraintLeft_toRightOf="@+id/tv1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:spanCount="3"
+        tools:ignore="MissingConstraints"
+        tools:listitem="@layout/photo_recycle_item" />
+
+      <TextView
+        android:id="@+id/tv_new_6"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/size_5dp"
+        android:layout_marginRight="@dimen/size_5dp"
+        android:gravity="center"
+        android:maxEms="1"
+        android:text="其他"
+        android:textColor="@color/color_text_black"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_new_other"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/recycler_new_other"
+        app:layout_constraintTop_toTopOf="@+id/recycler_new_other" />
+
+      <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_new_other"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_10dp"
+        android:background="@color/white"
+        android:choiceMode="singleChoice"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:padding="@dimen/size_15dp"
+        android:scrollbarStyle="outsideOverlay"
+        app:layoutManager="android.support.v7.widget.GridLayoutManager"
+        app:layout_constraintLeft_toRightOf="@+id/tv_new_6"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_type1"
+        app:spanCount="3"
+        tools:listitem="@layout/photo_recycle_item" />
+
+      <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/size_5dp"
+        android:layout_marginRight="@dimen/size_5dp"
+        android:gravity="center"
+        android:maxEms="1"
+        android:text="录音"
+        android:textColor="@color/color_text_black"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_voice"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/recycler_voice"
+        app:layout_constraintTop_toTopOf="@+id/recycler_voice" />
+
+      <com.sh3h.meterreading.ui.custom_view.VoiceView
+        android:id="@+id/voice_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@null"
+        android:button="@null"
+        android:background="@mipmap/ic_mic_black_18dp"
+        app:layout_constraintLeft_toLeftOf="@+id/tv2"
+        app:layout_constraintRight_toRightOf="@+id/tv2"
+        app:layout_constraintBottom_toBottomOf="@+id/tv2"
+        tools:ignore="MissingConstraints" />
+
+      <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_voice"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_130"
+        android:layout_marginTop="@dimen/size_10dp"
+        android:background="@color/white"
+        android:choiceMode="singleChoice"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:padding="@dimen/size_15dp"
+        android:scrollbarStyle="outsideOverlay"
+        app:layoutManager="android.support.v7.widget.GridLayoutManager"
+        app:layout_constraintLeft_toRightOf="@+id/tv2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_new_other"
+        app:spanCount="3"
+        tools:listitem="@layout/voice_recycle_item" />
+
+
+      <TextView
+        android:id="@+id/tv5"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/size_5dp"
+        android:layout_marginRight="@dimen/size_5dp"
+        android:gravity="center"
+        android:maxEms="1"
+        android:text="录制视频"
+        android:textColor="@color/color_text_black"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_video"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/recycler_video"
+        app:layout_constraintTop_toTopOf="@+id/recycler_video" />
+
+      <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_video"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_10dp"
+        android:background="@color/white"
+        android:choiceMode="singleChoice"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:padding="@dimen/size_15dp"
+        android:scrollbarStyle="outsideOverlay"
+        app:layoutManager="android.support.v7.widget.GridLayoutManager"
+        app:layout_constraintLeft_toRightOf="@+id/tv5"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_voice"
+        app:spanCount="3"
+        tools:listitem="@layout/photo_recycle_item" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

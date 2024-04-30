@@ -29,7 +29,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -38,31 +38,31 @@ import butterknife.ButterKnife;
 public class StatisticsFragment extends ParentFragment implements ViewPager.OnPageChangeListener, View.OnClickListener, StatisticsMvpView {
     private static final String TAG = "StatisticsFragment";
 
-    @Bind(R.id.ly_page1)
+    @BindView(R.id.ly_page1)
     RelativeLayout ly_page1;
 
-    @Bind(R.id.ly_page2)
+    @BindView(R.id.ly_page2)
     RelativeLayout ly_page2;
 
-    @Bind(R.id.tv_page1)
+    @BindView(R.id.tv_page1)
     TextView tv_page1;
 
-    @Bind(R.id.tv_page2)
+    @BindView(R.id.tv_page2)
     TextView tv_page2;
 
-    @Bind(R.id.viewPager_statitics)
+    @BindView(R.id.viewPager_statitics)
     ViewPager viewPager;
 
-    @Bind(R.id.imabtnPrev)
+    @BindView(R.id.imabtnPrev)
     ImageButton imabtnPrev;
 
-    @Bind(R.id.imabtnNext)
+    @BindView(R.id.imabtnNext)
     ImageButton imabtnNext;
 
-    @Bind(R.id.cebenhao_data)
+    @BindView(R.id.cebenhao_data)
     TextView cebenhaoData;
 
-    @Bind(R.id.total_water_data)
+    @BindView(R.id.total_water_data)
     TextView totalWaterData;
 
     @Inject
@@ -117,7 +117,7 @@ public class StatisticsFragment extends ParentFragment implements ViewPager.OnPa
         super.onDestroyView();
 
         isPrepared = false;
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mStatisticsPresenter.detachView();
         LogUtil.i(TAG, "---onDestroyView---");
     }

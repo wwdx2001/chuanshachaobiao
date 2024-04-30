@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".ui.urge.CallForPaymentArrearsFeesDetailActivity">
+
+  <com.sh3h.meterreading.ui.custom_view.grid_view.DataGridView
+    android:id="@+id/call_for_pay_arrears_fees_deatil_dv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:show_header="true">
+  </com.sh3h.meterreading.ui.custom_view.grid_view.DataGridView>
+
+</android.support.constraint.ConstraintLayout>

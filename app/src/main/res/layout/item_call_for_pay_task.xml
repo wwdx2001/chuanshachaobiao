@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_marginStart="@dimen/dp_14"
+  android:layout_marginEnd="@dimen/dp_14"
+  android:paddingBottom="@dimen/dp_10"
+  android:background="@drawable/call_for_pay_task_item_bg"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <TextView
+    android:id="@+id/item_call_for_pay_task_ch_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="册本号：CJ2301"
+    android:textSize="@dimen/sp_15"
+    android:textColor="@color/black"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_marginTop="@dimen/dp_10"
+    android:layout_marginLeft="@dimen/dp_8"
+    tools:ignore="MissingConstraints" />
+
+
+  <TextView
+    android:id="@+id/item_call_for_pay_task_total_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="工单总数：8"
+    android:textSize="@dimen/sp_15"
+    android:textColor="@color/black"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="@dimen/dp_10"
+    android:layout_marginRight="@dimen/dp_8"
+    tools:ignore="MissingConstraints" />
+
+  <View
+    android:id="@+id/item_call_for_pay_task_view"
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="@color/gray2"
+    app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_task_ch_tv"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="@dimen/dp_10"
+    android:layout_marginStart="@dimen/dp_10"
+    android:layout_marginEnd="@dimen/dp_10"
+    tools:ignore="MissingConstraints" />
+
+  <TextView
+    android:id="@+id/item_call_for_pay_task_complete_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="已完成数：3"
+    android:textColor="@color/black"
+    android:textSize="@dimen/sp_13"
+    app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_task_view"
+    app:layout_constraintStart_toStartOf="@+id/item_call_for_pay_task_ch_tv"
+    android:layout_marginTop="@dimen/dp_12"
+    tools:ignore="MissingConstraints" />
+
+
+  <TextView
+    android:id="@+id/item_call_for_pay_task_incomplete_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="已完成数：3"
+    android:textColor="@color/black"
+    android:textSize="@dimen/sp_13"
+    app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_task_view"
+    app:layout_constraintStart_toEndOf="@+id/item_call_for_pay_task_complete_tv"
+    android:layout_marginTop="@dimen/dp_12"
+    android:layout_marginLeft="@dimen/dp_8"
+    tools:ignore="MissingConstraints" />
+
+  <TextView
+    android:id="@+id/item_call_for_pay_task_date_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="派单日期：2023-01-01"
+    android:textColor="@color/black"
+    android:textSize="@dimen/sp_13"
+
+    app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_task_view"
+    app:layout_constraintStart_toEndOf="@+id/item_call_for_pay_task_incomplete_tv"
+    android:layout_marginTop="@dimen/dp_12"
+    android:layout_marginLeft="@dimen/dp_8"
+    tools:ignore="MissingConstraints" />
+
+
+</android.support.constraint.ConstraintLayout>

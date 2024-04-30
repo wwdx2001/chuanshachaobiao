@@ -46,7 +46,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.maxwin.view.XListView;
 
@@ -71,9 +71,9 @@ public class SamplingListActivity extends ParentActivity implements SamplingList
     EventPosterHelper mEventPosterHelper;
     @Inject
     Bus mEventBus;
-    @Bind(R.id.choujian_list)
+    @BindView(R.id.choujian_list)
     XListView mXListView;
-    @Bind(R.id.loading_process)
+    @BindView(R.id.loading_process)
     SmoothProgressBar mSmoothProgressBar;
 
     private String mCh;
@@ -138,7 +138,7 @@ public class SamplingListActivity extends ParentActivity implements SamplingList
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mEventBus.unregister(this);
         samplingListPresenter.detachView();
     }

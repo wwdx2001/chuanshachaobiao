@@ -31,13 +31,13 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class BarChartFragment extends ParentFragment implements OnChartValueSelectedListener {
     private static final String TAG = "BarChartFragment";
 
-    @Bind(R.id.chart1)
+    @BindView(R.id.chart1)
     BarChart mChart;
 
     @Inject
@@ -85,7 +85,7 @@ public class BarChartFragment extends ParentFragment implements OnChartValueSele
 
         isPrepared = false;
         mEventBus.unregister(this);
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         LogUtil.i(TAG, "---onDestroyView---");
     }
 

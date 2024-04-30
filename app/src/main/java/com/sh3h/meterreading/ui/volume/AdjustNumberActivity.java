@@ -43,7 +43,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.paulburke.android.itemtouchhelper.helper.ItemTouchHelperAdapter;
 import co.paulburke.android.itemtouchhelper.helper.ItemTouchHelperViewHolder;
@@ -63,10 +63,10 @@ public class AdjustNumberActivity extends ParentActivity implements AdjustNumber
     @Inject
     ConfigHelper mConfigHelper;
 
-    @Bind(R.id.adjust_number_list)
+    @BindView(R.id.adjust_number_list)
     RecyclerView mAdjustNumberList;
 
-    @Bind(R.id.loading_process)
+    @BindView(R.id.loading_process)
     SmoothProgressBar mSmoothProgressBar;
 
     private MenuItem okMenuItem;
@@ -223,7 +223,7 @@ public class AdjustNumberActivity extends ParentActivity implements AdjustNumber
     protected void onDestroy() {
         super.onDestroy();
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mAdjustNumberPresenter.detachView();
     }
 

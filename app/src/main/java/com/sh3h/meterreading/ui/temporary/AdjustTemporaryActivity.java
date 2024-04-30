@@ -55,7 +55,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.paulburke.android.itemtouchhelper.helper.ItemTouchHelperAdapter;
 import co.paulburke.android.itemtouchhelper.helper.ItemTouchHelperViewHolder;
@@ -77,10 +77,10 @@ public class AdjustTemporaryActivity extends ParentActivity implements AdjustTem
     ConfigHelper mConfigHelper;
     private static final String POSITIVE = "POSITIVE";
 
-    @Bind(R.id.adjust_number_list)
+    @BindView(R.id.adjust_number_list)
     RecyclerView mAdjustNumberList;
 
-    @Bind(R.id.loading_process)
+    @BindView(R.id.loading_process)
     SmoothProgressBar mSmoothProgressBar;
 
     @Inject
@@ -181,7 +181,7 @@ public class AdjustTemporaryActivity extends ParentActivity implements AdjustTem
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mEventBus.unregister(this);
         mAdjustTemporaryPresenter.detachView();
     }

@@ -2,12 +2,13 @@
  * @author qiweiwei 2013-6-25 下午1:37:29
  *
  */
-package com.sh3h.mrdataprovider.core;
+package com.sh3h.dataprovider.core;
 
-import java.io.File;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Environment;
+
+import java.io.File;
 
 /**
  * DBHelper

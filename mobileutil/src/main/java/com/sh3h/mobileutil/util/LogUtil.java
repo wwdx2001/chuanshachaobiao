@@ -4,22 +4,15 @@
  */
 package com.sh3h.mobileutil.util;
 
-import java.io.File;
-import java.io.IOException;
+import com.orhanobut.logger.Logger;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.FileHandler;
 import java.util.logging.Level;
-import java.util.logging.LogManager;
-//import java.util.logging.Logger;
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Environment;
-import android.text.format.Formatter;
-//import android.util.Log;
 
-import com.nostra13.universalimageloader.utils.L;
-import com.orhanobut.logger.Logger;
+//import java.util.logging.Logger;
+//import android.util.Log;
+//import com.nostra13.universalimageloader.utils.L;
 
 public class LogUtil {
 	//private static Logger _logger = null;

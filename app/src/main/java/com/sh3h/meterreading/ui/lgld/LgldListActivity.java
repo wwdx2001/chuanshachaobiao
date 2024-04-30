@@ -37,7 +37,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.maxwin.view.XListView;
 
@@ -52,11 +52,11 @@ public class LgldListActivity  extends ParentActivity implements LgldListMvpView
     Bus mEventBus;
     @Inject
     ConfigHelper mConfigHelper;
-    @Bind(R.id.avl_toolbar)
+    @BindView(R.id.avl_toolbar)
     Toolbar mToolbar;
-    @Bind(R.id.loading_process)
+    @BindView(R.id.loading_process)
     SmoothProgressBar mSmoothProgressBar;
-    @Bind(R.id.fcbl_list)
+    @BindView(R.id.fcbl_list)
     XListView mXListView;
 
     private LgldListActivity.MyListAdapter mMyListAdapter;
@@ -125,7 +125,7 @@ public class LgldListActivity  extends ParentActivity implements LgldListMvpView
     protected void onDestroy() {
         super.onDestroy();
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mEventBus.unregister(this);
         presenter.detachView();
         LogUtil.i(TAG, "---onDestroy---");

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
+//apply plugin: 'com.neenbedankt.android-apt'
+//apply plugin: 'com.jakewharton.butterknife'
 
 android {
     signingConfigs {
@@ -10,27 +11,32 @@ android {
             storePassword 'shanghai3h/rd'
         }
     }
-    compileSdkVersion 26
-    buildToolsVersion '26.0.0'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.sh3h.meterreading"
-        minSdkVersion 15
-        targetSdkVersion 23
+        minSdkVersion 16
+        targetSdkVersion 28
 
         //川沙新服
-        versionName '1.2.0'
-        versionCode 20
+        versionName '1.2.1'
+        versionCode 21
         /**
-        versionName '1.1.2'
-        versionCode 12
-        multiDexEnabled = true
+         versionName '1.1.2'
+         versionCode 12
+         multiDexEnabled = true
          */
         multiDexEnabled true
-      ndk {
-        abiFilters "armeabi", "x86"
-        abiFilters  "armeabi-v7a"
+        ndk {
+            abiFilters "armeabi", "x86"
+            abiFilters "armeabi-v7a"
 //          abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86"
-      }
+        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+            }
+        }
     }
     buildTypes {
         release {
@@ -55,46 +61,63 @@ android {
     lintOptions {
         abortOnError false
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     //Required by Dagger2
-    compile project(':datautil')
-    compile project(':MPChartLib')
-    compile project(':mobileutil')
-    compile project(':materialdialog')
-    compile project(':MaterialDesign')
-    compile project(':SwipeRefreshLoadListview')
-    compile project(':mRAlgorithm')
-    compile project(':swipebacklibrary')
-    compile project(':itemtouchhelper')
+    implementation project(':datautil')
+    implementation project(':MPChartLib')
+    implementation project(':mobileutil')
+    implementation project(':materialdialog')
+    implementation project(':MaterialDesign')
+    implementation project(':SwipeRefreshLoadListview')
+    implementation project(':mRAlgorithm')
+    implementation project(':swipebacklibrary')
+    implementation project(':itemtouchhelper')
+    implementation project(':imagepicker')
     //compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:appcompat-v7:$supportV'
-    compile 'com.google.dagger:dagger:2.0.2'
-    compile 'com.android.support:support-annotations:23.1.1'
-    compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.android.support:cardview-v7:23.1.1'
-    compile 'com.android.support:design:23.2.1'
-    compile 'com.android.support:multidex:1.0.1'
-    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:support-v4:23.4.0'
-    testCompile 'junit:junit:4.12'
-    apt 'com.google.dagger:dagger-compiler:2.0.2'
-    provided 'org.glassfish:javax.annotation:10.0-b28'
-    compile 'com.lzy.widget:imagepicker:0.6.1'
-    compile 'com.google.guava:guava:15.0'
-    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'
-    compile('cn.yipianfengye.android:zxing-library:2.2') {
-      exclude group: 'com.android.support', module: 'appcompat-v7'
+    implementation 'com.android.support:appcompat-v7:$supportV'
+    implementation 'com.google.dagger:dagger:2.0.2'
+    implementation 'com.android.support:support-annotations:23.1.1'
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+//    implementation 'com.jakewharton:butterknife:7.0.1'
+    implementation 'com.android.support:cardview-v7:23.1.1'
+    implementation 'com.android.support:design:23.2.1'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:multidex:1.0.1'
+    implementation 'com.google.android.gms:play-services-appindexing:8.4.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:support-v4:23.4.0'
+//    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.0.2'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    compileOnly 'org.glassfish:javax.annotation:10.0-b28'
+//    implementation 'com.lzy.widget:imagepicker:0.6.1'
+    implementation 'com.google.guava:guava:15.0'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'
+    implementation('cn.yipianfengye.android:zxing-library:2.2') {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
     }
-    compile 'com.aliyun.video.android:svideosnap:3.14.0'//短视频基础版SDK必须依赖
-    compile 'com.aliyun.video.android:core:1.2.2' //核心库必须依赖
-    compile 'com.alivc.conan:AlivcConan:1.0.2'//核心库必须依赖
-    compile 'com.aliyun.video.android:AlivcSvideoFFmpeg:1.1.0'//必须依赖
+    implementation 'com.aliyun.video.android:svideosnap:3.14.0'//短视频基础版SDK必须依赖
+    implementation 'com.aliyun.video.android:core:1.2.2' //核心库必须依赖
+    implementation 'com.alivc.conan:AlivcConan:1.0.2'//核心库必须依赖
+    implementation 'com.aliyun.video.android:AlivcSvideoFFmpeg:1.1.0'//必须依赖
 
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile "com.contrarywind:Android-PickerView:4.1.9"
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation "com.contrarywind:Android-PickerView:4.1.9"
+    implementation 'com.blankj:utilcode:1.25.9'
+    implementation 'com.github.Lingber:Android_DataGridView:1.01'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.github.zhaolewei:ZlwAudioRecorder:v1.08'
+    api 'com.android.support:multidex:1.0.3@aar'
 
+
+
+//    implementation 'androidx.appcompat:appcompat:1.2.0' // 使用最新版本
 }

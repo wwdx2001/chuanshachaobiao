@@ -24,7 +24,7 @@ import com.squareup.otto.Subscribe;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -37,13 +37,13 @@ public class RecordActivity extends ParentActivity implements View.OnClickListen
     @Inject
     Bus mEventBus;
 
-    @Bind(R.id.record_lr)
+    @BindView(R.id.record_lr)
     RadioButton mRecordLRRadioButton;
 
-    @Bind(R.id.record_detail_info)
+    @BindView(R.id.record_detail_info)
     RadioButton mDetailInfoRadioButton;
 
-    @Bind(R.id.record_viewPager)
+    @BindView(R.id.record_viewPager)
     ViewPager mViewPager;
 
     //private List<Fragment> mRecordFragmentList;
@@ -213,7 +213,7 @@ public class RecordActivity extends ParentActivity implements View.OnClickListen
         super.onDestroy();
         LogUtil.i(TAG, "---onDestroy---");
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mEventBus.unregister(this);
     }
 

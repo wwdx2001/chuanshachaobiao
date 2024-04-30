@@ -64,7 +64,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
-public class ParentActivity extends BaseActivity implements SwipeBackActivityBase {
+public abstract class ParentActivity extends BaseActivity implements SwipeBackActivityBase {
     private static final String TAG = "ParentActivity";
 
     private static final String ACCOUNT = "account";
@@ -125,13 +125,42 @@ public class ParentActivity extends BaseActivity implements SwipeBackActivityBas
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        if (getLayoutId() != -1) {
+            setContentView(getLayoutId());
+        }
         setBothAnimation();
 
         mHelper = new SwipeBackActivityHelper(this);
         mHelper.onActivityCreate();
         MainApplication.get(this).bindHostService();
         mSubscription = new CompositeSubscription();
+
+        initView1();
+        initData1();
+        initAdapter1();
+        initListener1();
+        requestData1();
+    }
+    protected int getLayoutId() {
+        return -1;
+    }
+
+
+    protected void requestData1() {
+    }
+
+    protected void initListener1() {
+    }
+
+    protected void initAdapter1() {
+    }
+
+    protected void initData1() {
+
+    }
+
+    protected void initView1() {
+
     }
 
     @Override
@@ -250,7 +279,17 @@ public class ParentActivity extends BaseActivity implements SwipeBackActivityBas
             userName = "高富帅";
             extendedInfo = "";
         }
-      getWordsList(null);
+      getWordsList(new SimpleCallBack<XunJianXXWords>() {
+          @Override
+          public void onError(ApiException e) {
+
+          }
+
+          @Override
+          public void onSuccess(XunJianXXWords xunJianXXWords) {
+
+          }
+      });
       //删除过期的文件
       deleteFile();
     }

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_marginStart="@dimen/dp_14"
+  android:layout_marginEnd="@dimen/dp_14"
+  android:paddingBottom="@dimen/dp_10"
+  android:background="@drawable/call_for_pay_task_item_bg"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <TextView
+    android:id="@+id/item_call_for_pay_work_order_xgh_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="1/981000001"
+    android:textSize="@dimen/sp_15"
+    android:textColor="@color/black"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_marginTop="@dimen/dp_10"
+      android:layout_marginLeft="@dimen/dp_8" />
+
+
+  <TextView
+    android:id="@+id/item_call_for_pay_work_order_dispatch_date_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="派单时间：2024-01-01"
+    android:textSize="@dimen/sp_15"
+    android:textColor="@color/black"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="@dimen/dp_10"
+    android:layout_marginRight="@dimen/dp_8"
+    tools:ignore="MissingConstraints" />
+
+  <View
+    android:id="@+id/item_call_for_pay_word_order_view"
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="@color/gray2"
+    app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_work_order_xgh_tv"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="@dimen/dp_10"
+    android:layout_marginStart="@dimen/dp_10"
+    android:layout_marginEnd="@dimen/dp_10"
+    tools:ignore="MissingConstraints" />
+
+  <TextView
+    android:id="@+id/item_call_for_pay_word_order_user_name_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="客户名称：上海三高计算机中心股份有限公司"
+    android:textColor="@color/black"
+    android:textSize="@dimen/sp_13"
+    app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_word_order_view"
+    app:layout_constraintStart_toStartOf="@+id/item_call_for_pay_work_order_xgh_tv"
+    android:layout_marginTop="@dimen/dp_12"
+    tools:ignore="MissingConstraints" />
+
+
+  <TextView
+    android:id="@+id/item_call_for_pay_word_order_address_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="用水地址：上海市浦东新区XX路1XX号楼XX室"
+    android:textColor="@color/black"
+    android:textSize="@dimen/sp_13"
+    app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_word_order_user_name_tv"
+    app:layout_constraintStart_toStartOf="@+id/item_call_for_pay_word_order_user_name_tv"
+    android:layout_marginTop="@dimen/dp_4"
+    tools:ignore="MissingConstraints" />
+
+  <TextView
+    android:id="@+id/item_call_for_pay_word_order_arrears_fees_total_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="派单日期：2023-01-01"
+    android:textColor="@color/black"
+    android:textSize="@dimen/sp_13"
+    app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_word_order_address_tv"
+    app:layout_constraintStart_toStartOf="@+id/item_call_for_pay_word_order_user_name_tv"
+    android:layout_marginTop="@dimen/dp_4"
+    tools:ignore="MissingConstraints" />
+
+  <TextView
+    android:id="@+id/item_call_for_pay_word_order_arrears_fees_money_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="用水费欠费金额：3000.00"
+    android:textColor="@color/black"
+    android:textSize="@dimen/sp_13"
+    app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_word_order_address_tv"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="@dimen/dp_4"
+    android:layout_marginRight="@dimen/dp_6"
+    tools:ignore="MissingConstraints" />
+
+  <TextView
+    android:id="@+id/item_call_for_pay_word_order_arrears_fees_total_money_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="欠费总金额：5000.00"
+    android:textColor="@color/black"
+    android:textSize="@dimen/sp_13"
+    app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_word_order_arrears_fees_total_tv"
+    app:layout_constraintStart_toStartOf="@+id/item_call_for_pay_word_order_user_name_tv"
+    android:layout_marginTop="@dimen/dp_4"
+    tools:ignore="MissingConstraints" />
+
+  <TextView
+    android:id="@+id/item_call_for_pay_word_order_arrears_fees_date_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="欠费时间范围：202401-202402"
+    android:textColor="@color/black"
+    android:textSize="@dimen/sp_13"
+    app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_word_order_arrears_fees_money_tv"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="@dimen/dp_4"
+    android:layout_marginRight="@dimen/dp_6"
+    tools:ignore="MissingConstraints" />
+
+  <TextView
+    android:id="@+id/item_call_for_pay_word_order_arrears_fees_total_money_liquidated_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="欠费总金额(含违约金)：5100.00，其中违约金100.00"
+    android:textColor="@color/black"
+    android:textSize="@dimen/sp_13"
+    app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_word_order_arrears_fees_total_money_tv"
+    app:layout_constraintStart_toStartOf="@+id/item_call_for_pay_word_order_user_name_tv"
+    android:layout_marginTop="@dimen/dp_4"
+    tools:ignore="MissingConstraints" />
+
+  <View
+      android:id="@+id/view1"
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:background="@color/gray2"
+      app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_word_order_arrears_fees_total_money_liquidated_tv"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="@dimen/dp_10"
+      android:layout_marginStart="@dimen/dp_10"
+      android:layout_marginEnd="@dimen/dp_10"
+      tools:ignore="MissingConstraints" />
+
+  <TextView
+      android:id="@+id/tv_delay"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:drawableLeft="@mipmap/ic_delay_order_blue"
+      android:gravity="center"
+      android:text="延期"
+      android:textSize="@dimen/size_14sp"
+      android:textColor="@color/color_blue_036AC3"
+      android:layout_marginTop="@dimen/dp_8"
+      android:layout_marginRight="@dimen/dp_8"
+      app:layout_constraintTop_toBottomOf="@id/view1"
+      app:layout_constraintRight_toLeftOf="@+id/tv_back" />
+
+  <TextView
+      android:id="@+id/tv_back"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:drawableLeft="@mipmap/ic_back_order_blue"
+      android:drawablePadding="5dp"
+      android:gravity="center"
+      android:text="退单"
+      android:textSize="@dimen/size_14sp"
+      android:textColor="@color/color_blue_036AC3"
+      app:layout_constraintTop_toTopOf="@id/tv_delay"
+      app:layout_constraintRight_toRightOf="@id/view1"/>
+
+
+</android.support.constraint.ConstraintLayout>

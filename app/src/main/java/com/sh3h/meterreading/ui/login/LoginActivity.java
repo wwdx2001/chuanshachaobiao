@@ -26,7 +26,7 @@ import com.sh3h.mobileutil.util.TextUtil;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
@@ -38,16 +38,16 @@ public class LoginActivity extends BaseActivity
     @Inject
     ConfigHelper mConfigHelper;
 
-    @Bind(R.id.et_username)
+    @BindView(R.id.et_username)
     EditText mUserNameEditText;
 
-    @Bind(R.id.et_password)
+    @BindView(R.id.et_password)
     EditText mPasswordEditText;
 
-    @Bind(R.id.btn_submit)
+    @BindView(R.id.btn_submit)
     Button mSubmitButton;
 
-    @Bind(R.id.tv_version)
+    @BindView(R.id.tv_version)
     TextView mVersionTextView;
 
     private String TAG = "LoginActivity";
@@ -88,7 +88,7 @@ public class LoginActivity extends BaseActivity
     protected void onDestroy() {
         super.onDestroy();
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mLoginPresenter.detachView();
 
         if (isExit) {

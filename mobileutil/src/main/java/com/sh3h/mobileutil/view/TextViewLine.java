@@ -4,15 +4,15 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 import com.sh3h.mobileutil.R;
 
 /**
  * Created by xulongjun on 2016/2/16.
  */
-public class TextViewLine extends TextView {
+public class TextViewLine extends AppCompatTextView {
 
     private Paint _paint = null;
 

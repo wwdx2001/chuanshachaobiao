@@ -23,7 +23,6 @@
     <color name="text_darkGrey">#424C55</color>
     <color name="statisticViewPager_background">#f1f1f1</color>
     <color name="divider_line">#E1E1E1</color>
-    <color name="gray">#AFAFAF</color>
 
     <color name="color_gray00">#000000</color>
     <color name="black">#000000</color>
@@ -43,14 +42,11 @@
     <color name="ap_left_drawer_divider">#cccccc</color>
 
     <color name="nsdk_cruise_satellite_text_red">#d94a4b</color>
-    <color name="color_text_black">#2E2A2A</color>
     <color name="white2">#EEE7E7</color>
 
     <!--点击前的颜色-->
     <color name="color_gray_979797">#979797</color>
-    <color name="color_gray_d2d2d2">#d2d2d2</color>
 
-    <color name="color_0176da">#5188EC</color>
 
 
     <!-- 背景色，ActionBar -->
@@ -208,4 +204,89 @@
 
     <color name="white">#ffffff</color>
 
+
+    <!-- 红 -->
+    <color name="color_red_ff0000">#ff0000</color>
+    <color name="color_red_2CFF0000">#2DFF0000</color>
+    <color name="color_transt">#00000000</color>
+    <color name="color_red_fdb1b3">#55fdb1b3</color>
+    <color name="color_red_f7cdd6">#f7cdd6</color>
+
+    <!-- 橙 -->
+    <color name="color_orange_ffa042">#ffa042</color>
+    <color name="color_orange_F8CB7F">#FFF8CB7F</color>
+
+    <!-- 黄 -->
+    <color name="color_yellow_ffff37">#ffff37</color>
+
+    <!-- 绿 -->
+    <color name="color_green_00bb00">#00bb00</color>
+    <color name="color_orange_76DA91">#FF76DA91</color>
+
+    <!-- 蓝 -->
+    <color name="color_blue_0000ff">#0000ff</color>
+    <color name="color_blue_1e1eb6">#1E1EB6</color>
+    <color name="color_blue_0176da">#0176da</color>
+    <color name="color_blue_63B2EE">#FF63B2EE</color>
+    <color name="color_blue_1E90FF">#1E90FF</color>
+    <color name="color_blue">#FF1E90FF</color>
+    <color name="color_0176da">#5188EC</color>
+    <color name="color_blue_5d81c1">#5d81c1</color>
+    <color name="color_blue_036AC3">#036AC3</color>
+
+
+    <!-- 紫 -->
+    <color name="color_bule_ae57a4">#ae57a4</color>
+
+    <!-- 黑 -->
+    <color name="color_black_000000">#000000</color>
+    <color name="color_black_2">#110F0F</color>
+    <color name="color_text_black">#2E2A2A</color>
+
+    <!-- 白 -->
+    <color name="color_white_ffffff">#ffffff</color>
+
+    <!-- 灰 -->
+    <color name="color_gray_33">#333333</color>
+    <color name="color_bg">#F5F2F2</color>
+    <color name="color_gray_66">#666666</color>
+    <color name="color_gray_99">#999999</color>
+    <color name="color_gray_adadad">#adadad</color>
+    <color name="color_gray_666E81">#666E81</color>
+    <color name="color_gray_767676">#767676</color>
+    <color name="color_gray_d2d2d2">#d2d2d2</color>
+    <color name="color_gray_d8">#D8D8D8</color>
+    <color name="color_gray_8a">#8a8a8a</color>
+    <color name="color_gray_ee">#eeeeee</color>
+    <color name="color_gray_f2">#f2f2f2</color>
+    <color name="color_gray_6e">#6E6E6E</color>
+    <color name="gray">#E6E6E6</color>
+    <color name="gray2">#B4B4B4</color>
+    <color name="color_gray_7f">#ff7f7f7f</color>
+    <color name="color_gray_5b5b5b">#5b5b5b</color>
+
+
+    <!--分割线颜色-->
+    <color name="color_gray_divider">#f8f8f8</color>
+    <color name="color_gray_ea_divider">#eaeaea</color>
+
+    <color name="motor_blue_plate_text_color">#3385ff</color>
+
+    <!--其他一些常用颜色，除字体、背景色、线-->
+    <color name="alivc_common_white">#ffffffff</color>
+    <!--公用字体颜色-->
+    <color name="alivc_common_font_white">#ffffffff</color>
+    <color name="alivc_common_font_gray_light">#C3C5C6</color>
+    <color name="alivc_common_font_gray_333">#333</color>
+    <!--主题色，代表应用整体风格的颜色-->
+    <!--公用背景色，包含前景色、填充色-->
+    <color name="alivc_common_bg_black_alpha_40">#66000000</color>
+    <!--公用线的颜色，包含边界线的颜色-->
+    <color name="alivc_record_bg_timeview_selected">#3F51B5</color>
+    <color name="alivc_record_bg_timeview_duraton">#fd4646</color>
+    <color name="alivc_record_bg_timeview">#33FFFFFF</color>
+    <color name="alivc_record_bg_rate_bar">#CC1C1F21</color>
+    <color name="alivc_record_bg_rate_selected">#F8F8F8</color>
+    <color name="alivc_record_color_filter">#50C0C0C0</color>
+    <color name="alivc_svideo_bg_next_enable">#FC4448 </color>
 </resources>

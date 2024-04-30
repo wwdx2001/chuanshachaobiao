@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+  <item
+    android:id="@+id/menu_item_sort"
+    android:title="@string/ascending_order">
+
+    <menu>
+      <group android:id="@+id/menu_group_sort"
+        android:checkableBehavior="single"
+        >
+        <item
+          android:id="@+id/menu_item_ascending_order"
+          android:title="@string/ascending_order"
+          android:checked="true"
+          app:showAsAction="collapseActionView"
+          />
+
+        <item
+          android:id="@+id/menu_item_descending_order"
+          android:title="@string/descending_order"
+          app:showAsAction="collapseActionView"
+          />
+
+      </group>
+    </menu>
+
+  </item>
+
+  <group android:id="@+id/menu_sort_mode"
+    android:checkableBehavior="single">
+
+    <item
+      android:id="@+id/menu_item_ch_sort"
+      android:title="@string/use_ch_text"
+      app:showAsAction="collapseActionView"
+      android:checked="true"
+      />
+
+    <item
+      android:id="@+id/menu_item_address_sort"
+      android:title="@string/use_address_text"
+      app:showAsAction="collapseActionView"
+      />
+
+    <item
+      android:id="@+id/menu_item_amount_sort"
+      android:title="@string/use_amount_text"
+      app:showAsAction="collapseActionView"
+      />
+
+  </group>
+
+
+</menu>

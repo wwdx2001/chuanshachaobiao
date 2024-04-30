@@ -28,7 +28,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.sh3h.meterreading.ui.information.CustomerInformationActivity.IS_LOCAL_SEARCH;
@@ -43,10 +43,10 @@ public class ChangeWaterFragment extends ParentFragment implements ChangeWaterMv
     @Inject
     Bus mEventBus;
 
-    @Bind(R.id.lv_huanbiaojllist)
+    @BindView(R.id.lv_huanbiaojllist)
     RecyclerView _huanBiaoJLlist;
 
-    @Bind(R.id.loading_process)
+    @BindView(R.id.loading_process)
     SmoothProgressBar loadingProcess;
 
     @Inject
@@ -87,9 +87,10 @@ public class ChangeWaterFragment extends ParentFragment implements ChangeWaterMv
 
     @Override
     public void onDestroyView() {
+        super.onDestroyView();
         super.onDestroy();
 
-        ButterKnife.unbind(this);
+//        ButterKnife.unbind(this);
         mEventBus.unregister(this);
         mChangeWaterPresenter.detachView();
     }

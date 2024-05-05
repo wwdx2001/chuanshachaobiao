@@ -57,6 +57,7 @@ import com.sh3h.meterreading.ui.urge.fragment.CallForPaymentBackfillFragment;
 import com.sh3h.meterreading.ui.urge.fragment.CallForPaymentMediaFragment;
 import com.sh3h.meterreading.ui.urge.fragment.OrderDetailMessageFragment;
 import com.sh3h.meterreading.ui.urge.fragment.OrderElseMessageFragment;
+import com.sh3h.meterreading.ui.urge_search.CallForPaymentSearchActivity;
 import com.sh3h.meterreading.ui.volume.AdjustNumberActivity;
 import com.sh3h.meterreading.ui.volume.VolumeListActivity;
 import com.sh3h.meterreading.ui.welcome.WelcomeActivity;
@@ -145,4 +146,5 @@ public interface ActivityComponent{
     void inject(OrderElseMessageFragment orderElseMessageFragment);
     void inject(CallForPaymentBackfillFragment callForPaymentBackfillFragment);
     void inject(CallForPaymentMediaFragment callForPaymentMediaFragment);
+    void inject(CallForPaymentSearchActivity callForPaymentSearchActivity);
 }

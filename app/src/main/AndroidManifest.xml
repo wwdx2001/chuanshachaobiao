@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.sh3h.meterreading"> <!-- 结束 -->
+    package="com.sh3h.meterreading" > <!-- 结束 -->
     <uses-sdk tools:overrideLibrary="com.aliyun.qupai.qusdk" />
     <!-- 添加arcgis的权限 -->
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
-
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -43,22 +42,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:replace="android:icon">
+        tools:replace="android:icon" >
+        <activity
+            android:name=".CallForPaymentSearchListActivity"
+            android:exported="false" />
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="ohSTukWUXBuWMc4YYzTLOGKB" />
-        <!-- release key  ohSTukWUXBuWMc4YYzTLOGKB -->
+            android:value="ohSTukWUXBuWMc4YYzTLOGKB" /> <!-- release key  ohSTukWUXBuWMc4YYzTLOGKB -->
         <!-- debug key  6EdPd9DSwuKICAMCAQwULzLIjdOmfAZE -->
         <!-- <string name = "liurui_apikey">vHjsDCjmi99OcqK7DzEsVIX7</string> -->
         <!-- <string name = "xulongjun_apikey">eMwqN2fSxdjwqRnQQ6VdCt1q</string> -->
-
         <activity
             android:name=".ui.welcome.WelcomeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -74,49 +76,48 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:label="@string/title_activity_main"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-      <activity
-        android:name=".ui.remoteinspection.RemoteinSpectionListActivity"
-        android:label="@string/title_activity_remoteinspectionlistactivity"
-        android:launchMode="singleTop"
-        android:screenOrientation="portrait"  android:theme="@style/AppTheme.NoActionBar">
-        <intent-filter>
-          <action android:name="android.intent.action.VIEW" />
-        </intent-filter>
-      </activity>
-
-      <activity
-        android:name=".ui.RemoteinSpectionOHistoryListActivity.RemoteinSpectionOHistoryListActivity"
-        android:label="@string/title_activity_remoteinspectionhistorylistactivity"
-        android:launchMode="singleTop"
-        android:screenOrientation="portrait"  android:theme="@style/AppTheme.NoActionBar">
-        <intent-filter>
-          <action android:name="android.intent.action.VIEW" />
-        </intent-filter>
-      </activity>
-
-      <activity
-        android:name=".ui.InspectionInput.InspectionInputActivity"
-        android:label="@string/title_activity_inspectionInputactivity"
-        android:launchMode="singleTop"
-        android:screenOrientation="portrait"  android:theme="@style/AppTheme.NoActionBar">
-        <intent-filter>
-          <action android:name="android.intent.action.VIEW" />
-        </intent-filter>
-      </activity>
-
+        <activity
+            android:name=".ui.remoteinspection.RemoteinSpectionListActivity"
+            android:label="@string/title_activity_remoteinspectionlistactivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.RemoteinSpectionOHistoryListActivity.RemoteinSpectionOHistoryListActivity"
+            android:label="@string/title_activity_remoteinspectionhistorylistactivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.InspectionInput.InspectionInputActivity"
+            android:label="@string/title_activity_inspectionInputactivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.task.TaskListActivity"
             android:label="@string/title_activity_task_list"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -131,7 +132,7 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeSearch"
-            android:windowSoftInputMode="adjustPan|stateHidden">
+            android:windowSoftInputMode="adjustPan|stateHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -146,13 +147,13 @@
             android:label="@string/title_activity_volume_list"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.delay.DelayListActivity"
             android:label="@string/title_activity_delay_list"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -162,7 +163,7 @@
             android:label="@string/title_activity_lgld_list"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -196,7 +197,7 @@
             android:label="@string/title_activity_kehuxiangxixx"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity> <!-- AdjustTemporaryActivity -->
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- AdjustTemporaryActivity -->
         <activity
             android:name=".ui.temporary.AdjustTemporaryActivity"
             android:label="@string/title_activity_temporary"
@@ -225,7 +226,7 @@
             android:name=".ui.main.StatisticsActivity"
             android:label="@string/title_activity_statistics"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -234,7 +235,7 @@
             android:name=".ui.setting.SettingActivity"
             android:label="@string/title_activity_setting"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -243,7 +244,7 @@
             android:name=".ui.outside.OutsideListActivity"
             android:label="@string/title_outside"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -267,7 +268,7 @@
             android:name=".ui.sampling.SamplingTaskActivity"
             android:label="@string/title_sampling_task"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -282,8 +283,6 @@
             android:label="@string/title_rush_pay_record"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
-
-
         <activity
             android:name=".ui.usage_change.BiaokaSearchActivity"
             android:label="@string/call_for_pay_task_title"
@@ -306,20 +305,27 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.urge.CallForPaymentArrearsFeesDetailActivity"
-
             android:label="@string/call_for_pay_arrears_fees_detail_title"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.urge.delay.CallForPaymentOrderDelayActivity"
-
             android:label="@string/call_for_pay_order_delay_title"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.urge.back.CallForPaymentOrderBackActivity"
-
             android:label="@string/call_for_pay_order_back_title"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.urge_search.CallForPaymentSearchActivity"
+            android:label="@string/call_for_pay_search"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.urge_search.CallForPaymentSearchListActivity"
+            android:label="@string/call_for_pay_search_list"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
@@ -348,7 +354,7 @@
             android:name=".BaseFileProvider"
             android:authorities="com.sh3h.meterreading.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true" >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />

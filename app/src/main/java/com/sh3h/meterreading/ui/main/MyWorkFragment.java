@@ -30,6 +30,7 @@ import com.sh3h.meterreading.ui.search.CombinedSearchActivity;
 import com.sh3h.meterreading.ui.setting.SettingActivity;
 import com.sh3h.meterreading.ui.task.TaskListActivity;
 import com.sh3h.meterreading.ui.urge.CallForPaymentTaskActivity;
+import com.sh3h.meterreading.ui.urge_search.CallForPaymentSearchActivity;
 import com.sh3h.mobileutil.util.LogUtil;
 
 import org.json.JSONObject;
@@ -296,6 +297,9 @@ public class MyWorkFragment extends ParentFragment implements MyWorkMvpView,
                 break;
             case ACTION_URGE:
                 intentMsg = new Intent(mMainActivity, CallForPaymentTaskActivity.class);
+                break;
+            case ACTION_URGE_SEARCH:
+                intentMsg = new Intent(mMainActivity, CallForPaymentSearchActivity.class);
                 break;
             default:
                 LogUtil.i(TAG, String.format(Locale.CHINA, "---onItemClick---error: %d", id));

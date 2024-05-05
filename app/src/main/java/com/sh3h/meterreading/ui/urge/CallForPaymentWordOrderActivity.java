@@ -118,6 +118,7 @@ public class CallForPaymentWordOrderActivity extends ParentActivity
     mCallForPayWordOrderSearchBtn.setOnClickListener(this);
     mCallForPayWordOrderResettingBtn.setOnClickListener(this);
     mCallForPayWordOrderSrl.setOnRefreshListener(this);
+    mAdapter.setOnItemClickListener(this);
   }
 
   @Override

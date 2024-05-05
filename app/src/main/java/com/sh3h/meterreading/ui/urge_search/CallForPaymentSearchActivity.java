@@ -1,5 +1,6 @@
 package com.sh3h.meterreading.ui.urge_search;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -14,6 +15,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.gc.materialdesign.views.SmoothProgressBar;
 import com.sh3h.meterreading.R;
 import com.sh3h.meterreading.ui.base.ParentActivity;
+import com.sh3h.meterreading.util.Const;
 import com.squareup.otto.Bus;
 
 import javax.inject.Inject;
@@ -27,8 +29,8 @@ import butterknife.ButterKnife;
 public class CallForPaymentSearchActivity extends ParentActivity {
 
 
-    @BindView(R.id.avl_toolbar)
-    Toolbar mToolbar;
+//    @BindView(R.id.avl_toolbar)
+//    Toolbar mToolbar;
     @BindView(R.id.et_user_number)
     EditText etUserNumber;
     @BindView(R.id.et_address)
@@ -47,19 +49,14 @@ public class CallForPaymentSearchActivity extends ParentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_call_for_pay_search);
         ButterKnife.bind(this);
-//        getActivityComponent().inject(this);
+        getActivityComponent().inject(this);
         mEventBus.register(this);
-        mToolbar.setTitle("表卡查询");
-        setSupportActionBar(mToolbar);
+//        mToolbar.setTitle("表卡查询");
+//        setSupportActionBar(mToolbar);
         mSmoothProgressBar.setVisibility(View.INVISIBLE);
         setActionBarBackButtonEnable();
-
+        setListener();
     }
-
-
-
-
-
 
     @Override
     protected void onRequestPermissionsResult(boolean isSuccess) {
@@ -82,10 +79,10 @@ public class CallForPaymentSearchActivity extends ParentActivity {
                     return;
                 }
                 //跳转过去查询
-//                Intent intent = new Intent(CallForPaymentSearchActivity.this, RealNameListActivity.class);
-//                intent.putExtra(Const.S_CID, etUserNumber.getText().toString());
-//                intent.putExtra(Const.S_DZ, etAddress.getText().toString());
-//                startActivity(intent);
+                Intent intent = new Intent(CallForPaymentSearchActivity.this, CallForPaymentSearchListActivity.class);
+                intent.putExtra(Const.S_CID, etUserNumber.getText().toString());
+                intent.putExtra(Const.S_DZ, etAddress.getText().toString());
+                startActivity(intent);
             }
         });
     }

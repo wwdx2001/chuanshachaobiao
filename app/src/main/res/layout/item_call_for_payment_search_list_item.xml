@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp_14"
+    android:layout_marginEnd="@dimen/dp_14"
+    android:paddingBottom="@dimen/dp_10"
+    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <CheckBox
+        android:id="@+id/item_call_for_search_list_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:background="@drawable/call_for_pay_task_item_bg">
+
+        <TextView
+            android:id="@+id/item_call_for_search_list_cid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="981000001"
+            android:textSize="@dimen/sp_15"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_8" />
+
+        <View
+            android:id="@+id/item_call_for_pay_search_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray2"
+            app:layout_constraintTop_toBottomOf="@+id/item_call_for_search_list_cid"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/item_call_for_pay_search_list_user_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名：xxx"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_13"
+            app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_search_list_view"
+            app:layout_constraintStart_toStartOf="@+id/item_call_for_search_list_cid"
+            android:layout_marginTop="@dimen/dp_12"
+            tools:ignore="MissingConstraints" />
+
+
+        <TextView
+            android:id="@+id/item_call_for_pay_search_list_phone_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="联系电话：15512345678"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_13"
+            app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_search_list_user_name_tv"
+            app:layout_constraintStart_toStartOf="@+id/item_call_for_pay_search_list_user_name_tv"
+            android:layout_marginTop="@dimen/dp_4"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/item_call_for_pay_search_list_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="受理时间：2023-01-01"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_13"
+            app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_search_list_phone_tv"
+            app:layout_constraintStart_toStartOf="@+id/item_call_for_pay_search_list_user_name_tv"
+            android:layout_marginTop="@dimen/dp_4"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/item_call_for_pay_search_list_source_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="@dimen/dp_6"
+            android:text="反应来源：自报"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/item_call_for_pay_search_list_user_name_tv"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/item_call_for_pay_search_list_address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="地址：纪念路8号"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_13"
+            app:layout_constraintTop_toBottomOf="@+id/item_call_for_pay_search_list_time_tv"
+            app:layout_constraintStart_toStartOf="@+id/item_call_for_pay_search_list_user_name_tv"
+            android:layout_marginTop="@dimen/dp_4"
+            android:paddingBottom="@dimen/dp_8"
+            tools:ignore="MissingConstraints" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</LinearLayout>

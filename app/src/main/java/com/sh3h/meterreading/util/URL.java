@@ -159,8 +159,14 @@ public class URL {
      */
     public static final String CuiJiaoYanQi = "CuiJiaoYanQi";
 
+    /**
+     * 人工登记催缴单列表
+     */
+    public static final String GetQianFeiCuiJiaoHZ = "GetQianFeiCuiJiaoHZ";
 
-
-
+    /**
+     * 人工登记催缴单提交
+     */
+    public static final String CreateCuiJiaoGD = "CreateCuiJiaoGD";
 
 }

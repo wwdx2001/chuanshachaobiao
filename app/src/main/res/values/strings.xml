@@ -913,8 +913,10 @@
     <string name="call_for_pay_word_order_title">催缴任务—工单列表</string>
     <string name="call_for_pay_arrears_fees_detail_title">费用详情</string>
     <string name="call_for_pay_order_detail_title">工单详情</string>
-    <string name="call_for_pay_order_delay_title">工单详情</string>
-    <string name="call_for_pay_order_back_title">工单详情</string>
+    <string name="call_for_pay_order_delay_title">延期操作</string>
+    <string name="call_for_pay_order_back_title">退单操作</string>
+    <string name="call_for_pay_search">表卡查询</string>
+    <string name="call_for_pay_search_list">自开单</string>
     <string name="call_for_pay_word_order_list_search_hint_text">请输入销根号、客户名称或用水地址</string>
     <string name="call_for_pay_task_list_search_hint_text">请输入册本号，地址或者用户号</string>
 

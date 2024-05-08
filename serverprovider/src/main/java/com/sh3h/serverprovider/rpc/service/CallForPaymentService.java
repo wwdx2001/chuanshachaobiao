@@ -85,6 +85,7 @@ public class CallForPaymentService extends BaseApiService {
             EasyHttp.post(URL.BASE_URGE_URL1 + CS_SEL_CJCEHAOCXPDA)
                     .cacheMode(CacheMode.CACHEANDREMOTEDISTINCT)
                     .params("cby", "0018")
+//                    .params("cby", SPUtils.getInstance().getString(Const.S_YUANGONGH))
                     .execute(new SimpleCallBack<String>() {
                         @Override
                         public void onStart() {

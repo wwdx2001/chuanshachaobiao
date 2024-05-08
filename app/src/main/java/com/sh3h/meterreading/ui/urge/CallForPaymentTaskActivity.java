@@ -125,6 +125,8 @@ public class CallForPaymentTaskActivity extends ParentActivity
         break;
 
       case R.id.call_for_pay_task_resetting_btn:
+        mCallForPayTaskSearchEt.setText("");
+        searchText = "";
         mPresenter.getTaskList("");
         break;
     }

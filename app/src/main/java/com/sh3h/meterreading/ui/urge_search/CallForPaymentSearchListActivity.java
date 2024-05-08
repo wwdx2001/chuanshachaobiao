@@ -1,10 +1,7 @@
 package com.sh3h.meterreading.ui.urge_search;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -12,7 +9,6 @@ import android.view.MenuItem;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.dataprovider3.entity.CallForPaymentSearchBean;
-import com.example.dataprovider3.entity.CallForPaymentTaskBean;
 import com.sh3h.meterreading.R;
 import com.sh3h.meterreading.ui.base.ParentActivity;
 import com.sh3h.meterreading.ui.urge.adapter.CallForPaymentSearchListAdapter;
@@ -24,11 +20,8 @@ import com.sh3h.meterreading.util.RecyclerSpacingItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-
 public class CallForPaymentSearchListActivity extends ParentActivity implements CallForPaymentSearchListContract.View{
 
-//    @BindView(R.id.call_for_pay_search_rv)
     RecyclerView mSearchRv;
 
     private MenuItem mItem1;
@@ -72,6 +65,7 @@ public class CallForPaymentSearchListActivity extends ParentActivity implements 
     @Override
     protected void requestData1() {
         super.requestData1();
+        showProgress(R.string.dialog_sync_data);
         mPresenter.getSearchListData(mCid, mAddress);
     }
 
@@ -105,6 +99,7 @@ public class CallForPaymentSearchListActivity extends ParentActivity implements 
                 mSearchList.clear();
                 mSearchList.addAll(data);
                 mAdapter.setNewData(mSearchList);
+                hideProgress();
             }
         });
     }
@@ -112,10 +107,14 @@ public class CallForPaymentSearchListActivity extends ParentActivity implements 
     @Override
     public void failed(String result) {
         ToastUtils.showLong(result);
+        if (result.equals("提交成功")) {
+            mPresenter.getSearchListData(mCid, mAddress);
+            showProgress(R.string.dialog_sync_data);
+        }
     }
 
     @Override
     public void error(String s) {
-
+        ToastUtils.showLong(s);
     }
 }

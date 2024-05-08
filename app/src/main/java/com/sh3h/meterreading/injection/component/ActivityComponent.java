@@ -52,12 +52,14 @@ import com.sh3h.meterreading.ui.urge.CallForPaymentArrearsFeesDetailActivity;
 import com.sh3h.meterreading.ui.urge.CallForPaymentOrderDetailActivity;
 import com.sh3h.meterreading.ui.urge.CallForPaymentTaskActivity;
 import com.sh3h.meterreading.ui.urge.CallForPaymentWordOrderActivity;
+import com.sh3h.meterreading.ui.urge.back.OrderBackHandleFragment;
 import com.sh3h.meterreading.ui.urge.fragment.CallForPayDetailFragment;
 import com.sh3h.meterreading.ui.urge.fragment.CallForPaymentBackfillFragment;
 import com.sh3h.meterreading.ui.urge.fragment.CallForPaymentMediaFragment;
 import com.sh3h.meterreading.ui.urge.fragment.OrderDetailMessageFragment;
 import com.sh3h.meterreading.ui.urge.fragment.OrderElseMessageFragment;
 import com.sh3h.meterreading.ui.urge_search.CallForPaymentSearchActivity;
+import com.sh3h.meterreading.ui.usage_change.UsageChangeSearchListActivity;
 import com.sh3h.meterreading.ui.volume.AdjustNumberActivity;
 import com.sh3h.meterreading.ui.volume.VolumeListActivity;
 import com.sh3h.meterreading.ui.welcome.WelcomeActivity;
@@ -145,6 +147,12 @@ public interface ActivityComponent{
     void inject(OrderDetailMessageFragment orderDetailMessageFragment);
     void inject(OrderElseMessageFragment orderElseMessageFragment);
     void inject(CallForPaymentBackfillFragment callForPaymentBackfillFragment);
+    void inject(OrderBackHandleFragment orderBackHandleFragment);
     void inject(CallForPaymentMediaFragment callForPaymentMediaFragment);
     void inject(CallForPaymentSearchActivity callForPaymentSearchActivity);
+
+    /**
+     * 用户实名制/用水性质变更
+     */
+    void inject(UsageChangeSearchListActivity usageChangeSearchListActivity);
 }

@@ -196,7 +196,7 @@ public class CallForPaymentOrderDetailModelImpl implements CallForPaymentOrderDe
 
         List<io.reactivex.Observable<String>> observableList = new ArrayList<>();
 
-        io.reactivex.Observable<String> upImageObservable = EasyHttp.post(URL.BASE_XUNJIAN_URL + URL.UploadFile)
+        io.reactivex.Observable<String> upImageObservable = EasyHttp.post(URL.BASE_URGE_URL1 + URL.AppReturnOrderUploadFileCuiJiao)
                 .params("S_LEIXING", "CuiJiaoD")
                 .params("S_GONGDANBH", bean.getV_RENWUID())
                 .addFileParams("S_ZHAOPIANLJ", files, null)
@@ -237,7 +237,7 @@ public class CallForPaymentOrderDetailModelImpl implements CallForPaymentOrderDe
                             resultEntity.setMsgCode(UPLOADDATA_ERROR_CODE);
                             return io.reactivex.Observable.just(com.blankj.utilcode.util.GsonUtils.toJson(resultEntity));
                         } else {
-                            if ("00".equals(resultEntity.getMsgCode())) {
+                            if ("true".equals(resultEntity.getMsgCode())) {
                                 isSuccess = true;
                                 return upDataObservable;
                             } else {
@@ -264,6 +264,7 @@ public class CallForPaymentOrderDetailModelImpl implements CallForPaymentOrderDe
                             ToastUtils.showLong(e.getCode() + "---"
                                     + e.getMessage());
                         }
+                        ToastUtils.showLong(e.getCause().toString());
                     }
 
                     @Override

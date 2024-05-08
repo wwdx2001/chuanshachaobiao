@@ -31,6 +31,7 @@ import com.zhouyou.http.exception.ApiException;
 import com.zhouyou.http.subsciber.IProgressDialog;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -187,10 +188,10 @@ public class OrderDelayHandleFragment extends ParentFragment implements View.OnC
                 return progressDialog;
             }
         };
-        EasyHttp.post(URL.BASE_URGE_URL + URL.CuiJiaoYanQi)
-                .params("S_GONGDANBH", mCuijiaoEntity.getS_CID())
-                .params("yanqisc", tvYqscValue.getText().toString())
-                .params("yanqibz", tvYqbzValue.getText().toString())
+        EasyHttp.post(URL.BASE_URGE_URL1 + URL.CuiJiaoYanQi)
+                .params("Gdh", mCuijiaoEntity.getS_CID())
+                .params("D_YANQISJ", tvYqscValue.getText().toString())
+                .params("S_YANQIBZ", tvYqbzValue.getText().toString())
                 .execute(new ProgressDialogCallBack<String>(iProgressDialog, true, false) {
                     @Override
                     public void onError(ApiException e) {
@@ -201,7 +202,7 @@ public class OrderDelayHandleFragment extends ParentFragment implements View.OnC
                     @Override
                     public void onSuccess(String s) {
                         ResultBean baseBean = GsonUtils.fromJson(s, ResultBean.class);
-                        if ("1".equals(baseBean.getMsgCode())) {
+                        if ("true".equals(baseBean.getMsgCode())) {
                             callBack.onSuccess("延期申请成功");
                         } else {
                             ToastUtils.showShort("Error：" + baseBean.getMsgInfo());
@@ -214,12 +215,14 @@ public class OrderDelayHandleFragment extends ParentFragment implements View.OnC
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_yqsc_value:
-                PickerViewUtils.getInstance().showTimeDialog("请选择延期日期", new OnTimeSelectListener() {
+                PickerViewUtils.getInstance().showTimeDialog("请选择延期日期", new OnTimeSelectListener(){
+                    @SuppressLint("SimpleDateFormat")
                     @Override
                     public void onTimeSelect(Date date, View v) {
-                        tvYqscValue.setText(TimeUtils.date2String(date,new SimpleDateFormat("yyyy/MM/dd HH:mm")));
+                        tvYqscValue.setText(TimeUtils.date2String(date,new SimpleDateFormat("yyyy/MM/dd")));
                     }
-                }, new boolean[]{true, true, true, true, true, false});
+                }, new boolean[]{true, true, true, false, false, false},
+                        5, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
                 break;
         }
     }

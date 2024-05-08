@@ -35,6 +35,7 @@ public class CallForPaymentTaskModelImpl implements CallForPaymentTaskContract.C
       String account = SPUtils.getInstance().getString(Const.S_YUANGONGH);
       EasyHttp.post(URL.BASE_URGE_URL1 + URL.CS_SEL_CJCEHAOCXPDA)
               .params("CuiJiaoR", "0018")
+//              .params("CuiJiaoR", SPUtils.getInstance().getString(com.sh3h.serverprovider.rpc.util.Const.S_YUANGONGH))
               .params("key", searchText)
               .execute(new SimpleCallBack<String>() {
                 @Override

@@ -16,7 +16,16 @@ public class CallForPaymentSearchBean {
     private String S_DZ;
     private String S_SHOUJI;
     private String D_ZJSLSJ;
+    private String S_FANYINGLAIY;
     private boolean isCheck;
+
+    public void setS_FANYINGLAIY(String s_FANYINGLAIY) {
+        S_FANYINGLAIY = s_FANYINGLAIY;
+    }
+
+    public String getS_FANYINGLAIY() {
+        return S_FANYINGLAIY;
+    }
 
     public void setCheck(boolean check) {
         isCheck = check;

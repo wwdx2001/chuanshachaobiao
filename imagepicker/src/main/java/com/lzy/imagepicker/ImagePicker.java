@@ -262,7 +262,7 @@ public class ImagePicker {
         if (takePictureIntent.resolveActivity(activity.getPackageManager()) != null) {
 //            if (Utils.existSDCard()) takeImageFile = new File(Environment.getExternalStorageDirectory(), "/DCIM/camera/");
             if (Utils.existSDCard()) {
-                takeImageFile = new File(Environment.getExternalStorageDirectory(), "/DCIM/奉贤抄表照片/");
+                takeImageFile = new File(Environment.getExternalStorageDirectory(), "/DCIM/川沙抄表照片/");
             } else {
                 takeImageFile = Environment.getDataDirectory();
             }
@@ -313,7 +313,7 @@ public class ImagePicker {
             } else {
 //                filename = prefix + System.currentTimeMillis() + suffix;
               if (!TextUtils.isEmpty(xiaoGenHao)) {
-                filename = prefix + xiaoGenHao + "_" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + suffix;
+                filename = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + "_" + prefix + xiaoGenHao + suffix;
               } else {
                 filename = prefix + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + suffix;
               }

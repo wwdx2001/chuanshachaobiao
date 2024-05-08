@@ -4,7 +4,9 @@
  */
 package com.sh3h.dataprovider.entity;
 
-public class JianHaoMX {
+import java.io.Serializable;
+
+public class JianHaoMX implements Serializable {
 
 	private int _id;
 	private int _tiaoJiaH;

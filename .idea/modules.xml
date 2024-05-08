@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MPChartLib/MPChartLib.iml" filepath="$PROJECT_DIR$/MPChartLib/MPChartLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MaterialDesign/MaterialDesign.iml" filepath="$PROJECT_DIR$/MaterialDesign/MaterialDesign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MeterReading.iml" filepath="$PROJECT_DIR$/MeterReading.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SwipeRefreshLoadListview/SwipeRefreshLoadListview.iml" filepath="$PROJECT_DIR$/SwipeRefreshLoadListview/SwipeRefreshLoadListview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dataprovider/dataprovider.iml" filepath="$PROJECT_DIR$/dataprovider/dataprovider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dataprovider3/dataprovider3.iml" filepath="$PROJECT_DIR$/dataprovider3/dataprovider3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/datautil/datautil.iml" filepath="$PROJECT_DIR$/datautil/datautil.iml" />
+      <module fileurl="file://$PROJECT_DIR$/imagepicker/imagepicker.iml" filepath="$PROJECT_DIR$/imagepicker/imagepicker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itemtouchhelper/itemtouchhelper.iml" filepath="$PROJECT_DIR$/itemtouchhelper/itemtouchhelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logger/logger.iml" filepath="$PROJECT_DIR$/logger/logger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mRAlgorithm/mRAlgorithm.iml" filepath="$PROJECT_DIR$/mRAlgorithm/mRAlgorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/materialdialog/materialdialog.iml" filepath="$PROJECT_DIR$/materialdialog/materialdialog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mobileutil/mobileutil.iml" filepath="$PROJECT_DIR$/mobileutil/mobileutil.iml" />
+      <module fileurl="file://$PROJECT_DIR$/serverprovider/serverprovider.iml" filepath="$PROJECT_DIR$/serverprovider/serverprovider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swipebacklibrary/swipebacklibrary.iml" filepath="$PROJECT_DIR$/swipebacklibrary/swipebacklibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thirdparty/thirdparty.iml" filepath="$PROJECT_DIR$/thirdparty/thirdparty.iml" />
+    </modules>
+  </component>
+</project>

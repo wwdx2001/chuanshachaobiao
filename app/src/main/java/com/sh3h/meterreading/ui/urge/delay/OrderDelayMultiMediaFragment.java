@@ -10,7 +10,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.AnimationDrawable;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
@@ -29,8 +29,6 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aliyun.svideo.sdk.external.struct.common.VideoQuality;
@@ -46,18 +44,20 @@ import com.lzy.imagepicker.YasuoSuccessEntity;
 import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.lzy.imagepicker.ui.ImagePreviewDelActivity;
 import com.sh3h.meterreading.R;
+import com.sh3h.meterreading.adapter.VoiceAdapter;
 import com.sh3h.meterreading.aliyun.AlivcRecordInputParam;
 import com.sh3h.meterreading.aliyun.AlivcSvideoRecordActivity;
 import com.sh3h.meterreading.aliyun.LittleVideoParamConfig;
 import com.sh3h.meterreading.ui.InspectionInput.image.PlayerRecordVideoActivity;
 import com.sh3h.meterreading.ui.InspectionInput.lr.ImagePickerAdapter;
 import com.sh3h.meterreading.ui.base.ParentFragment;
+import com.sh3h.meterreading.ui.custom_view.VoiceView;
 import com.sh3h.meterreading.util.Const;
-import com.sh3h.meterreading.util.CountDownTimer;
-import com.sh3h.meterreading.util.TimerListener;
 import com.sh3h.meterreading.util.URL;
+import com.sh3h.mobileutil.util.TextUtil;
 import com.sh3h.serverprovider.entity.ImageItem;
 import com.sh3h.serverprovider.entity.ResultBean;
+import com.sh3h.serverprovider.entity.VoiceItem;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.cache.model.CacheMode;
 import com.zhouyou.http.callback.CallBack;
@@ -65,7 +65,6 @@ import com.zhouyou.http.exception.ApiException;
 import com.zhouyou.http.subsciber.IProgressDialog;
 import com.zhouyou.http.subsciber.ProgressSubscriber;
 import com.zlw.main.recorderlib.RecordManager;
-import com.zlw.main.recorderlib.recorder.listener.RecordResultListener;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -88,7 +87,8 @@ import static com.sh3h.meterreading.aliyun.AlivcSvideoRecordActivity.SNAP_VIDEO;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class OrderDelayMultiMediaFragment extends ParentFragment implements ImagePickerAdapter.OnRecyclerViewItemClickListener {
+public class OrderDelayMultiMediaFragment extends ParentFragment implements ImagePickerAdapter.OnRecyclerViewItemClickListener, VoiceAdapter.OnRecyclerViewItemClickListener,
+        VoiceView.VoiceListener {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -105,7 +105,7 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
      */
     private final static int VIDEO_MIN = 3000;
 
-    private String mParam1;
+    private String mRenwuId;
     private String mParam2;
 
     private TextView mTv1, mTv2, mTv3;
@@ -113,12 +113,13 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
     private ImagePickerAdapter mPhotoAdapter;
     private ArrayList<ImageItem> mPhotoList;
     private RecyclerView mVoiceRecyclerView;
-    private ImagePickerAdapter mVoiceAdapter;
-    private ArrayList<ImageItem> mVoiceList;
+    private VoiceAdapter mVoiceAdapter;
+    private ArrayList<VoiceItem> mVoiceList;
     private RecyclerView mVideoRecyclerView;
     private ImagePickerAdapter mVideoAdapter;
     private List<ImageItem> mVideoList;
     private ArrayList<ImageItem> images;
+    private VoiceView mVoiceView;
 
     private String strType;
     private String url;
@@ -142,7 +143,7 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
         super.onCreate(savedInstanceState);
         Log.e("helloworld222", "OrderDelayMultiMediaFragment");
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
+            mRenwuId = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         String audioPath = Environment.getExternalStorageDirectory()
@@ -178,11 +179,13 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
         mPhotoAdapter.setOnItemClickListener(this);
 
 
+        mVoiceView = view.findViewById(R.id.voice_view);
+        mVoiceView.setOnVoiceListener(this);
         mVoiceRecyclerView = view.findViewById(R.id.recycler_type2);
         mVoiceRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         mVoiceRecyclerView.setHasFixedSize(true);
         mVoiceRecyclerView.setNestedScrollingEnabled(false);
-        mVoiceAdapter = new ImagePickerAdapter(true, getActivity(), mVoiceList, 1, Const.PHOTO_TYPE_VOICE, Const.TYPE_VOICE);
+        mVoiceAdapter = new VoiceAdapter(getActivity(), mVoiceList, 1, Const.SOUND_RECORD);
         mVoiceRecyclerView.setAdapter(mVoiceAdapter);
         mVoiceAdapter.setOnItemClickListener(this);
         mVoiceAdapter.setOnItemLongClickListener(onItemLongClick1);
@@ -208,7 +211,7 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
                         switch (type) {
                             case Const.PHOTO_TYPE1:
                                 ImagePicker.getInstance().setSelectLimit(3 - mPhotoAdapter.getImages().size());
-                                strType = "延期_";
+                                strType = "延期_" + mRenwuId + "_";
                                 break;
                             default:
                                 break;
@@ -324,20 +327,10 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
                 if (url != null) {
                     videoPath = url;
                     String vdeoThum = bitmap2File(getVideoThumbnail(url, 400,
-                            400, MediaStore.Video.Thumbnails.MICRO_KIND), "延期_" + System.currentTimeMillis());
+                            400, MediaStore.Video.Thumbnails.MICRO_KIND), System.currentTimeMillis() + "_延期_" + mRenwuId);
                     ImageItem imageItem = new ImageItem();
                     imageItem.path = vdeoThum;
                     mVideoList.clear();
-                    mVideoList.add(imageItem);
-                    mVideoAdapter.setImages(mVideoList);
-                }
-            }
-        } else if (requestCode == Const.REQUEST_CODE_VOICE) {
-            if (data != null) {
-                url = data.getStringExtra("url");
-                LogUtils.e("voice", url);
-                if (url != null) {
-                    ImageItem imageItem = new ImageItem();
                     mVideoList.add(imageItem);
                     mVideoAdapter.setImages(mVideoList);
                 }
@@ -386,7 +379,7 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
         }
     }
 
-    ImagePickerAdapter.OnRecyclerViewItemLongClickListener onItemLongClick1 = new ImagePickerAdapter.OnRecyclerViewItemLongClickListener() {
+    VoiceAdapter.OnRecyclerViewItemLongClickListener onItemLongClick1 = new VoiceAdapter.OnRecyclerViewItemLongClickListener() {
         @Override
         public void onItemLongClick(View view, int position, int type) {
             if (position != Const.IMAGE_ITEM_ADD) {
@@ -402,11 +395,8 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                mVoiceList = new ArrayList<>();
-                                mVoiceAdapter = new ImagePickerAdapter(true, getActivity(), mVoiceList, 1, Const.PHOTO_TYPE_VOICE, Const.TYPE_VOICE);
-                                mVoiceRecyclerView.setAdapter(mVoiceAdapter);
-                                mVoiceAdapter.setOnItemClickListener(OrderDelayMultiMediaFragment.this);
-                                mVoiceAdapter.setOnItemLongClickListener(onItemLongClick1);
+                                mVoiceList.remove(position);
+                                mVoiceAdapter.setVoice(mVoiceList);
                             }
                         });
                 AlertDialog dialog = builder.create();
@@ -466,7 +456,7 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
                 String OUTPUT_PATH = Environment.getExternalStorageDirectory()
                         + File.separator + "sh3h" + File.separator + "meterreading"
                         + File.separator + "video" + File.separator
-                        + "延期_" + System.currentTimeMillis() + ".mp4";
+                        + System.currentTimeMillis() + "延期_" + mRenwuId + ".mp4";
 
                 AlivcRecordInputParam recordInputParam = new AlivcRecordInputParam.Builder()
                         .setResolutionMode(resolutionMode)
@@ -488,13 +478,17 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
                             .putExtra("path", url));
                 }
             }
-        } else if (type == Const.PHOTO_TYPE_VOICE) {
+        } else if (type == Const.SOUND_RECORD) {
             switch (position) {
                 case Const.IMAGE_ITEM_ADD:
-                    startRecord();
+//                    startRecord();
                     break;
                 default: // 播放音频
-                    playVoiceFile();
+                    try {
+                        playVoiceFile(position);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
             }
 
@@ -522,177 +516,85 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
         }
     }
 
-    private MediaPlayer mediaPlayer;
+    private MediaPlayer mMediaPlayer;
 
-    private void playVoiceFile() {
-        View recordView = View.inflate(getContext(), R.layout.record_dialog, null);
-        ImageView ivAnimation = recordView.findViewById(R.id.iv_animation);
-        TextView tvTime = recordView.findViewById(R.id.tv_time);
-        Button btnStartPause = recordView.findViewById(R.id.btn_start_pause);
-        tvTime.setVisibility(View.GONE);
-        btnStartPause.setVisibility(View.GONE);
-        Button btnStop = recordView.findViewById(R.id.btn_stop);
-        btnStop.setEnabled(true);
-        btnStop.setText("停止播放");
-        AnimationDrawable animation = (AnimationDrawable) ivAnimation.getBackground();
-        animation.start();
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setView(recordView);
-        builder.setCancelable(false);
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-        //1.初始化midiaplayer
-        if (mediaPlayer == null) {
-            mediaPlayer = new MediaPlayer();
+    private void playVoiceFile(int position) throws IOException {
+        if (mVoiceList.size() == 0) {
+            return;
         }
-        try {
-            mediaPlayer.reset();
-            //2.设置要播放的资源位置  path 可以是网络路径 也可以是本地路径
-            mediaPlayer.setDataSource(mVoiceAdapter.getImages().get(0).path);
-            //3.准备播放
-            mediaPlayer.prepare();
-            mediaPlayer.setLooping(false);
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mediaPlayer) {
-                    mediaPlayer.stop();
-                    alertDialog.dismiss();
-                    ToastUtils.showShort("音频播放完毕");
-                }
-            });
-            //4.开始播放
-            mediaPlayer.start();
-        } catch (Exception e) {
-            e.printStackTrace();
+        VoiceItem item = mVoiceList.get(position);
+        if (TextUtil.isNullOrEmpty(item.path)) {
+            ToastUtils.showLong("当前语音不存在，无法播放");
+            return;
         }
-        btnStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                    mediaPlayer.stop();
-                }
-                alertDialog.dismiss();
-            }
-        });
+        if (mMediaPlayer != null) {
+            mMediaPlayer.stop();
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
+
+        mMediaPlayer = new MediaPlayer();
+
+        mMediaPlayer.setDataSource(item.path);
+        mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mMediaPlayer.prepare();
+        mMediaPlayer.start();
     }
 
-    boolean isPause = false;
-    boolean isFirst = true;
-    boolean isResume = false;
+
+    private File createVoiceFile() throws IOException {
+        String path = Environment.getExternalStorageDirectory() + "/sh3h/meterreading/voices/";
+        File mediaStorageDir = new File(path);
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
+                return null;
+            }
+        }
+
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = timeStamp + "_延期_" + mRenwuId;
+        String suffix = ".wav";
+        File mediaFile = new File(path, imageFileName + suffix);
+        mediaFile.createNewFile();
+        return mediaFile;
+    }
 
     /**
      * 开始录音
      */
-    private void startRecord() {
-        RecordManager.getInstance().setRecordResultListener(new RecordResultListener() {
-            @Override
-            public void onResult(File result) {
-                ImageItem imageItem = new ImageItem();
-                imageItem.path = result.getAbsolutePath();
-                mVoiceList.add(imageItem);
-                mVoiceAdapter.setImages(mVoiceList);
-                Log.e("helloworld", "录音完成" + result.getAbsolutePath());
-            }
-        });
-        isFirst = true;
-        isPause = false;
-        isResume = false;
-        View recordView = View.inflate(getContext(), R.layout.record_dialog, null);
-        ImageView ivAnimation = recordView.findViewById(R.id.iv_animation);
-        TextView tvTime = recordView.findViewById(R.id.tv_time);
-        Button btnStartPause = recordView.findViewById(R.id.btn_start_pause);
-        Button btnStop = recordView.findViewById(R.id.btn_stop);
-        AnimationDrawable animation = (AnimationDrawable) ivAnimation.getBackground();
-//        animation.start();
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setView(recordView);
-        builder.setCancelable(false);
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-        CountDownTimer countDownTimer = new CountDownTimer(60 * 1000, 1000);
-        countDownTimer.setCountDownListener(new TimerListener() {
-            @Override
-            public void onStart() {
+    @SuppressLint("WrongConstant")
+    @Override
+    public void startRecord(boolean isFull) {
+        // 申请麦克风权限
+        if (!com.sh3h.meterreading.util.PermissionUtils.checkPermission(getActivity(), Manifest.permission.RECORD_AUDIO)) {
+            com.sh3h.meterreading.util.PermissionUtils.requestPermissions(getActivity(), new String[]{Manifest.permission.RECORD_AUDIO}, 1001);
+            mVoiceView.release();
+            return;
+        }
+        try {
+            File voiceFile = createVoiceFile();
+            VoiceItem item = new VoiceItem();
+            item.path = voiceFile.getAbsolutePath();
+            item.name = voiceFile.getName();
+            mVoiceView.setVoiceItem(item);
 
-            }
-
-            @Override
-            public void onTick(long millLong) {
-                String value = String.valueOf((int) (millLong / 1000));
-                tvTime.setText("剩余时长：" + value + "s");
-            }
-
-            @Override
-            public void onFinish() {
-                tvTime.setText("音频录制完成");
-                btnStartPause.setText("开始");
-                btnStop.setEnabled(false);
-                isFirst = true;
-                isPause = false;
-                isResume = false;
-                animation.stop();
-                RecordManager.getInstance().stop();
-                countDownTimer.cancel();
-                alertDialog.dismiss();
-            }
-        });
-
-//        countDownTimer.start();
-        btnStartPause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnStop.setEnabled(true);
-                if (isFirst) { // 开始
-                    isFirst = false;
-                    isPause = true;
-                    isResume = false;
-                    btnStartPause.setText("暂停");
-                    animation.start();
-                    RecordManager.getInstance().start();
-
-                    countDownTimer.start();
-                    return;
-                }
-                if (isPause) { // 暂停
-                    isFirst = false;
-                    isPause = false;
-                    isResume = true;
-                    btnStartPause.setText("继续");
-                    animation.stop();
-                    RecordManager.getInstance().pause();
-                    countDownTimer.pause();
-                    return;
-                }
-                if (isResume) {
-                    isFirst = false;
-                    isPause = true;
-                    isResume = false;
-                    btnStartPause.setText("暂停");
-                    animation.start();
-                    RecordManager.getInstance().resume();
-                    countDownTimer.resume();
-                    return;
-                }
-            }
-        });
-
-        btnStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnStartPause.setText("开始");
-                btnStop.setEnabled(false);
-                isFirst = true;
-                isPause = false;
-                isResume = false;
-                animation.stop();
-                RecordManager.getInstance().stop();
-                countDownTimer.cancel();
-                alertDialog.dismiss();
-//                countDownTimer.cancel();
-            }
-        });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    /**
+     *
+     * @param fileName 保存的文件名
+     * @param time     录音时长
+     * @param voiceItem 当前录音详情
+     */
+    @Override
+    public void endRecord(String fileName, long time, VoiceItem voiceItem) {
+        voiceItem.size = time;
+        mVoiceList.add(voiceItem);
+        mVoiceAdapter.setVoice(mVoiceList);
+    }
     private void addCamera(ArrayList<ImageItem> selImageList, ImagePickerAdapter
             adapter, ArrayList<ImageItem> images) {
         selImageList.clear();
@@ -782,7 +684,7 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
      */
     protected void commitMultiMediaData(String gongdanbh, CallBack<String> callBack) {
         List<ImageItem> photoImages = mPhotoAdapter.getImages();
-        List<ImageItem> voiceImages = mVoiceAdapter.getImages();
+        List<VoiceItem> voiceImages = mVoiceAdapter.getVoices();
         List<File> videoFiles = new ArrayList<>();
         if (!StringUtils.isTrimEmpty(videoPath)) {
             File videoFile = new File(videoPath);
@@ -816,7 +718,7 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
         List<Observable<String>> observableList = new ArrayList<>();
         if (photoFiles.size() > 0) {
             //上传照片
-            Observable<String> executePhoto = EasyHttp.post(URL.BASE_XUNJIAN_URL + URL.UploadFile)
+            Observable<String> executePhoto = EasyHttp.post(URL.BASE_URGE_URL1 + URL.AppReturnOrderUploadFileCuiJiao)
 //        EasyHttp.post("http://10.6.87.32:3333/XUNJIAN/UploadFile")
                     .params("S_LEIXING", "PHOTO_DELAY")
                     .params("S_GONGDANBH", gongdanbh)
@@ -830,7 +732,7 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
         }
         if (audioFiles.size() > 0) {
             //上传音频
-            Observable<String> executeVoice = EasyHttp.post(URL.BASE_XUNJIAN_URL + URL.UploadFile)
+            Observable<String> executeVoice = EasyHttp.post(URL.BASE_URGE_URL1 + URL.AppReturnOrderUploadFileCuiJiao)
 //                            EasyHttp.post("http://10.6.87.32:3333/XUNJIAN/UploadFile")
                     .params("S_LEIXING", "YP_DELAY")
                     .params("S_GONGDANBH", gongdanbh)
@@ -843,7 +745,7 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
         }
         if (videoFiles.size() > 0) {
             //上传视频
-            Observable<String> executeVideo = EasyHttp.post(URL.BASE_XUNJIAN_URL + URL.UploadFile)
+            Observable<String> executeVideo = EasyHttp.post(URL.BASE_URGE_URL1 + URL.AppReturnOrderUploadFileCuiJiao)
 //                            EasyHttp.post("http://10.6.87.32:3333/XUNJIAN/UploadFile")
                     .params("S_LEIXING", "SP_DELAY")
                     .params("S_GONGDANBH", gongdanbh)
@@ -887,7 +789,7 @@ public class OrderDelayMultiMediaFragment extends ParentFragment implements Imag
                 String errorMsg = "";
                 for (int i = 0; i < s.size(); i++) {
                     ResultBean baseBean = GsonUtils.fromJson(s.get(i), ResultBean.class);
-                    if (!"1".equals(baseBean.getMsgCode())) {
+                    if (!"true".equals(baseBean.getMsgCode())) {
                         isError = true;
                         if (StringUtils.isTrimEmpty(baseBean.getMsgInfo())) {
                             errorMsg = baseBean.getMsgInfo();

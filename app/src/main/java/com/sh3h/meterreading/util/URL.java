@@ -90,6 +90,8 @@ public class URL {
      */
     public static final String UploadFile = "UploadFile";
 
+    public static final String AppReturnOrderUploadFileCuiJiao = "AppReturnOrderUploadFileCuiJiao";
+
     public static final String setChaoBiaoInfo_CB = "setChaoBiaoInfo_cb";
 
     public static final String setChaoBiaoInfo = "setChaoBiaoInfo";

@@ -994,4 +994,6 @@
     <string name="alivc_recorder_record_start_recorder">开始录制</string>
     <string name="alivc_base_svideo_next">完成</string>
 
+    <string name="user_apply_text">用户具名制申请</string>
+    <string name="usage_change_apply_text">用水性质变更申请</string>
 </resources>

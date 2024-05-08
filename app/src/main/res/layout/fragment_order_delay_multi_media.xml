@@ -37,18 +37,33 @@
             app:layoutManager="android.support.v7.widget.GridLayoutManager"
             app:spanCount="3" />
 
-        <TextView
-            android:id="@+id/tv2"
+        <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="@dimen/dp_10"
-            android:background="@color/color_white_ffffff"
-            android:paddingLeft="@dimen/dp_25"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:text="录音"
-            android:textColor="@color/color_gray_33" />
+            android:orientation="horizontal"
+            >
+            <com.sh3h.meterreading.ui.custom_view.VoiceView
+                android:id="@+id/voice_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@null"
+                android:button="@null"
+                android:background="@mipmap/ic_mic_black_18dp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@color/color_white_ffffff"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="录音"
+                android:textColor="@color/color_gray_33" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_type2"

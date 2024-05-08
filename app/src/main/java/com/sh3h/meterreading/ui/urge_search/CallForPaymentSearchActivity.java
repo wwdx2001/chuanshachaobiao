@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,9 +27,6 @@ import butterknife.ButterKnife;
  */
 public class CallForPaymentSearchActivity extends ParentActivity {
 
-
-//    @BindView(R.id.avl_toolbar)
-//    Toolbar mToolbar;
     @BindView(R.id.et_user_number)
     EditText etUserNumber;
     @BindView(R.id.et_address)
@@ -51,8 +47,6 @@ public class CallForPaymentSearchActivity extends ParentActivity {
         ButterKnife.bind(this);
         getActivityComponent().inject(this);
         mEventBus.register(this);
-//        mToolbar.setTitle("表卡查询");
-//        setSupportActionBar(mToolbar);
         mSmoothProgressBar.setVisibility(View.INVISIBLE);
         setActionBarBackButtonEnable();
         setListener();
@@ -68,8 +62,6 @@ public class CallForPaymentSearchActivity extends ParentActivity {
     }
 
     private void setListener() {
-//        etUserNumber.setText("411002852");
-//        etAddress.setText("渔乐路500弄凤凰花苑48号501室");
         mBtnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

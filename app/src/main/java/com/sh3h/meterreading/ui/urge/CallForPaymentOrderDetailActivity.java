@@ -9,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.dataprovider3.entity.CallForPaymentBackFillDataBean;
 import com.example.dataprovider3.entity.CuijiaoEntity;
@@ -165,7 +164,8 @@ public class CallForPaymentOrderDetailActivity extends ParentActivity
     if (dataBean == null) {
       return;
     }
-    dataBean.setV_CAOZUOR(SPUtils.getInstance().getString("0018"));
+    dataBean.setV_CAOZUOR("0018");
+//    dataBean.setV_CAOZUOR(SPUtils.getInstance().getString(com.sh3h.serverprovider.rpc.util.Const.S_YUANGONGH));
     dataBean.setV_CAOZUOSJ(DateUtils.getCurrentTime());
     dataBean.setV_RENWUID(mRENWUID);
     dataBean.setV_RENWUM(mDetailBean.getS_RENWUMC());
@@ -210,7 +210,7 @@ public class CallForPaymentOrderDetailActivity extends ParentActivity
       public void run() {
         mDetailBean = (CuijiaoEntity) o;
         Bundle bundle = new Bundle();
-        bundle.putParcelable("data", mDetailBean);
+        bundle.putParcelable(Const.BEAN, mDetailBean);
         detailFragment.setArguments(bundle);
         bindFragment();
       }
@@ -240,6 +240,7 @@ public class CallForPaymentOrderDetailActivity extends ParentActivity
       public void run() {
         Bundle bundle = new Bundle();
         bundle.putParcelable(Const.CALLFORPAYMENTBACKFILLDATABEAN, bean);
+        bundle.putString(Const.RENWUID, mRENWUID);
         backfillFragment.setArguments(bundle);
         mediaFragment.setArguments(bundle);
       }

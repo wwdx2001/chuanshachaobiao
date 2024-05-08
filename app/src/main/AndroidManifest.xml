@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.sh3h.meterreading" > <!-- 结束 -->
+    package="com.sh3h.meterreading"> <!-- 结束 -->
     <uses-sdk tools:overrideLibrary="com.aliyun.qupai.qusdk" />
     <!-- 添加arcgis的权限 -->
     <uses-feature
@@ -42,7 +42,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:replace="android:icon" >
+        tools:replace="android:icon">
+        <activity android:name=".ui.usage_change.UsageChangeBasicInformationActivity"></activity>
+        <activity android:name=".ui.usage_change.UsageChangeSearchListActivity" />
         <activity
             android:name=".CallForPaymentSearchListActivity"
             android:exported="false" />
@@ -60,7 +62,7 @@
         <activity
             android:name=".ui.welcome.WelcomeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -76,7 +78,7 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:label="@string/title_activity_main"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -88,7 +90,7 @@
             android:label="@string/title_activity_remoteinspectionlistactivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -98,7 +100,7 @@
             android:label="@string/title_activity_remoteinspectionhistorylistactivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -108,7 +110,7 @@
             android:label="@string/title_activity_inspectionInputactivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -117,7 +119,7 @@
             android:name=".ui.task.TaskListActivity"
             android:label="@string/title_activity_task_list"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -132,7 +134,7 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeSearch"
-            android:windowSoftInputMode="adjustPan|stateHidden" >
+            android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -153,7 +155,7 @@
             android:label="@string/title_activity_delay_list"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -163,7 +165,7 @@
             android:label="@string/title_activity_lgld_list"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -226,7 +228,7 @@
             android:name=".ui.main.StatisticsActivity"
             android:label="@string/title_activity_statistics"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -235,7 +237,7 @@
             android:name=".ui.setting.SettingActivity"
             android:label="@string/title_activity_setting"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -244,7 +246,7 @@
             android:name=".ui.outside.OutsideListActivity"
             android:label="@string/title_outside"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -268,7 +270,7 @@
             android:name=".ui.sampling.SamplingTaskActivity"
             android:label="@string/title_sampling_task"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -284,7 +286,7 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.usage_change.BiaokaSearchActivity"
+            android:name=".ui.usage_change.UsageChangeSearchActivity"
             android:label="@string/call_for_pay_task_title"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
@@ -354,7 +356,7 @@
             android:name=".BaseFileProvider"
             android:authorities="com.sh3h.meterreading.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="true" >
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />

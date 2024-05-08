@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -23,7 +22,6 @@ import java.util.List;
 
 public class CallForPaymentOrderDelayActivity extends ParentActivity implements ViewPager.OnPageChangeListener {
 
-    private Toolbar mToolbar;
     private TabLayout mTabLayout;
     public ViewPager mViewPager;
     private MenuItem menuItem;
@@ -43,10 +41,6 @@ public class CallForPaymentOrderDelayActivity extends ParentActivity implements 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotline_order_delay);
         userName = getIntent().getStringExtra(Const.USERNAME);
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mToolbar.setNavigationIcon(R.mipmap.arrow);
-        mToolbar.setTitle("延期申请");
-        setSupportActionBar(mToolbar);
 
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -63,7 +57,7 @@ public class CallForPaymentOrderDelayActivity extends ParentActivity implements 
         mFragmentList = new ArrayList<>();
 
         handleFragment = OrderDelayHandleFragment.newInstance(mCuijiaoEntity, userName);
-        multiMediaFragment = OrderDelayMultiMediaFragment.newInstance("", "");
+        multiMediaFragment = OrderDelayMultiMediaFragment.newInstance(mCuijiaoEntity.getS_RENWUID(), "");
         mFragmentList.add(handleFragment);
         mFragmentList.add(multiMediaFragment);
 

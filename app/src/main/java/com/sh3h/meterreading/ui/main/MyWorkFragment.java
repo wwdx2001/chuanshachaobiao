@@ -82,6 +82,8 @@ public class MyWorkFragment extends ParentFragment implements MyWorkMvpView,
     //催缴查询
     public static final int ACTION_URGE_SEARCH = 1020;
 
+//    public static final int ACTION_URGE_SEARCH = 1020;
+
     @Inject
     MyWorkPresenter mMyWorkPresenter;
 

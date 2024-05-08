@@ -1,19 +1,14 @@
 package com.sh3h.meterreading.ui.urge.model;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
 
-import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.dataprovider3.entity.CallForPaymentSearchBean;
-import com.example.dataprovider3.entity.CallForPaymentTaskBean;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.ToNumberPolicy;
 import com.google.gson.reflect.TypeToken;
 import com.sh3h.meterreading.ui.urge.contract.CallForPaymentSearchListContract;
 import com.sh3h.meterreading.ui.urge.listener.OnSearchListListener;
-import com.sh3h.meterreading.util.Const;
 import com.sh3h.meterreading.util.URL;
 import com.sh3h.mobileutil.util.GsonUtils;
 import com.sh3h.serverprovider.entity.ResultBean;
@@ -40,6 +35,7 @@ public class CallForPaymentSearchListModelImpl implements CallForPaymentSearchLi
 
                     @Override
                     public void onError(com.zhouyou.http.exception.ApiException e) {
+                        e.getCause().printStackTrace();
                         ToastUtils.showLong(e.getMessage());
                         listener.onError(e);
                     }
@@ -63,20 +59,24 @@ public class CallForPaymentSearchListModelImpl implements CallForPaymentSearchLi
     @SuppressLint("LongLogTag")
     @Override
     public void submitData(List<CallForPaymentSearchBean> bean, OnSearchListListener listener) {
-        JsonArray jsonArray = new JsonArray();
-        for (CallForPaymentSearchBean searchBean : bean) {
-            if (searchBean.isCheck()) {
-                jsonArray.add(searchBean.getS_CID());
-            }
-        }
-
-        if (jsonArray.size() == 0) {
+        if (bean.size() == 0) {
+            listener.onFail("最少选中一项");
             return;
         }
 
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < bean.size(); i++) {
+            if (bean.get(i).isCheck()) {
+                stringBuilder.append(",").append(bean.get(i).getS_CID());
+            }
+        }
+        String ids = stringBuilder.toString().substring(1);
+
         EasyHttp.post(URL.BASE_URGE_URL1 + URL.CreateCuiJiaoGD)
-                .params("Cids", jsonArray.toString())
+                .params("Cids", ids)
                 .params("cby", "0018")
+//                .params("cby", SPUtils.getInstance().getString(Const.S_YUANGONGH))
                 .execute(new SimpleCallBack<String>() {
                     @Override
                     public void onStart() {
@@ -93,7 +93,7 @@ public class CallForPaymentSearchListModelImpl implements CallForPaymentSearchLi
                     public void onSuccess(String s) {
                         Gson gson = GsonUtils.getGson(ToNumberPolicy.LONG_OR_DOUBLE);
                         ResultBean resultBean = gson.fromJson(s.toString(), ResultBean.class);
-                        listener.onFail(resultBean.getMsgInfo());
+                        listener.onFail("提交成功");
                     }
                 });
     }

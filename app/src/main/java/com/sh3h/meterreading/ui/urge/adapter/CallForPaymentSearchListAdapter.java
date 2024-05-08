@@ -31,10 +31,11 @@ public class CallForPaymentSearchListAdapter extends BaseQuickAdapter<CallForPay
         TextView itemCallForPaySearchListAddressTv = itemView.findViewById(R.id.item_call_for_pay_search_list_address_tv);
 
         itemCallForSearchListCid.setText(bean.getS_CID());
-        itemCallForPaySearchListUserNameTv.setText(bean.getS_HM());
-        itemCallForPaySearchListPhoneTv.setText(bean.getS_SHOUJI());
-        itemCallForPaySearchListTimeTv.setText(bean.getD_ZJSLSJ());
-        itemCallForPaySearchListAddressTv.setText(bean.getS_DZ());
+        itemCallForPaySearchListUserNameTv.setText("用户名：" + bean.getS_HM());
+        itemCallForPaySearchListPhoneTv.setText("联系电话：" + bean.getS_SHOUJI());
+        itemCallForPaySearchListTimeTv.setText("受理时间：" + bean.getD_ZJSLSJ());
+        itemCallForPaySearchListAddressTv.setText("地址：" + bean.getS_DZ());
+        itemCallForPaySearchListSourceTv.setText("反应来源：" + bean.getS_FANYINGLAIY());
 
         baseViewHolder.addOnClickListener(R.id.item_call_for_search_list_cb);
 

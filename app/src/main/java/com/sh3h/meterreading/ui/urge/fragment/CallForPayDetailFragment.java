@@ -10,6 +10,7 @@ import com.example.dataprovider3.entity.CuijiaoEntity;
 import com.sh3h.meterreading.R;
 import com.sh3h.meterreading.adapter.CommonFragementPagerAdapter;
 import com.sh3h.meterreading.ui.base.ParentFragment;
+import com.sh3h.meterreading.util.Const;
 import com.sh3h.meterreading.util.NoScrollViewPager;
 import com.sh3h.mobileutil.util.LogUtil;
 
@@ -60,7 +61,7 @@ public class CallForPayDetailFragment extends ParentFragment implements TabLayou
       LogUtil.e(TAG, "initData：" + R.string.get_data_err_text);
       return;
     }
-    CuijiaoEntity data = getArguments().getParcelable("data");
+    CuijiaoEntity data = getArguments().getParcelable(Const.BEAN);
 
     List<Fragment> fragments = new ArrayList<>();
     OrderDetailMessageFragment detailMessageFragment = new OrderDetailMessageFragment();

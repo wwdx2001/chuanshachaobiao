@@ -87,13 +87,12 @@
             android:id="@+id/item_call_for_pay_search_list_source_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:layout_marginRight="@dimen/dp_6"
             android:text="反应来源：自报"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/item_call_for_pay_search_list_user_name_tv"
+            app:layout_constraintTop_toTopOf="@+id/item_call_for_pay_search_list_phone_tv"
             tools:ignore="MissingConstraints" />
 
         <TextView

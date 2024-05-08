@@ -35,12 +35,8 @@ import com.blankj.utilcode.util.PermissionUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.dataprovider3.entity.CallForPaymentBackFillDataBean;
-import com.google.common.eventbus.Subscribe;
 import com.google.gson.reflect.TypeToken;
 import com.lzy.imagepicker.ImagePicker;
-import com.lzy.imagepicker.YasuoSuccessEntity;
-import com.sh3h.meterreading.ui.base.BaseActivity;
-import com.sh3h.serverprovider.entity.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.lzy.imagepicker.ui.ImagePreviewDelActivity;
 import com.sh3h.meterreading.R;
@@ -48,14 +44,16 @@ import com.sh3h.meterreading.adapter.VoiceAdapter;
 import com.sh3h.meterreading.aliyun.AlivcRecordInputParam;
 import com.sh3h.meterreading.aliyun.AlivcSvideoRecordActivity;
 import com.sh3h.meterreading.annotation.SingleClick;
-import com.sh3h.serverprovider.entity.VoiceItem;
 import com.sh3h.meterreading.ui.InspectionInput.image.LittleVideoParamConfig;
 import com.sh3h.meterreading.ui.InspectionInput.image.PlayerRecordVideoActivity;
 import com.sh3h.meterreading.ui.InspectionInput.lr.ImagePickerAdapter;
+import com.sh3h.meterreading.ui.base.BaseActivity;
 import com.sh3h.meterreading.ui.base.ParentFragment;
 import com.sh3h.meterreading.ui.custom_view.VoiceView;
 import com.sh3h.meterreading.util.Const;
 import com.sh3h.mobileutil.util.TextUtil;
+import com.sh3h.serverprovider.entity.ImageItem;
+import com.sh3h.serverprovider.entity.VoiceItem;
 import com.squareup.otto.Bus;
 
 import java.io.File;
@@ -121,6 +119,7 @@ public class CallForPaymentMediaFragment extends ParentFragment implements Image
   private String url;
   private boolean isHistory;
   private CallForPaymentBackFillDataBean mDataBean;
+  private String mRenwuId;
   private TextView mTv1, mTv2, mTv5, mTvNew6;
 
   private MediaPlayer mMediaPlayer;
@@ -199,6 +198,7 @@ public class CallForPaymentMediaFragment extends ParentFragment implements Image
     Bundle bundle = getArguments();
     if (bundle != null) {
       mDataBean = bundle.getParcelable(Const.CALLFORPAYMENTBACKFILLDATABEAN);
+      mRenwuId = bundle.getString(Const.RENWUID);
       if (mDataBean != null) {
         Type listType = new TypeToken<ArrayList<ImageItem>>() {
         }.getType();
@@ -275,6 +275,7 @@ public class CallForPaymentMediaFragment extends ParentFragment implements Image
 
           cameraIntent.putExtra(ImageGridActivity.EXTRAS_TAKE_PICKERS, true);
           cameraIntent.putExtra(ImageGridActivity.PHOTO_TYPE, strType);
+          cameraIntent.putExtra(ImageGridActivity.REWUID, mRenwuId);
           cameraIntent.putExtra(ImageGridActivity.CAMERA_TYPE, ImageGridActivity.CAMERA_TYPE_PHOTO);
           requestCode = type;
           startActivityForResult(cameraIntent, type);
@@ -366,7 +367,7 @@ public class CallForPaymentMediaFragment extends ParentFragment implements Image
     }
 
     String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-    String imageFileName = "VoiceID_" + timeStamp;
+    String imageFileName = timeStamp + "_催缴_" + mRenwuId;
     String suffix = ".wav";
     File mediaFile = new File(path, imageFileName + suffix);
     mediaFile.createNewFile();
@@ -394,7 +395,7 @@ public class CallForPaymentMediaFragment extends ParentFragment implements Image
         LogUtils.e("video", url);
         if (url != null) {
           String vdeoThum = bitmap2File(getVideoThumbnail(url, 400,
-            400, MediaStore.Video.Thumbnails.MICRO_KIND), "催缴_" + System.currentTimeMillis());
+            400, MediaStore.Video.Thumbnails.MICRO_KIND), System.currentTimeMillis() + "_催缴_" + mDataBean.getV_RENWUID());
           ImageItem imageItem = new ImageItem();
           imageItem.path = vdeoThum;
           mVideoList.add(imageItem);
@@ -420,13 +421,13 @@ public class CallForPaymentMediaFragment extends ParentFragment implements Image
     }
   }
 
-  @Subscribe
-  public void yasuoCallBack(YasuoSuccessEntity yasuoSuccessEntity) {
-    if (ImageGridActivity.CAMERA_TYPE_PHOTO.equals(yasuoSuccessEntity.getCameraType())) {
-      images = yasuoSuccessEntity.getImages();
-      takeSuccess(images);
-    }
-  }
+//  @Subscribe
+//  public void yasuoCallBack(YasuoSuccessEntity yasuoSuccessEntity) {
+//    if (ImageGridActivity.CAMERA_TYPE_PHOTO.equals(yasuoSuccessEntity.getCameraType())) {
+//      images = yasuoSuccessEntity.getImages();
+//      takeSuccess(images);
+//    }
+//  }
 
   @Override
   public void onDestroyView() {
@@ -531,8 +532,9 @@ public class CallForPaymentMediaFragment extends ParentFragment implements Image
             + File.separator
             + "sh3h/meterreading/images"
             + File.separator
-            + "催缴_"
             + System.currentTimeMillis()
+            + "_催缴_"
+            + mRenwuId
             + ".mp4";
           AlivcRecordInputParam recordInputParam = new AlivcRecordInputParam.Builder()
             .setResolutionMode(resolutionMode)

@@ -75,6 +75,7 @@ public class ImageGridActivity extends ImageBaseActivity implements ImageDataSou
     public static final String NB_PHOTO = "NBPhoto";
     public static final String PHOTO_TYPE = "TYPE";
     public static final String EXTRAS_IMAGES = "IMAGES";
+    public static final String REWUID = "REWUID";
 
     public static final String CAMERA_TYPE = "cameraType";
     public static final String CAMERA_TYPE_GOANDANBH = "gongdanBH";
@@ -106,6 +107,7 @@ public class ImageGridActivity extends ImageBaseActivity implements ImageDataSou
     private ImageRecyclerAdapter mRecyclerAdapter;
     private String mFilename;
     private String mXiaoGenHao;
+    private String mRewuId;
     private boolean nbPhoto;
 
     @Override
@@ -115,6 +117,7 @@ public class ImageGridActivity extends ImageBaseActivity implements ImageDataSou
         directPhoto = savedInstanceState.getBoolean(EXTRAS_TAKE_PICKERS, false);
         nbPhoto = savedInstanceState.getBoolean(NB_PHOTO, false);
         photoType = savedInstanceState.getString(PHOTO_TYPE);
+        mRewuId = savedInstanceState.getString(REWUID);
         cameraType = savedInstanceState.getString(CAMERA_TYPE);
         gongdanBH = savedInstanceState.getString(CAMERA_TYPE_GOANDANBH);
         cebenBH = savedInstanceState.getString(CAMERA_TYPE_CENBENBH);
@@ -129,6 +132,7 @@ public class ImageGridActivity extends ImageBaseActivity implements ImageDataSou
         outState.putString(CAMERA_TYPE, cameraType);
         outState.putString(CAMERA_TYPE_GOANDANBH, gongdanBH);
         outState.putString(CAMERA_TYPE_CENBENBH, cebenBH);
+        outState.putString(REWUID, mRewuId);
         if (!TextUtils.isEmpty(mXiaoGenHao)) {
           outState.putString(XIAO_GEN_HAO, mXiaoGenHao);
         }
@@ -153,11 +157,12 @@ public class ImageGridActivity extends ImageBaseActivity implements ImageDataSou
             cameraType = data.getStringExtra(CAMERA_TYPE);
             gongdanBH = data.getStringExtra(CAMERA_TYPE_GOANDANBH);
             cebenBH = data.getStringExtra(CAMERA_TYPE_CENBENBH);
+            mRewuId = data.getStringExtra(REWUID);
             if (directPhoto) {
                 if (!(checkPermission(Manifest.permission.CAMERA))) {
                     ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, ImageGridActivity.REQUEST_PERMISSION_CAMERA);
                 } else {
-                    imagePicker.takePicture(nbPhoto, cebenBH + "_" + gongdanBH, cameraType, photoType, this, ImagePicker.REQUEST_CODE_TAKE, mXiaoGenHao);
+                    imagePicker.takePicture(nbPhoto, cebenBH + "_" + gongdanBH, cameraType, photoType, this, ImagePicker.REQUEST_CODE_TAKE, mRewuId);
 //                    finish();
                 }
             }
@@ -186,7 +191,7 @@ public class ImageGridActivity extends ImageBaseActivity implements ImageDataSou
 
 //        mImageGridAdapter = new ImageGridAdapter(this, null);
         mImageFolderAdapter = new ImageFolderAdapter(this, null);
-        mRecyclerAdapter = new ImageRecyclerAdapter(nbPhoto, photoType, this, null);
+        mRecyclerAdapter = new ImageRecyclerAdapter(nbPhoto, photoType, this, null, mRewuId);
 
         onImageSelected(0, null, false);
 
@@ -212,7 +217,7 @@ public class ImageGridActivity extends ImageBaseActivity implements ImageDataSou
             }
         } else if (requestCode == REQUEST_PERMISSION_CAMERA) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                imagePicker.takePicture(nbPhoto, cebenBH + "_" + gongdanBH, cameraType, photoType, this, ImagePicker.REQUEST_CODE_TAKE, mXiaoGenHao);
+                imagePicker.takePicture(nbPhoto, cebenBH + "_" + gongdanBH, cameraType, photoType, this, ImagePicker.REQUEST_CODE_TAKE, mRewuId);
             } else {
                 showToast("权限被禁止，无法打开相机");
             }
@@ -244,7 +249,7 @@ public class ImageGridActivity extends ImageBaseActivity implements ImageDataSou
             ArrayList<ImageItem> selectedImages = imagePicker.getSelectedImages();
             List<String> pathList = new ArrayList<>();
             for (int i = 0; i < selectedImages.size(); i++) {
-                String path = getPath() + nbDateFormat.format(new Date()) + "_" +  photoType + System.currentTimeMillis() + ".jpg";
+                String path = getPath() + nbDateFormat.format(new Date()) + "_" + System.currentTimeMillis() + "_" + photoType + "_" + mRewuId + ".jpg";
                 if (!selectedImages.get(i).path.contains(getPath())) {
                     pathList.add(selectedImages.get(i).path);
                 } else {
@@ -269,11 +274,10 @@ public class ImageGridActivity extends ImageBaseActivity implements ImageDataSou
                         public String rename(String filePath) {
                             if (nbPhoto) {
 //                                mFilename = photoType + System.currentTimeMillis() + ".jpg";
-                                mFilename = nbDateFormat.format(new Date()) + "_" + photoType
-                                        + System.currentTimeMillis() + ".jpg";
+                                mFilename = nbDateFormat.format(new Date()) + "_" + System.currentTimeMillis() + "_" + photoType + "_" + mRewuId + ".jpg";
                             } else {
 //                                mFilename = photoType + System.currentTimeMillis() + ".jpg";
-                                mFilename = photoType + xunjianFormat.format(new Date()) + ".jpg";
+                                mFilename = xunjianFormat.format(new Date()) + "_" + photoType + mRewuId + ".jpg";
                             }
                             Log.e("prefix,rename", "重命名：" + mFilename);
                             return mFilename;
@@ -561,7 +565,7 @@ public class ImageGridActivity extends ImageBaseActivity implements ImageDataSou
                                     //EventBus.getDefault().post(new YasuoSuccessEntity(imagePicker.getSelectedImages(), cameraType));
                                     finishPhoto(path, mFilename);
                                 }
-//                                EventBus.getDefault().post(new YasuoSuccessEntity(imagePicker.getSelectedImages(), cameraType));
+                                EventBus.getDefault().post(new YasuoSuccessEntity(imagePicker.getSelectedImages(), cameraType));
                             }
 
                             @Override

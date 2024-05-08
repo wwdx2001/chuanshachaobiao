@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp_14"
+    android:layout_marginEnd="@dimen/dp_14"
+    android:paddingBottom="@dimen/dp_10"
+    android:background="@drawable/call_for_pay_task_item_bg"
+    >
+
+    <TextView
+        android:id="@+id/item_usage_change_search_list_zd_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginStart="@dimen/dp_10"
+        android:text="站点：xxx"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/item_usage_change_search_list_cb_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        android:text="册本：15512345678"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_13"
+        app:layout_constraintStart_toStartOf="@+id/item_usage_change_search_list_zd_tv"
+        app:layout_constraintTop_toBottomOf="@+id/item_usage_change_search_list_zd_tv"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/item_usage_change_search_list_yhh_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        android:text="用户号：2023-01-01"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_13"
+        app:layout_constraintStart_toStartOf="@+id/item_usage_change_search_list_zd_tv"
+        app:layout_constraintTop_toBottomOf="@+id/item_usage_change_search_list_cb_tv"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/item_usage_change_search_list_address_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        android:paddingBottom="@dimen/dp_8"
+        android:text="地址：纪念路8号"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_13"
+        app:layout_constraintStart_toStartOf="@+id/item_usage_change_search_list_zd_tv"
+        app:layout_constraintTop_toBottomOf="@+id/item_usage_change_search_list_yhh_tv"
+        tools:ignore="MissingConstraints" />
+
+
+</android.support.constraint.ConstraintLayout>

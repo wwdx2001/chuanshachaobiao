@@ -16,9 +16,13 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.example.dataprovider3.entity.CuijiaoEntity;
 import com.sh3h.meterreading.R;
 import com.sh3h.meterreading.ui.InspectionInput.tools.PickerViewUtils;
+import com.sh3h.meterreading.ui.base.BaseActivity;
 import com.sh3h.meterreading.ui.base.ParentFragment;
+import com.sh3h.meterreading.ui.urge.contract.CallForPaymentBackfillContract;
+import com.sh3h.meterreading.ui.urge.presenter.CallForPaymentBackfillPresenterImpl;
 import com.sh3h.meterreading.util.URL;
 import com.sh3h.serverprovider.entity.ResultBean;
+import com.sh3h.serverprovider.entity.XJXXWordBean;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.callback.CallBack;
 import com.zhouyou.http.callback.ProgressDialogCallBack;
@@ -26,9 +30,15 @@ import com.zhouyou.http.callback.SimpleCallBack;
 import com.zhouyou.http.exception.ApiException;
 import com.zhouyou.http.subsciber.IProgressDialog;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class OrderBackHandleFragment extends ParentFragment {
+import javax.inject.Inject;
+
+public class OrderBackHandleFragment extends ParentFragment implements CallForPaymentBackfillContract.View {
+
+    @Inject
+    CallForPaymentBackfillPresenterImpl mPresenter;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -90,19 +100,14 @@ public class OrderBackHandleFragment extends ParentFragment {
     @Override
     protected void initData1() {
         super.initData1();
-//        mDownloadWordsCallBack = new SimpleCallBack<String>() {
-//            @Override
-//            public void onError(ApiException e) {
-//
-//            }
-//
-//            @Override
-//            public void onSuccess(String s) {
-//                WordsCodeEntity wordsCodeEntity = GsonUtils.fromJson(s, WordsCodeEntity.class);
-//                mTuiDanYYList = wordsCodeEntity.getTuiDanYYList();
-//            }
-//        };
-//        MainApplication.get(getContext()).downloadWords(mDownloadWordsCallBack);
+        ((BaseActivity) getActivity()).getActivityComponent().inject(this);
+        mPresenter.attachView(this);
+
+        List<XJXXWordBean> reasonList = mPresenter.getQFYYWordData("退单原因", null);
+        mTuiDanYYList = new ArrayList<>();
+        for (XJXXWordBean reason : reasonList) {
+            mTuiDanYYList.add(reason.getMNAME());
+        }
     }
 
     @Override
@@ -124,8 +129,8 @@ public class OrderBackHandleFragment extends ParentFragment {
                 return progressDialog;
             }
         };
-        EasyHttp.post(URL.BASE_URGE_URL + URL.CuiJiaoTuiDan)
-                .params("gdh", mCuijiaoEntity.getS_CID())
+        EasyHttp.post(URL.BASE_URGE_URL1 + URL.CuiJiaoTuiDan)
+                .params("Gdh", mCuijiaoEntity.getS_CID())
                 .params("S_TUIDANYY", tvTdyyValue.getText().toString())
                 .params("S_TUIDANBZ", tvTdbzValue.getText().toString())
                 .execute(new ProgressDialogCallBack<String>(iProgressDialog, true, false) {
@@ -138,13 +143,28 @@ public class OrderBackHandleFragment extends ParentFragment {
                     @Override
                     public void onSuccess(String s) {
                         ResultBean baseBean = GsonUtils.fromJson(s, ResultBean.class);
-                        if ("1".equals(baseBean.getMsgCode())) {
+                        if ("true".equals(baseBean.getMsgCode())) {
                             callBack.onSuccess("退单申请成功");
                         } else {
                             ToastUtils.showShort("Error：" + baseBean.getMsgInfo());
                         }
                     }
                 });
+    }
+
+    @Override
+    public void success(Object o) {
+
+    }
+
+    @Override
+    public void failed(String result) {
+
+    }
+
+    @Override
+    public void error(String s) {
+
     }
 }
 

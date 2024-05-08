@@ -2,7 +2,6 @@ package com.sh3h.meterreading.ui.urge.presenter;
 
 import com.example.dataprovider3.entity.CallForPaymentSearchBean;
 import com.sh3h.meterreading.ui.base.BasePresenter;
-import com.sh3h.meterreading.ui.base.ParentPresenter;
 import com.sh3h.meterreading.ui.urge.contract.CallForPaymentSearchListContract;
 import com.sh3h.meterreading.ui.urge.listener.OnSearchListListener;
 import com.sh3h.meterreading.ui.urge.model.CallForPaymentSearchListModelImpl;
@@ -38,11 +37,11 @@ public class CallForPaymentSearchListPresenterImpl extends BasePresenter<CallFor
 
     @Override
     public void onFail(String result) {
-
+        view.failed(result);
     }
 
     @Override
     public void onError(Exception e) {
-
+        view.error(e.getMessage());
     }
 }

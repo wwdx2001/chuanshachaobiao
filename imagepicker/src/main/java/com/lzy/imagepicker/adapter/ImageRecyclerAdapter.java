@@ -49,6 +49,7 @@ public class ImageRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
     private int mImageSize;               //每个条目的大小
     private LayoutInflater mInflater;
     private OnImageItemClickListener listener;   //图片被点击的监听
+    private String mRewuId;
 
     public void setOnImageItemClickListener(OnImageItemClickListener listener) {
         this.listener = listener;
@@ -69,12 +70,13 @@ public class ImageRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
     /**
      * 构造方法
      */
-    public ImageRecyclerAdapter(boolean nbPhoto, String photoType, Activity activity, ArrayList<ImageItem> images) {
+    public ImageRecyclerAdapter(boolean nbPhoto, String photoType, Activity activity, ArrayList<ImageItem> images, String rewuId) {
         this.mActivity = activity;
         this.photoType = photoType;
         this.nbPhoto = nbPhoto;
         if (images == null || images.size() == 0) this.images = new ArrayList<>();
         else this.images = images;
+        this.mRewuId = rewuId;
 
         mImageSize = Utils.getImageItemWidth(mActivity);
         imagePicker = ImagePicker.getInstance();
@@ -204,7 +206,7 @@ public class ImageRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
                     if (!((ImageBaseActivity) mActivity).checkPermission(Manifest.permission.CAMERA)) {
                         ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.CAMERA}, ImageGridActivity.REQUEST_PERMISSION_CAMERA);
                     } else {
-                        imagePicker.takePicture(nbPhoto, "", "", photoType, mActivity, ImagePicker.REQUEST_CODE_TAKE, "");
+                        imagePicker.takePicture(nbPhoto, "", "", photoType, mActivity, ImagePicker.REQUEST_CODE_TAKE, mRewuId);
                     }
                 }
             });

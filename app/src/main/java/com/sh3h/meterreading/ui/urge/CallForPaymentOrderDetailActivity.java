@@ -211,6 +211,7 @@ public class CallForPaymentOrderDetailActivity extends ParentActivity
         mDetailBean = (CuijiaoEntity) o;
         Bundle bundle = new Bundle();
         bundle.putParcelable(Const.BEAN, mDetailBean);
+        mDetailBean.setS_RENWUID(mRENWUID);
         detailFragment.setArguments(bundle);
         bindFragment();
       }

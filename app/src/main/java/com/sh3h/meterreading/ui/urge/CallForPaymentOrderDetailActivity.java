@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.dataprovider3.entity.CallForPaymentBackFillDataBean;
 import com.example.dataprovider3.entity.CuijiaoEntity;
@@ -57,6 +58,7 @@ public class CallForPaymentOrderDetailActivity extends ParentActivity
 
   private String mS_CID, mRENWUID;
   private CuijiaoEntity mDetailBean;
+  private CallForPaymentBackFillDataBean mBackFillDataBean;
   private boolean isSave;
 
   @Inject
@@ -76,6 +78,7 @@ public class CallForPaymentOrderDetailActivity extends ParentActivity
   @Override
   protected void initData1() {
     super.initData1();
+    setActionBarBackButtonEnable();
     getActivityComponent().inject(this);
     mEventBus.register(this);
 
@@ -164,8 +167,8 @@ public class CallForPaymentOrderDetailActivity extends ParentActivity
     if (dataBean == null) {
       return;
     }
-    dataBean.setV_CAOZUOR("0018");
-//    dataBean.setV_CAOZUOR(SPUtils.getInstance().getString(com.sh3h.serverprovider.rpc.util.Const.S_YUANGONGH));
+//    dataBean.setV_CAOZUOR("0018");
+    dataBean.setV_CAOZUOR(SPUtils.getInstance().getString(com.sh3h.serverprovider.rpc.util.Const.S_YUANGONGH));
     dataBean.setV_CAOZUOSJ(DateUtils.getCurrentTime());
     dataBean.setV_RENWUID(mRENWUID);
     dataBean.setV_RENWUM(mDetailBean.getS_RENWUMC());
@@ -213,6 +216,12 @@ public class CallForPaymentOrderDetailActivity extends ParentActivity
         bundle.putParcelable(Const.BEAN, mDetailBean);
         mDetailBean.setS_RENWUID(mRENWUID);
         detailFragment.setArguments(bundle);
+
+        bundle.putString(Const.RENWUID, mRENWUID);
+        if (mBackFillDataBean != null) {
+          bundle.putParcelable(Const.CALLFORPAYMENTBACKFILLDATABEAN, mBackFillDataBean);
+        }
+        mediaFragment.setArguments(bundle);
         bindFragment();
       }
     });
@@ -239,11 +248,11 @@ public class CallForPaymentOrderDetailActivity extends ParentActivity
     runOnUiThread(new Runnable() {
       @Override
       public void run() {
+        mBackFillDataBean = bean;
         Bundle bundle = new Bundle();
         bundle.putParcelable(Const.CALLFORPAYMENTBACKFILLDATABEAN, bean);
-        bundle.putString(Const.RENWUID, mRENWUID);
+        bundle.putString(Const.RENWUID, bean.getV_RENWUID());
         backfillFragment.setArguments(bundle);
-        mediaFragment.setArguments(bundle);
       }
     });
   }

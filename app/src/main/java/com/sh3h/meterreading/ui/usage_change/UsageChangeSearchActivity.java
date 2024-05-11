@@ -40,6 +40,19 @@ public class UsageChangeSearchActivity extends ParentActivity {
         mSmoothProgressBar.setVisibility(View.INVISIBLE);
         setActionBarBackButtonEnable();
         setListener();
+
+//        Intent intent = getIntent();
+//        if (savedInstanceState != null) {
+//            initParams(savedInstanceState);
+//        } else if (intent != null) {
+//            initParams(intent.getExtras());
+//        } else {
+//            initParams(null);
+//        }
+//
+//        if (checkPermissions()) {
+//            initConfig();
+//        }
     }
 
     @Override

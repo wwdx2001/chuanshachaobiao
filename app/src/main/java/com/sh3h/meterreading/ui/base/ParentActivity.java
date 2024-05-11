@@ -31,6 +31,7 @@ import com.sh3h.meterreading.service.SyncService;
 import com.sh3h.meterreading.service.SyncType;
 import com.sh3h.meterreading.ui.map.MapParamEx;
 import com.sh3h.meterreading.ui.map.MapStatusEx;
+import com.sh3h.meterreading.util.Const;
 import com.sh3h.meterreading.util.URL;
 import com.sh3h.mobileutil.util.ApplicationsUtil;
 import com.sh3h.mobileutil.util.LogUtil;
@@ -91,6 +92,8 @@ public abstract class ParentActivity extends BaseActivity implements SwipeBackAc
     private static String extendedInfo;
     private boolean netWork;
     private String photoQuality;
+    private boolean isFirst = true;
+    private boolean isSuccess;
 
     protected CompositeSubscription mSubscription;
     @Inject
@@ -264,6 +267,7 @@ public abstract class ParentActivity extends BaseActivity implements SwipeBackAc
             userId = bundle.getInt(USER_ID);
             userName = TextUtil.getString(bundle.getString(USER_NAME));
             SPUtils.getInstance().put(Constants.USERNAME, userName);
+            SPUtils.getInstance().put(Const.S_YUANGONGH, account);
 
             extendedInfo = TextUtil.getString(bundle.getString(EXTENDED_INFO));
             try {
@@ -279,19 +283,26 @@ public abstract class ParentActivity extends BaseActivity implements SwipeBackAc
             userName = "高富帅";
             extendedInfo = "";
         }
-      getWordsList(new SimpleCallBack<XunJianXXWords>() {
-          @Override
-          public void onError(ApiException e) {
 
-          }
+        if (!isSuccess) {
+            getWordsList(new SimpleCallBack<XunJianXXWords>() {
+                @Override
+                public void onError(ApiException e) {
 
-          @Override
-          public void onSuccess(XunJianXXWords xunJianXXWords) {
+                }
 
-          }
-      });
-      //删除过期的文件
-      deleteFile();
+                @Override
+                public void onSuccess(XunJianXXWords xunJianXXWords) {
+                    isSuccess = true;
+                }
+            });
+        }
+
+        if (isFirst) {
+            //删除过期的文件
+            deleteFile();
+            isFirst = false;
+        }
     }
 
     public boolean isNeedDialog() {

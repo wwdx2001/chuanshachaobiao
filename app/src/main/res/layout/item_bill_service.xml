@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/marginLeft1"
+    android:layout_marginTop="@dimen/marginLeft1"
+    android:layout_marginRight="@dimen/marginRight1"
+    android:background="#e3eff9">
+
+
+    <TextView
+        android:id="@+id/tv_ch"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height1"
+        android:background="@drawable/card3"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="222"
+        android:textColor="@color/text_white"
+        android:textSize="@dimen/text_size_xxxxlarge"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/zhangWuNY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:text="账务年月"
+        android:textColor="@color/text_content"
+        android:textSize="@dimen/text_size_meduim"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_ch"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ch" />
+
+    <TextView
+        android:id="@+id/tv_zhangWuNY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15.1dp"
+        android:text="20140110"
+        android:textColor="@color/text_content"
+        android:textSize="@dimen/text_size_meduim"
+        app:layout_constraintLeft_toRightOf="@+id/zhangWuNY"
+        app:layout_constraintTop_toTopOf="@+id/zhangWuNY" />
+
+    <TextView
+        android:id="@+id/paifSJ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="20dp"
+        android:text="派发时间"
+        android:textColor="@color/text_content"
+        android:textSize="@dimen/text_size_meduim"
+        app:layout_constraintLeft_toLeftOf="@+id/zhangWuNY"
+        app:layout_constraintTop_toBottomOf="@+id/zhangWuNY" />
+
+    <TextView
+        android:id="@+id/tv_paifSJ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15.1dp"
+        android:text="20140110"
+        android:textColor="@color/text_content"
+        android:textSize="@dimen/text_size_meduim"
+        app:layout_constraintLeft_toRightOf="@+id/paifSJ"
+        app:layout_constraintTop_toTopOf="@+id/paifSJ" />
+
+    <TextView
+        android:id="@+id/xiazaiSJ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="20dp"
+        android:text="下载时间"
+        android:textColor="@color/text_content"
+        android:textSize="@dimen/text_size_meduim"
+        app:layout_constraintLeft_toLeftOf="@+id/paifSJ"
+        app:layout_constraintTop_toBottomOf="@+id/paifSJ" />
+
+    <TextView
+        android:id="@+id/tv_xiazaiSJ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15.1dp"
+        android:paddingBottom="10dp"
+        android:text="20140110"
+        android:textColor="@color/text_content"
+        android:textSize="@dimen/text_size_meduim"
+        app:layout_constraintLeft_toRightOf="@+id/xiazaiSJ"
+        app:layout_constraintTop_toTopOf="@+id/xiazaiSJ" />
+
+
+    <TextView
+        android:id="@+id/btn_take_photo"
+        style="@style/Button8"
+        android:layout_marginRight="10dp"
+        android:layout_weight="0"
+        android:text="@string/text_takepicture"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_browse"
+        app:layout_constraintRight_toLeftOf="@+id/btn_browse"
+        app:layout_constraintTop_toTopOf="@+id/btn_browse" />
+
+    <TextView
+        android:id="@+id/btn_browse"
+        style="@style/Button8"
+        android:layout_marginRight="20dp"
+        android:layout_weight="0"
+        android:text="@string/text_browse"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ch" />
+
+</android.support.constraint.ConstraintLayout>

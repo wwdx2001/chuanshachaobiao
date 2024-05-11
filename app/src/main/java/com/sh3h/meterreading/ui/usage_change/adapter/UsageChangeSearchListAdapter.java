@@ -26,9 +26,9 @@ public class UsageChangeSearchListAdapter extends BaseQuickAdapter<DUCard, BaseV
         TextView itemUsageChangeSearchListYhhTv = itemView.findViewById(R.id.item_usage_change_search_list_yhh_tv);
         TextView itemUsageChangeSearchListAddressTv = itemView.findViewById(R.id.item_usage_change_search_list_address_tv);
 
-        itemUsageChangeSearchListZdTv.setText(item.getSt());
-        itemUsageChangeSearchListCbTv.setText(item.getCh());
-        itemUsageChangeSearchListYhhTv.setText(item.getCid());
-        itemUsageChangeSearchListAddressTv.setText(item.getDizhi());
+        itemUsageChangeSearchListZdTv.setText("站点：" + item.getSt());
+        itemUsageChangeSearchListCbTv.setText("册本：" + item.getCh());
+        itemUsageChangeSearchListYhhTv.setText("用户号：" + item.getCid());
+        itemUsageChangeSearchListAddressTv.setText("地址：" + item.getDizhi());
     }
 }

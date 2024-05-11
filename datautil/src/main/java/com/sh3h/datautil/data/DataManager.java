@@ -350,6 +350,58 @@ public class DataManager {
     mDbHelper.saveBiaoKaWholeEntityDao(biaoKaWholeEntity);
   }
 
+    public Observable<DUMediaResult> uploadMoreMedias2(List<DUMedia> duMediaList, final boolean isOutSide) {
+        if (duMediaList == null) {
+            return Observable.error(new Exception("duMediaList params is error"));
+        }
+
+        if (mIsUploadingImageRepeatedly) {
+            for (DUMedia duMedia : duMediaList) {
+                duMedia.setFileHash(null);
+                duMedia.setUrl(null);
+                duMedia.setShangchuanbz(DUMedia.SHANGCHUANBZ_WEISHANGC);
+            }
+        }
+
+        return Observable.from(duMediaList)
+                .filter(new Func1<DUMedia, Boolean>() {
+                    @Override
+                    public Boolean call(DUMedia duMedia) {
+                        return mIsUploadingImageRepeatedly
+                                || duMedia.getShangchuanbz() != DUMedia.SHANGCHUANBZ_YISHANGC;
+                    }
+                })
+                .concatMap(new Func1<DUMedia, Observable<DUMedia>>() {
+                    @Override
+                    public Observable<DUMedia> call(DUMedia duMedia) {
+                        return mHttpHelper.uploadMedia2(duMedia);
+                    }
+                })
+//                .filter(new Func1<DUMedia, Boolean>() {
+//                    @Override
+//                    public Boolean call(DUMedia duMedia) {
+//                        return mIsUploadingImageRepeatedly
+//                                || duMedia.getShangchuanbz() != DUMedia.SHANGCHUANBZ_YISHANGC;
+//                    }
+//                })
+//                .concatMap(new Func1<DUMedia, Observable<? extends DUMedia>>() {
+//                    @Override
+//                    public Observable<? extends DUMedia> call(DUMedia duMedia) {
+//                        return mHttpHelper.uploadMediaRelation(duMedia, isOutSide);
+//                    }
+//                })
+                .concatMap(new Func1<DUMedia, Observable<? extends DUMediaResult>>() {
+                    @Override
+                    public Observable<? extends DUMediaResult> call(DUMedia duMedia) {
+                        DUMediaInfo duMediaInfo = new DUMediaInfo(
+                                DUMediaInfo.OperationType.UPDATE,
+                                DUMediaInfo.MeterReadingType.NORMAL,
+                                duMedia);
+                        return mDbHelper.updateMedia(duMediaInfo);
+                    }
+                });
+    }
+
     /**
      * update app or data
      *

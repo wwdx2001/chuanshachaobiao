@@ -970,6 +970,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_30"
                 android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/dp_8"
                 >
 
                 <TextView

@@ -43,11 +43,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
-        <activity android:name=".ui.usage_change.UsageChangeBasicInformationActivity"></activity>
-        <activity android:name=".ui.usage_change.UsageChangeSearchListActivity" />
-        <activity
-            android:name=".CallForPaymentSearchListActivity"
-            android:exported="false" />
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -287,14 +282,18 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.usage_change.UsageChangeSearchActivity"
-            android:label="@string/call_for_pay_task_title"
+            android:label="@string/call_for_pay_search"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.urge.CallForPaymentTaskActivity"
             android:label="@string/call_for_pay_task_title"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.urge.CallForPaymentWordOrderActivity"
             android:label="@string/call_for_pay_word_order_title"
@@ -324,7 +323,42 @@
             android:name=".ui.urge_search.CallForPaymentSearchActivity"
             android:label="@string/call_for_pay_search"
             android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.usage_change.RealNameDetailActivity"
+            android:label="@string/usage_change_real_name_text"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.usage_change.UsageChangeUploadActivity"
+            android:label="@string/usage_change_upload_text"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.usage_change.UsageChangeBasicInformationActivity"
+            android:label="@string/usage_change_basic_information_text"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.usage_change.UsageChangeSearchListActivity"
+            android:label="@string/usage_change_search_list_text"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.billservice.BillServiceActivity"
+            android:label="@string/bill_service_text"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.urge_search.CallForPaymentSearchListActivity"
             android:label="@string/call_for_pay_search_list"

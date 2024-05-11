@@ -36,8 +36,8 @@ public class CallForPaymentWordOrderModelImpl implements CallForPaymentWordOrder
             String account = SPUtils.getInstance().getString(Const.S_YUANGONGH);
 
             EasyHttp.post(URL.BASE_URGE_URL1 + URL.CS_SEL_CJCHSCIDCXPDA)
-                    .params("CuiJiaoR", "0018")
-//                    .params("CuiJiaoR", SPUtils.getInstance().getString(com.sh3h.serverprovider.rpc.util.Const.S_YUANGONGH))
+//                    .params("CuiJiaoR", "0018")
+                    .params("CuiJiaoR", SPUtils.getInstance().getString(com.sh3h.serverprovider.rpc.util.Const.S_YUANGONGH))
                     .params("s_ch", s_ch)
                     .execute(new SimpleCallBack<String>() {
                         @Override

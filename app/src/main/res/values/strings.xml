@@ -920,6 +920,8 @@
     <string name="call_for_pay_word_order_list_search_hint_text">请输入销根号、客户名称或用水地址</string>
     <string name="call_for_pay_task_list_search_hint_text">请输入册本号，地址或者用户号</string>
 
+    <string name="bill_service_text">账单送达</string>
+
     <string name="search_text">搜索</string>
     <string name="resetting_text">重置</string>
 
@@ -996,4 +998,10 @@
 
     <string name="user_apply_text">用户具名制申请</string>
     <string name="usage_change_apply_text">用水性质变更申请</string>
+    <string name="usage_change_search_list_text">表卡列表</string>
+    <string name="usage_change_basic_information_text">表卡详情</string>
+    <string name="usage_change_real_name_text">具名制信息录入</string>
+    <string name="usage_change_upload_text">用水性质变更</string>
+    <string name="text_browse">浏览</string>
+    <string name="text_commit_all">提交</string>
 </resources>

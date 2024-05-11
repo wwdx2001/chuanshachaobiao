@@ -29,6 +29,7 @@
 
     <!-- 背景，透明色 -->
     <color name="background_clear">#00000000</color>
+    <color name="background_30">#50000000</color>
 
     <!-- 分割线颜色 -->
     <color name="line_white">#ffffff</color>

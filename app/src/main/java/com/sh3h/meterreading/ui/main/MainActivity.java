@@ -113,7 +113,7 @@ public class MainActivity extends ParentActivity implements MainMvpView,
 //        if (checkPermissions()) {
 //            initConfig();
 //        }
-        initParams(null);
+//        initParams(null);
     }
 
     protected void initView() {

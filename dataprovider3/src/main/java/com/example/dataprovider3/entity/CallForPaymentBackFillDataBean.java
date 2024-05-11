@@ -13,9 +13,9 @@ public class CallForPaymentBackFillDataBean implements Parcelable {
   @Id
   private Long id;
   private String V_CAOZUOR;
-  private String V_CAOZUOSJ;
-  private String V_RENWUM;
-  private String V_RENWUID;
+  private String V_CAOZUOSJ = "";
+  private String V_RENWUM = "";
+  private String V_RENWUID = "";
   private String V_QIANFEIYY1;
   private int V_QIANFEIYY1_POSITION;
   private int V_QIANFEIYY1_SELECT_POSITION;
@@ -32,9 +32,9 @@ public class CallForPaymentBackFillDataBean implements Parcelable {
   private int V_ISYYFF_POSITION;
   private String V_ISXINXIBG;
   private int V_ISXINXIBG_POSITION;
-  private String V_LIANXIR;
-  private String V_LIANXIDH;
-  private String V_BEIZHU;
+  private String V_LIANXIR = "";
+  private String V_LIANXIDH = "";
+  private String V_BEIZHU = "";
   private String callForPayImages;
   private String OtherImages;
   private String voices;

@@ -10,6 +10,7 @@ import com.sh3h.meterreading.ui.InspectionInput.lr.LROperatingFragment;
 import com.sh3h.meterreading.ui.InspectionInput.lr.QianFeiXXFragment;
 import com.sh3h.meterreading.ui.InspectionInput.lr.WaiFuHistoryListFragment;
 import com.sh3h.meterreading.ui.RemoteinSpectionOHistoryListActivity.RemoteinSpectionOHistoryListActivity;
+import com.sh3h.meterreading.ui.billservice.BillServiceActivity;
 import com.sh3h.meterreading.ui.check.CheckActivity;
 import com.sh3h.meterreading.ui.delay.DelayListActivity;
 import com.sh3h.meterreading.ui.delayRecord.DelayRecordActivity;
@@ -59,7 +60,9 @@ import com.sh3h.meterreading.ui.urge.fragment.CallForPaymentMediaFragment;
 import com.sh3h.meterreading.ui.urge.fragment.OrderDetailMessageFragment;
 import com.sh3h.meterreading.ui.urge.fragment.OrderElseMessageFragment;
 import com.sh3h.meterreading.ui.urge_search.CallForPaymentSearchActivity;
+import com.sh3h.meterreading.ui.usage_change.RealNameDetailActivity;
 import com.sh3h.meterreading.ui.usage_change.UsageChangeSearchListActivity;
+import com.sh3h.meterreading.ui.usage_change.UsageChangeUploadActivity;
 import com.sh3h.meterreading.ui.volume.AdjustNumberActivity;
 import com.sh3h.meterreading.ui.volume.VolumeListActivity;
 import com.sh3h.meterreading.ui.welcome.WelcomeActivity;
@@ -155,4 +158,7 @@ public interface ActivityComponent{
      * 用户实名制/用水性质变更
      */
     void inject(UsageChangeSearchListActivity usageChangeSearchListActivity);
+    void inject(BillServiceActivity billServiceActivity);
+    void inject(RealNameDetailActivity realNameDetailActivity);
+    void inject(UsageChangeUploadActivity usageChangeUploadActivity);
 }

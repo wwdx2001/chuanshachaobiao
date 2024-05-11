@@ -5,11 +5,17 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
+    <View
+        android:id="@+id/view_shadle"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:visibility="invisible"
+        android:background="@color/background_clear"/>
+
     <RelativeLayout
         android:id="@+id/titlebar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/activity_actionbar_height"
-        android:layout_marginTop="100dp"
         android:background="#628bb5" >
 
         <TextView

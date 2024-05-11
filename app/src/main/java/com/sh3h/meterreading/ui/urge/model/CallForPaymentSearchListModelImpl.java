@@ -2,6 +2,7 @@ package com.sh3h.meterreading.ui.urge.model;
 
 import android.annotation.SuppressLint;
 
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.dataprovider3.entity.CallForPaymentSearchBean;
 import com.google.gson.Gson;
@@ -9,6 +10,7 @@ import com.google.gson.ToNumberPolicy;
 import com.google.gson.reflect.TypeToken;
 import com.sh3h.meterreading.ui.urge.contract.CallForPaymentSearchListContract;
 import com.sh3h.meterreading.ui.urge.listener.OnSearchListListener;
+import com.sh3h.meterreading.util.Const;
 import com.sh3h.meterreading.util.URL;
 import com.sh3h.mobileutil.util.GsonUtils;
 import com.sh3h.serverprovider.entity.ResultBean;
@@ -75,8 +77,8 @@ public class CallForPaymentSearchListModelImpl implements CallForPaymentSearchLi
 
         EasyHttp.post(URL.BASE_URGE_URL1 + URL.CreateCuiJiaoGD)
                 .params("Cids", ids)
-                .params("cby", "0018")
-//                .params("cby", SPUtils.getInstance().getString(Const.S_YUANGONGH))
+//                .params("cby", "0018")
+                .params("cby", SPUtils.getInstance().getString(Const.S_YUANGONGH))
                 .execute(new SimpleCallBack<String>() {
                     @Override
                     public void onStart() {

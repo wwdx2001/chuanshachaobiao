@@ -147,11 +147,11 @@ public class DataProviderImpl implements
         daoMaster = new DaoMaster(db);
         daoSession = daoMaster.newSession();
 
-        if (DaoMaster.SCHEMA_VERSION == 3) {
+        if (DaoMaster.SCHEMA_VERSION == 4) {
             // 升级、数据库迁移操作
             Log.i("greenDAO", "Upgrading schema from version ");
 //            MigrationHelper.getInstance().migrateQianFeiXX(db);
-            daoMaster.updateQianFeiXX(3, db);
+            daoMaster.updateQianFeiXX(4, db);
         }
 
         biaokaxxDao = daoSession.getBIAOKAXXDao();
@@ -840,6 +840,16 @@ public class DataProviderImpl implements
     biaoKaWholeEntityDao.saveBiaoKaWholeEntityDao(biaoKaWholeEntity);
   }
 
+    @Override
+    public synchronized List<DuoMeiTXX> getNotUploadedZDSDDuoMeiTXXList(String account, int renwubh, String ch) {
+        Log.e("BillServiceActivity", "account=" + account + "---renwubh=" + renwubh + "---ch=" + ch + "--duoMeiTXXDao=" + duoMeiTXXDao);
+        if (duoMeiTXXDao == null) {
+            return null;
+        }
+
+        return duoMeiTXXDao.getNotUploadedZDSDDuoMeiTXXList(account, renwubh, ch);
+    }
+
 //    @Override
 //    public synchronized boolean updateChaobiaoSJ(String S_CID, int I_ZhuangTaiBM, String S_ZhuangTaiMC,
 //                                    int I_BenCiCM, int I_ChaoJianSL, double N_JE, String S_CH,
@@ -1060,7 +1070,7 @@ public class DataProviderImpl implements
 
     @Override
     public synchronized List<JianHao> getJianHaoList() {
-        return null;
+        return jianHaoDao.getList();
     }
 
     @Override

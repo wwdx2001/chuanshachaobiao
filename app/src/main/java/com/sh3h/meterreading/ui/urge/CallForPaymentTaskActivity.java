@@ -2,6 +2,7 @@ package com.sh3h.meterreading.ui.urge;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -68,6 +69,23 @@ public class CallForPaymentTaskActivity extends ParentActivity
   @Override
   protected int getLayoutId() {
     return R.layout.activity_call_for_payment_task;
+  }
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    Intent intent = getIntent();
+    if (savedInstanceState != null) {
+      initParams(savedInstanceState);
+    } else if (intent != null) {
+      initParams(intent.getExtras());
+    } else {
+      initParams(null);
+    }
+
+    if (checkPermissions()) {
+      initConfig();
+    }
   }
 
   @Override

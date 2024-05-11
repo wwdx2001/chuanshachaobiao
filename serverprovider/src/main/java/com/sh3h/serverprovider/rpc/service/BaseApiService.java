@@ -26,7 +26,8 @@ public abstract class BaseApiService {
 	 */
 	private Context _context = null;
 
-	private static String BASE_URL = "http://128.1.3.186:8084";
+	private static String BASE_URL = "http://180.167.6.229:14400";
+//	private static String BASE_URL = "http://128.1.3.186:8084";
 	// private static String BASE_URL = "http://128.1.3.186:8004";
 
 	private final String ENCODING = "UTF-8";
@@ -469,7 +470,7 @@ public abstract class BaseApiService {
 			return this.getRPCClient().callJSONArray(method, params);
 		} catch (JSONRPCException e) {
 			//TODO LIBAO 2018.7.27
-			throw new ApiException("JSON PRC Http requst error,"+params.clone()[0], e);
+			throw new ApiException("JSON PRC Http requst error,"+params.clone()[0] + e.getMessage());
 //			throw new ApiException("JSON PRC Http requst error,", e);
 		}
 	}

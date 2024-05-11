@@ -22,8 +22,10 @@ import com.sh3h.meterreading.ui.usage_change.contract.UsageChangeContract;
 import com.sh3h.meterreading.ui.usage_change.presenter.UsageChangeBasicPresenterImpl;
 import com.sh3h.meterreading.util.Const;
 import com.sh3h.meterreading.util.RecyclerSpacingItemDecoration;
+import com.sh3h.mobileutil.util.TextUtil;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -65,7 +67,7 @@ public class UsageChangeSearchListActivity extends ParentActivity implements Usa
         Intent intent = getIntent();
         mS_cid = intent.getStringExtra(Const.S_CID);
         mAddress = intent.getStringExtra(Const.S_DZ);
-
+        mDUCardList = new ArrayList<>();
         mAdapter = new UsageChangeSearchListAdapter(mDUCardList);
         mUsageChangeListRv.setAdapter(mAdapter);
     }
@@ -104,12 +106,15 @@ public class UsageChangeSearchListActivity extends ParentActivity implements Usa
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                mBasicPresenter.searchData(query, mAdapter.getData());
+                mBasicPresenter.searchData(query, mDUCardList);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                if (TextUtil.isNullOrEmpty(newText)) {
+                    searchDataNotify(mDUCardList);
+                }
                 return false;
             }
         });

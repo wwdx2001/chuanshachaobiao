@@ -227,6 +227,7 @@ public interface IDataProvider {
 
   public void saveBiaoKaWholeEntityDao(BiaoKaWholeEntity biaoKaWholeEntity);
 
+  public List<DuoMeiTXX> getNotUploadedZDSDDuoMeiTXXList(String account, int renwubh, String ch);
 
   /**
      * 查询简号下面各种费用组成明细

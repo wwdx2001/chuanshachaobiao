@@ -3,6 +3,7 @@ package com.sh3h.dataprovider.greendaoDao;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
+import android.util.Log;
 
 import com.sh3h.dataprovider.greendaoEntity.DuoMeiTXX;
 import com.sh3h.mobileutil.util.TextUtil;
@@ -275,6 +276,37 @@ public class DuoMeiTXXDao extends AbstractDao<DuoMeiTXX, Long> {
 //        bd.executeDeleteWithoutDetachingEntities();
         update(duoMeiTXX);
         return true;
+    }
+
+    /**
+     * 账单送达
+     * @param account
+     * @param renwubh
+     * @param ch
+     * @return
+     */
+    public List<DuoMeiTXX> getNotUploadedZDSDDuoMeiTXXList(String account, int renwubh, String ch) {
+        if (account == null) {
+            return null;
+        }
+        QueryBuilder qb = this.queryBuilder();
+        if (renwubh <= 0) { // alll tasks
+            qb.where(Properties.S_ACCOUNT.eq(account),
+                    Properties.I_WENJIANLX.eq(0),
+                    Properties.I_SHANGCHUANBZ.eq(0));
+        } else if (ch != null) {
+
+            qb.where(Properties.S_ACCOUNT.eq(account),
+                    Properties.S_CH.eq(ch),
+                    Properties.I_WENJIANLX.eq(0),
+                    Properties.I_SHANGCHUANBZ.eq(0));
+            Log.e("BillServiceActivity", "size=" + qb.list().size());
+        } else {
+            qb.where(Properties.S_ACCOUNT.eq(account),
+                    Properties.I_WENJIANLX.eq(0),
+                    Properties.I_SHANGCHUANBZ.eq(0));
+        }
+        return qb.list();
     }
 
     /**

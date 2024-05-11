@@ -3,8 +3,6 @@
  */
 package com.sh3h.serverprovider.rpc.service;
 
-import android.widget.Toast;
-
 import com.sh3h.mobileutil.util.LogUtil;
 import com.sh3h.serverprovider.entity.BiaoKaXXEntity;
 import com.sh3h.serverprovider.entity.BillPreviewEntity;
@@ -562,10 +560,12 @@ public class BusinessApiService extends BaseApiService {
     public List<BiaoKaXXEntity> getCombinedQueryingResults(CombinedInfoEntity combinedInfoEntity) throws ApiException, JSONException {
 
         JSONArray resp = null;
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("info", combinedInfoEntity.toJSON());
         try {
             resp = this.callJSONArray(
                     BusinessApiService.METHOD_GETCOMBINEDQUERINGRESULTS,
-                    new Object[]{combinedInfoEntity.toJSON()});
+                    jsonObject);
         } catch (ApiException e) {
             LogUtil.e("API", "组合查询  调用失败", e);
             throw e;

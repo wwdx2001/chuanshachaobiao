@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.blankj.utilcode.util.BusUtils;
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.dataprovider3.entity.CallForPaymentArrearsFeesDetailBean;
 import com.example.dataprovider3.entity.CallForPaymentBackFillDataBean;
@@ -23,6 +24,7 @@ import com.sh3h.serverprovider.entity.ImageItem;
 import com.sh3h.serverprovider.entity.ResultBean;
 import com.sh3h.serverprovider.entity.ResultEntity;
 import com.sh3h.serverprovider.entity.VoiceItem;
+import com.sh3h.serverprovider.rpc.util.Const;
 import com.sh3h.serverprovider.rpc.util.URL;
 import com.zhouyou.http.EasyHttp;
 import com.zhouyou.http.cache.model.CacheMode;
@@ -84,8 +86,8 @@ public class CallForPaymentService extends BaseApiService {
             JSONObject resp = null;
             EasyHttp.post(URL.BASE_URGE_URL1 + CS_SEL_CJCEHAOCXPDA)
                     .cacheMode(CacheMode.CACHEANDREMOTEDISTINCT)
-                    .params("cby", "0018")
-//                    .params("cby", SPUtils.getInstance().getString(Const.S_YUANGONGH))
+//                    .params("cby", "0018")
+                    .params("cby", SPUtils.getInstance().getString(Const.S_YUANGONGH))
                     .execute(new SimpleCallBack<String>() {
                         @Override
                         public void onStart() {

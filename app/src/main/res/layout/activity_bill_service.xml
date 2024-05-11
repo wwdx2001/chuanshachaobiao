@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constrain_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_main"
+    tools:context=".ui.billservice.BillServiceActivity">
+
+    <com.gc.materialdesign.views.SmoothProgressBar
+        android:id="@+id/loading_process"
+        style="@style/GradientProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height10"
+        android:indeterminate="true"
+        tools:ignore="MissingConstraints" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@color/background_clear"
+        android:divider="#00000000"
+        android:dividerHeight="@dimen/list_divider_height"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent"
+        android:overScrollMode="never"
+        android:paddingBottom="@dimen/marginLeft1"
+        app:layout_constraintTop_toBottomOf="@+id/loading_process"
+        tools:ignore="MissingConstraints" />
+
+</android.support.constraint.ConstraintLayout>

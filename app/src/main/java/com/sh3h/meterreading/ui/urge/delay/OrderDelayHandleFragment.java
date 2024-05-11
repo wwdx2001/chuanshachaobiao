@@ -189,7 +189,7 @@ public class OrderDelayHandleFragment extends ParentFragment implements View.OnC
             }
         };
         EasyHttp.post(URL.BASE_URGE_URL1 + URL.CuiJiaoYanQi)
-                .params("Gdh", mCuijiaoEntity.getS_CID())
+                .params("Gdh", mCuijiaoEntity.getS_RENWUID())
                 .params("D_YANQISJ", tvYqscValue.getText().toString())
                 .params("S_YANQIBZ", tvYqbzValue.getText().toString())
                 .execute(new ProgressDialogCallBack<String>(iProgressDialog, true, false) {

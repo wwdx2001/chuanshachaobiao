@@ -172,7 +172,7 @@ public class CombinedInfoEntity {
             result.put("S_CH",get_ch());
             result.put("S_HM",get_huming());
             result.put("S_DZ",get_dizhi());
-            result.put("S_ShuiBiaoGYH",get_shuibiaogyh());
+//            result.put("S_ShuiBiaoGYH",get_shuibiaogyh());
             result.put("S_DH", get_lianxidh());
      //       result.put("S_JianHao",get_jianhao());
       //      result.put("I_KouJingMin",get_koujingmin());

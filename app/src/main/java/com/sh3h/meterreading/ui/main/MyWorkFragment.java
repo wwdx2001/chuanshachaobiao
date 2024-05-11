@@ -20,6 +20,7 @@ import com.sh3h.meterreading.R;
 import com.sh3h.meterreading.adapter.MainInfoViewAdapter;
 import com.sh3h.meterreading.ui.RemoteinSpectionOHistoryListActivity.RemoteinSpectionOHistoryListActivity;
 import com.sh3h.meterreading.ui.base.ParentFragment;
+import com.sh3h.meterreading.ui.billservice.BillServiceActivity;
 import com.sh3h.meterreading.ui.check.CheckActivity;
 import com.sh3h.meterreading.ui.delay.DelayListActivity;
 import com.sh3h.meterreading.ui.lgld.LgldListActivity;
@@ -31,6 +32,7 @@ import com.sh3h.meterreading.ui.setting.SettingActivity;
 import com.sh3h.meterreading.ui.task.TaskListActivity;
 import com.sh3h.meterreading.ui.urge.CallForPaymentTaskActivity;
 import com.sh3h.meterreading.ui.urge_search.CallForPaymentSearchActivity;
+import com.sh3h.meterreading.ui.usage_change.UsageChangeSearchActivity;
 import com.sh3h.mobileutil.util.LogUtil;
 
 import org.json.JSONObject;
@@ -81,8 +83,10 @@ public class MyWorkFragment extends ParentFragment implements MyWorkMvpView,
     public static final int ACTION_URGE = 1019;
     //催缴查询
     public static final int ACTION_URGE_SEARCH = 1020;
-
-//    public static final int ACTION_URGE_SEARCH = 1020;
+    //用户具名制/用水性质变更
+    public static final int ACTION_USAGE_CHANGE_SEARCH = 1021;
+    //账单送达
+    public static final int ACTION_Bill_SERVICE = 1022;
 
     @Inject
     MyWorkPresenter mMyWorkPresenter;
@@ -302,6 +306,12 @@ public class MyWorkFragment extends ParentFragment implements MyWorkMvpView,
                 break;
             case ACTION_URGE_SEARCH:
                 intentMsg = new Intent(mMainActivity, CallForPaymentSearchActivity.class);
+                break;
+            case ACTION_USAGE_CHANGE_SEARCH:
+                intentMsg = new Intent(mMainActivity, UsageChangeSearchActivity.class);
+                break;
+            case ACTION_Bill_SERVICE:
+                intentMsg = new Intent(mMainActivity, BillServiceActivity.class);
                 break;
             default:
                 LogUtil.i(TAG, String.format(Locale.CHINA, "---onItemClick---error: %d", id));

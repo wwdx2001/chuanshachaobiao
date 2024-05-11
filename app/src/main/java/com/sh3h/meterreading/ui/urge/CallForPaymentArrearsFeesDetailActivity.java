@@ -97,6 +97,7 @@ public class CallForPaymentArrearsFeesDetailActivity extends ParentActivity
 //    mCallForPayArrearsFeesDeatilRv = findViewById(R.id.call_for_pay_arrears_fees_deatil_rv);
     ButterKnife.bind(this);
     getSupportActionBar().setTitle(getResources().getString(R.string.call_for_pay_arrears_fees_detail_title));
+    setActionBarBackButtonEnable();
   }
 
   private void initDataGridView() {

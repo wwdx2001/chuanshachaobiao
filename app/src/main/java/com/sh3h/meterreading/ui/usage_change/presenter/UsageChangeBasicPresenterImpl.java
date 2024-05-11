@@ -10,6 +10,7 @@ import com.sh3h.meterreading.ui.base.ParentPresenter;
 import com.sh3h.meterreading.ui.usage_change.contract.UsageChangeContract;
 import com.sh3h.meterreading.util.StringCheckUtils;
 import com.sh3h.mobileutil.util.LogUtil;
+import com.sh3h.mobileutil.util.TextUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,7 +94,7 @@ public class UsageChangeBasicPresenterImpl extends ParentPresenter<UsageChangeCo
      */
     public void searchData(String searchText, List<DUCard> duCards) {
         if (duCards != null && duCards.size() > 0) {
-            if (searchText != null && !searchText.equals("")) {
+            if (!TextUtil.isNullOrEmpty(searchText)) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     List<DUCard> collect;
                     if (StringCheckUtils.isInt(searchText)) {

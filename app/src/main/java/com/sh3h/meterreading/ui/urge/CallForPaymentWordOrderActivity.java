@@ -84,6 +84,7 @@ public class CallForPaymentWordOrderActivity extends ParentActivity
   protected void initView1() {
     ButterKnife.bind(this);
     getSupportActionBar().setTitle(getResources().getString(R.string.call_for_pay_word_order_title));
+    setActionBarBackButtonEnable();
     mCallForPayWordOrderRv.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
     mCallForPayWordOrderRv.addItemDecoration(new RecyclerSpacingItemDecoration(0, 6, 0, 0));
   }

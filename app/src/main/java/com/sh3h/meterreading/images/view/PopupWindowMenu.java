@@ -414,4 +414,112 @@ public class PopupWindowMenu {
         popupMenu.show();
         popupMenu.setOnMenuItemClickListener(listener);
     }
+
+    @SuppressWarnings("rawtypes")
+    public PopupWindow popupWindowZDImageViwe(View v, int atLocation, int width,
+                                              int height, String title, PopupWindowImageAdapter adapter,
+                                              final File imageFolder,
+                                              final String cH, final List<DUMedia> wenJianXXList,
+                                              final IBInvoke iBInvoke) {
+
+        LayoutInflater inflater = LayoutInflater.from(_context);
+        View view = inflater.inflate(R.layout.layout_titlebar, null);
+        TextView titleView = (TextView) view.findViewById(R.id.activity_title);
+        View view_shadle = view.findViewById(R.id.view_shadle);
+        view_shadle.setVisibility(View.VISIBLE);
+        LinearLayout layout = (LinearLayout) view
+                .findViewById(R.id.layouttitlebar);
+
+        LinearLayout layoutList = (LinearLayout) inflater.inflate(
+                R.layout.popupwindow_imageviews, null);
+
+        LinearLayout picLinearLayout = (LinearLayout) layoutList.findViewById(R.id.pictures_bg);
+        if (wenJianXXList.size() > 0) {
+            picLinearLayout.setVisibility(View.VISIBLE);
+        } else {
+            picLinearLayout.setVisibility(View.INVISIBLE);
+        }
+
+        GridView gridView = (GridView) layoutList.findViewById(R.id.pictures);
+        layout.addView(layoutList);
+
+        gridView.setAdapter(adapter);
+        titleView.setText(title);
+        gridView.setOnItemClickListener(new OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+                                    long arg3) {
+                List<BaseEquipment> listEquipment = new ArrayList<BaseEquipment>();
+                int size = wenJianXXList.size();
+//				String imgPath = ConfigHelper.getImagePath();
+//				File dir = new File(imgPath, cH);
+                File dir = new File(imageFolder, cH);
+                for (int i = size - 1; i >= 0; i--) {
+                    String path = dir.getPath() + "/"
+                            + wenJianXXList.get(i).getWenjianmc();
+                    Picture picture = new Picture(wenJianXXList.get(i)
+                            .getWenjianmc(), path, i, null);
+                    listEquipment.add(picture);
+                }
+                SystemEquipmentUtil.openImage(_context, null, listEquipment,
+                        arg2);
+            }
+        });
+        gridView.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+            @Override
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+                                           final int arg2, long arg3) {
+                new ConfirmDialog(_context, ConfirmDialog.BUTTON_OK_CANCEL,
+                        R.string.title_question, R.string.main_question_image,
+                        new ConfirmDialog.OnConfirmListener() {
+                            @Override
+                            public void onResult(int result) {
+                                if (result == ConfirmDialog.OnConfirmListener.RESULT_OK) {
+                                    iBInvoke.after(arg2);
+                                }
+                            }
+                        }).show();
+                return true;
+            }
+        });
+
+        _popupWindow = new PopupWindow(_context);
+        _popupWindow.setBackgroundDrawable(null);
+        _popupWindow.setWidth(width);
+        _popupWindow.setHeight(height);
+        _popupWindow.setOutsideTouchable(true);
+        _popupWindow.setFocusable(true);
+        _popupWindow.setContentView(view);
+        _popupWindow.setAnimationStyle(R.style.PopupAnimationTitleBarBottom);
+        // 物理返回键事件
+        _popupWindow.setBackgroundDrawable(new BitmapDrawable());
+        this.showAtLocation(v, atLocation);
+
+        // 半透明背景
+        _lp = _window.getAttributes();
+        _lp.alpha = 1f;
+        _window.setAttributes(_lp);
+
+        view.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                _popupWindow.dismiss();
+            }
+        });
+
+        _popupWindow.setOnDismissListener(new OnDismissListener() {
+
+            @Override
+            public void onDismiss() {
+                _lp.alpha = 1f;
+                _window.setAttributes(_lp);
+            }
+        });
+
+        return _popupWindow;
+    }
+
 }

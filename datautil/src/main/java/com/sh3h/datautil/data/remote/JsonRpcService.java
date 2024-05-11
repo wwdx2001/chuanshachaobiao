@@ -323,6 +323,115 @@ public class JsonRpcService {
         });
     }
 
+    public Observable<DUMedia> uploadMedia2(final DUMedia duMedia) {
+        return Observable.create(new Observable.OnSubscribe<DUMedia>() {
+            @Override
+            public void call(Subscriber<? super DUMedia> subscriber) {
+                if (subscriber.isUnsubscribed()) {
+                    return;
+                }
+                try {
+                    if (duMedia == null) {
+                        throw new NullPointerException("duMedia is null");
+                    } else if ((duMedia.getAccount() == null)
+                            || (duMedia.getCh() == null)
+                            || (duMedia.getCid() == null)
+                            || (duMedia.getWenjianlj() == null)
+                            || (duMedia.getWenjianmc() == null)) {
+                        throw new NullPointerException("parameter is null");
+                    }
+
+                    //TODO LIBAO 修改
+                    if (TextUtil.isNullOrEmpty(duMedia.getUrl())
+                            || TextUtil.isNullOrEmpty(duMedia.getFileHash())) {
+                        File file = new File(duMedia.getWenjianlj());
+
+                        if (file.exists()) {
+
+                            String ch = "GZD";
+                            int chaobiaoid = duMedia.getChaobiaoid();
+                            String cid = duMedia.getCid();
+                            String filePath = duMedia.getWenjianlj(); //
+                            String fileName = duMedia.getWenjianmc(); //
+                            FileInputStream fis = new FileInputStream(filePath);
+                            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                            byte[] buffer = new byte[1024];
+                            int count = 0;
+                            while ((count = fis.read(buffer)) >= 0) {
+                                outputStream.write(buffer, 0, count);
+                            }
+                            fis.close();
+
+                            SynchronousTaskApiService synchronousTaskApiService = new SynchronousTaskApiService();
+                            boolean ret = synchronousTaskApiService.upLoadFileToServer(fileName,
+                                    ch, chaobiaoid, cid, outputStream.toByteArray());
+                            if (ret) {
+                                duMedia.setShangchuanbz(DUMedia.SHANGCHUANBZ_YISHANGC);
+                            } else {
+                                duMedia.setShangchuanbz(DUMedia.SHANGCHUANBZ_WEISHANGC);
+                            }
+                        } else {
+                            //TODO LIBAO 需要再研究
+//                            String ch = duMedia.getCh();
+//                            int chaobiaoid = duMedia.getChaobiaoid();
+//                            String cid = duMedia.getCid();
+//                            String fileName = duMedia.getWenjianmc(); //
+////                            Bitmap bitmap =getBitmap(R.drawable.bg_white);
+//                            Bitmap bitmap = BitmapFactory.decodeResource(Resources.getSystem(),R.drawable.bg_white);
+//                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//                            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+//                            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+//                            outputStream.write(baos.toByteArray());
+//                            baos.close();
+//                            SynchronousTaskApiService synchronousTaskApiService = new SynchronousTaskApiService();
+//                            boolean ret = synchronousTaskApiService.upLoadFileToServer(fileName,
+//                                    ch, chaobiaoid, cid, outputStream.toByteArray());
+//                            if (ret) {
+//                                duMedia.setShangchuanbz(DUMedia.SHANGCHUANBZ_YISHANGC);
+//                            } else {
+//                                duMedia.setShangchuanbz(DUMedia.SHANGCHUANBZ_WEISHANGC);
+//                            }
+                            duMedia.setShangchuanbz(DUMedia.SHANGCHUANBZ_YISHANGC);
+                        }
+                    } else {
+                        duMedia.setShangchuanbz(DUMedia.SHANGCHUANBZ_WEISHANGC);
+                    }
+
+                    /**
+                     String ch = duMedia.getCh();
+                     int chaobiaoid = duMedia.getChaobiaoid();
+                     String cid = duMedia.getCid();
+                     String filePath = duMedia.getWenjianlj(); //
+                     String fileName = duMedia.getWenjianmc(); //
+                     FileInputStream fis = new FileInputStream(filePath);
+                     ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                     byte[] buffer = new byte[1024];
+                     int count = 0;
+                     while ((count = fis.read(buffer)) >= 0) {
+                     outputStream.write(buffer, 0, count);
+                     }
+                     fis.close();
+
+                     SynchronousTaskApiService synchronousTaskApiService = new SynchronousTaskApiService();
+                     boolean ret = synchronousTaskApiService.upLoadFileToServer(fileName,
+                     ch, chaobiaoid, cid, outputStream.toByteArray());
+                     if (ret) {
+                     duMedia.setShangchuanbz(DUMedia.SHANGCHUANBZ_YISHANGC);
+                     } else {
+                     duMedia.setShangchuanbz(DUMedia.SHANGCHUANBZ_WEISHANGC);
+                     }
+                     */
+                    subscriber.onNext(duMedia);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    subscriber.onError(new Throwable(e.getMessage()));
+                } finally {
+                    subscriber.onCompleted();
+                }
+            }
+        });
+    }
+
     /**
      * get task ids
      *

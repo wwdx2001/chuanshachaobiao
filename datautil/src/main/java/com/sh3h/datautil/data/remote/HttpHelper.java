@@ -152,6 +152,21 @@ public class HttpHelper {
         }
     }
 
+    public Observable<DUMedia> uploadMedia2(DUMedia duMedia) {
+        connect();
+
+        if (isRestfulApi) {
+            return null;
+        } else {
+            if (httpService != null) {
+                return uploadImage(duMedia);
+            } else {
+                //走这里
+                return jsonRpcService.uploadMedia2(duMedia);
+            }
+        }
+    }
+
     public Observable<RenWuXXEntity> getTaskIds(DUTaskIdInfo duTaskIdInfo) {
         connect();
 

@@ -18,7 +18,7 @@
         android:layout_marginStart="@dimen/dp_10"
         android:text="站点：xxx"
         android:textColor="@color/black"
-        android:textSize="@dimen/sp_13"
+        android:textSize="@dimen/sp_15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
         tools:ignore="MissingConstraints" />
@@ -31,7 +31,7 @@
         android:layout_marginTop="@dimen/dp_4"
         android:text="册本：15512345678"
         android:textColor="@color/black"
-        android:textSize="@dimen/sp_13"
+        android:textSize="@dimen/sp_15"
         app:layout_constraintStart_toStartOf="@+id/item_usage_change_search_list_zd_tv"
         app:layout_constraintTop_toBottomOf="@+id/item_usage_change_search_list_zd_tv"
         tools:ignore="MissingConstraints" />
@@ -43,7 +43,7 @@
         android:layout_marginTop="@dimen/dp_4"
         android:text="用户号：2023-01-01"
         android:textColor="@color/black"
-        android:textSize="@dimen/sp_13"
+        android:textSize="@dimen/sp_15"
         app:layout_constraintStart_toStartOf="@+id/item_usage_change_search_list_zd_tv"
         app:layout_constraintTop_toBottomOf="@+id/item_usage_change_search_list_cb_tv"
         tools:ignore="MissingConstraints" />
@@ -56,7 +56,7 @@
         android:paddingBottom="@dimen/dp_8"
         android:text="地址：纪念路8号"
         android:textColor="@color/black"
-        android:textSize="@dimen/sp_13"
+        android:textSize="@dimen/sp_15"
         app:layout_constraintStart_toStartOf="@+id/item_usage_change_search_list_zd_tv"
         app:layout_constraintTop_toBottomOf="@+id/item_usage_change_search_list_yhh_tv"
         tools:ignore="MissingConstraints" />

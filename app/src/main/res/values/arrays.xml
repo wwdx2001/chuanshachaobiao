@@ -17,6 +17,7 @@
         <item>1019</item>
         <item>1020</item>
         <item>1021</item>
+        <item>1022</item>
         <item>1005</item>
         <item>1007</item>
     </integer-array>
@@ -38,6 +39,7 @@
         <item>@mipmap/ic_home_collection_task</item>
         <item>@mipmap/ic_home_collection_register</item>
         <item>@mipmap/ic_home_usage_change</item>
+        <item>@mipmap/ic_home_external_work</item>
         <item>@mipmap/ic_home_map</item>
         <item>@mipmap/ic_home_setting</item>
     </integer-array>
@@ -59,6 +61,7 @@
         <item>催缴任务</item>
         <item>人工登记催缴单</item>
         <item>用户具名制/用水性质变更</item>
+        <item>账单送达</item>
         <item>地图</item>
         <item>设置</item>
     </string-array>

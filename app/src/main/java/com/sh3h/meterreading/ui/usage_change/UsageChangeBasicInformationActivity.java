@@ -171,9 +171,15 @@ public class UsageChangeBasicInformationActivity extends ParentActivity implemen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.user_apply_btn:
+                Intent intent = new Intent(this, RealNameDetailActivity.class);
+                intent.putExtra(Const.S_CID, mDUCard.getCid());
+                startActivity(intent);
                 break;
 
             case R.id.usage_change_apply_btn:
+                Intent intent1 = new Intent(this, UsageChangeUploadActivity.class);
+                intent1.putExtra(Const.S_CID, mDUCard.getCid());
+                startActivity(intent1);
                 break;
         }
     }

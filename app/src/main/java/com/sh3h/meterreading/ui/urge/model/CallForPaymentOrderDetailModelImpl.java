@@ -31,7 +31,6 @@ import com.zhouyou.http.subsciber.BaseSubscriber;
 
 import java.io.File;
 import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -82,8 +81,7 @@ public class CallForPaymentOrderDetailModelImpl implements CallForPaymentOrderDe
                             Type type = new TypeToken<ArrayList<CuijiaoEntity>>() {
                             }.getType();
                             ArrayList<CuijiaoEntity> data = gson.fromJson(gson.toJson(resultBean.getData()), type);
-                            listener.getData(data.get(0));
-                            saveData(data.get(0), renwuid, s_cid);
+                            saveData(data.get(0), renwuid, s_cid, listener);
                         } else {
                             listener.onFail(resultBean.getMsgInfo());
                         }
@@ -107,33 +105,29 @@ public class CallForPaymentOrderDetailModelImpl implements CallForPaymentOrderDe
 
   }
 
-  public static CuijiaoEntity mergeObject(CuijiaoEntity sourceEntity, CuijiaoEntity targetEntity) throws Exception {
+  public static CuijiaoEntity mergeObject(CuijiaoEntity sourceEntity, CuijiaoEntity sourceEntity2) throws Exception {
 
     Class user1Class = sourceEntity.getClass();
-    Class user2Class = targetEntity.getClass();
+    CuijiaoEntity targetEntity = new CuijiaoEntity();
 
-    Field[] user1Fields = user1Class.getDeclaredFields();
-    Field[] user2Fields = user2Class.getDeclaredFields();
-    for (int i = 0; i < user1Fields.length; i++) {
-      Field sourceField = user1Fields[i];
-      if (Modifier.isStatic(sourceField.getModifiers())) {
-        continue;
-      }
-      Field targetField = user2Fields[i];
-      if (Modifier.isStatic(targetField.getModifiers())) {
-        continue;
-      }
-      sourceField.setAccessible(true);
-      targetField.setAccessible(true);
+    Field[] fields = user1Class.getDeclaredFields();
 
-      if (sourceField.get(sourceEntity) != null) {
-        targetField.set(targetEntity, sourceField.get(sourceEntity));
-      }
+    for (Field field : fields) {
+        field.setAccessible(true);
+        Object o1 = field.get(sourceEntity);
+        Object o2 = field.get(sourceEntity2);
+
+        if (o1 != null) {
+            field.set(targetEntity, o1);
+        } else if (o2 != null) {
+            field.set(targetEntity, o2);
+        }
     }
+
     return targetEntity;
   }
 
-  private void saveData(CuijiaoEntity data, String renwuid, String s_cid){
+  private void saveData(CuijiaoEntity data, String renwuid, String s_cid, OnOrderDetailListener listener){
     data.setId((long) (s_cid + renwuid).hashCode());
     data.setS_CID(s_cid);
     data.setIsDetailMessage(true);
@@ -142,8 +136,9 @@ public class CallForPaymentOrderDetailModelImpl implements CallForPaymentOrderDe
       .queryBuilder().where(CuijiaoEntityDao.Properties.S_RENWUID.eq(renwuid)).list();
 
     try {
-      CuijiaoEntity cuijiaoEntity = mergeObject(data, list.get(0));
-      GreenDaoUtils.getInstance().getDaoSession(MainApplication.getInstance()).getCuijiaoEntityDao()
+        CuijiaoEntity cuijiaoEntity = mergeObject(data, list.get(0));
+        listener.getData(cuijiaoEntity);
+        GreenDaoUtils.getInstance().getDaoSession(MainApplication.getInstance()).getCuijiaoEntityDao()
         .insertOrReplaceInTx(cuijiaoEntity);
     } catch (Exception e) {
       e.printStackTrace();
@@ -251,6 +246,7 @@ public class CallForPaymentOrderDetailModelImpl implements CallForPaymentOrderDe
                 .subscribe(new BaseSubscriber<String>() {
                     @Override
                     public void onError(com.zhouyou.http.exception.ApiException e) {
+                        e.getCause().printStackTrace();
                         //失败回调
                         LogUtils.e("----------getNBModuleDZWFGDInfo：" + e.getCode() + "---"
                                 + e.getMessage());

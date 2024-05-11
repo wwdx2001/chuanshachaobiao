@@ -19,7 +19,7 @@ import de.greenrobot.dao.identityscope.IdentityScopeType;
  * Master of DAO (schema version 1): knows all DAOs.
  */
 public class DaoMaster extends AbstractDaoMaster {
-    public static final int SCHEMA_VERSION = 3;
+    public static final int SCHEMA_VERSION = 4;
 
     private static SQLiteDatabase db = null;
 
@@ -228,7 +228,7 @@ public class DaoMaster extends AbstractDaoMaster {
         switch (newVersion) {
             case 3:
                 try {
-                    String sql1 = "alter table ZW_QianFeiXX add N_SHUIFEI REAL NOT NULL  default 0";
+                    String sql1 = "alter table ZW_QianFeiXX add N_SHUIFEI REAL NOT NULL default 0";
                     String sql2 = "alter table ZW_QianFeiXX add N_PAISHUIF REAL NOT NULL default 0";
                     db.execSQL(sql1);
                     db.execSQL(sql2);

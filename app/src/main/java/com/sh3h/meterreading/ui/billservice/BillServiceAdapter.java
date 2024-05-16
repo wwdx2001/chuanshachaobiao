@@ -76,8 +76,8 @@ public class BillServiceAdapter extends RecyclerView.Adapter<BillServiceAdapter.
         DUBillServiceInfoResultBean duBillServiceInfo = billServiceInfos.get(position);
         holder.tvCH.setText(duBillServiceInfo.getS_ZHUMA());
         holder.tvAccountTime.setText(String.valueOf(duBillServiceInfo.getI_ZHANGWUNY()));
-        holder.tvPaiFaSJ.setText(TimeUtils.millis2String(duBillServiceInfo.getD_PAIFASJ()));
-        holder.tvXiaZaiSJ.setText(TimeUtils.millis2String(duBillServiceInfo.getD_xiazaisj()));
+        holder.tvPaiFaSJ.setText(TimeUtils.millis2String(duBillServiceInfo.getD_PAIFASJ(), "yyyy-MM-dd HH:mm"));
+        holder.tvXiaZaiSJ.setText(TimeUtils.millis2String(duBillServiceInfo.getD_xiazaisj(), "yyyy-MM-dd HH:mm"));
         if ("2".equals(duBillServiceInfo.getI_RENWUZT() + "")) {
             holder.btnTakePhoto.setText("已完成");
             holder.btnTakePhoto.setOnClickListener(null);

@@ -17,6 +17,8 @@ public class UsageChangeUploadWholeEntity implements Parcelable {
     private String remarks;
     private String images1;
     private boolean isCommit;
+    private Integer jhPosition;
+    private Integer ssdmPosition;
 
     protected UsageChangeUploadWholeEntity(Parcel in) {
         ID = in.readLong();
@@ -28,9 +30,9 @@ public class UsageChangeUploadWholeEntity implements Parcelable {
         isCommit = in.readByte() != 0;
     }
 
-    @Generated(hash = 789756243)
+    @Generated(hash = 679903420)
     public UsageChangeUploadWholeEntity(long ID, String S_CID, String jh, String ssdm, String remarks, String images1,
-            boolean isCommit) {
+            boolean isCommit, Integer jhPosition, Integer ssdmPosition) {
         this.ID = ID;
         this.S_CID = S_CID;
         this.jh = jh;
@@ -38,6 +40,8 @@ public class UsageChangeUploadWholeEntity implements Parcelable {
         this.remarks = remarks;
         this.images1 = images1;
         this.isCommit = isCommit;
+        this.jhPosition = jhPosition;
+        this.ssdmPosition = ssdmPosition;
     }
 
     @Generated(hash = 265240695)
@@ -114,6 +118,22 @@ public class UsageChangeUploadWholeEntity implements Parcelable {
 
     public void setIsCommit(boolean isCommit) {
         this.isCommit = isCommit;
+    }
+
+    public Integer getJhPosition() {
+        return this.jhPosition;
+    }
+
+    public void setJhPosition(Integer jhPosition) {
+        this.jhPosition = jhPosition;
+    }
+
+    public Integer getSsdmPosition() {
+        return this.ssdmPosition;
+    }
+
+    public void setSsdmPosition(Integer ssdmPosition) {
+        this.ssdmPosition = ssdmPosition;
     }
 
     public static final Creator<UsageChangeUploadWholeEntity> CREATOR = new Creator<UsageChangeUploadWholeEntity>() {

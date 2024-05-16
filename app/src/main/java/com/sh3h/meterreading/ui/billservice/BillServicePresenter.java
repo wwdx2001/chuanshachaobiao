@@ -16,7 +16,6 @@ import android.widget.ImageView;
 
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.LogUtils;
-import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.dataprovider3.entity.DUBillServiceInfo;
 import com.example.dataprovider3.entity.DUBillServiceInfoResultBean;
@@ -36,7 +35,6 @@ import com.sh3h.datautil.data.local.preference.UserSession;
 import com.sh3h.meterreading.MainApplication;
 import com.sh3h.meterreading.ui.base.ParentPresenter;
 import com.sh3h.meterreading.util.ApplicationsUtil;
-import com.sh3h.meterreading.util.Const;
 import com.sh3h.meterreading.util.SystemEquipmentUtil;
 import com.sh3h.mobileutil.util.LogUtil;
 import com.sh3h.mobileutil.util.TextUtil;
@@ -133,11 +131,11 @@ public class BillServicePresenter extends ParentPresenter<BillServiceMvpView> {
 
     private void getEasyHttpBillServiceBH(final boolean isRefresh) {
         LogUtils.e("http", "baseUrl==" + EasyHttp.getBaseUrl());
-        String json = "{\"id\": \"1\",\n"
+        String json = "{\"id\": \"15\",\n"
                 + "\"method\": \"getGAOZHIRWByChaoBiaoY\",\n"
                 + "\"params\": \n"
                 + "{ \n"
-                + "\t\"Account\" : " + "\"" + SPUtils.getInstance().getString(Const.S_YUANGONGH, "0018") + "\"" + " \n"
+                + "\t\"Account\" : " + "\"" + userSession.getAccount() + "\"" + " \n"
                 + "}\n"
                 + "}";
         EasyHttp.post("Business.ashx")
@@ -188,10 +186,10 @@ public class BillServicePresenter extends ParentPresenter<BillServiceMvpView> {
         List<io.reactivex.Observable<String>> observableList = new ArrayList<>();
         for (int i = 0; i < split.length; i++) {
             String json = "{\"id\": \"2\",\n"
-                    + "\"method\": \"DownLoadGAOZHIRW\",\n"
+                    + "\"method\": \"PDA_DownLoadGAOZHIRW\",\n"
                     + "\"params\": \n"
                     + "{ \n"
-                    + "\t\"I_renwubh\" : " + "\"" + split[i] + "\"" + " \n"
+                    + "\t\"renwubh\" : " + "\"" + split[i] + "\"" + " \n"
                     + "}\n"
                     + "}";
             io.reactivex.Observable<String> observable =
@@ -310,8 +308,9 @@ public class BillServicePresenter extends ParentPresenter<BillServiceMvpView> {
         }
         for (int i = 0; i < size; i++) {
             DUBillServiceInfoResultBean resultBean = mListData.get(i);
-            List<DuoMeiTXX> duoMeiTXXList = DBManager.getInstance().getNotUploadedZDSDDuoMeiTXXList(userSession.getAccount(),
-                    resultBean.getI_RENWUBH(), resultBean.getS_ZHUMA());
+            List<DuoMeiTXX> duoMeiTXXList = DBManager.getInstance().getNotUploadedZDSDDuoMeiTXXList(
+                    userSession.getAccount(),
+                    resultBean.getID(), resultBean.getS_ZHUMA());
             Log.e("账单送达", "duoMeiTXXList=" + duoMeiTXXList);
             if (duoMeiTXXList != null && duoMeiTXXList.size() > 0
                     && !"2".equals(resultBean.getI_RENWUZT())) { // 状态不是已上传且有照片且文件类型是账单送达
@@ -402,10 +401,10 @@ public class BillServicePresenter extends ParentPresenter<BillServiceMvpView> {
                 .filter(new Func1<List<DUMedia>, Boolean>() {
                     @Override
                     public Boolean call(List<DUMedia> duMediaList) {
-                        isUploadMoreMediaFinished = duMediaList.size() <= 0;
+                        isUploadMoreMediaFinished = duMediaList.size() > 0;
                         LogUtil.i(TAG, "---duMediaList.size()---" + duMediaList.size());
                         LogUtil.i(TAG, "---isUploadMoreMediaFinished---" + currentPosition + isUploadMoreMediaFinished);
-                        return !isUploadMoreMediaFinished;
+                        return isUploadMoreMediaFinished;
                     }
                 })
                 .concatMap(new Func1<List<DUMedia>, Observable<DUMediaResult>>() {
@@ -459,10 +458,10 @@ public class BillServicePresenter extends ParentPresenter<BillServiceMvpView> {
         }
         final DUBillServiceInfoResultBean resultBean = mListData.get(currentPosition);
         String json = "{\"id\": \"1\",\n" +
-                "\"method\": \"UPLOADGAOZHIRW\",\n" +
+                "\"method\": \"PDA_UPLOADGAOZHIRW\",\n" +
                 "\"params\": \n" +
                 "{ \n" +
-                "\t\"I_renwubh\" : " + "\"" + resultBean.getI_RENWUBH() + "\"" + " \n " +
+                "\t\"renwubh\" : " + "\"" + resultBean.getI_RENWUBH() + "\"" + " \n " +
                 "}\n" +
                 "}";
         final int[] currentPositions = new int[]{currentPosition};
@@ -527,8 +526,7 @@ public class BillServicePresenter extends ParentPresenter<BillServiceMvpView> {
 
 //        UserSession userSession = mPreferencesHelper.getUserSession();
         DUMedia duMedia = new DUMedia(
-//                userSession.getAccount(),
-                SPUtils.getInstance().getString(Const.S_YUANGONGH, ""),
+                userSession.getAccount(),
                 taskId,
                 volume,
                 customerId);

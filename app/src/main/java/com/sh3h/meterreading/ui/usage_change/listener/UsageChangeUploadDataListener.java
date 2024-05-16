@@ -13,5 +13,5 @@ public interface UsageChangeUploadDataListener extends OnBaseDataListener {
     void getSaveDataListener(UsageChangeUploadWholeEntity entity);
     void getJianHaoList(List<JianHao> list);
     void uploadSuccess(String s);
-
+    void getResult(String msgInfo);
 }

@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.example.dataprovider3.entity.RealNameWholeEntity;
 import com.sh3h.meterreading.R;
 import com.sh3h.meterreading.ui.InspectionInput.lr.MyFragmentPagerAdapter;
@@ -16,6 +17,7 @@ import com.sh3h.meterreading.ui.usage_change.fragment.RealNameInfoFragment;
 import com.sh3h.meterreading.ui.usage_change.fragment.RealNameMediaFragment;
 import com.sh3h.meterreading.ui.usage_change.presenter.RealNameDetailPresenterImpl;
 import com.sh3h.meterreading.util.Const;
+import com.sh3h.mobileutil.util.TextUtil;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -39,7 +41,7 @@ public class RealNameDetailActivity extends ParentActivity implements RealNameDe
     private RealNameInfoFragment realNameInfoFragment;
     private RealNameMediaFragment realNameMediaFragment;
     private RealNameDetailPresenterImpl mPresenter;
-    private Bundle bundle;
+    private Bundle mBundle;
 
     private String mS_cid;
 
@@ -53,17 +55,16 @@ public class RealNameDetailActivity extends ParentActivity implements RealNameDe
     public void initView1() {
         ButterKnife.bind(this);
         getActivityComponent().inject(this);
-//        initToolBar();
+        setActionBarBackButtonEnable();
 
         mFragmentList = new ArrayList<>();
         realNameInfoFragment = new RealNameInfoFragment();
         realNameMediaFragment = new RealNameMediaFragment();
-        bindFragment();
     }
 
     private void bindFragment() {
-        realNameInfoFragment.setArguments(bundle);
-        realNameMediaFragment.setArguments(bundle);
+        realNameInfoFragment.setArguments(mBundle);
+        realNameMediaFragment.setArguments(mBundle);
         mFragmentList.add(realNameInfoFragment);
         mFragmentList.add(realNameMediaFragment);
         mPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList);
@@ -78,13 +79,15 @@ public class RealNameDetailActivity extends ParentActivity implements RealNameDe
         super.initData1();
         mPresenter = new RealNameDetailPresenterImpl(this);
 
-        mPresenter.getUserType("");
+        mBundle = new Bundle();
 
         Bundle bundle1 = getIntent().getExtras();
         if (bundle1 != null) {
             mS_cid = bundle1.getString(Const.S_CID);
             mPresenter.getSaveData(mS_cid);
+            mBundle.putString(Const.S_CID, mS_cid);
         }
+        mPresenter.getUserType("用户类型");
     }
 
 
@@ -132,18 +135,27 @@ public class RealNameDetailActivity extends ParentActivity implements RealNameDe
 
     @Override
     public void getUserType(List<String> strings) {
-        bundle = new Bundle();
-        bundle.putSerializable(Const.STRINGS, (Serializable) strings);
-    }
-
-    @Override
-    public void getSaveData(RealNameWholeEntity bean) {
-        bundle.putParcelable(Const.BEAN, bean);
+        mBundle.putSerializable(Const.STRINGS, (Serializable) strings);
         bindFragment();
     }
 
     @Override
+    public void getSaveData(RealNameWholeEntity bean) {
+        mBundle.putParcelable(Const.BEAN, bean);
+    }
+
+    @Override
     public void uploadSuccess(String s) {
+    }
+
+    @Override
+    public void result(String s) {
+        if (TextUtil.isNullOrEmpty(s)) {
+            ToastUtils.showLong(getResources().getString(R.string.text_upload_success));
+            finish();
+        } else {
+            ToastUtils.showLong(s);
+        }
     }
 
     @Override

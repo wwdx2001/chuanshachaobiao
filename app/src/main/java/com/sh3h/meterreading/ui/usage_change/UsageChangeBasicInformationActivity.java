@@ -16,6 +16,7 @@ import com.sh3h.meterreading.util.Const;
 import com.sh3h.mobileutil.util.TextUtil;
 import com.sh3h.mobileutil.view.TextViewLine;
 
+import java.io.Serializable;
 import java.util.List;
 
 import butterknife.BindView;
@@ -84,6 +85,7 @@ public class UsageChangeBasicInformationActivity extends ParentActivity implemen
     protected void initView1() {
         super.initView1();
         ButterKnife.bind(this);
+        setActionBarBackButtonEnable();
     }
 
 
@@ -179,6 +181,7 @@ public class UsageChangeBasicInformationActivity extends ParentActivity implemen
             case R.id.usage_change_apply_btn:
                 Intent intent1 = new Intent(this, UsageChangeUploadActivity.class);
                 intent1.putExtra(Const.S_CID, mDUCard.getCid());
+                intent1.putExtra(Const.LIST, (Serializable) mJianHaoMXList);
                 startActivity(intent1);
                 break;
         }

@@ -111,4 +111,69 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="34dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/lable_jieti"
+            android:textColor="@color/text_label"
+            android:textSize="@dimen/text_size_meduim" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/lable_feiyongmingcheng"
+            android:textColor="@color/text_label"
+            android:textSize="@dimen/text_size_meduim" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/chaobiaolr_label_jiage"
+            android:textColor="@color/text_label"
+            android:textSize="@dimen/text_size_meduim" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/label_kaishisl"
+            android:textColor="@color/text_label"
+            android:textSize="@dimen/text_size_meduim" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/label_jieshusl"
+            android:textColor="@color/text_label"
+            android:textSize="@dimen/text_size_meduim" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@color/background_clear"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="true"
+        android:listSelector="@android:color/transparent"
+        android:overScrollMode="never"
+        android:paddingLeft="@dimen/list_padding_horizontal"
+        android:paddingRight="@dimen/list_padding_horizontal" />
+
 </LinearLayout>

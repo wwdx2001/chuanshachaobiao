@@ -28,6 +28,7 @@ public interface UsageChangeUploadContract {
         void getCode(List<String> strings);
         void getSaveData(UsageChangeUploadWholeEntity entity);
         void uploadSuccess(String s);
+        void result(String s);
     }
 
 }

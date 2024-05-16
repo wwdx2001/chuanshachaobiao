@@ -49,6 +49,7 @@ public class Const {
     public static final String ORIGIN = "origin";
     public static final String BEAN = "bean";
     public static final String STRINGS = "strings";
+    public static final String LIST = "list";
     public static final String JIANHAOS = "jianhaos";
     public static final String JIANHAOMX = "JianHaoMX";
     public static final String HISTORY_BEAN = "historybean";

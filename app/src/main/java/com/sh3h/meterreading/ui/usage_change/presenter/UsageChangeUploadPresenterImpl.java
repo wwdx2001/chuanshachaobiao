@@ -29,7 +29,7 @@ public class UsageChangeUploadPresenterImpl extends BasePresenter<UsageChangeUpl
 
     @Override
     public void getCode(String type) {
-
+        model.getCode(type, this);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class UsageChangeUploadPresenterImpl extends BasePresenter<UsageChangeUpl
     public void getCode(List<XJXXWordBean> beans) {
         List<String> list = new ArrayList<>();
         for (XJXXWordBean bean : beans) {
-            list.add(bean.getMNAME());
+            list.add(bean.getMVALUE() + "-" + bean.getMNAME());
         }
         view.getCode(list);
     }
@@ -63,7 +63,7 @@ public class UsageChangeUploadPresenterImpl extends BasePresenter<UsageChangeUpl
     public void getJianHaoList(List<JianHao> list) {
         List<String> strings = new ArrayList<>();
         for (JianHao jianHao : list) {
-            strings.add(jianHao.getS_ZHONGLEI());
+            strings.add(jianHao.getS_JIANHAO() + "-" + jianHao.getS_ZHONGLEI());
         }
         view.getJianhaoList(strings);
     }
@@ -71,6 +71,11 @@ public class UsageChangeUploadPresenterImpl extends BasePresenter<UsageChangeUpl
     @Override
     public void uploadSuccess(String s) {
         view.uploadSuccess(s);
+    }
+
+    @Override
+    public void getResult(String msgInfo) {
+        view.result(msgInfo);
     }
 
     @Override

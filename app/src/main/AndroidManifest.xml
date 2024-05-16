@@ -284,7 +284,13 @@
             android:name=".ui.usage_change.UsageChangeSearchActivity"
             android:label="@string/call_for_pay_search"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".ui.urge.CallForPaymentTaskActivity"
             android:label="@string/call_for_pay_task_title"

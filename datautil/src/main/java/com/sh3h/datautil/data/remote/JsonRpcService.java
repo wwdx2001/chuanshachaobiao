@@ -348,7 +348,7 @@ public class JsonRpcService {
 
                         if (file.exists()) {
 
-                            String ch = "GZD";
+                            String ch = duMedia.getCh();
                             int chaobiaoid = duMedia.getChaobiaoid();
                             String cid = duMedia.getCid();
                             String filePath = duMedia.getWenjianlj(); //
@@ -3277,6 +3277,7 @@ public class JsonRpcService {
                                     biaoKaXXEntity.get_YearTotal(),
                                     biaoKaXXEntity.get_Extend()
                             );
+                            duCard.setI_DingESL(biaoKaXXEntity.getDingESL());
                             duCardList.add(duCard);
                         }
 

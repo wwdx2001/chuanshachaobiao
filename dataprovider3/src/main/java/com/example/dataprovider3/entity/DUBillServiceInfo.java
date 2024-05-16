@@ -45,113 +45,113 @@ public class DUBillServiceInfo {
          * s_BEIYONG3 :
          */
 
-        private int iD;
-        private int i_RENWUBH;
-        private int i_ZHANGWUNY;
-        private long d_PAIFASJ;
-        private long d_xiazaisj;
-        private String s_ZHUMA;
-        private String s_LEIXING;
-        private int i_RENWUZT;
-        private int d_WANCHENGSJ;
-        private String s_BEIYONG1;
-        private String s_BEIYONG2;
-        private String s_BEIYONG3;
+        private int ID;
+        private int I_RENWUBH;
+        private int I_ZHANGWUNY;
+        private long D_PAIFASJ;
+        private long D_XIAZAISJ;
+        private String S_ZHUMA;
+        private String S_LEIXING;
+        private int I_RENWUZT;
+        private int D_WANCHENGSJ;
+        private String S_BEIYONG1;
+        private String S_BEIYONG2;
+        private String S_BEIYONG3;
 
         public int getID() {
-            return iD;
+            return ID;
         }
 
         public void setID(int iD) {
-            this.iD = iD;
+            this.ID = iD;
         }
 
         public int getI_RENWUBH() {
-            return i_RENWUBH;
+            return I_RENWUBH;
         }
 
         public void setI_RENWUBH(int i_RENWUBH) {
-            this.i_RENWUBH = i_RENWUBH;
+            this.I_RENWUBH = i_RENWUBH;
         }
 
         public int getI_ZHANGWUNY() {
-            return i_ZHANGWUNY;
+            return I_ZHANGWUNY;
         }
 
         public void setI_ZHANGWUNY(int i_ZHANGWUNY) {
-            this.i_ZHANGWUNY = i_ZHANGWUNY;
+            this.I_ZHANGWUNY = i_ZHANGWUNY;
         }
 
         public long getD_PAIFASJ() {
-            return d_PAIFASJ;
+            return D_PAIFASJ;
         }
 
         public void setD_PAIFASJ(long d_PAIFASJ) {
-            this.d_PAIFASJ = d_PAIFASJ;
+            this.D_PAIFASJ = d_PAIFASJ;
         }
 
         public long getD_xiazaisj() {
-            return d_xiazaisj;
+            return D_XIAZAISJ;
         }
 
         public void setD_xiazaisj(long d_xiazaisj) {
-            this.d_xiazaisj = d_xiazaisj;
+            this.D_XIAZAISJ = d_xiazaisj;
         }
 
         public String getS_ZHUMA() {
-            return s_ZHUMA;
+            return S_ZHUMA;
         }
 
         public void setS_ZHUMA(String s_ZHUMA) {
-            this.s_ZHUMA = s_ZHUMA;
+            this.S_ZHUMA = s_ZHUMA;
         }
 
         public String getS_LEIXING() {
-            return s_LEIXING;
+            return S_LEIXING;
         }
 
         public void setS_LEIXING(String s_LEIXING) {
-            this.s_LEIXING = s_LEIXING;
+            this.S_LEIXING = s_LEIXING;
         }
 
         public int getI_RENWUZT() {
-            return i_RENWUZT;
+            return I_RENWUZT;
         }
 
         public void setI_RENWUZT(int i_RENWUZT) {
-            this.i_RENWUZT = i_RENWUZT;
+            this.I_RENWUZT = i_RENWUZT;
         }
 
         public int getD_WANCHENGSJ() {
-            return d_WANCHENGSJ;
+            return D_WANCHENGSJ;
         }
 
         public void setD_WANCHENGSJ(int d_WANCHENGSJ) {
-            this.d_WANCHENGSJ = d_WANCHENGSJ;
+            this.D_WANCHENGSJ = d_WANCHENGSJ;
         }
 
         public String getS_BEIYONG1() {
-            return s_BEIYONG1;
+            return S_BEIYONG1;
         }
 
         public void setS_BEIYONG1(String s_BEIYONG1) {
-            this.s_BEIYONG1 = s_BEIYONG1;
+            this.S_BEIYONG1 = s_BEIYONG1;
         }
 
         public String getS_BEIYONG2() {
-            return s_BEIYONG2;
+            return S_BEIYONG2;
         }
 
         public void setS_BEIYONG2(String s_BEIYONG2) {
-            this.s_BEIYONG2 = s_BEIYONG2;
+            this.S_BEIYONG2 = s_BEIYONG2;
         }
 
         public String getS_BEIYONG3() {
-            return s_BEIYONG3;
+            return S_BEIYONG3;
         }
 
         public void setS_BEIYONG3(String s_BEIYONG3) {
-            this.s_BEIYONG3 = s_BEIYONG3;
+            this.S_BEIYONG3 = s_BEIYONG3;
         }
     }
 }

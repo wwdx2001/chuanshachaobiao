@@ -6,7 +6,9 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.example.dataprovider3.entity.UsageChangeUploadWholeEntity;
+import com.sh3h.dataprovider.entity.JianHaoMX;
 import com.sh3h.meterreading.R;
 import com.sh3h.meterreading.ui.InspectionInput.lr.MyFragmentPagerAdapter;
 import com.sh3h.meterreading.ui.base.ParentActivity;
@@ -16,6 +18,7 @@ import com.sh3h.meterreading.ui.usage_change.fragment.UsageChangeInfoFragment;
 import com.sh3h.meterreading.ui.usage_change.fragment.UsageChangeMediaFragment;
 import com.sh3h.meterreading.ui.usage_change.presenter.UsageChangeUploadPresenterImpl;
 import com.sh3h.meterreading.util.Const;
+import com.sh3h.mobileutil.util.TextUtil;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -39,7 +42,7 @@ public class UsageChangeUploadActivity extends ParentActivity implements UsageCh
     private UsageChangeInfoFragment usageChangeInfoFragment;
     private UsageChangeMediaFragment usageChangeMediaFragment;
     private UsageChangeUploadPresenterImpl mPresenter;
-    private Bundle bundle;
+    private Bundle mBundle;
 
     private String mS_cid;
 
@@ -53,17 +56,16 @@ public class UsageChangeUploadActivity extends ParentActivity implements UsageCh
     public void initView1() {
         ButterKnife.bind(this);
         getActivityComponent().inject(this);
-//        initToolBar();
+        setActionBarBackButtonEnable();
 
         mFragmentList = new ArrayList<>();
         usageChangeInfoFragment = new UsageChangeInfoFragment();
         usageChangeMediaFragment = new UsageChangeMediaFragment();
-        bindFragment();
     }
 
     private void bindFragment() {
-        usageChangeInfoFragment.setArguments(bundle);
-        usageChangeMediaFragment.setArguments(bundle);
+        usageChangeInfoFragment.setArguments(mBundle);
+        usageChangeMediaFragment.setArguments(mBundle);
         mFragmentList.add(usageChangeInfoFragment);
         mFragmentList.add(usageChangeMediaFragment);
         mPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList);
@@ -78,14 +80,18 @@ public class UsageChangeUploadActivity extends ParentActivity implements UsageCh
         super.initData1();
         mPresenter = new UsageChangeUploadPresenterImpl(this);
 
-        mPresenter.getJianhaoList();
-        mPresenter.getCode("");
+        mBundle = new Bundle();
 
         Bundle bundle1 = getIntent().getExtras();
         if (bundle1 != null) {
             mS_cid = bundle1.getString(Const.S_CID);
             mPresenter.getSaveData(mS_cid);
+            List<JianHaoMX> jianHaoMXList = (List<JianHaoMX>) bundle1.getSerializable(Const.LIST);
+            mBundle.putSerializable(Const.LIST, (Serializable) jianHaoMXList);
+            mBundle.putString(Const.S_CID, mS_cid);
         }
+        mPresenter.getJianhaoList();
+        mPresenter.getCode("涉水对象");
     }
 
 
@@ -127,6 +133,9 @@ public class UsageChangeUploadActivity extends ParentActivity implements UsageCh
         wholeEntity.setS_CID(mS_cid);
         wholeEntity.setID((mS_cid).hashCode());
         UsageChangeUploadWholeEntity newWholeEntity = usageChangeMediaFragment.getImagesInfo(wholeEntity);
+        if (newWholeEntity == null) {
+            return;
+        }
         mPresenter.saveOrUpload(isSave, newWholeEntity);
     }
 
@@ -135,24 +144,32 @@ public class UsageChangeUploadActivity extends ParentActivity implements UsageCh
 
     @Override
     public void getJianhaoList(List<String> list) {
-        bundle = new Bundle();
-        bundle.putSerializable(Const.JIANHAOS, (Serializable) list);
+        mBundle.putSerializable(Const.JIANHAOS, (Serializable) list);
     }
 
     @Override
     public void getCode(List<String> strings) {
-        bundle.putSerializable(Const.STRINGS, (Serializable) strings);
-    }
-
-    @Override
-    public void getSaveData(UsageChangeUploadWholeEntity entity) {
-
-        bundle.putParcelable(Const.BEAN, entity);
+        mBundle.putSerializable(Const.STRINGS, (Serializable) strings);
         bindFragment();
     }
 
     @Override
+    public void getSaveData(UsageChangeUploadWholeEntity entity) {
+        mBundle.putParcelable(Const.BEAN, entity);
+    }
+
+    @Override
     public void uploadSuccess(String s) {
+    }
+
+    @Override
+    public void result(String s) {
+        if (TextUtil.isNullOrEmpty(s)) {
+            ToastUtils.showLong(getResources().getString(R.string.text_upload_success));
+            finish();
+        } else {
+            ToastUtils.showLong(s);
+        }
     }
 
     @Override

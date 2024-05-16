@@ -309,7 +309,12 @@ public class ImagePicker {
         } else {
             if (nbPhoto) {
 //                filename = prefix + System.currentTimeMillis() + suffix;
-                filename = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) +"_"+ prefix + System.currentTimeMillis() + suffix;
+                if (!TextUtils.isEmpty(xiaoGenHao)) {
+                    filename = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + "_" + prefix + xiaoGenHao + suffix;
+
+                } else {
+                    filename = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) +"_"+ prefix + System.currentTimeMillis() + suffix;
+                }
             } else {
 //                filename = prefix + System.currentTimeMillis() + suffix;
               if (!TextUtils.isEmpty(xiaoGenHao)) {

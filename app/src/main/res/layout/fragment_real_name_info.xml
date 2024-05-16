@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:ems="6"
             android:gravity="right"
-            android:text="联系电话："
+            android:text="联系手机："
             android:textSize="@dimen/text_size_15" />
 
         <requestFocus />
@@ -110,6 +110,8 @@
             android:imeOptions="actionNone"
             android:paddingLeft="@dimen/padding_5"
             android:singleLine="true"
+            android:maxLength="11"
+            android:inputType="number"
             android:textSize="@dimen/text_size_15" />
 
 
@@ -123,6 +125,37 @@
             android:paddingBottom="@dimen/padding_5"
             android:text="*"
             android:textColor="@color/holo_red_dark" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp_10">
+
+        <TextView
+            style="@style/item_left_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:gravity="right"
+            android:text="联系电话："
+            android:textSize="@dimen/text_size_15" />
+
+        <requestFocus />
+
+        <EditText
+            android:id="@+id/real_name_phone_et"
+            style="@style/item_right_style"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_10"
+            android:layout_weight="1"
+            android:imeOptions="actionNone"
+            android:paddingLeft="@dimen/padding_5"
+            android:singleLine="true"
+            android:maxLength="11"
+            android:inputType="number"
+            android:textSize="@dimen/text_size_15" />
 
     </LinearLayout>
 

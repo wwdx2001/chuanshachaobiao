@@ -15,26 +15,30 @@ public class RealNameWholeEntity implements Parcelable {
     private String userType;
     private String contactPerson;
     private String phoneNum;
+    private String phone;
     private String email;
     private String remarks;
     private String images1;
     private String images2;
     private boolean isCommit;
+    private Integer userTypePosition;
 
-    @Generated(hash = 1278082708)
-    public RealNameWholeEntity(long ID, String S_CID, String userType,
-            String contactPerson, String phoneNum, String email, String remarks,
-            String images1, String images2, boolean isCommit) {
+    @Generated(hash = 355816370)
+    public RealNameWholeEntity(long ID, String S_CID, String userType, String contactPerson,
+            String phoneNum, String phone, String email, String remarks, String images1, String images2,
+            boolean isCommit, Integer userTypePosition) {
         this.ID = ID;
         this.S_CID = S_CID;
         this.userType = userType;
         this.contactPerson = contactPerson;
         this.phoneNum = phoneNum;
+        this.phone = phone;
         this.email = email;
         this.remarks = remarks;
         this.images1 = images1;
         this.images2 = images2;
         this.isCommit = isCommit;
+        this.userTypePosition = userTypePosition;
     }
 
     @Generated(hash = 1188013123)
@@ -163,5 +167,21 @@ public class RealNameWholeEntity implements Parcelable {
         parcel.writeString(images1);
         parcel.writeString(images2);
         parcel.writeByte((byte) (isCommit ? 1 : 0));
+    }
+
+    public Integer getUserTypePosition() {
+        return this.userTypePosition;
+    }
+
+    public void setUserTypePosition(Integer userTypePosition) {
+        this.userTypePosition = userTypePosition;
+    }
+
+    public String getPhone() {
+        return this.phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

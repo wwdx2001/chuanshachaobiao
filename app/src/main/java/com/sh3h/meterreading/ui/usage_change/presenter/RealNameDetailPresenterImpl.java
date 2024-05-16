@@ -40,7 +40,7 @@ public class RealNameDetailPresenterImpl extends BasePresenter<RealNameDetailCon
     public void getUserTypeListener(List<XJXXWordBean> beans) {
         List<String> list = new ArrayList<>();
         for (XJXXWordBean bean : beans) {
-            list.add(bean.getMNAME());
+            list.add(bean.getMVALUE() + "-" + bean.getMNAME());
         }
         view.getUserType(list);
     }
@@ -53,6 +53,11 @@ public class RealNameDetailPresenterImpl extends BasePresenter<RealNameDetailCon
     @Override
     public void uploadSuccess(String s) {
         view.uploadSuccess(s);
+    }
+
+    @Override
+    public void getResult(String msgInfo) {
+        view.result(msgInfo);
     }
 
     @Override

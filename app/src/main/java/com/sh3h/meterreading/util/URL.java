@@ -171,4 +171,14 @@ public class URL {
      */
     public static final String CreateCuiJiaoGD = "CreateCuiJiaoGD";
 
+    /**
+     * 具名制信息提交
+     */
+    public static final String StartWFJuMingZhi = "StartWFJuMingZhi";
+
+    /**
+     * 用水性质变更提交
+     */
+    public static final String StartWFYongShuiXingZhi = "StartWFYongShuiXingZhi";
+
 }

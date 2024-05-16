@@ -59,6 +59,7 @@ public class RealNameMediaFragment extends ParentFragment implements ImagePicker
     private boolean isCommit;
 
     private RealNameWholeEntity entity;
+    private String mS_cid;
 
 
     @Override
@@ -82,6 +83,7 @@ public class RealNameMediaFragment extends ParentFragment implements ImagePicker
         if (bundle != null) {
             isCommit = bundle.getBoolean(Const.IS_COMMIT);
             entity = getArguments().getParcelable(Const.BEAN);
+            mS_cid = getArguments().getString(Const.S_CID);
         }
     }
 
@@ -236,7 +238,7 @@ public class RealNameMediaFragment extends ParentFragment implements ImagePicker
                         cameraIntent.putExtra(ImageGridActivity.PHOTO_TYPE, strType);
                         cameraIntent.putExtra(ImageGridActivity.NB_PHOTO, true);
                         cameraIntent.putExtra(ImageGridActivity.CAMERA_TYPE, ImageGridActivity.CAMERA_TYPE_PHOTO);
-                        cameraIntent.putExtra(ImageGridActivity.REWUID, entity.getS_CID());
+                        cameraIntent.putExtra(ImageGridActivity.REWUID, mS_cid);
                         startActivityForResult(cameraIntent, type);
                     }
 

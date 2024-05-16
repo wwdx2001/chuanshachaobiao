@@ -59,6 +59,7 @@ public class UsageChangeMediaFragment extends ParentFragment implements ImagePic
     private boolean isCommit;
 
     private UsageChangeUploadWholeEntity entity;
+    private String mS_cid;
 
 
     @Override
@@ -82,6 +83,7 @@ public class UsageChangeMediaFragment extends ParentFragment implements ImagePic
         if (bundle != null) {
             isCommit = bundle.getBoolean(Const.IS_COMMIT);
             entity = getArguments().getParcelable(Const.BEAN);
+            mS_cid = getArguments().getString(Const.S_CID);
         }
     }
 
@@ -236,7 +238,7 @@ public class UsageChangeMediaFragment extends ParentFragment implements ImagePic
                         cameraIntent.putExtra(ImageGridActivity.PHOTO_TYPE, strType);
                         cameraIntent.putExtra(ImageGridActivity.NB_PHOTO, true);
                         cameraIntent.putExtra(ImageGridActivity.CAMERA_TYPE, ImageGridActivity.CAMERA_TYPE_PHOTO);
-                        cameraIntent.putExtra(ImageGridActivity.REWUID, entity.getS_CID());
+                        cameraIntent.putExtra(ImageGridActivity.REWUID, mS_cid);
                         startActivityForResult(cameraIntent, type);
                     }
 
@@ -248,6 +250,11 @@ public class UsageChangeMediaFragment extends ParentFragment implements ImagePic
     }
 
     public UsageChangeUploadWholeEntity getImagesInfo(UsageChangeUploadWholeEntity wholeEntity) {
+        if (mAdapter1.getImages().size() == 0) {
+            ToastUtils.showLong("请拍摄照片");
+            wholeEntity = null;
+            return null;
+        }
         String images1 = GsonUtils.getGson().toJson(mAdapter1.getImages());
         wholeEntity.setImages1(images1);
         return wholeEntity;

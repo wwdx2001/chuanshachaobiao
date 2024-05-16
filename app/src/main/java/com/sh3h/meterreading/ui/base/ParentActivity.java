@@ -93,7 +93,7 @@ public abstract class ParentActivity extends BaseActivity implements SwipeBackAc
     private boolean netWork;
     private String photoQuality;
     private boolean isFirst = true;
-    private boolean isSuccess;
+    private boolean isSuccess = false;
 
     protected CompositeSubscription mSubscription;
     @Inject
@@ -278,8 +278,8 @@ public abstract class ParentActivity extends BaseActivity implements SwipeBackAc
                 e.printStackTrace();
             }
         } else {
-            account = "0008";
-            userId = 8;
+            account = "0018";
+            userId = 18;
             userName = "高富帅";
             extendedInfo = "";
         }

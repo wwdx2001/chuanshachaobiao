@@ -23,7 +23,6 @@ import android.widget.AbsListView;
 import android.widget.ImageView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.blankj.utilcode.util.SPUtils;
 import com.example.dataprovider3.entity.DUBillServiceInfoResultBean;
 import com.gc.materialdesign.views.SmoothProgressBar;
 import com.sh3h.datautil.data.entity.DUMedia;
@@ -35,7 +34,6 @@ import com.sh3h.meterreading.event.UIBusEvent;
 import com.sh3h.meterreading.images.view.PopupWindowMenu;
 import com.sh3h.meterreading.ui.base.ParentActivity;
 import com.sh3h.meterreading.util.ApplicationsUtil;
-import com.sh3h.meterreading.util.Const;
 import com.sh3h.meterreading.util.ZhangwuNYUtils;
 import com.sh3h.mobileutil.util.LogUtil;
 import com.sh3h.mobileutil.util.TextUtil;
@@ -290,8 +288,8 @@ public class BillServiceActivity extends ParentActivity implements BillServiceMv
             duoMeiTXX.setShangchuanbz(DUMedia.SHANGCHUANBZ_WEISHANGC);
             duoMeiTXX.setCreaterq(MainApplication.get(this).getCurrentTime());
             duoMeiTXX.setWenjianlj(file.getAbsolutePath());
-//            duoMeiTXX.setAccount(mPreferencesHelper.getUserSession().getAccount());
-            duoMeiTXX.setAccount(SPUtils.getInstance().getString(Const.S_YUANGONGH, ""));
+            duoMeiTXX.setAccount(mPreferencesHelper.getUserSession().getAccount());
+//            duoMeiTXX.setAccount(SPUtils.getInstance().getString(Const.S_YUANGONGH, ""));
             MediaScannerConnection.scanFile(this,
                     new String[]{file.getAbsolutePath()}, null, null);
 

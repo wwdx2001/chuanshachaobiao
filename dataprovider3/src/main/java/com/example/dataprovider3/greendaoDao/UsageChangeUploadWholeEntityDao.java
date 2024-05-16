@@ -31,6 +31,8 @@ public class UsageChangeUploadWholeEntityDao extends AbstractDao<UsageChangeUplo
         public final static Property Remarks = new Property(4, String.class, "remarks", false, "REMARKS");
         public final static Property Images1 = new Property(5, String.class, "images1", false, "IMAGES1");
         public final static Property IsCommit = new Property(6, boolean.class, "isCommit", false, "IS_COMMIT");
+        public final static Property JhPosition = new Property(7, Integer.class, "jhPosition", false, "JH_POSITION");
+        public final static Property SsdmPosition = new Property(8, Integer.class, "ssdmPosition", false, "SSDM_POSITION");
     }
 
 
@@ -52,7 +54,9 @@ public class UsageChangeUploadWholeEntityDao extends AbstractDao<UsageChangeUplo
                 "\"SSDM\" TEXT," + // 3: ssdm
                 "\"REMARKS\" TEXT," + // 4: remarks
                 "\"IMAGES1\" TEXT," + // 5: images1
-                "\"IS_COMMIT\" INTEGER NOT NULL );"); // 6: isCommit
+                "\"IS_COMMIT\" INTEGER NOT NULL ," + // 6: isCommit
+                "\"JH_POSITION\" INTEGER," + // 7: jhPosition
+                "\"SSDM_POSITION\" INTEGER);"); // 8: ssdmPosition
     }
 
     /** Drops the underlying database table. */
@@ -91,6 +95,16 @@ public class UsageChangeUploadWholeEntityDao extends AbstractDao<UsageChangeUplo
             stmt.bindString(6, images1);
         }
         stmt.bindLong(7, entity.getIsCommit() ? 1L: 0L);
+ 
+        Integer jhPosition = entity.getJhPosition();
+        if (jhPosition != null) {
+            stmt.bindLong(8, jhPosition);
+        }
+ 
+        Integer ssdmPosition = entity.getSsdmPosition();
+        if (ssdmPosition != null) {
+            stmt.bindLong(9, ssdmPosition);
+        }
     }
 
     @Override
@@ -123,6 +137,16 @@ public class UsageChangeUploadWholeEntityDao extends AbstractDao<UsageChangeUplo
             stmt.bindString(6, images1);
         }
         stmt.bindLong(7, entity.getIsCommit() ? 1L: 0L);
+ 
+        Integer jhPosition = entity.getJhPosition();
+        if (jhPosition != null) {
+            stmt.bindLong(8, jhPosition);
+        }
+ 
+        Integer ssdmPosition = entity.getSsdmPosition();
+        if (ssdmPosition != null) {
+            stmt.bindLong(9, ssdmPosition);
+        }
     }
 
     @Override
@@ -139,7 +163,9 @@ public class UsageChangeUploadWholeEntityDao extends AbstractDao<UsageChangeUplo
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // ssdm
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // remarks
             cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // images1
-            cursor.getShort(offset + 6) != 0 // isCommit
+            cursor.getShort(offset + 6) != 0, // isCommit
+            cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7), // jhPosition
+            cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8) // ssdmPosition
         );
         return entity;
     }
@@ -153,6 +179,8 @@ public class UsageChangeUploadWholeEntityDao extends AbstractDao<UsageChangeUplo
         entity.setRemarks(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
         entity.setImages1(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
         entity.setIsCommit(cursor.getShort(offset + 6) != 0);
+        entity.setJhPosition(cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7));
+        entity.setSsdmPosition(cursor.isNull(offset + 8) ? null : cursor.getInt(offset + 8));
      }
     
     @Override

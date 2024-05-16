@@ -137,6 +137,16 @@ public class DUCard implements Serializable {
 
     }
 
+    public long getI_DingESL() {
+        return I_DingESL;
+    }
+
+    public void setI_DingESL(long i_DingESL) {
+        I_DingESL = i_DingESL;
+    }
+
+    private long I_DingESL;
+
     public String getCustomerType() {
         return customerType;
     }

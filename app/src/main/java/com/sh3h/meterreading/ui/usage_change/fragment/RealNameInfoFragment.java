@@ -28,7 +28,9 @@ public class RealNameInfoFragment extends ParentFragment {
     private EditText mRealNamePhoneNumEt;
     private EditText mRealNameEmailEt;
     private EditText mRealNameRemarksEt;
+    private EditText mRealNamePhoneEt;
 
+    private int mUserTypePosition;
 
     @Override
     protected int getLayoutId() {
@@ -43,6 +45,7 @@ public class RealNameInfoFragment extends ParentFragment {
         mRealNamePhoneNumEt = view.findViewById(R.id.real_name_phone_num_et);
         mRealNameEmailEt = view.findViewById(R.id.real_name_email_et);
         mRealNameRemarksEt = view.findViewById(R.id.real_name_Remarks_et);
+        mRealNamePhoneEt = view.findViewById(R.id.real_name_phone_et);
     }
 
     @Override
@@ -53,15 +56,30 @@ public class RealNameInfoFragment extends ParentFragment {
             List<String> strings = (List<String>) bundle.getSerializable(Const.STRINGS);
             RealNameWholeEntity entity = (RealNameWholeEntity) bundle.getParcelable(Const.BEAN);
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, strings);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            mRealNameUserTypeSpinner.setAdapter(adapter);
+            if (strings != null && strings.size() > 0) {
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, strings);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                mRealNameUserTypeSpinner.setAdapter(adapter);
+                mRealNameUserTypeSpinner.setSelection(entity != null ? entity.getUserTypePosition() : 0);
+            }
 
             mRealNameContactPersonEt.setText(entity != null ? entity.getContactPerson() : "");
             mRealNamePhoneNumEt.setText(entity != null ? entity.getPhoneNum() : "");
+            mRealNamePhoneEt.setText(entity != null ? entity.getPhone() : "");
             mRealNameEmailEt.setText(entity != null ? entity.getEmail() : "");
             mRealNameRemarksEt.setText(entity != null ? entity.getRemarks() : "");
         }
+    }
+
+    @Override
+    protected void initListener1() {
+        super.initListener1();
+        mRealNameUserTypeSpinner.setItemClick(new SelectSpinnerView.SpinnerItemClick() {
+            @Override
+            public void onSpinnerItemClick(int position) {
+                mUserTypePosition = position;
+            }
+        });
     }
 
     @Override
@@ -88,18 +106,21 @@ public class RealNameInfoFragment extends ParentFragment {
         String phoneNum = mRealNamePhoneNumEt.getText().toString();
 
         if (TextUtil.isNullOrEmpty(userType)
-                && TextUtil.isNullOrEmpty(contactPerson)
-                && TextUtil.isNullOrEmpty(phoneNum)) {
+                || TextUtil.isNullOrEmpty(contactPerson)
+                || TextUtil.isNullOrEmpty(phoneNum)) {
             ToastUtils.showLong("请填写必要信息");
             return null;
         }
         String email = mRealNameEmailEt.getText().toString();
         String remarks = mRealNameRemarksEt.getText().toString();
+        String phone = mRealNamePhoneEt.getText().toString();
 
         RealNameWholeEntity realNameWholeEntity = new RealNameWholeEntity();
-        realNameWholeEntity.setUserType(userType);
+        realNameWholeEntity.setUserTypePosition(mUserTypePosition);
+        realNameWholeEntity.setUserType(userType.split("-")[0]);
         realNameWholeEntity.setContactPerson(contactPerson);
         realNameWholeEntity.setPhoneNum(phoneNum);
+        realNameWholeEntity.setPhone(phone);
         realNameWholeEntity.setEmail(TextUtil.isNullOrEmpty(email) ? "" : email);
         realNameWholeEntity.setRemarks(TextUtil.isNullOrEmpty(remarks) ? "" : remarks);
 

@@ -25,6 +25,7 @@ public interface RealNameDetailContract {
         void getUserType(List<String> strings);
         void getSaveData(RealNameWholeEntity bean);
         void uploadSuccess(String s);
+        void result(String s);
     }
 
 }

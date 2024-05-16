@@ -53,6 +53,7 @@ public class UsageChangeSearchListActivity extends ParentActivity implements Usa
     @Override
     protected void initView1() {
         super.initView1();
+        setActionBarBackButtonEnable();
         mUsageChangeListRv = (RecyclerView) findViewById(R.id.usage_change_list_rv);
         mUsageChangeListRv.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         mUsageChangeListRv.addItemDecoration(new RecyclerSpacingItemDecoration(0, 6, 0, 0));
@@ -125,6 +126,10 @@ public class UsageChangeSearchListActivity extends ParentActivity implements Usa
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         mItemPosition = position;
         mDUCard = mDUCardList.get(position);
+        if (mDUCard.getI_DingESL() > 0) {
+            ToastUtils.showLong("当前表卡正在其他流程中，不能进行操作");
+            return;
+        }
         mBasicPresenter.getianHaoMX(mDUCard.getJianhao());
     }
 

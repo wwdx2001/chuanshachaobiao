@@ -11,5 +11,5 @@ public interface RealNameDetailDataListener extends OnBaseDataListener {
     void getUserTypeListener(List<XJXXWordBean> beans);
     void getSaveDataListener(RealNameWholeEntity bean);
     void uploadSuccess(String s);
-
+    void getResult(String msgInfo);
 }

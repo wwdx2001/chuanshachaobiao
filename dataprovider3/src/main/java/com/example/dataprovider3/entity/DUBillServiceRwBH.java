@@ -41,7 +41,7 @@ public class DUBillServiceRwBH {
          */
 
         private String s_MESSAGE;
-        private String s_RENWUS;
+        private String i_RENWUBH;
         private String i_CHAOBIAOJBH;
 
         public String getS_MESSAGE() {
@@ -53,11 +53,11 @@ public class DUBillServiceRwBH {
         }
 
         public String getS_RENWUS() {
-            return s_RENWUS;
+            return i_RENWUBH;
         }
 
         public void setS_RENWUS(String s_RENWUS) {
-            this.s_RENWUS = s_RENWUS;
+            this.i_RENWUBH = s_RENWUS;
         }
 
         public String getI_CHAOBIAOJBH() {

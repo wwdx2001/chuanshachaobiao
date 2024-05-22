@@ -31,6 +31,7 @@ import com.sh3h.meterreading.event.UIBusEvent;
 import com.sh3h.meterreading.service.SyncType;
 import com.sh3h.meterreading.ui.base.ParentActivity;
 import com.sh3h.meterreading.ui.record.RecordActivity;
+import com.sh3h.meterreading.util.Const;
 import com.sh3h.meterreading.util.ConstDataUtil;
 import com.sh3h.mobileutil.util.ApplicationsUtil;
 import com.sh3h.mobileutil.util.LogUtil;
@@ -1121,6 +1122,7 @@ public class VolumeListActivity extends ParentActivity implements VolumeListMvpV
         intent.putExtra(ConstDataUtil.STARTXH, mStartXH);
         intent.putExtra(ConstDataUtil.ENDXH, mEndXH);
         intent.putExtra(ConstDataUtil.FROM_TASK, false);
+        intent.putExtra(Const.RENWUID, item.getKaizhangbz());
     }
 
     protected void resetViewHolder(MyListHolder myListHolder) {

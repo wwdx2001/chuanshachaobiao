@@ -919,6 +919,7 @@
     <string name="call_for_pay_search_list">自开单</string>
     <string name="call_for_pay_word_order_list_search_hint_text">请输入销根号、客户名称或用水地址</string>
     <string name="call_for_pay_task_list_search_hint_text">请输入册本号，地址或者用户号</string>
+    <string name="call_for_pay_page_text">催缴页面</string>
 
     <string name="bill_service_text">账单送达</string>
 

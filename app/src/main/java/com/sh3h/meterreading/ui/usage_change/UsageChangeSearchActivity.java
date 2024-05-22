@@ -37,22 +37,23 @@ public class UsageChangeSearchActivity extends ParentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_call_for_pay_search);
         ButterKnife.bind(this);
+        getActivityComponent().inject(this);
         mSmoothProgressBar.setVisibility(View.INVISIBLE);
         setActionBarBackButtonEnable();
         setListener();
 
-//        Intent intent = getIntent();
-//        if (savedInstanceState != null) {
-//            initParams(savedInstanceState);
-//        } else if (intent != null) {
-//            initParams(intent.getExtras());
-//        } else {
-//            initParams(null);
-//        }
-//
-//        if (checkPermissions()) {
-//            initConfig();
-//        }
+        Intent intent = getIntent();
+        if (savedInstanceState != null) {
+            initParams(savedInstanceState);
+        } else if (intent != null) {
+            initParams(intent.getExtras());
+        } else {
+            initParams(null);
+        }
+
+        if (checkPermissions()) {
+            initConfig();
+        }
     }
 
     @Override

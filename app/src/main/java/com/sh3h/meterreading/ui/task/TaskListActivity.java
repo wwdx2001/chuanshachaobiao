@@ -44,6 +44,7 @@ import com.sh3h.meterreading.ui.map.MapParamEx;
 import com.sh3h.meterreading.ui.map.MapStatusEx;
 import com.sh3h.meterreading.ui.record.RecordActivity;
 import com.sh3h.meterreading.ui.volume.VolumeListActivity;
+import com.sh3h.meterreading.util.Const;
 import com.sh3h.meterreading.util.ConstDataUtil;
 import com.sh3h.mobileutil.util.ApplicationsUtil;
 import com.sh3h.mobileutil.util.LogUtil;
@@ -221,6 +222,7 @@ public class TaskListActivity extends ParentActivity implements TaskListMvpView,
         intent.putExtra(ConstDataUtil.STARTXH, startOrderNumber);
         intent.putExtra(ConstDataUtil.ENDXH, endOrderNumber);
         intent.putExtra(ConstDataUtil.FROM_TASK, true);
+        intent.putExtra(Const.RENWUID, duRecord.getKaizhangbz());
         startActivity(intent);
     }
 

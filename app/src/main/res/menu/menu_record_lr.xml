@@ -4,6 +4,13 @@
     tools:context="com.sh3h.meterreading.ui.record.RecordActivity">
 
     <item
+        android:id="@+id/action_text"
+        android:orderInCategory="100"
+        android:title="@string/call_for_pay_page_text"
+        android:visible="false"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/action_image"
         android:orderInCategory="100"
         android:title="@string/label_image"

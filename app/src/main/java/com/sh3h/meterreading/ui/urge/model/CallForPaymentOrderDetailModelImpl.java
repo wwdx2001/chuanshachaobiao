@@ -29,6 +29,10 @@ import com.zhouyou.http.cache.model.CacheMode;
 import com.zhouyou.http.callback.SimpleCallBack;
 import com.zhouyou.http.subsciber.BaseSubscriber;
 
+import org.greenrobot.greendao.async.AsyncOperation;
+import org.greenrobot.greendao.async.AsyncOperationListener;
+import org.greenrobot.greendao.async.AsyncSession;
+
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
@@ -48,59 +52,65 @@ public class CallForPaymentOrderDetailModelImpl implements CallForPaymentOrderDe
   @Override
   public void getOrderDetail(String renwuid, String s_cid, OnOrderDetailListener listener) {
 
-    List<CallForPaymentBackFillDataBean> dataBeans = GreenDaoUtils.getInstance().getDaoSession(MainApplication.getInstance()).getCallForPaymentBackFillDataBeanDao()
-      .queryBuilder().where(CallForPaymentBackFillDataBeanDao.Properties.V_RENWUID.eq(renwuid)).list();
-    if (dataBeans != null && dataBeans.size() > 0) {
-      CallForPaymentBackFillDataBean bean = dataBeans.get(0);
-      if (bean != null) {
-        listener.getBackFillData(bean);
-      }
-    }
-
-    if (NetworkStatusUtil.isNetworkJudgment(MainApplication.getInstance())) {
-        EasyHttp.post(URL.BASE_URGE_URL1 + URL.CS_SEL_CJXIANGXIMXPDA)
-                .params("renwuid", renwuid)
-                .params("s_cid", s_cid)
-                .execute(new SimpleCallBack<String>() {
-                    @Override
-                    public void onStart() {
-                        super.onStart();
-                    }
-
-                    @Override
-                    public void onError(com.zhouyou.http.exception.ApiException e) {
-                        ToastUtils.showLong(e.getMessage());
-                        listener.onError(e);
-                    }
-
-                    @Override
-                    public void onSuccess(String s) {
-                        Gson gson = GsonUtils.getGson(ToNumberPolicy.LONG_OR_DOUBLE);
-                        ResultBean resultBean = gson.fromJson(s.toString(), ResultBean.class);
-                        if (resultBean.getMsgCode().equals("true")) {
-                            Type type = new TypeToken<ArrayList<CuijiaoEntity>>() {
-                            }.getType();
-                            ArrayList<CuijiaoEntity> data = gson.fromJson(gson.toJson(resultBean.getData()), type);
-                            saveData(data.get(0), renwuid, s_cid, listener);
-                        } else {
-                            listener.onFail(resultBean.getMsgInfo());
-                        }
-                    }
-                });
-    } else {
-      List<CuijiaoEntity> data = GreenDaoUtils.getInstance().getDaoSession(MainApplication.getInstance()).getCuijiaoEntityDao()
-        .queryBuilder().where(CuijiaoEntityDao.Properties.S_RENWUID.eq(renwuid)).list();
-      Log.i(TAG, "getOrderDetail: " + renwuid);
-      if (data != null && data.size() > 0) {
-        CuijiaoEntity cuijiaoEntity = data.get(0);
-        if (cuijiaoEntity != null && cuijiaoEntity.getIsDetailMessage()) {
-          listener.getData(cuijiaoEntity);
-        } else {
-          listener.onFail(null);
+    try {
+        List<CallForPaymentBackFillDataBean> dataBeans = GreenDaoUtils.getInstance().getDaoSession(MainApplication.getInstance()).getCallForPaymentBackFillDataBeanDao()
+                .queryBuilder().where(CallForPaymentBackFillDataBeanDao.Properties.V_RENWUID.eq(renwuid)).list();
+        if (dataBeans != null && dataBeans.size() > 0) {
+            CallForPaymentBackFillDataBean bean = dataBeans.get(0);
+            if (bean != null) {
+                listener.getBackFillData(bean);
+            }
         }
-      } else {
-        listener.onFail(null);
-      }
+    } catch (IllegalArgumentException e) {
+        Log.e(TAG, "getOrderDetail: " + e.getMessage());
+    } finally {
+
+        if (NetworkStatusUtil.isNetworkJudgment(MainApplication.getInstance())) {
+            EasyHttp.post(URL.BASE_URGE_URL1 + URL.CS_SEL_CJXIANGXIMXPDA)
+                    .params("renwuid", renwuid)
+                    .params("s_cid", s_cid)
+                    .execute(new SimpleCallBack<String>() {
+                        @Override
+                        public void onStart() {
+                            super.onStart();
+                        }
+
+                        @Override
+                        public void onError(com.zhouyou.http.exception.ApiException e) {
+                            ToastUtils.showLong(e.getMessage());
+                            listener.onError(e);
+                        }
+
+                        @Override
+                        public void onSuccess(String s) {
+                            Gson gson = GsonUtils.getGson(ToNumberPolicy.LONG_OR_DOUBLE);
+                            ResultBean resultBean = gson.fromJson(s.toString(), ResultBean.class);
+                            if (resultBean.getMsgCode().equals("true")) {
+                                Type type = new TypeToken<ArrayList<CuijiaoEntity>>() {
+                                }.getType();
+                                ArrayList<CuijiaoEntity> data = gson.fromJson(gson.toJson(resultBean.getData()), type);
+                                saveData(data.get(0), renwuid, s_cid, listener);
+                            } else {
+                                listener.onFail(resultBean.getMsgInfo());
+                            }
+                        }
+                    });
+        } else {
+            List<CuijiaoEntity> data = GreenDaoUtils.getInstance().getDaoSession(MainApplication.getInstance()).getCuijiaoEntityDao()
+                    .queryBuilder().where(CuijiaoEntityDao.Properties.S_RENWUID.eq(renwuid)).list();
+            Log.i(TAG, "getOrderDetail: " + renwuid);
+            if (data != null && data.size() > 0) {
+                CuijiaoEntity cuijiaoEntity = data.get(0);
+                if (cuijiaoEntity != null && cuijiaoEntity.getIsDetailMessage()) {
+                    listener.getData(cuijiaoEntity);
+                } else {
+                    listener.onFail(null);
+                }
+            } else {
+                listener.onFail(null);
+            }
+        }
+
     }
 
   }
@@ -136,6 +146,9 @@ public class CallForPaymentOrderDetailModelImpl implements CallForPaymentOrderDe
       .queryBuilder().where(CuijiaoEntityDao.Properties.S_RENWUID.eq(renwuid)).list();
 
     try {
+        if (list.size() == 0) {
+            list.add(new CuijiaoEntity());
+        }
         CuijiaoEntity cuijiaoEntity = mergeObject(data, list.get(0));
         listener.getData(cuijiaoEntity);
         GreenDaoUtils.getInstance().getDaoSession(MainApplication.getInstance()).getCuijiaoEntityDao()
@@ -157,8 +170,14 @@ public class CallForPaymentOrderDetailModelImpl implements CallForPaymentOrderDe
   public void saveOrUploadData(CallForPaymentBackFillDataBean bean, boolean isSave, OnOrderDetailListener listener) {
     if (isSave) {
       bean.setIsSave(true);
-      GreenDaoUtils.getInstance().getDaoSession(MainApplication.getInstance()).getCallForPaymentBackFillDataBeanDao()
-        .insertOrReplaceInTx(bean);
+        AsyncSession asyncSession = GreenDaoUtils.getInstance().getAsyncSession(MainApplication.getInstance());
+        asyncSession.insertOrReplaceInTx(CallForPaymentBackFillDataBean.class, bean);
+        asyncSession.setListenerMainThread(new AsyncOperationListener() {
+            @Override
+            public void onAsyncOperationCompleted(AsyncOperation operation) {
+                listener.getResult("保存成功");
+            }
+        });
     } else {
         Type imageListType = new TypeToken<ArrayList<com.sh3h.serverprovider.entity.ImageItem>>() {
         }.getType();

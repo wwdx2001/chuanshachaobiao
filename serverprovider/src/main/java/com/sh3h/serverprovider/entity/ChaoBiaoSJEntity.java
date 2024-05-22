@@ -85,7 +85,7 @@ public class ChaoBiaoSJEntity {
     private int I_ShangChuanBZ;
     private int I_ShenHeBZ; // 审核标志
     //private int I_YanChiBZ;
-    //private int I_KaiZhangBZ;
+    private int I_KaiZhangBZ;
     private int I_LastReadingChild;
     private int I_ReadingChild;
 
@@ -936,13 +936,13 @@ public class ChaoBiaoSJEntity {
     //    I_YanChiBZ = i_YanChiBZ;
     //}
 
-    //public int getI_KaiZhangBZ() {
-    //    return I_KaiZhangBZ;
-    //}
+    public int getI_KaiZhangBZ() {
+        return I_KaiZhangBZ;
+    }
 
-    //public void setI_KaiZhangBZ(int i_KaiZhangBZ) {
-    //    I_KaiZhangBZ = i_KaiZhangBZ;
-    //}
+    public void setI_KaiZhangBZ(int i_KaiZhangBZ) {
+        I_KaiZhangBZ = i_KaiZhangBZ;
+    }
 
     public int getI_LastReadingChild() {
         return I_LastReadingChild;
@@ -1047,7 +1047,7 @@ public class ChaoBiaoSJEntity {
         cbsj.setI_ShangChuanBZ(object.optInt("i_ShangChuanBZ"));
         cbsj.setI_ShenHeBZ(object.optInt("i_ShenHeBZ"));
         //cbsj.setI_YanChiBZ(object.optInt("i_YanChiBZ"));
-        //cbsj.setI_KaiZhangBZ(object.optInt("i_KaiZhangBZ"));
+        cbsj.setI_KaiZhangBZ(object.optInt("i_KAIZHANGBZ"));
         cbsj.setI_XiaZaiCS(object.optInt("i_XiaZaiCS"));
         cbsj.setId(object.optInt("iD"));
         cbsj.setJE(object.optDouble("n_JE"));

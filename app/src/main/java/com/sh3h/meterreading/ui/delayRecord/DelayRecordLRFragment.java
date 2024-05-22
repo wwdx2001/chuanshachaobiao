@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.hardware.Camera;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -1347,6 +1349,7 @@ public class DelayRecordLRFragment extends ParentFragment implements DelayRecord
             if ((mCh != null) && (mCid != null)) {
                 View view = View.inflate(mRecordActivity, R.layout.item_biaopan, null);
                 com.gc.materialdesign.views.ButtonRectangle btnBiaopan = (com.gc.materialdesign.views.ButtonRectangle) view.findViewById(R.id.btn_biaopan);
+                com.gc.materialdesign.views.ButtonRectangle btnSangao = (com.gc.materialdesign.views.ButtonRectangle) view.findViewById(R.id.btn_sangao);
                 com.gc.materialdesign.views.ButtonRectangle btnOther = (com.gc.materialdesign.views.ButtonRectangle) view.findViewById(R.id.btn_other);
                 final boolean[] isContainerBiaoPan = {false};
                 final AlertDialog alertDialog = new AlertDialog.Builder(mRecordActivity)
@@ -1394,8 +1397,16 @@ public class DelayRecordLRFragment extends ParentFragment implements DelayRecord
                                                 dir.mkdirs();
                                             }
                                             File file = new File(dir, mFileName);
-                                            Uri uri = Uri.fromFile(file);
+                                            Uri uri = null;
                                             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                                            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {//7.0以上
+                                                uri = Uri.fromFile(file);
+                                            } else {
+                                                if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+                                                    uri = FileProvider.getUriForFile(getContext(), "com.sh3h.meterreading.fileprovider", file);
+                                                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);//7.0以后，系统要求授予临时uri读取权限，安装完毕以后，系统会自动收回权限，该过程没有用户交互
+                                                }
+                                            }
                                             intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
                                             mRecordActivity.startActivityForResult(intent, CAPTURE_IMAGE_BIAOPAN);
                                             Toast.makeText(mRecordActivity, "请拍摄表盘照片", Toast.LENGTH_LONG).show();
@@ -1408,14 +1419,52 @@ public class DelayRecordLRFragment extends ParentFragment implements DelayRecord
                                 dir.mkdirs();
                             }
                             File file = new File(dir, mFileName);
-                            Uri uri = Uri.fromFile(file);
+                            Uri uri = null;
                             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {//7.0以上
+                                uri = Uri.fromFile(file);
+                            } else {
+                                if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+                                    uri = FileProvider.getUriForFile(getContext(), "com.sh3h.meterreading.fileprovider", file);
+                                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);//7.0以后，系统要求授予临时uri读取权限，安装完毕以后，系统会自动收回权限，该过程没有用户交互
+                                }
+                            }
                             intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
                             mRecordActivity.startActivityForResult(intent, CAPTURE_IMAGE);
                             Toast.makeText(mRecordActivity, "请拍摄表盘照片", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
+
+                btnSangao.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (alertDialog.isShowing()) {
+                            alertDialog.dismiss();
+                        }
+                        mFileName = String.format("%s_%s_%s.jpg", mCid,
+                                TextUtil.format(MainApplication.get(mRecordActivity).getCurrentDate(), "yyyyMMddHHmmss"), "三告");
+                        File folder = mConfigHelper.getImageFolderPath();
+                        File dir = new File(folder, mCh);
+                        if (!dir.exists()) {
+                            dir.mkdirs();
+                        }
+                        File file = new File(dir, mFileName);
+                        Uri uri = null;
+                        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {//7.0以上
+                            uri = Uri.fromFile(file);
+                        } else {
+                            if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+                                uri = FileProvider.getUriForFile(getContext(), "com.sh3h.meterreading.fileprovider", file);
+                                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);//7.0以后，系统要求授予临时uri读取权限，安装完毕以后，系统会自动收回权限，该过程没有用户交互
+                            }
+                        }
+                        intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+                        mRecordActivity.startActivityForResult(intent, CAPTURE_IMAGE);
+                    }
+                });
+
                 btnOther.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -1430,8 +1479,16 @@ public class DelayRecordLRFragment extends ParentFragment implements DelayRecord
                             dir.mkdirs();
                         }
                         File file = new File(dir, mFileName);
-                        Uri uri = Uri.fromFile(file);
+                        Uri uri = null;
                         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {//7.0以上
+                            uri = Uri.fromFile(file);
+                        } else {
+                            if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+                                uri = FileProvider.getUriForFile(getContext(), "com.sh3h.meterreading.fileprovider", file);
+                                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);//7.0以后，系统要求授予临时uri读取权限，安装完毕以后，系统会自动收回权限，该过程没有用户交互
+                            }
+                        }
                         intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
                         mRecordActivity.startActivityForResult(intent, CAPTURE_IMAGE);
                     }

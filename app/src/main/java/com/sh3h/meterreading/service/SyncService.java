@@ -2438,7 +2438,8 @@ public class SyncService extends Service {
                                     .filter(new Func1<List<DURecord>, Boolean>() {
                                         @Override
                                         public Boolean call(List<DURecord> duRecords) {
-                                            return duRecords.size() <= 0;
+                                            return true;
+//                                            return duRecords.size() <= 0;
                                         }
                                     })
                                     .concatMap(new Func1<List<DURecord>, Observable<? extends DUDownloadResult>>() {

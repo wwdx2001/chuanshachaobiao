@@ -16,6 +16,8 @@ import com.sh3h.meterreading.R;
 import com.sh3h.meterreading.event.UIBusEvent;
 import com.sh3h.meterreading.ui.base.ParentActivity;
 import com.sh3h.meterreading.ui.information.CustomerInformationActivity;
+import com.sh3h.meterreading.ui.urge.CallForPaymentOrderDetailActivity;
+import com.sh3h.meterreading.util.Const;
 import com.sh3h.meterreading.util.ConstDataUtil;
 import com.sh3h.mobileutil.util.LogUtil;
 import com.sh3h.mobileutil.util.TextUtil;
@@ -54,6 +56,7 @@ public class RecordActivity extends ParentActivity implements View.OnClickListen
     //private CommonFragementPagerAdapter mDetailInfoAdapter;
 
     private MenuItem mImageMenuItem;
+    private MenuItem mTextMenuItem;
 
     //    private String _sT;
     private String _cH;
@@ -65,6 +68,7 @@ public class RecordActivity extends ParentActivity implements View.OnClickListen
     private int _mLastReadingChild;
     private int _yiChaoShu;
     private boolean mIsFromTask;
+    private int mRenwuId;
 //    private int mDataType;
 
     @Override
@@ -96,6 +100,7 @@ public class RecordActivity extends ParentActivity implements View.OnClickListen
             _mLastReadingChild = savedInstanceState.getInt(ConstDataUtil.I_LASTREADINGCHILD, 0);
             _yiChaoShu = savedInstanceState.getInt(ConstDataUtil.YICHAOSHU, 0);
             mIsFromTask = savedInstanceState.getBoolean(ConstDataUtil.FROM_TASK, false);
+            mRenwuId = savedInstanceState.getInt(Const.RENWUID, 0);
             if (intent != null) {
                 intent.putExtra(ConstDataUtil.S_CID, _cID);
                 intent.putExtra(ConstDataUtil.I_CENEIXH, mCeNeiXH);
@@ -112,7 +117,7 @@ public class RecordActivity extends ParentActivity implements View.OnClickListen
             _mLastReadingChild = intent.getIntExtra(ConstDataUtil.I_LASTREADINGCHILD, 0);
             _yiChaoShu = intent.getIntExtra(ConstDataUtil.YICHAOSHU, 0);
             mIsFromTask = intent.getBooleanExtra(ConstDataUtil.FROM_TASK, false);
-
+            mRenwuId = intent.getIntExtra(Const.RENWUID, 0);
             LogUtil.i(TAG, "getIntentData intent != null" + _cID);
         } else {
             LogUtil.i(TAG, "getIntentData error!!!");
@@ -228,6 +233,7 @@ public class RecordActivity extends ParentActivity implements View.OnClickListen
         getMenuInflater().inflate(R.menu.menu_record_lr, menu);
 
         mImageMenuItem = menu.findItem(R.id.action_image);
+        mTextMenuItem = menu.findItem(R.id.action_text);
         mImageMenuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -243,7 +249,29 @@ public class RecordActivity extends ParentActivity implements View.OnClickListen
             }
         });
 
+        showTextMenuButton();
+        mTextMenuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if (mRenwuId != 0) {
+                    Intent intent = new Intent(RecordActivity.this, CallForPaymentOrderDetailActivity.class);
+                    intent.putExtra(Const.S_CID, _cID);
+                    intent.putExtra(Const.RENWUID, String.valueOf(mRenwuId));
+                    startActivity(intent);
+                }
+                return true;
+            }
+        });
+
         return true;
+    }
+
+    private void showTextMenuButton() {
+        if (mRenwuId != 0) {
+            mTextMenuItem.setVisible(true);
+        } else {
+            mTextMenuItem.setVisible(false);
+        }
     }
 
     @Override
@@ -342,7 +370,7 @@ public class RecordActivity extends ParentActivity implements View.OnClickListen
 //        outState.putInt(CeBenListActivity.DATA_TYPE, mDataType);
         outState.putInt(ConstDataUtil.YICHAOSHU, _yiChaoShu);
         outState.putBoolean(ConstDataUtil.FROM_TASK, mIsFromTask);
-
+        outState.putInt(Const.RENWUID, mRenwuId);
         LogUtil.i(TAG, "---onSaveInstanceState---");
     }
 
@@ -368,7 +396,14 @@ public class RecordActivity extends ParentActivity implements View.OnClickListen
 
         @Override
         public Fragment getItem(int position) {
-            Fragment fragment = new RecordLRFragment();
+            RecordLRFragment fragment = new RecordLRFragment();
+            fragment.setButtonListener(new ShowMenuButtonListener() {
+                @Override
+                public void showCallForPayButton(int renwuId) {
+                    mRenwuId = renwuId;
+                    showTextMenuButton();
+                }
+            });
             fragment.setArguments(getBundle());
             LogUtil.i(TAG, "---getItem---" + fragment);
             return fragment;

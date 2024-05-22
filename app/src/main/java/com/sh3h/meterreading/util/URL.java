@@ -181,4 +181,9 @@ public class URL {
      */
     public static final String StartWFYongShuiXingZhi = "StartWFYongShuiXingZhi";
 
+    /**
+     * 用水性质变更根据简号改变价格表
+     */
+    public static final String GetJiaGeMX = "GetJiaGeMX";
+
 }

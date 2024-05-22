@@ -87,7 +87,6 @@ public class UsageChangeUploadActivity extends ParentActivity implements UsageCh
             mS_cid = bundle1.getString(Const.S_CID);
             mPresenter.getSaveData(mS_cid);
             List<JianHaoMX> jianHaoMXList = (List<JianHaoMX>) bundle1.getSerializable(Const.LIST);
-            mBundle.putSerializable(Const.LIST, (Serializable) jianHaoMXList);
             mBundle.putString(Const.S_CID, mS_cid);
         }
         mPresenter.getJianhaoList();

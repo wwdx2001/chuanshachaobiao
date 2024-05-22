@@ -274,9 +274,11 @@ public class CallForPaymentOrderDetailActivity extends ParentActivity
   public void getResult(String s) {
     if (!isSave) {
       mEventBus.post(new CuijiaoEntity());
+      ToastUtils.showLong(s);
+      finish();
+    } else {
+      ToastUtils.showLong(s);
     }
-    ToastUtils.showLong(s);
-    finish();
   }
 
   @Subscribe

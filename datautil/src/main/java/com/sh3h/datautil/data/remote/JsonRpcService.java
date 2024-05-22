@@ -1010,7 +1010,7 @@ public class JsonRpcService {
      * @param duRecordInfo
      * @return
      */
-    public Observable<List<DURecord>> getRecords(final DURecordInfo duRecordInfo) {
+    public Observable<List<DURecord>>   getRecords(final DURecordInfo duRecordInfo) {
         return Observable.create(new Observable.OnSubscribe<List<DURecord>>() {
             @Override
             public void call(Subscriber<? super List<DURecord>> subscriber) {
@@ -1087,7 +1087,7 @@ public class JsonRpcService {
                                     chaoBiaoSJEntity.getD_ZuiHouYCSCSJ(),
                                     chaoBiaoSJEntity.getI_ShangChuanBZ(),
                                     chaoBiaoSJEntity.getI_ShenHeBZ(),
-                                    0,
+                                    chaoBiaoSJEntity.getI_KaiZhangBZ(),
                                     0,
                                     0,
                                     null,

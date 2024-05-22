@@ -61,6 +61,7 @@ import com.sh3h.meterreading.ui.urge.fragment.OrderDetailMessageFragment;
 import com.sh3h.meterreading.ui.urge.fragment.OrderElseMessageFragment;
 import com.sh3h.meterreading.ui.urge_search.CallForPaymentSearchActivity;
 import com.sh3h.meterreading.ui.usage_change.RealNameDetailActivity;
+import com.sh3h.meterreading.ui.usage_change.UsageChangeSearchActivity;
 import com.sh3h.meterreading.ui.usage_change.UsageChangeSearchListActivity;
 import com.sh3h.meterreading.ui.usage_change.UsageChangeUploadActivity;
 import com.sh3h.meterreading.ui.volume.AdjustNumberActivity;
@@ -157,6 +158,7 @@ public interface ActivityComponent{
     /**
      * 用户实名制/用水性质变更
      */
+    void inject(UsageChangeSearchActivity usageChangeSearchActivity);
     void inject(UsageChangeSearchListActivity usageChangeSearchListActivity);
     void inject(BillServiceActivity billServiceActivity);
     void inject(RealNameDetailActivity realNameDetailActivity);

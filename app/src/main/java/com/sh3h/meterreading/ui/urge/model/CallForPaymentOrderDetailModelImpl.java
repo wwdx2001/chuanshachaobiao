@@ -3,6 +3,7 @@ package com.sh3h.meterreading.ui.urge.model;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
+import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.dataprovider3.entity.CallForPaymentBackFillDataBean;
@@ -301,6 +302,10 @@ public class CallForPaymentOrderDetailModelImpl implements CallForPaymentOrderDe
                                     .queryBuilder().where(CuijiaoEntityDao.Properties.S_RENWUID.eq(bean.getV_RENWUID())).list();
                             GreenDaoUtils.getInstance().getDaoSession(MainApplication.getInstance()).getCuijiaoEntityDao()
                                     .deleteInTx(list);
+
+                            for (File file : files) {
+                                FileUtils.delete(file);
+                            }
                         } else {
                             //图片上传成功，数据上传失败
                             ToastUtils.showLong("图片上传成功，" + resultEntity.getMsgInfo());

@@ -119,6 +119,7 @@ public class CallForPaymentTaskActivity extends ParentActivity
   @Override
   protected void requestData1() {
     super.requestData1();
+    mCallForPaySrl.setRefreshing(true);
     mPresenter.getTaskList("");
   }
 

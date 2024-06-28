@@ -53,7 +53,7 @@ public class DUBillServiceInfo {
         private String S_ZHUMA;
         private String S_LEIXING;
         private int I_RENWUZT;
-        private int D_WANCHENGSJ;
+        private long D_WANCHENGSJ;
         private String S_BEIYONG1;
         private String S_BEIYONG2;
         private String S_BEIYONG3;
@@ -122,11 +122,11 @@ public class DUBillServiceInfo {
             this.I_RENWUZT = i_RENWUZT;
         }
 
-        public int getD_WANCHENGSJ() {
+        public long getD_WANCHENGSJ() {
             return D_WANCHENGSJ;
         }
 
-        public void setD_WANCHENGSJ(int d_WANCHENGSJ) {
+        public void setD_WANCHENGSJ(long d_WANCHENGSJ) {
             this.D_WANCHENGSJ = d_WANCHENGSJ;
         }
 

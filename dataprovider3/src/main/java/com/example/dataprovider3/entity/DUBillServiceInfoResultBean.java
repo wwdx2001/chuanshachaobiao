@@ -25,7 +25,7 @@ public class DUBillServiceInfoResultBean extends LitePalSupport {
     private String s_ZHUMA;
     private String s_LEIXING;
     private int i_RENWUZT;
-    private int d_WANCHENGSJ;
+    private long d_WANCHENGSJ;
     private String s_BEIYONG1;
     private String s_BEIYONG2;
     private String s_BEIYONG3;
@@ -94,11 +94,11 @@ public class DUBillServiceInfoResultBean extends LitePalSupport {
         this.i_RENWUZT = i_RENWUZT;
     }
 
-    public int getD_WANCHENGSJ() {
+    public long getD_WANCHENGSJ() {
         return d_WANCHENGSJ;
     }
 
-    public void setD_WANCHENGSJ(int d_WANCHENGSJ) {
+    public void setD_WANCHENGSJ(long d_WANCHENGSJ) {
         this.d_WANCHENGSJ = d_WANCHENGSJ;
     }
 
@@ -199,6 +199,7 @@ public class DUBillServiceInfoResultBean extends LitePalSupport {
                 Objects.equals(s_BEIYONG3, that.s_BEIYONG3);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public int hashCode() {
 
@@ -217,7 +218,7 @@ public class DUBillServiceInfoResultBean extends LitePalSupport {
         this.s_ZHUMA = in.readString();
         this.s_LEIXING = in.readString();
         this.i_RENWUZT = in.readInt();
-        this.d_WANCHENGSJ = in.readInt();
+        this.d_WANCHENGSJ = in.readLong();
         this.s_BEIYONG1 = in.readString();
         this.s_BEIYONG2 = in.readString();
         this.s_BEIYONG3 = in.readString();

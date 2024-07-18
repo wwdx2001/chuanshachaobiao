@@ -72,7 +72,6 @@ public class CallForPaymentTaskModelImpl implements CallForPaymentTaskContract.C
                     Type type = new TypeToken<ArrayList<CallForPaymentTaskBean>>() {
                     }.getType();
                     ArrayList<CallForPaymentTaskBean> data = gson.fromJson(gson.toJson(resultBean.getData()), type);
-                    listener.getData(data);
                     getOrderListData(data, listener);
                     saveData(data);
                   } else {
@@ -205,6 +204,7 @@ public class CallForPaymentTaskModelImpl implements CallForPaymentTaskContract.C
             ArrayList<CuijiaoEntity> data = gson.fromJson(gson.toJson(resultBean.getData()), type);
             if (data != null && data.size() > 0) {
               saveData(data.get(0), entities.get(i).getS_RENWUID(), entities.get(i).getS_CID());
+              cuijiaoEntityList.add(data.get(0));
             }
           }
         }

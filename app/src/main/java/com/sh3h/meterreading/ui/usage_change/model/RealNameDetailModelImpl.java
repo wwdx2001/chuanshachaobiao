@@ -2,6 +2,7 @@ package com.sh3h.meterreading.ui.usage_change.model;
 
 import com.blankj.utilcode.util.GsonUtils;
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.dataprovider3.entity.RealNameWholeEntity;
 import com.example.dataprovider3.greendaoDao.RealNameWholeEntityDao;
@@ -96,6 +97,7 @@ public class RealNameDetailModelImpl implements RealNameDetailContract.Model {
                     .params("S_EMAIL", String.valueOf(bean.getEmail()))
                     .params("S_BZ", String.valueOf(bean.getRemarks()))
                     .params("S_CID", String.valueOf(bean.getS_CID()))
+                    .params("s_cby", SPUtils.getInstance().getString(com.sh3h.serverprovider.rpc.util.Const.S_YUANGONGH))
                     .sign(true)
                     .timeStamp(true)
                     .retryCount(0)

@@ -20,6 +20,7 @@ import com.google.gson.reflect.TypeToken;
 import com.sh3h.mobileutil.util.GsonUtils;
 import com.sh3h.mobileutil.util.LogUtil;
 import com.sh3h.mobileutil.util.NetworkStatusUtil;
+import com.sh3h.mobileutil.util.TextUtil;
 import com.sh3h.serverprovider.entity.ImageItem;
 import com.sh3h.serverprovider.entity.ResultBean;
 import com.sh3h.serverprovider.entity.ResultEntity;
@@ -339,6 +340,9 @@ public class CallForPaymentService extends BaseApiService {
                     .timeStamp(true)
                     .execute(String.class);
 
+            if (TextUtil.isNullOrEmpty(bean.getV_RENWUM())) {
+                bean.setV_RENWUM("");
+            }
             io.reactivex.Observable<String> upDataObservable = EasyHttp.post(URL.BASE_XUNJIAN_URL + CS_ins_CJRENWUMXPDA)
                     .params("v_caozuor", bean.getV_CAOZUOR())
                     .params("V_CAOZUOSJ", bean.getV_CAOZUOSJ())

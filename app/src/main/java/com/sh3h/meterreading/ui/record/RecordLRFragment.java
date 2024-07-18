@@ -1850,7 +1850,11 @@ public class RecordLRFragment extends ParentFragment implements RecordLRMVPView,
             return;
         }
 
-        if (!clean) {
+//        if (mDuRecord.getChaojiansl() == 0) {
+//            return;
+//        }
+
+        if (!clean && mDuRecord.getChaojiansl() == 0) {
             int lianggaosl = 0;
             int liangdisl = 0;
             lianggaosl = mDuRecord.getLianggaosl();

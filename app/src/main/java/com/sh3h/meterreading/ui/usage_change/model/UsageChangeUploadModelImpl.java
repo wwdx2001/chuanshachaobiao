@@ -2,6 +2,7 @@ package com.sh3h.meterreading.ui.usage_change.model;
 
 import com.blankj.utilcode.util.GsonUtils;
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.dataprovider3.entity.UsageChangeUploadWholeEntity;
 import com.example.dataprovider3.greendaoDao.UsageChangeUploadWholeEntityDao;
@@ -102,6 +103,7 @@ public class UsageChangeUploadModelImpl implements UsageChangeUploadContract.Mod
                     .params("S_CID", String.valueOf(bean.getS_CID()))
                     .params("S_JH", String.valueOf(bean.getJh()))
                     .params("S_SHESHUIDM", String.valueOf(bean.getSsdm()))
+                    .params("s_cby", SPUtils.getInstance().getString(com.sh3h.serverprovider.rpc.util.Const.S_YUANGONGH))
                     .sign(true)
                     .timeStamp(true)
                     .retryCount(0)

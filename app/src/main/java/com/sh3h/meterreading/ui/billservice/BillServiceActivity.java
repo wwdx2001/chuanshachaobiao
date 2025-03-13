@@ -99,7 +99,7 @@ public class BillServiceActivity extends ParentActivity implements BillServiceMv
         initData(savedInstanceState);
     }
 
-    private void initView() {
+    protected void initView() {
         getActivityComponent().inject(this);
         ButterKnife.bind(this);
         mEventBus.register(this);

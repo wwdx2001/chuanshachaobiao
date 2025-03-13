@@ -42,6 +42,67 @@
                 tools:listitem="@layout/photo_recycle_item" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/size_5dp"
+                android:layout_marginRight="@dimen/size_5dp"
+                android:gravity="center"
+                android:maxEms="1"
+                android:text="全景照片"
+                android:textColor="@color/color_text_black" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_quanjinzhaopian"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height11"
+                android:layout_marginTop="@dimen/size_10dp"
+                android:background="@color/white"
+                android:choiceMode="singleChoice"
+                android:divider="@null"
+                android:fadingEdge="none"
+                android:padding="@dimen/size_15dp"
+                android:scrollbarStyle="outsideOverlay"
+                app:spanCount="3"
+                tools:listitem="@layout/photo_recycle_item" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/size_5dp"
+                android:layout_marginRight="@dimen/size_5dp"
+                android:gravity="center"
+                android:maxEms="1"
+                android:text="强检二维码"
+                android:textColor="@color/color_text_black" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_shuibiao"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height11"
+                android:layout_marginTop="@dimen/size_10dp"
+                android:background="@color/white"
+                android:choiceMode="singleChoice"
+                android:divider="@null"
+                android:fadingEdge="none"
+                android:padding="@dimen/size_15dp"
+                android:scrollbarStyle="outsideOverlay"
+                app:spanCount="3"
+                tools:listitem="@layout/photo_recycle_item" />
+        </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -75,35 +136,6 @@
                         android:scrollbarStyle="outsideOverlay"
                         app:spanCount="3"
                         tools:listitem="@layout/photo_recycle_item" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/tv3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/size_5dp"
-                android:layout_marginRight="@dimen/size_5dp"
-                android:gravity="center"
-                android:maxEms="1"
-                android:text="强检二维码"
-                android:textColor="@color/color_text_black" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_shuibiao"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height11"
-                android:layout_marginTop="@dimen/size_10dp"
-                android:background="@color/white"
-                android:choiceMode="singleChoice"
-                android:divider="@null"
-                android:fadingEdge="none"
-                android:padding="@dimen/size_15dp"
-                android:scrollbarStyle="outsideOverlay"
-                app:spanCount="3"
-                tools:listitem="@layout/photo_recycle_item" />
         </LinearLayout>
 
         <LinearLayout
@@ -169,36 +201,7 @@
                 tools:listitem="@layout/photo_recycle_item" />
         </LinearLayout>
 
-      <LinearLayout
-        android:layout_width="match_parent"
 
-        android:layout_height="wrap_content">
-        <TextView
-          android:id="@+id/tv6"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center_vertical"
-          android:layout_marginLeft="@dimen/size_5dp"
-          android:layout_marginRight="@dimen/size_5dp"
-          android:gravity="center"
-          android:maxEms="1"
-          android:text="全景照片"
-          android:textColor="@color/color_text_black" />
-
-        <android.support.v7.widget.RecyclerView
-          android:id="@+id/recycler_quanjinzhaopian"
-          android:layout_width="match_parent"
-          android:layout_height="@dimen/height11"
-          android:layout_marginTop="@dimen/size_10dp"
-          android:background="@color/white"
-          android:choiceMode="singleChoice"
-          android:divider="@null"
-          android:fadingEdge="none"
-          android:padding="@dimen/size_15dp"
-          android:scrollbarStyle="outsideOverlay"
-          app:spanCount="3"
-          tools:listitem="@layout/photo_recycle_item" />
-      </LinearLayout>
 
     </LinearLayout>
 

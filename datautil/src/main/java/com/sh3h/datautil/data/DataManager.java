@@ -2328,4 +2328,12 @@ public class DataManager {
     public CallForPaymentBackFillDataBean getBackFillData(String renwuid) {
         return mDbHelper.getBackFillData(renwuid, mContext);
     }
+
+    public List<BiaoKaListBean> getSearchBiaoKaListBean(String text, boolean isHistory) {
+        return mDbHelper.getSearchBiaoKaListBean(text, isHistory, mContext);
+    }
+
+    public long getZCBiaoKaListBeanCount(String renWuMc, String type) {
+        return mDbHelper.getZCBiaoKaListBeanCount(renWuMc,type);
+    }
 }

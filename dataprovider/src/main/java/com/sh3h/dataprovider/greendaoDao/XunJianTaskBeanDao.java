@@ -98,6 +98,7 @@ public class XunJianTaskBeanDao extends AbstractDao<XunJianTaskBean, Long> {
         public final static Property XunjianTaskType = new Property(5, String.class, "xunjianTaskType", false, "XUNJIAN_TASK_TYPE");
         public final static Property XJLX = new Property(6, String.class, "XJLX", false, "XJLX");
         public final static Property IsFinish = new Property(7, boolean.class, "isFinish", false, "IS_FINISH");
+        public final static Property YIDENGJ = new Property(8, int.class, "YIDENGJ", false, "YIDENGJ");
     }
 
 
@@ -120,7 +121,8 @@ public class XunJianTaskBeanDao extends AbstractDao<XunJianTaskBean, Long> {
                 "\"YIWANC\" INTEGER NOT NULL ," + // 4: YIWANC
                 "\"XUNJIAN_TASK_TYPE\" TEXT," + // 5: xunjianTaskType
                 "\"XJLX\" TEXT," + // 6: XJLX
-                "\"IS_FINISH\" INTEGER NOT NULL );"); // 7: isFinish
+                "\"IS_FINISH\" INTEGER NOT NULL ," +
+                "\"YIDENGJ\" TEXT );"); // 7: isFinish
     }
 
     /** Drops the underlying database table. */
@@ -162,6 +164,8 @@ public class XunJianTaskBeanDao extends AbstractDao<XunJianTaskBean, Long> {
             stmt.bindString(7, XJLX);
         }
         stmt.bindLong(8, entity.getIsFinish() ? 1L: 0L);
+
+        stmt.bindLong(9, entity.getYIDENGJ());
     }
 
     @Override
@@ -179,7 +183,8 @@ public class XunJianTaskBeanDao extends AbstractDao<XunJianTaskBean, Long> {
             cursor.getInt(offset + 4), // YIWANC
             cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // xunjianTaskType
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // XJLX
-            cursor.getShort(offset + 7) != 0 // isFinish
+            cursor.getShort(offset + 7) != 0, // isFinish
+            cursor.getInt(offset + 8) // YIDENGJ
         );
         return entity;
     }
@@ -194,7 +199,8 @@ public class XunJianTaskBeanDao extends AbstractDao<XunJianTaskBean, Long> {
         entity.setXunjianTaskType(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
         entity.setXJLX(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
         entity.setIsFinish(cursor.getShort(offset + 7) != 0);
-     }
+        entity.setYIDENGJ(cursor.getInt(offset + 8));
+    }
     
     @Override
     protected final Long updateKeyAfterInsert(XunJianTaskBean entity, long rowId) {

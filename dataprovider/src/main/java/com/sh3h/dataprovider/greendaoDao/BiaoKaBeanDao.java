@@ -76,6 +76,8 @@ public class BiaoKaBeanDao extends AbstractDao<BiaoKaBean, Long> {
         public final static Property ISYC = new Property(24, String.class, "ISYC", false, "ISYC");
         public final static Property GDDS_COUNT = new Property(25, String.class, "GDDS_COUNT", false, "GDDS__COUNT");
         public final static Property I_SHUIBIAOZL = new Property(26, String.class, "I_SHUIBIAOZL", false, "I__SHUIBIAOZL");
+        public final static Property D_YCCHAOBIAOSJ = new Property(27, String.class, "D_YCCHAOBIAOSJ", false, "D__YCCHAOBIAOSJ");
+        public final static Property I_YCCHAOMA = new Property(28, Integer.class, "I_YCCHAOMA", false, "I__YCCHAOMA");
     }
 
 
@@ -117,7 +119,9 @@ public class BiaoKaBeanDao extends AbstractDao<BiaoKaBean, Long> {
                 "\"TDR\" TEXT," + // 23: TDR
                 "\"ISYC\" TEXT," + // 24: ISYC
                 "\"GDDS__COUNT\" TEXT," + // 25: GDDS_COUNT
-                "\"I__SHUIBIAOZL\" TEXT);"); // 26: I_SHUIBIAOZL
+                "\"I__SHUIBIAOZL\" TEXT," +
+                "\"D__YCCHAOBIAOSJ\" TEXT," +
+                "\"I__YCCHAOMA\" TEXT);"); // 26: I_SHUIBIAOZL
     }
 
     /** Drops the underlying database table. */
@@ -254,6 +258,16 @@ public class BiaoKaBeanDao extends AbstractDao<BiaoKaBean, Long> {
         if (I_SHUIBIAOZL != null) {
             stmt.bindString(27, I_SHUIBIAOZL);
         }
+
+        String D_YCCHAOBIAOSJ = entity.getD_YCCHAOBIAOSJ();
+        if (D_YCCHAOBIAOSJ != null) {
+            stmt.bindString(28, D_YCCHAOBIAOSJ);
+        }
+
+        Integer I_YCCHAOMA = entity.getI_YCCHAOMA();
+        if (I_YCCHAOMA != null) {
+            stmt.bindLong(29, I_YCCHAOMA);
+        }
     }
 
     @Override
@@ -290,7 +304,9 @@ public class BiaoKaBeanDao extends AbstractDao<BiaoKaBean, Long> {
             cursor.isNull(offset + 23) ? null : cursor.getString(offset + 23), // TDR
             cursor.isNull(offset + 24) ? null : cursor.getString(offset + 24), // ISYC
             cursor.isNull(offset + 25) ? null : cursor.getString(offset + 25), // GDDS_COUNT
-            cursor.isNull(offset + 26) ? null : cursor.getString(offset + 26) // I_SHUIBIAOZL
+            cursor.isNull(offset + 26) ? null : cursor.getString(offset + 26), // I_SHUIBIAOZL
+            cursor.isNull(offset + 27) ? null : cursor.getString(offset + 27), // D_YCCHAOBIAOSJ
+            cursor.isNull(offset + 28) ? null : cursor.getInt(offset + 28) // I_YCCHAOMA
         );
         return entity;
     }
@@ -324,6 +340,8 @@ public class BiaoKaBeanDao extends AbstractDao<BiaoKaBean, Long> {
         entity.setISYC(cursor.isNull(offset + 24) ? null : cursor.getString(offset + 24));
         entity.setGDDS_COUNT(cursor.isNull(offset + 25) ? null : cursor.getString(offset + 25));
         entity.setI_SHUIBIAOZL(cursor.isNull(offset + 26) ? null : cursor.getString(offset + 26));
+        entity.setD_YCCHAOBIAOSJ(cursor.isNull(offset + 27) ? null : cursor.getString(offset + 27));
+        entity.setI_YCCHAOMA(cursor.isNull(offset + 28) ? 0 : cursor.getInt(offset + 28));
      }
     
     @Override

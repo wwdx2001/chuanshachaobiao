@@ -106,7 +106,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
   public static final String SAVECHAOBIAOBKXX = "chaobiaobkxx";
   private String screenType;
   private List<XunJianTaskBean> mLocalXunJianTasks;
-
+  private String mRENWUMC;
 
 
   @Override
@@ -359,14 +359,20 @@ public class RemoteinSpectionListActivity extends ParentActivity
   }
 
   protected void initData() {
+    Intent intent = getIntent();
+    mRENWUMC = intent.getStringExtra(Const.RENWUMC);
+    XunJianTaskBean bean = intent.getParcelableExtra(Const.BEAN);
+    ArrayList<XunJianTaskBean> taskBeans = new ArrayList<>();
+    taskBeans.add(bean);
     screenType = "all";
     mBiaoKaListBeans = new ArrayList<>();
+    mBiaoKaBeans = new ArrayList<>();
     mRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.refresh);
     mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
       @Override
       public void onRefresh() {
-
-        getXunJianTask(true);
+        getBiaoKaList(taskBeans);
+//        getXunJianTask(true);
       }
     });
   }
@@ -376,9 +382,9 @@ public class RemoteinSpectionListActivity extends ParentActivity
 
     sortList();
     mRemoteinSpectionListAdapter.setTaskList(mBiaoKaBeans,mBiaoKaListBeans);
-    if (mBiaoKaListBeans.size() <= 0){
-      getXunJianTask(true);
-    }
+//    if (mBiaoKaListBeans.size() <= 0){
+//      getXunJianTask(true);
+//    }
 //
 
   }
@@ -465,15 +471,12 @@ public class RemoteinSpectionListActivity extends ParentActivity
   @SuppressLint("CheckResult")
   private void getBiaoKaList(ArrayList<XunJianTaskBean> xunjianTasks) {
     List<Observable<String>> list = new ArrayList<>();
-    for (XunJianTaskBean xunJianTaskBean : xunjianTasks) {
-      xunJianTaskBean.setID((long) xunJianTaskBean.getRENWUMC().hashCode());
-      Observable<String> mobileObservable = EasyHttp.post(URL.BASE_XUNJIAN_URL + URL.getbiaoka_CB)
-        .params("RENWUMC", xunJianTaskBean.getRENWUMC())
-        .execute(new CallClazzProxy<ApiResult<String>, String>(String.class) {
-        });
+    Observable<String> mobileObservable = EasyHttp.post(URL.BASE_XUNJIAN_URL + URL.getbiaoka_CB)
+            .params("RENWUMC", mRENWUMC)
+            .execute(new CallClazzProxy<ApiResult<String>, String>(String.class) {});
       list.add(mobileObservable);
-    }
-    List<List<Observable<String>>> observableList = Lists.partition(list, 50);
+
+    List<List<Observable<String>>> observableList = Lists.partition(list, 1);
     int[] count = {0};
     List<BiaoKaListBean> biaoKaListBeanList = new ArrayList<>();
     getSplitBiaoKaList(xunjianTasks, observableList, count, biaoKaListBeanList);
@@ -505,6 +508,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
         public void onError(ApiException e) {
           Log.d( "onError 502: " , e.getMessage());
           ToastUtils.showShort(e.getMessage());
+          e.getCause().printStackTrace();
           mRefreshLayout.setRefreshing(false);
 //          presenter.dismissProgress();
 //          presenter.commitAllBackfillInfoError(e.getCode() + e.getMessage());
@@ -795,7 +799,7 @@ public class RemoteinSpectionListActivity extends ParentActivity
     }
     filterSort();
     mRefreshLayout.setRefreshing(false);
-
+    mRemoteinSpectionListAdapter.setTaskList(biaoKaBeans, biaoKaList);
   }
 
   @Override

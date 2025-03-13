@@ -36,6 +36,8 @@ import com.sh3h.meterreading.ui.record.DetailInfoFragment;
 import com.sh3h.meterreading.ui.record.RecordActivity;
 import com.sh3h.meterreading.ui.record.RecordLRFragment;
 import com.sh3h.meterreading.ui.remoteinspection.RemoteinSpectionListActivity;
+import com.sh3h.meterreading.ui.remoteinspection_task.RemoteinSpectionTaskActivity;
+import com.sh3h.meterreading.ui.remoteinspection_task.RemoteinSpectionTaskHistoryActivity;
 import com.sh3h.meterreading.ui.rushpay.RushPayRecordActivity;
 import com.sh3h.meterreading.ui.rushpay.RushPayTaskActivity;
 import com.sh3h.meterreading.ui.sampling.SamplingListActivity;
@@ -130,6 +132,8 @@ public interface ActivityComponent{
     void inject(OutsideListActivity outsideListActivity);
     void inject(OutsideRecordActivity outsideRecordActivity);
 
+    void inject(RemoteinSpectionTaskActivity remoteinSpectionTaskActivity);
+    void inject(RemoteinSpectionTaskHistoryActivity remoteinSpectionTaskHistoryActivity);
     void inject(RemoteinSpectionListActivity remoteinSpectionListActivity);
     void inject(RemoteinSpectionOHistoryListActivity remoteinSpectionOHistoryListActivity);
     void inject(InspectionInputActivity inspectionInputActivity);

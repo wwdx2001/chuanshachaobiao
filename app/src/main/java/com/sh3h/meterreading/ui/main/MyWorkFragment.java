@@ -18,14 +18,14 @@ import com.sh3h.ipc.module.MyModule;
 import com.sh3h.meterreading.MainApplication;
 import com.sh3h.meterreading.R;
 import com.sh3h.meterreading.adapter.MainInfoViewAdapter;
-import com.sh3h.meterreading.ui.RemoteinSpectionOHistoryListActivity.RemoteinSpectionOHistoryListActivity;
 import com.sh3h.meterreading.ui.base.ParentFragment;
 import com.sh3h.meterreading.ui.billservice.BillServiceActivity;
 import com.sh3h.meterreading.ui.check.CheckActivity;
 import com.sh3h.meterreading.ui.delay.DelayListActivity;
 import com.sh3h.meterreading.ui.lgld.LgldListActivity;
 import com.sh3h.meterreading.ui.outside.OutsideListActivity;
-import com.sh3h.meterreading.ui.remoteinspection.RemoteinSpectionListActivity;
+import com.sh3h.meterreading.ui.remoteinspection_task.RemoteinSpectionTaskActivity;
+import com.sh3h.meterreading.ui.remoteinspection_task.RemoteinSpectionTaskHistoryActivity;
 import com.sh3h.meterreading.ui.sampling.SamplingTaskActivity;
 import com.sh3h.meterreading.ui.search.CombinedSearchActivity;
 import com.sh3h.meterreading.ui.setting.SettingActivity;
@@ -296,10 +296,10 @@ public class MyWorkFragment extends ParentFragment implements MyWorkMvpView,
                 intentMsg = new Intent(mMainActivity, LgldListActivity.class);
                 break;
             case ACTION_YCXJ:
-                intentMsg = new Intent(mMainActivity, RemoteinSpectionListActivity.class);
+                intentMsg = new Intent(mMainActivity, RemoteinSpectionTaskActivity.class);
                 break;
             case ACTION_YCXJ_HISTORY:
-                intentMsg = new Intent(mMainActivity, RemoteinSpectionOHistoryListActivity.class);
+                intentMsg = new Intent(mMainActivity, RemoteinSpectionTaskHistoryActivity.class);
                 break;
             case ACTION_URGE:
                 intentMsg = new Intent(mMainActivity, CallForPaymentTaskActivity.class);

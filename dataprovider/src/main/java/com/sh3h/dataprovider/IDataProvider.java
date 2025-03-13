@@ -1832,4 +1832,8 @@ public interface IDataProvider {
     public List<BIAOKAXX> getBiaoKaXXWaiFuCBSJList(String account);
 
     public List<XJXXWordBean> getQFYYWordData(String type, String secondLevel);
+
+    List<BiaoKaListBean> getSearchBiaoKaListBean(String text, boolean isHistory);
+
+    public long getZCBiaoKaListBeanCount(String renWuMc, String type);
 }

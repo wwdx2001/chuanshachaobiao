@@ -3779,6 +3779,23 @@ public class DataProviderImpl implements
         return xjxxWordBeanDao.getQFYYWordData(type, secondLevel);
     }
 
+    @Override
+    public List<BiaoKaListBean> getSearchBiaoKaListBean(String text, boolean isHistory) {
+        if (biaoKaListBeanDao == null) {
+            return null;
+        }
+
+        return biaoKaListBeanDao.getSearchBiaoKaListBean(text,isHistory);
+    }
+    @Override
+    public long getZCBiaoKaListBeanCount(String renWuMc, String type) {
+        if (biaoKaListBeanDao == null) {
+            return 0;
+        }
+
+        return biaoKaListBeanDao.getZCBiaoKaListBeanCount(renWuMc,type);
+    }
+
     private boolean isExist(String cid, List<YanChiBiao> yanChiBiaos){
         boolean exist = false;
         for (YanChiBiao yanChiBiao : yanChiBiaos){

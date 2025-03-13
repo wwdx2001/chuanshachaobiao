@@ -163,19 +163,16 @@ public class BiaoKaListBeanDao extends AbstractDao<BiaoKaListBean, Long> {
     QueryBuilder qb = this.queryBuilder();
     if (type.equals("ytj")){
       return qb.where(BiaoKaListBeanDao.Properties.S_RENWUMC.eq(renWuMc))
-        .where(BiaoKaListBeanDao.Properties.TYPE.eq("正常巡检"))
         .where(BiaoKaListBeanDao.Properties.IsCommit.eq(1))
 //                        .where(BiaoKaListBeanDao.Properties.IsUploadImage.eq(0))
         .count();
     }else if (type.equals("ybc")){
       return qb.where(BiaoKaListBeanDao.Properties.S_RENWUMC.eq(renWuMc))
-        .where(BiaoKaListBeanDao.Properties.TYPE.eq("正常巡检"))
         .where(BiaoKaListBeanDao.Properties.IsSave.eq(1)).count();
     }else if(type.equals("wc")){
       return qb.where(BiaoKaListBeanDao.Properties.S_RENWUMC.eq(renWuMc))
         .where(BiaoKaListBeanDao.Properties.IsCommit.eq(0))
 //                    .where(BiaoKaListBeanDao.Properties.IsUploadImage.eq(0))
-        .where(BiaoKaListBeanDao.Properties.TYPE.eq("正常巡检"))
         .where(BiaoKaListBeanDao.Properties.IsSave.eq(0)).count();
     }else if(type.equals("null")) {
       return qb.where(BiaoKaListBeanDao.Properties.S_RENWUMC.eq(renWuMc))
@@ -258,9 +255,24 @@ public class BiaoKaListBeanDao extends AbstractDao<BiaoKaListBean, Long> {
       }
   }
 
+    public List<BiaoKaListBean> getSearchBiaoKaListBean(String text, boolean isHistory) {
+        QueryBuilder qb = this.queryBuilder();
+        List<BiaoKaListBean> list;
+        if (isHistory) {
+            list = qb.whereOr(Properties.S_CID.like(text), Properties.S_DIZHI.like(text))
+                    .whereOr(Properties.IsSave.eq(1), Properties.IsCommit.eq(1))
+                    .list();
+        } else {
+            list = qb.whereOr(Properties.S_CID.like(text), Properties.S_DIZHI.like(text))
+                    .where(Properties.IsSave.eq(0))
+                    .where(Properties.IsCommit.eq(0))
+                    .list();
+        }
+        return list != null ? list : new ArrayList<BiaoKaListBean>();
+    }
 
 
-  /**
+    /**
      * Properties of entity BiaoKaListBean.<br/>
      * Can be used for QueryBuilder and for referencing column names.
      */

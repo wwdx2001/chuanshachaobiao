@@ -6691,4 +6691,34 @@ public class DbHelper {
     }
     return null;
   }
+
+  public List<BiaoKaListBean> getSearchBiaoKaListBean(String text, boolean isHistory, Context mContext) {
+
+    try {
+      init();
+      List<BiaoKaListBean> biaoKaListBeans = DBManager.getInstance().getSearchBiaoKaListBean(text,isHistory);
+      if (biaoKaListBeans != null) {
+
+        return biaoKaListBeans;
+      } else {
+        LogUtil.i(TAG, "---getHuanBiaoXXs: huanBiaoJLList is null---");
+        return new ArrayList<>();
+      }
+    } catch (Exception e) {
+      e.getStackTrace();
+      return new ArrayList<>();
+    }
+
+  }
+  public long getZCBiaoKaListBeanCount(String renWuMc, String type) {
+
+    try {
+      init();
+      return DBManager.getInstance().getZCBiaoKaListBeanCount(renWuMc,type);
+    } catch (Exception e) {
+      e.getStackTrace();
+      return 0;
+    }
+
+  }
 }

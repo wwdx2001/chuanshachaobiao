@@ -524,6 +524,7 @@
       android:paddingRight="@dimen/size_10dp"
       android:text="拍照识别"
       android:textColor="@color/white"
+      android:visibility="gone"
       app:layout_constraintBottom_toBottomOf="@+id/et_xjcm"
       app:layout_constraintLeft_toRightOf="@+id/et_xjcm"
       app:layout_constraintRight_toRightOf="parent"

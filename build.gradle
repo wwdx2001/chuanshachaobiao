@@ -3,9 +3,9 @@
 buildscript {
     repositories {
       google()
-      jcenter()
+//      jcenter()
       mavenCentral()
-//        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
 //        maven { url 'https://maven.aliyun.com/repository/central' }
       maven { url 'https://maven.aliyun.com/repository/public/' }
       maven { url "https://maven.aliyun.com/nexus/content/repositories/releases" }
@@ -14,10 +14,13 @@ buildscript {
         maven {
           url "https://jitpack.io"
         }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+//        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.9'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.3.0' // add plugin
 //        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
 //        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.0'
@@ -30,12 +33,12 @@ buildscript {
 
 allprojects {
     repositories {
-//        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
 //        maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://maven.aliyun.com/repository/public/' }
         maven { url "https://maven.aliyun.com/nexus/content/repositories/releases" }
         google()
-        jcenter()
+//        jcenter()
         // Add the following ArcGIS repository
         maven {
             url 'https://esri.jfrog.io/artifactory/arcgis'

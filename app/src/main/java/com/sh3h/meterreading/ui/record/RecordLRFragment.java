@@ -1859,9 +1859,11 @@ public class RecordLRFragment extends ParentFragment implements RecordLRMVPView,
             int liangdisl = 0;
             lianggaosl = mDuRecord.getLianggaosl();
             liangdisl = mDuRecord.getLiangdisl();
+            mDuCard.getKoujingmc();
 //            int averageNumber = mDuRecord.getPingjunl1();
-            int chaojiansl = TextUtil.getInt(mBCCJSLTextView.getText().toString().trim());
-            if ((chaojiansl > lianggaosl)) {
+            float chaojiansl = TextUtil.getInt(mBCCJSLTextView.getText().toString().trim());
+            if ((mDuCard.getKoujingmc().equals("15") || mDuCard.getKoujingmc().equals("20") || mDuCard.getKoujingmc().equals("25"))
+                    && (chaojiansl > (float) (mDuRecord.getPingjunl1() * 1.2 + 30))) {
                 mLiangGaoLDYYBM = LIANGGAOLDYYBM_LG;// 量高
 
                 if (mLGLDImageView != null) {

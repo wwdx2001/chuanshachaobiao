@@ -150,12 +150,12 @@ public class LROperatingFragment extends ParentFragment implements AdapterView.O
     mTvXiaogenhao.setText(mBiaoKaBean.getXIAOGENH());
     mTvNB.setText(mBiaoKaBean.getISNB().equals("1") ? "是" : "否");
     mTvHuming.setText(mBiaoKaBean.getHUMING());
-    SpanUtils.with(mTvShiShiDS)
-      .append("刷新实时读数")
-      .setUnderline()
-      .setForegroundColor(ContextCompat.getColor(getContext()
-        == null ? ActivityUtils.getTopActivity()
-        : getContext(), R.color.colorPrimary)).create();
+//    SpanUtils.with(mTvShiShiDS)
+//      .append("刷新实时读数")
+//      .setUnderline()
+//      .setForegroundColor(ContextCompat.getColor(getContext()
+//        == null ? ActivityUtils.getTopActivity()
+//        : getContext(), R.color.colorPrimary)).create();
     SpanUtils.with(mTvChaobiaoyccm)
       .append("获取预测数据")
       .setUnderline()
@@ -340,12 +340,13 @@ public class LROperatingFragment extends ParentFragment implements AdapterView.O
     mTvXiaogenhao.setText(mBiaoKaBean.getXIAOGENH());
     mTvNB.setText(mBiaoKaBean.getISNB().equals("1") ? "是" : "否");
     mTvHuming.setText(mBiaoKaBean.getHUMING());
-    SpanUtils.with(mTvShiShiDS)
-            .append("刷新实时读数")
-            .setUnderline()
-            .setForegroundColor(ContextCompat.getColor(getContext()
-                    == null ? ActivityUtils.getTopActivity()
-                    : getContext(), R.color.colorPrimary)).create();
+    mTvShiShiDS.setText(String.valueOf(mBiaoKaBean.getI_YCCHAOMA()));
+//    SpanUtils.with(mTvShiShiDS)
+//            .append("刷新实时读数")
+//            .setUnderline()
+//            .setForegroundColor(ContextCompat.getColor(getContext()
+//                    == null ? ActivityUtils.getTopActivity()
+//                    : getContext(), R.color.colorPrimary)).create();
     SpanUtils.with(mTvChaobiaoyccm)
             .append("获取预测数据")
             .setUnderline()
@@ -427,7 +428,7 @@ public class LROperatingFragment extends ParentFragment implements AdapterView.O
 
 
 //    getYuCeData(false);
-    getDuShu(true);
+//    getDuShu(true);
     List<XJXXWordBean> ysxzList =  mLrOperatingPresenter.getHotlineWordData("用水性质",mBiaoKaBean.getYONGSHUIXZ());
     if (ysxzList.size() > 0) {
       tvYsxz.setText(ysxzList.get(0).getMNAME());
@@ -650,12 +651,12 @@ public class LROperatingFragment extends ParentFragment implements AdapterView.O
         getYuCeData(true);
       }
     });
-    mTvShiShiDS.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        getDuShu(true);
-      }
-    });
+//    mTvShiShiDS.setOnClickListener(new View.OnClickListener() {
+//      @Override
+//      public void onClick(View view) {
+//        getDuShu(true);
+//      }
+//    });
 
     if (getActivity() instanceof InspectionInputActivity) {
       InspectionInputActivity activity2 = (InspectionInputActivity) getActivity();
@@ -947,12 +948,12 @@ public class LROperatingFragment extends ParentFragment implements AdapterView.O
       mTvXiaogenhao.setText(mBiaoKaBean.getXIAOGENH());
       mTvNB.setText(mBiaoKaBean.getISNB().equals("1") ? "是" : "否");
       mTvHuming.setText(mBiaoKaBean.getHUMING());
-      SpanUtils.with(mTvShiShiDS)
-        .append("刷新实时读数")
-        .setUnderline()
-        .setForegroundColor(ContextCompat.getColor(getContext()
-          == null ? ActivityUtils.getTopActivity()
-          : getContext(), R.color.colorPrimary)).create();
+//      SpanUtils.with(mTvShiShiDS)
+//        .append("刷新实时读数")
+//        .setUnderline()
+//        .setForegroundColor(ContextCompat.getColor(getContext()
+//          == null ? ActivityUtils.getTopActivity()
+//          : getContext(), R.color.colorPrimary)).create();
       SpanUtils.with(mTvChaobiaoyccm)
         .append("获取预测数据")
         .setUnderline()

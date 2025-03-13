@@ -1,8 +1,8 @@
 package com.sh3h.serverprovider.entity;
 
+
 import android.os.Parcel;
 import android.os.Parcelable;
-
 
 /**
  * 巡检任务
@@ -10,7 +10,7 @@ import android.os.Parcelable;
  * @author xiaochao.dev@gamil.com
  * @date 2019/12/11 16:12
  */
-public class XunJianTaskBean {
+public class XunJianTaskBean implements Parcelable {
 
     /**
      * RENWUMC : 测试2
@@ -23,6 +23,7 @@ public class XunJianTaskBean {
     private String PAIFASJ;
     private int ZONGHS;
     private int YIWANC;
+    private int YIDENGJ;
     private String xunjianTaskType = "";
     private String XJLX;
 
@@ -92,7 +93,15 @@ public class XunJianTaskBean {
         this.xunjianTaskType = xunjianTaskType;
     }
 
-//    @Override
+    public int getYIDENGJ() {
+        return YIDENGJ;
+    }
+
+    public void setYIDENGJ(int YIDENGJ) {
+        this.YIDENGJ = YIDENGJ;
+    }
+
+    //    @Override
 //    public int describeContents() {
 //        return 0;
 //    }
@@ -109,19 +118,8 @@ public class XunJianTaskBean {
 //        dest.writeByte(this.isFinish ? (byte) 1 : (byte) 0);
 //    }
 
-    protected XunJianTaskBean(Parcel in) {
-        this.ID = (Long) in.readValue(Long.class.getClassLoader());
-        this.RENWUMC = in.readString();
-        this.PAIFASJ = in.readString();
-        this.XJLX = in.readString();
-        this.ZONGHS = in.readInt();
-        this.YIWANC = in.readInt();
-        this.xunjianTaskType = in.readString();
-        this.isFinish = in.readByte() != 0;
-    }
-
     public XunJianTaskBean(Long ID, String RENWUMC, String PAIFASJ, int ZONGHS, int YIWANC,
-                           String xunjianTaskType, String XJLX, boolean isFinish) {
+                           String xunjianTaskType, String XJLX, boolean isFinish, int YIDENGJ) {
         this.ID = ID;
         this.RENWUMC = RENWUMC;
         this.PAIFASJ = PAIFASJ;
@@ -130,22 +128,11 @@ public class XunJianTaskBean {
         this.xunjianTaskType = xunjianTaskType;
         this.XJLX = XJLX;
         this.isFinish = isFinish;
+        this.YIDENGJ = YIDENGJ;
     }
 
     public XunJianTaskBean() {
     }
-
-    public static final Parcelable.Creator<XunJianTaskBean> CREATOR = new Parcelable.Creator<XunJianTaskBean>() {
-        @Override
-        public XunJianTaskBean createFromParcel(Parcel source) {
-            return new XunJianTaskBean(source);
-        }
-
-        @Override
-        public XunJianTaskBean[] newArray(int size) {
-            return new XunJianTaskBean[size];
-        }
-    };
 
     @Override
     public String toString() {
@@ -158,6 +145,7 @@ public class XunJianTaskBean {
                 ", xunjianTaskType='" + xunjianTaskType + '\'' +
                 ", XJLX='" + XJLX + '\'' +
                 ", isFinish=" + isFinish +
+                ", YIDENGJ=" + YIDENGJ +
                 '}';
     }
 
@@ -168,4 +156,46 @@ public class XunJianTaskBean {
     public void setXJLX(String XJLX) {
         this.XJLX = XJLX;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(this.ID);
+        dest.writeString(this.RENWUMC);
+        dest.writeString(this.PAIFASJ);
+        dest.writeInt(this.ZONGHS);
+        dest.writeInt(this.YIWANC);
+        dest.writeInt(this.YIDENGJ);
+        dest.writeString(this.xunjianTaskType);
+        dest.writeString(this.XJLX);
+        dest.writeBooleanArray(new boolean[]{this.isFinish});
+    }
+
+    protected XunJianTaskBean(Parcel in) {
+        this.ID = (Long) in.readValue(Long.class.getClassLoader());
+        this.RENWUMC = in.readString();
+        this.PAIFASJ = in.readString();
+        this.ZONGHS = in.readInt();
+        this.YIWANC = in.readInt();
+        this.YIDENGJ = in.readInt();
+        this.xunjianTaskType = in.readString();
+        this.XJLX = in.readString();
+        boolean[] val = new boolean[]{this.isFinish};
+        in.readBooleanArray(val);
+    }
+
+    public static final Creator<XunJianTaskBean> CREATOR = new Creator<XunJianTaskBean>() {
+        @Override
+        public XunJianTaskBean createFromParcel(Parcel in) {
+            return new XunJianTaskBean(in);
+        }
+
+        @Override
+        public XunJianTaskBean[] newArray(int size) {
+            return new XunJianTaskBean[size];
+        }
+    };
 }

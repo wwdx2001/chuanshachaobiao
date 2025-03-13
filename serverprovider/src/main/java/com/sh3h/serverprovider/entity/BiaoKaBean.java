@@ -55,6 +55,8 @@ public class BiaoKaBean implements Parcelable {
     private String ISYC;
     private String GDDS_COUNT;
     private String I_SHUIBIAOZL;
+    private String D_YCCHAOBIAOSJ;
+    private Integer I_YCCHAOMA;
 
 
 
@@ -64,7 +66,7 @@ public class BiaoKaBean implements Parcelable {
                       String QIANSANCIPJ, String CHAOBIAORQ, String CHAOBIAOYL, String S_X,
                       String S_Y, String CJMC, String BXMC, String XJLX, String TDYY,
                       String TDBZ, String TDSJ, String TDR, String ISYC, String GDDS_COUNT,
-                      String I_SHUIBIAOZL) {
+                      String I_SHUIBIAOZL, String D_YCCHAOBIAOSJ, Integer I_YCCHAOMA) {
         this.ID = ID;
         this.S_STATE = S_STATE;
         this.XIAOGENH = XIAOGENH;
@@ -92,6 +94,8 @@ public class BiaoKaBean implements Parcelable {
         this.ISYC = ISYC;
         this.GDDS_COUNT = GDDS_COUNT;
         this.I_SHUIBIAOZL = I_SHUIBIAOZL;
+        this.D_YCCHAOBIAOSJ = D_YCCHAOBIAOSJ;
+        this.I_YCCHAOMA = I_YCCHAOMA;
     }
 
     public BiaoKaBean() {
@@ -124,6 +128,8 @@ public class BiaoKaBean implements Parcelable {
                 ", TDBZ='" + TDBZ + '\'' +
                 ", TDSJ='" + TDSJ + '\'' +
                 ", TDR='" + TDR + '\'' +
+                ", D_YCCHAOBIAOSJ='" + D_YCCHAOBIAOSJ + '\'' +
+                ", I_YCCHAOMA='" + I_YCCHAOMA + '\'' +
                 '}';
     }
 
@@ -343,7 +349,23 @@ public class BiaoKaBean implements Parcelable {
     I_SHUIBIAOZL = i_SHUIBIAOZL;
   }
 
-  public static Creator<BiaoKaBean> getCREATOR() {
+    public String getD_YCCHAOBIAOSJ() {
+        return D_YCCHAOBIAOSJ;
+    }
+
+    public void setD_YCCHAOBIAOSJ(String d_YCCHAOBIAOSJ) {
+        D_YCCHAOBIAOSJ = d_YCCHAOBIAOSJ;
+    }
+
+    public Integer getI_YCCHAOMA() {
+        return I_YCCHAOMA;
+    }
+
+    public void setI_YCCHAOMA(Integer i_YCCHAOMA) {
+        I_YCCHAOMA = i_YCCHAOMA;
+    }
+
+    public static Creator<BiaoKaBean> getCREATOR() {
     return CREATOR;
   }
 
@@ -381,6 +403,8 @@ public class BiaoKaBean implements Parcelable {
         dest.writeString(this.ISYC);
         dest.writeString(this.GDDS_COUNT);
         dest.writeString(this.I_SHUIBIAOZL);
+        dest.writeString(this.D_YCCHAOBIAOSJ);
+        dest.writeInt(this.I_YCCHAOMA);
     }
 
     protected BiaoKaBean(Parcel in) {
@@ -411,6 +435,8 @@ public class BiaoKaBean implements Parcelable {
         this.ISYC = in.readString();
         this.GDDS_COUNT = in.readString();
         this.I_SHUIBIAOZL = in.readString();
+        this.D_YCCHAOBIAOSJ = in.readString();
+        this.I_YCCHAOMA = in.readInt();
     }
 
     public static final Creator<BiaoKaBean> CREATOR = new Creator<BiaoKaBean>() {

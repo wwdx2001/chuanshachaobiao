@@ -51,12 +51,12 @@ public class BiaoKaXXEntity {
     /**
      * 联系人
      */
-    private String _lianXiR;
+    private String S_LIANXIR;
 
     /**
      * 联系电话
      */
-    private String _lianXiDH;
+    private String S_LIANXIDH;
 
     /**
      * 联系手机
@@ -379,19 +379,19 @@ public class BiaoKaXXEntity {
     }
 
     public String getLianXiR() {
-        return _lianXiR;
+        return S_LIANXIR;
     }
 
     public void setLianXiR(String lianXiR) {
-        this._lianXiR = lianXiR;
+        this.S_LIANXIR = lianXiR;
     }
 
     public String getLianXiDH() {
-        return _lianXiDH;
+        return S_LIANXIDH;
     }
 
     public void setLianXiDH(String lianXiDH) {
-        this._lianXiDH = lianXiDH;
+        this.S_LIANXIDH = lianXiDH;
     }
 
     public String getShouFeiFS() {

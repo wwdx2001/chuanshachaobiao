@@ -1,6 +1,7 @@
 package com.sh3h.meterreading.ui.record;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.Camera;
@@ -22,6 +23,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
@@ -245,6 +247,15 @@ public class RecordLRFragment extends ParentFragment implements RecordLRMVPView,
     @BindView(R.id.tv_jie_ti_ts)
     TextView JieTiTS;//阶梯数
 
+    @BindView(R.id.lxr_tv)
+    TextView mLxrTv;//联系人
+
+    @BindView(R.id.phone_num_tv)
+    TextView mPhoneNumTv;//联系电话
+
+    @BindView(R.id.phone_ib)
+    ImageButton mPhoneIb;//电话按钮
+
     private static final int CAPTURE_IMAGE = 1000;
     private static final int CAPTURE_IMAGE_BIAOPAN = 1111;
     private static final long NUMBER_MAX = 1000000000;
@@ -307,6 +318,8 @@ public class RecordLRFragment extends ParentFragment implements RecordLRMVPView,
     private ArrayAdapter oneAdapter, twoAdapter;
 
     private ShowMenuButtonListener mButtonListener;
+    private Dialog mCallPhoneDialog;
+    private String mPhoneNum;
 
     public void setButtonListener(ShowMenuButtonListener listener) {
         this.mButtonListener = listener;
@@ -343,6 +356,7 @@ public class RecordLRFragment extends ParentFragment implements RecordLRMVPView,
         isInitSuccess = false;
         mSmoothProgressBar.setVisibility(View.VISIBLE);
         mRecordLRPresenter.loadChaoBiaoZTList();
+        initDialog();
 
         LogUtil.i(TAG, "---onCreateView---" + this);
         return rootView;
@@ -385,6 +399,7 @@ public class RecordLRFragment extends ParentFragment implements RecordLRMVPView,
         mCBQKBCTextView.setOnClickListener(this);
         mMapAddress.setOnClickListener(this);//定位图标事件
         JieTiTS.setOnClickListener(this);//未抄原因事件
+        mPhoneIb.setOnClickListener(this);
     }
 
     @Override
@@ -673,10 +688,41 @@ public class RecordLRFragment extends ParentFragment implements RecordLRMVPView,
             case R.id.fcblr_map_address:
                 jump2ArcGisActivity(false);
                 break;
+            case R.id.phone_ib:
+                mPhoneNum = mDuCard.getLianxidh();
+                if (!TextUtil.isNullOrEmpty(mPhoneNum)) {
+                    mCallPhoneDialog.show();
+                }
+                break;
+            case R.id.button_calling:
+                callPhone();
+                mCallPhoneDialog.dismiss();
+                break;
+            case R.id.button_choose_cancel:
+                mCallPhoneDialog.dismiss();
+                break;
             default:
                 break;
         }
     }
+
+    private void initDialog() {
+        mCallPhoneDialog = new Dialog(getContext());
+        View dialogView = View.inflate(getContext(), R.layout.dialog_phone, null);
+        mCallPhoneDialog.setContentView(dialogView);
+        dialogView.findViewById(R.id.button_calling).setOnClickListener(this);
+        dialogView.findViewById(R.id.button_choose_cancel).setOnClickListener(this);
+    }
+
+    /**
+     * 打电话
+     */
+    private void callPhone() {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + mPhoneNum));
+        startActivity(intent);
+    }
+
 
     /**
      * 计算金额
@@ -2048,6 +2094,14 @@ public class RecordLRFragment extends ParentFragment implements RecordLRMVPView,
 
         if (mCBBeiZhuTextView != null) {
             mCBBeiZhuTextView.setText(TextUtils.isEmpty(mDuRecord.getSchaobiaobz()) ? "" : mDuRecord.getSchaobiaobz().trim());
+        }
+
+        if (mLxrTv != null) {
+            mLxrTv.setText(mDuCard.getLianxir());
+        }
+
+        if (mPhoneNumTv != null) {
+            mPhoneNumTv.setText(mDuCard.getLianxidh());
         }
 
         if (mDuRecord.getIchaobiaobz() == DURecord.CHAOBIAOBZ_YICHAO) {

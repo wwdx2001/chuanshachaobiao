@@ -557,7 +557,7 @@ public class SyncService extends Service {
         Observable<DUDownloadResult> observable;
         //if (mIsDownloadingTotal) {
         observable = Observable.mergeDelayError(
-                downloadCards(duTaskList, false),
+                downloadCards(duTaskList, true),
                 downloadRecords(duTaskList),
 //                  downloadTemporaryRecordsAndCards(),
                 downloadChaoBiaoJLs(duTaskList),

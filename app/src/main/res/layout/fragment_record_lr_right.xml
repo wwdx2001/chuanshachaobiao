@@ -220,6 +220,80 @@
                         android:text=""
                         android:textColor="@color/text_white"
                         android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <TextView
+                        android:id="@+id/fcblr_separator6"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/height3"
+                        android:layout_below="@id/fcblr_shuibiaoxx2"
+                        android:layout_marginBottom="@dimen/marginBottom2"
+                        android:layout_marginTop="@dimen/marginTop2"
+                        android:background="@drawable/card_divider2" />
+
+                    <TextView
+                        android:id="@+id/lxr_tv"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/fcblr_separator6"
+                        android:layout_toRightOf="@id/fcblr_lxr_tv"
+                        android:paddingTop="@dimen/paddingTop1"
+                        android:text=""
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <TextView
+                        android:id="@+id/fcblr_lxr_tv"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/fcblr_separator6"
+                        android:paddingTop="@dimen/paddingTop1"
+                        android:text="@string/text_contacts"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <TextView
+                        android:id="@+id/fcblr_separator9"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/height3"
+                        android:layout_below="@id/fcblr_lxr_tv"
+                        android:layout_marginBottom="@dimen/marginBottom2"
+                        android:layout_marginTop="@dimen/marginTop2"
+                        android:background="@drawable/card_divider2" />
+
+                    <TextView
+                        android:id="@+id/phone_num_tv"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/fcblr_separator9"
+                        android:layout_toRightOf="@id/fcblr_lxdh_tv"
+                        android:layout_toLeftOf="@+id/phone_ib"
+                        android:paddingTop="@dimen/paddingTop1"
+                        android:text=""
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <TextView
+                        android:id="@+id/fcblr_lxdh_tv"
+                        android:layout_width="@dimen/width6"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/fcblr_separator9"
+                        android:paddingTop="@dimen/paddingTop1"
+                        android:text="@string/text_phone_num"
+                        android:textColor="@color/text_white"
+                        android:textSize="@dimen/text_size_xxxlarge" />
+
+                    <ImageButton
+                        android:id="@+id/phone_ib"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:src="@mipmap/ic_detail_call_white"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignTop="@+id/fcblr_lxdh_tv"
+                        android:layout_alignBottom="@+id/fcblr_lxdh_tv"
+                        />
                 </RelativeLayout>
             </LinearLayout>
 
